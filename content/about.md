@@ -1,9 +1,24 @@
 ---
-title: "hujiacheng的技术博客"
-description: "前端工程师 / Front-end Developer"
+title: "关于我"
+description: "hujiacheng's Portfolio"
+draft: false
+showDate: false
+showReadingTime: false
+showWordCount: false
+showEdit: false
+showPagination: false
+showRelatedContent: false
 ---
 
-欢迎来到我的博客 👋
+## 👋 你好
+
+🧑‍💻 前端工程师 / Front-end Developer
+
+💪 努力变得更好 / Strive To Become Better
+
+---
+
+## 🛠️ 技能
 
 **Skills:**
 
@@ -24,3 +39,12 @@ description: "前端工程师 / Front-end Developer"
   <a href="https://github.com/vitest-dev/vitest" target="_blank" style="display:inline-flex;align-items:center;gap:4px;height:28px;padding:0 8px;border-radius:6px;line-height:28px;text-decoration:none;font-size:14px;margin:0;"><img src="https://vitest.dev/logo.svg" width="20" height="20" style="vertical-align:middle;" /> Vitest</a>
   <a href="https://github.com/nodejs/node" target="_blank" style="display:inline-flex;align-items:center;gap:4px;height:28px;padding:0 8px;border-radius:6px;line-height:28px;text-decoration:none;font-size:14px;margin:0;"><img src="https://nodejs.org/static/logos/nodejsLight.svg" width="20" height="20" style="vertical-align:middle;" /> NodeJS</a>
 </p>
+
+---
+
+## 📬 联系我
+
+- {{< icon "github" >}} [GitHub](https://github.com/BINGWU2003)
+- 💬 微信: BINGWU_BW
+- 🐧 QQ: 1034291441
+- ✉️ 邮箱: [hujiacheng2003@163.com](mailto:hujiacheng2003@163.com)

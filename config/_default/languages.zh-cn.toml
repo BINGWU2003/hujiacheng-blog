@@ -15,8 +15,9 @@ title = "hujiacheng的技术博客"
 [params.author]
   name = "hujiacheng"
   image = "img/blowfish_logo.png"
-  headline = "Hey 👋 我是 hujiacheng，一名前端开发者"
-  bio = "记录软件开发中的思考与实践，内容涵盖前后端开发、工具链、架构设计等方向。"
+  headline = "🧑‍💻 前端工程师 | 💪 努力变得更好"
+  bio = "Front-end Developer / Strive To Become Better"
   links = [
     { github = "https://github.com/BINGWU2003" },
+    { email = "mailto:hujiacheng2003@163.com" },
   ]
