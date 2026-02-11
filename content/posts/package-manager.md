@@ -7,8 +7,6 @@ tags: []
 categories: ["博客"]
 ---
 
-
-
 现如今创建的项目基本上都是基于`React`，`Vue`。所以必然离不开`npm`这个包管理器，其优秀的 包版本管理机制承载了整个繁荣发展的Node.js社区，理解其内部机制非常有利于加深我们对模块开发的理解、各项前端工程化的配置以加快我们排查问题（相信不少同学收到过各种依赖问题的困扰）的速度。
 
 ## package.json
@@ -120,24 +118,22 @@ categories: ["博客"]
 - `NAME:GITHUB_URL` 即 github 的 `username/module_name` 的写法，比如 `ant-design/ant-design`, 你还可以在后面指定 tag 和 commit_id
 - `NAME:GIT_URL` 即通过`git clone [url]`克隆代码的url
 
-::: tip
-`tarball` 是一组打包成单个文件的文件，然后使用 `gzip` 压缩程序进行压缩。
-
-`git clone [url]` 中的 url 遵循以下形式:
-
-```
-<protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]
-
-比如：
-
-git://github.com/user/project.git#commit-ish
-git+ssh://user@hostname:project.git#commit-ish
-git+ssh://user@hostname/project.git#commit-ish
-git+http://user@hostname/project/blah.git#commit-ish
-git+https://user@hostname/project/blah.git#commit-ish
-```
-
-:::
+> [!TIP]
+> `tarball` 是一组打包成单个文件的文件，然后使用 `gzip` 压缩程序进行压缩。
+>
+> `git clone [url]` 中的 url 遵循以下形式:
+>
+> ```
+> <protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]
+>
+> 比如：
+>
+> git://github.com/user/project.git#commit-ish
+> git+ssh://user@hostname:project.git#commit-ish
+> git+ssh://user@hostname/project.git#commit-ish
+> git+http://user@hostname/project/blah.git#commit-ish
+> git+https://user@hostname/project/blah.git#commit-ish
+> ```
 
 #### `dependencies`
 
@@ -149,15 +145,13 @@ git+https://user@hostname/project/blah.git#commit-ish
 }
 ```
 
-::: tip 版本说明
-上面有说过版本号是遵循 [SemVer 规范](https://semver.org/lang/zh-CN/) 的，这里还是提出几个常用写法的意思：
-
-- `3.3.2`: 只安装指定版本
-- `~3.3.2`: 表示安装 3.3.x 的最新版本
-- `^3.3.2`: 表示安装 3.x.x 的最新版本
-- `latest`: 表示安装最新版本
-
-:::
+> [!TIP] 版本说明
+> 上面有说过版本号是遵循 [SemVer 规范](https://semver.org/lang/zh-CN/) 的，这里还是提出几个常用写法的意思：
+>
+> - `3.3.2`: 只安装指定版本
+> - `~3.3.2`: 表示安装 3.3.x 的最新版本
+> - `^3.3.2`: 表示安装 3.x.x 的最新版本
+> - `latest`: 表示安装最新版本
 
 #### `devDependencies`
 
@@ -225,11 +219,10 @@ git+https://user@hostname/project/blah.git#commit-ish
 
 在某些场景下，依赖包可能不是强依赖，这个依赖包可有可无，当这个依赖包无法被获取时，你希望`npm install`继续运行，而不会导致失败，你可以将依赖放到`optionalDependencies`中。
 
-::: tip
-`optionalDependencies`中的配置将会覆盖掉`dependencies`，所以只需在一个地方进行配置
-
-引用了`optionalDependencies`中安装的依赖时，需要做好异常处理，否者在模块获取不到时会报错
-:::
+> [!TIP]
+> `optionalDependencies`中的配置将会覆盖掉`dependencies`，所以只需在一个地方进行配置
+>
+> 引用了`optionalDependencies`中安装的依赖时，需要做好异常处理，否者在模块获取不到时会报错
 
 #### `bundledDependencies`
 
@@ -520,13 +513,11 @@ npm install semver
 - 匹配主要版本和次要版本: `~`
   > `x.y.z`，只保持修订版本号`z`为最新版本，`y`和`z`保持不变
 
-::: tip
-当主版本号为`0`的情况，会被认定为不稳定版本，情况有所不同:
-
-- 主版本号和次版本号都为`0`: `~0.0.z`, `^0.0.z`都会被当作固定版本，安装依赖时均不会发生改变
-- 主版本号为`0`: `^0.y.z`表现和`~0.y.z`相同，只保持修订号为最新版本
-
-:::
+> [!TIP]
+> 当主版本号为`0`的情况，会被认定为不稳定版本，情况有所不同:
+>
+> - 主版本号和次版本号都为`0`: `~0.0.z`, `^0.0.z`都会被当作固定版本，安装依赖时均不会发生改变
+> - 主版本号为`0`: `^0.y.z`表现和`~0.y.z`相同，只保持修订号为最新版本
 
 ### 锁定依赖版本
 
@@ -562,9 +553,8 @@ npm install semver
 
 `npm update`会升级所有红色依赖
 
-::: tip
-当你的项目选择了其他包管理器时，对应的命令也可能会改变，比如`pnpm`使用的升级依赖为`pnpm up`。不知道其他包管理器对应的命令时，请上对应官方文档查看。
-:::
+> [!TIP]
+> 当你的项目选择了其他包管理器时，对应的命令也可能会改变，比如`pnpm`使用的升级依赖为`pnpm up`。不知道其他包管理器对应的命令时，请上对应官方文档查看。
 
 ### 依赖版本选择的最佳实践
 
@@ -612,9 +602,10 @@ npm install semver
 
 比如现在有个模块`my-app`依赖了两个模块: `buffer`和`ignore`，其中`ignore`不依赖其他模块，`buffer`依赖`base64-js`和`ieee754`:
 
-::: code-group
+{{< tabs >}}
+{{< tab label="my-app package.json" >}}
 
-```json [my-app package.json]
+```json
 {
   "name": "my-app",
   "dependencies": {
@@ -624,7 +615,10 @@ npm install semver
 }
 ```
 
-```json [buffer package.json]
+{{< /tab >}}
+{{< tab label="buffer package.json" >}}
+
+```json
 {
   "name": "buffer",
   "dependencies": {
@@ -634,7 +628,8 @@ npm install semver
 }
 ```
 
-:::
+{{< /tab >}}
+{{< /tabs >}}
 
 那么执行`npm install`后得到的`node_modules`中模块目录结构是这样的:
 
@@ -734,9 +729,10 @@ npm install semver
 
 以下的依赖结构通过安装依赖后生成的`package-lock.json`如下:
 
-::: code-group
+{{< tabs >}}
+{{< tab label="package.json" >}}
 
-```json [package.json]
+```json
 {
   "name": "my-app",
   "dependencies": {
@@ -747,7 +743,10 @@ npm install semver
 }
 ```
 
-```json [package-lock.json]
+{{< /tab >}}
+{{< tab label="package-lock.json" >}}
+
+```json
 {
   "name": "my-app",
   "version": "1.0.0",
@@ -787,7 +786,8 @@ npm install semver
 }
 ```
 
-:::
+{{< /tab >}}
+{{< /tabs >}}
 
 <!-- <ZoomImg
   src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/12/16/16f0eef3a81eb51f~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.png"
@@ -831,13 +831,11 @@ npm install semver
 
 可见， `package-lock.json` 中已经缓存了每个包的具体版本和下载链接，不需要再去远程仓库进行查询，然后直接进入文件完整性校验环节，减少了大量网络请求。
 
-::: info 使用建议
-
-在开发系统应用时，建议把`package-lock.json`文件提交到代码仓库，从而保证团队开发者以及`CI`环节可以执行`npm install`时安装的依赖版本都是一致的。
-
-在开发一个`npm`包 时，你的`npm`包 是需要被其他仓库依赖的，由于上面我们讲到的扁平安装机制，如果你锁定了依赖包版本，你的依赖包就不能和其他依赖包共享同一 `semver` 范围内的依赖包，这样会造成不必要的冗余。所以我们不应该把`package-lock.json`文件发布出去（`npm`默认也不会把`package-lock.json`文件发布出去）。
-
-:::
+> [!NOTE] 使用建议
+>
+> 在开发系统应用时，建议把`package-lock.json`文件提交到代码仓库，从而保证团队开发者以及`CI`环节可以执行`npm install`时安装的依赖版本都是一致的。
+>
+> 在开发一个`npm`包 时，你的`npm`包 是需要被其他仓库依赖的，由于上面我们讲到的扁平安装机制，如果你锁定了依赖包版本，你的依赖包就不能和其他依赖包共享同一 `semver` 范围内的依赖包，这样会造成不必要的冗余。所以我们不应该把`package-lock.json`文件发布出去（`npm`默认也不会把`package-lock.json`文件发布出去）。
 
 ### 缓存
 

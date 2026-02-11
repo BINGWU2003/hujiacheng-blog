@@ -85,9 +85,8 @@ categories: ["笔记"]
 }
 ```
 
-::: tip
-在官网下载 vscode 可能会很慢，需要把下载链接中的 `az764295.vo.msecnd.net` 替换成 `vscode.cdn.azure.cn`
-:::
+> [!TIP]
+> 在官网下载 vscode 可能会很慢，需要把下载链接中的 `az764295.vo.msecnd.net` 替换成 `vscode.cdn.azure.cn`
 
 ## UnoCSS 基础配置
 

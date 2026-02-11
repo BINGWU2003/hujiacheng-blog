@@ -9,34 +9,32 @@ categories: ["博客"]
 
 
 
-:::tip 版本说明
-本文档基于 **Vitest 3.x** 编写，涵盖最新的配置和 API。
+> [!TIP] 版本说明
+> 本文档基于 **Vitest 3.x** 编写，涵盖最新的配置和 API。
+>
+> **核心版本**：
+> - **Vitest**: v3.2.4 (2024年12月发布)
+> - **@vitest/coverage-v8**: v3.2.4
+> - **Vite**: v5.0.0+
+>
+> **重要里程碑**：
+> - ✅ **Vitest 3.0** (2024年)：新 Reporter API、按行号测试、新断言匹配器
+> - ✅ **Vitest 3.2** (2024年12月)：性能改进、新配置选项、浏览器模式增强
+> - ✅ **Vitest 4.0** (2025年初)：即将发布
+>
+> **主要特性（Vitest 3.x）**：
+> - ⚡ **极速启动**：基于 Vite 的快速 HMR
+> - 🔄 **智能监听**：文件变化自动重新运行相关测试
+> - 📦 **原生 ESM**：完整的 ES 模块支持
+> - 🎯 **Jest 兼容**：兼容 Jest API，迁移简单
+> - 🌐 **浏览器模式**：真实浏览器环境测试
+> - 🔍 **按行号过滤**：`vitest foo.test.js:10`
 
-**核心版本**：
-- **Vitest**: v3.2.4 (2024年12月发布)
-- **@vitest/coverage-v8**: v3.2.4
-- **Vite**: v5.0.0+
-
-**重要里程碑**：
-- ✅ **Vitest 3.0** (2024年)：新 Reporter API、按行号测试、新断言匹配器
-- ✅ **Vitest 3.2** (2024年12月)：性能改进、新配置选项、浏览器模式增强
-- ✅ **Vitest 4.0** (2025年初)：即将发布
-
-**主要特性（Vitest 3.x）**：
-- ⚡ **极速启动**：基于 Vite 的快速 HMR
-- 🔄 **智能监听**：文件变化自动重新运行相关测试
-- 📦 **原生 ESM**：完整的 ES 模块支持
-- 🎯 **Jest 兼容**：兼容 Jest API，迁移简单
-- 🌐 **浏览器模式**：真实浏览器环境测试
-- 🔍 **按行号过滤**：`vitest foo.test.js:10`
-:::
-
-:::warning 注意事项
-- **Vitest 3.x** 与 2.x 相比有少量破坏性变更，建议新项目直接使用 3.x
-- **公共 API 重新设计**：`vitest/node` 的公共 API 已重新设计
-- **浏览器模式**：支持 Playwright 和 WebdriverIO 配置
-- **新增断言**：`toHaveBeenCalledBefore`、`toHaveBeenCalledAfter`、`toBeOneOf`、`toSatisfy`
-:::
+> [!WARNING] 注意事项
+> - **Vitest 3.x** 与 2.x 相比有少量破坏性变更，建议新项目直接使用 3.x
+> - **公共 API 重新设计**：`vitest/node` 的公共 API 已重新设计
+> - **浏览器模式**：支持 Playwright 和 WebdriverIO 配置
+> - **新增断言**：`toHaveBeenCalledBefore`、`toHaveBeenCalledAfter`、`toBeOneOf`、`toSatisfy`
 
 本文档介绍如何在 monorepo 项目中为工具函数库配置 Vitest 单元测试。
 
@@ -99,12 +97,11 @@ export default defineConfig({
 })
 ```
 
-:::warning Vitest 3.x 配置变更
-- **已弃用**：`environmentMatchGlobs` → 使用 `projects` 配置
-- **已弃用**：`poolMatchGlobs` → 使用 `projects` 配置
-- **新增**：`workspace` 字段支持 monorepo 内联配置
-- **新增**：`browser` 配置支持浏览器环境测试
-:::
+> [!WARNING] Vitest 3.x 配置变更
+> - **已弃用**：`environmentMatchGlobs` → 使用 `projects` 配置
+> - **已弃用**：`poolMatchGlobs` → 使用 `projects` 配置
+> - **新增**：`workspace` 字段支持 monorepo 内联配置
+> - **新增**：`browser` 配置支持浏览器环境测试
 
 #### 多项目配置（Vitest 3.x 推荐）
 
@@ -215,36 +212,35 @@ export default defineConfig({
 }
 ```
 
-:::tip Vitest 3.x CLI 新特性
-**按行号过滤测试**（Vitest 3.0+）：
-```bash
-# 运行指定文件中特定行号的测试
-vitest src/utils.test.ts:42
-
-# 运行多个行号的测试
-vitest src/utils.test.ts:10,src/utils.test.ts:25
-
-# 支持相对路径和绝对路径
-vitest ./basic/foo.js:10
-vitest /users/project/basic/foo.js:10
-```
-
-**其他有用的 CLI 选项**：
-```bash
-# 运行指定项目（多项目配置时）
-vitest --project=unit
-
-# 列出所有测试文件
-vitest list --filesOnly
-
-# 禁用 boolean 选项（两种方式）
-vitest --no-api
-vitest --api=false
-
-# 使用多个 reporter
-vitest --reporter=dot --reporter=default
-```
-:::
+> [!TIP] Vitest 3.x CLI 新特性
+> **按行号过滤测试**（Vitest 3.0+）：
+> ```bash
+> # 运行指定文件中特定行号的测试
+> vitest src/utils.test.ts:42
+>
+> # 运行多个行号的测试
+> vitest src/utils.test.ts:10,src/utils.test.ts:25
+>
+> # 支持相对路径和绝对路径
+> vitest ./basic/foo.js:10
+> vitest /users/project/basic/foo.js:10
+> ```
+>
+> **其他有用的 CLI 选项**：
+> ```bash
+> # 运行指定项目（多项目配置时）
+> vitest --project=unit
+>
+> # 列出所有测试文件
+> vitest list --filesOnly
+>
+> # 禁用 boolean 选项（两种方式）
+> vitest --no-api
+> vitest --api=false
+>
+> # 使用多个 reporter
+> vitest --reporter=dot --reporter=default
+> ```
 
 ## 测试文件编写
 
@@ -472,17 +468,16 @@ const spy = vi.spyOn(Math, 'random').mockReturnValue(0.5)
 
 ##### 模拟模块
 
-:::warning Vitest 3.x Mock 重要注意事项
-**`vi.mock` 提升行为**：
-- `vi.mock()` 调用会被**自动提升**到文件顶部，在 import 之前执行
-- 如需在 mock 中使用外部变量，必须使用 `vi.hoisted()`
-- `vi.doMock()` 不会被提升，但只影响**后续的动态 import**
-
-**`vi.useFakeTimers()` 变更**（Vitest 3.0+）：
-- 默认现在会 mock **所有**计时器相关 API（包括 `performance.now()`）
-- 旧版本中 `performance.now()` 不会被 mock
-- 如需自定义，在配置中设置 `fakeTimers.toFake`
-:::
+> [!WARNING] Vitest 3.x Mock 重要注意事项
+> **`vi.mock` 提升行为**：
+> - `vi.mock()` 调用会被**自动提升**到文件顶部，在 import 之前执行
+> - 如需在 mock 中使用外部变量，必须使用 `vi.hoisted()`
+> - `vi.doMock()` 不会被提升，但只影响**后续的动态 import**
+>
+> **`vi.useFakeTimers()` 变更**（Vitest 3.0+）：
+> - 默认现在会 mock **所有**计时器相关 API（包括 `performance.now()`）
+> - 旧版本中 `performance.now()` 不会被 mock
+> - 如需自定义，在配置中设置 `fakeTimers.toFake`
 
 ```typescript
 // ❌ 错误：外部变量在 vi.mock 中不可用

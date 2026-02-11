@@ -176,12 +176,11 @@ Vite 使用 `@vue/compiler-sfc` 将 `.vue` 文件拆分成三个部分：
 </html>
 ```
 
-:::info HTML 注入的资源
-
-1. **主入口 JS**：`<script type="module">` 异步加载
-2. **modulepreload**：预加载关键依赖，提升加载速度
-3. **CSS**：同步加载，避免 FOUC（无样式内容闪烁）
-   :::
+> [!NOTE] HTML 注入的资源
+>
+> 1. **主入口 JS**：`<script type="module">` 异步加载
+> 2. **modulepreload**：预加载关键依赖，提升加载速度
+> 3. **CSS**：同步加载，避免 FOUC（无样式内容闪烁）
 
 ---
 

@@ -7,26 +7,24 @@ tags: []
 categories: ["笔记"]
 ---
 
-:::tip 版本说明
-本文档基于 **Rollup 4.x** 编写，包含最新的配置选项和最佳实践。如果你使用旧版本 Rollup，某些选项可能不可用。
+> [!TIP] 版本说明
+> 本文档基于 **Rollup 4.x** 编写，包含最新的配置选项和最佳实践。如果你使用旧版本 Rollup，某些选项可能不可用。
+>
+> **主要更新**：
+>
+> - ✅ 新增 `treeshake.preset`（'smallest' | 'safest' | 'recommended'）预设配置
+> - ✅ 新增 `preserveModules`、`manualChunks`、`interop` 等高级输出选项
+> - ✅ 新增 Watch 模式详细配置和编程式 API
+> - ✅ 新增性能优化章节（缓存、并行处理、插件顺序）
+> - ✅ 补充 `@rollup/plugin-alias` 等常用插件配置
+> - ✅ 提供 JavaScript/TypeScript/Vue 3 组件库的完整配置模板
 
-**主要更新**：
-
-- ✅ 新增 `treeshake.preset`（'smallest' | 'safest' | 'recommended'）预设配置
-- ✅ 新增 `preserveModules`、`manualChunks`、`interop` 等高级输出选项
-- ✅ 新增 Watch 模式详细配置和编程式 API
-- ✅ 新增性能优化章节（缓存、并行处理、插件顺序）
-- ✅ 补充 `@rollup/plugin-alias` 等常用插件配置
-- ✅ 提供 JavaScript/TypeScript/Vue 3 组件库的完整配置模板
-  :::
-
-:::warning 注意事项
-
-- 配置选项会随 Rollup 版本更新而变化
-- 不同的项目类型（库/应用）需要不同的配置策略
-- Vite 在生产环境使用 Rollup，可参考 `vite.config.ts` 中的 `build.rollupOptions`
-- 建议使用官方插件（`@rollup/plugin-*`），社区插件需注意维护状态
-  :::
+> [!WARNING] 注意事项
+>
+> - 配置选项会随 Rollup 版本更新而变化
+> - 不同的项目类型（库/应用）需要不同的配置策略
+> - Vite 在生产环境使用 Rollup，可参考 `vite.config.ts` 中的 `build.rollupOptions`
+> - 建议使用官方插件（`@rollup/plugin-*`），社区插件需注意维护状态
 
 ## 什么是 Rollup
 

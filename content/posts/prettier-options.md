@@ -27,38 +27,36 @@ npm install --save-dev prettier
 echo {}> .prettierrc.json
 ```
 
-:::tip 版本说明
-本文档基于 **Prettier 3.x** 编写，包含最新的配置选项和最佳实践。
+> [!TIP] 版本说明
+> 本文档基于 **Prettier 3.x** 编写，包含最新的配置选项和最佳实践。
+>
+> **Prettier 2.x vs 3.x 主要区别**：
+>
+> - ✅ **Prettier 3.x**（推荐新项目）：
+> - 默认 `endOfLine` 改为 `"lf"`（统一换行符）
+> - 默认 `arrowParens` 改为 `"always"`（箭头函数始终添加括号）
+> - 性能优化，格式化速度提升 10-20%
+> - 更好的配置文件解析和缓存机制
+> - 支持更多语言和框架（如 Vue 3.3+、TypeScript 5+）
+> - 移除了一些已废弃的选项
+> - ⚠️ **Prettier 2.x**（仍然广泛使用）：
+> - `endOfLine` 默认为 `"auto"`（保持原有换行符）
+> - `arrowParens` 默认为 `"avoid"`（单参数省略括号）
+> - 广泛用于现有项目中，稳定可靠
+>
+> **主要版本更新时间线**：
+>
+> - **Prettier 3.0**（2023-07-05）：重大性能改进和默认值变更
+> - **Prettier 2.0**（2020-03-21）：引入新的 CLI 和配置系统
+> - **Prettier 1.x**（已停止维护）：早期版本
 
-**Prettier 2.x vs 3.x 主要区别**：
-
-- ✅ **Prettier 3.x**（推荐新项目）：
-  - 默认 `endOfLine` 改为 `"lf"`（统一换行符）
-  - 默认 `arrowParens` 改为 `"always"`（箭头函数始终添加括号）
-  - 性能优化，格式化速度提升 10-20%
-  - 更好的配置文件解析和缓存机制
-  - 支持更多语言和框架（如 Vue 3.3+、TypeScript 5+）
-  - 移除了一些已废弃的选项
-- ⚠️ **Prettier 2.x**（仍然广泛使用）：
-  - `endOfLine` 默认为 `"auto"`（保持原有换行符）
-  - `arrowParens` 默认为 `"avoid"`（单参数省略括号）
-  - 广泛用于现有项目中，稳定可靠
-
-**主要版本更新时间线**：
-
-- **Prettier 3.0**（2023-07-05）：重大性能改进和默认值变更
-- **Prettier 2.0**（2020-03-21）：引入新的 CLI 和配置系统
-- **Prettier 1.x**（已停止维护）：早期版本
-  :::
-
-:::warning 注意事项
-
-- 本文档主要适用于 Prettier 3.x，但大部分配置与 2.x 兼容
-- Prettier 的配置选项相对稳定，版本间变化较小
-- 建议新项目使用 Prettier 3.x 以获得更好的性能
-- 升级到 Prettier 3.x 时，注意检查 `endOfLine` 和 `arrowParens` 的默认值变化
-- 配置选项会随 Prettier 版本更新而变化，建议参考 [官方文档](https://prettier.io/docs/)
-  :::
+> [!WARNING] 注意事项
+>
+> - 本文档主要适用于 Prettier 3.x，但大部分配置与 2.x 兼容
+> - Prettier 的配置选项相对稳定，版本间变化较小
+> - 建议新项目使用 Prettier 3.x 以获得更好的性能
+> - 升级到 Prettier 3.x 时，注意检查 `endOfLine` 和 `arrowParens` 的默认值变化
+> - 配置选项会随 Prettier 版本更新而变化，建议参考 [官方文档](https://prettier.io/docs/)
 
 ## 配置文件
 
@@ -852,9 +850,8 @@ import { useState, useEffect } from "react";
 
 **默认值**：`false`
 
-:::tip 选项重命名
-此选项在 Prettier 2.4.0 中引入，替代了已废弃的 `jsxBracketSameLine` 选项。如果你的项目使用 Prettier 2.3 或更早版本，请使用 `jsxBracketSameLine` 代替。
-:::
+> [!TIP] 选项重命名
+> 此选项在 Prettier 2.4.0 中引入，替代了已废弃的 `jsxBracketSameLine` 选项。如果你的项目使用 Prettier 2.3 或更早版本，请使用 `jsxBracketSameLine` 代替。
 
 **影响对比**：
 

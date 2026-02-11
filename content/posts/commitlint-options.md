@@ -25,42 +25,40 @@ npm install --save-dev @commitlint/cli @commitlint/config-conventional
 echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
 ```
 
-:::tip 版本说明
-本文档基于 **@commitlint/cli 19.x** 编写，适用于使用 Conventional Commits 规范的项目。
+> [!TIP] 版本说明
+> 本文档基于 **@commitlint/cli 19.x** 编写，适用于使用 Conventional Commits 规范的项目。
+>
+> **当前稳定版本**：
+>
+> - **@commitlint/cli**: v19.6.0 (2024 年发布)
+> - **@commitlint/config-conventional**: v19.6.0
+>
+> **主要版本历史**：
+>
+> - **v19.x** (2024)：当前稳定版本，改进配置系统，增强 TypeScript 支持
+> - **v18.x** (2023)：移除对 Node.js 16 的支持，要求 Node.js >= 18
+> - **v17.x** (2023)：完全迁移到 TypeScript
+> - **v16.x** (2022)：支持 ES Modules
+>
+> **运行环境要求**：
+>
+> - ✅ **Node.js >= 18** (推荐使用 LTS 版本)
+> - ✅ **Git >= 2.13.2**
+> - ⚠️ **Node.js 24+** 用户需要注意模块加载变化（见下方警告）
 
-**当前稳定版本**：
-
-- **@commitlint/cli**: v19.6.0 (2024 年发布)
-- **@commitlint/config-conventional**: v19.6.0
-
-**主要版本历史**：
-
-- **v19.x** (2024)：当前稳定版本，改进配置系统，增强 TypeScript 支持
-- **v18.x** (2023)：移除对 Node.js 16 的支持，要求 Node.js >= 18
-- **v17.x** (2023)：完全迁移到 TypeScript
-- **v16.x** (2022)：支持 ES Modules
-
-**运行环境要求**：
-
-- ✅ **Node.js >= 18** (推荐使用 LTS 版本)
-- ✅ **Git >= 2.13.2**
-- ⚠️ **Node.js 24+** 用户需要注意模块加载变化（见下方警告）
-  :::
-
-:::warning 注意事项
-
-- 本文档使用 **ES Module** 语法 (`export default`)，适用于现代 Node.js 项目
-- 如果项目使用 CommonJS，配置文件应使用 `module.exports` 语法
-- commitlint 配置支持多种文件格式：`.commitlintrc.js`、`commitlint.config.js`、`.commitlintrc.json` 等
-- 推荐与 Husky 配合使用，在 commit-msg hook 中自动检查提交信息
-
-**Node.js 24+ 重要提示**：
-
-- Node v24 改变了模块加载方式，可能导致配置文件加载失败
-- 如果遇到 `Please add rules to your commitlint.config.js` 错误：
-  - 方案 1：添加 `package.json`，运行 `npm init es6` 声明为 ES6 模块
-  - 方案 2：将配置文件重命名为 `commitlint.config.mjs`
-    :::
+> [!WARNING] 注意事项
+>
+> - 本文档使用 **ES Module** 语法 (`export default`)，适用于现代 Node.js 项目
+> - 如果项目使用 CommonJS，配置文件应使用 `module.exports` 语法
+> - commitlint 配置支持多种文件格式：`.commitlintrc.js`、`commitlint.config.js`、`.commitlintrc.json` 等
+> - 推荐与 Husky 配合使用，在 commit-msg hook 中自动检查提交信息
+>
+> **Node.js 24+ 重要提示**：
+>
+> - Node v24 改变了模块加载方式，可能导致配置文件加载失败
+> - 如果遇到 `Please add rules to your commitlint.config.js` 错误：
+> - 方案 1：添加 `package.json`，运行 `npm init es6` 声明为 ES6 模块
+> - 方案 2：将配置文件重命名为 `commitlint.config.mjs`
 
 ## 为什么需要 commitlint
 

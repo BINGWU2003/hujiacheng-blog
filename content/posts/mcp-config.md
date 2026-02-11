@@ -91,11 +91,10 @@ mcpr --version
 
 playwright：
 
-::: tip
-
-注意，playwright最新版v0.0.42有问题，部分设备不兼容，请用v0.0.41，因此配置中需要将`@playwright/mcp@latest`改为`@playwright/mcp@0.0.41`。MCP Router若默认自带playwright，你需要手动修改`@playwright/mcp@latest`。
-
-:::
+> [!TIP]
+>
+> 注意，playwright最新版v0.0.42有问题，部分设备不兼容，请用v0.0.41，因此配置中需要将`@playwright/mcp@latest`改为`@playwright/mcp@0.0.41`。MCP Router若默认自带playwright，你需要手动修改`@playwright/mcp@latest`。
+>
 
 ```perl
 {

@@ -31,55 +31,53 @@ npm config set registry https://registry.npmmirror.com
 npm config delete registry
 ```
 
-:::tip 版本说明
-本文档基于 **npm CLI 10.x** 编写，适用于 Node.js 18+ 环境。
+> [!TIP] 版本说明
+> 本文档基于 **npm CLI 10.x** 编写，适用于 Node.js 18+ 环境。
+>
+> **当前稳定版本**：
+>
+> - **npm CLI v10.x**: v10.9.2 (2024 年 12 月发布) - 推荐使用
+> - **npm CLI v11.x**: 最新版本 (2024 年 11 月发布) - 包含破坏性变更
+> - **Node.js LTS**: v18.x, v20.x, v22.x
+>
+> **主要版本历史和特性**：
+>
+> - **npm v11.x** (2024-11)：最新版本
+> - `npm init` 新增 type 提示（ESM/CommonJS）
+> - `npm publish` 默认 dist-tag 行为变更
+> - `bun.lockb` 文件加入严格忽略列表
+> - 进一步改进性能和安全性
+> - **npm v10.x** (2023-09)：当前稳定版本，生产环境推荐
+> - 显著改进安装性能和依赖解析算法
+> - 增强安全审计功能
+> - 优化 lockfile 生成速度
+> - **npm v9.x** (2022-10)：引入重要特性
+> - 新增 `overrides` 字段支持（覆盖传递依赖版本）
+> - 改进 workspace 功能
+> - **npm v8.x** (2021-10)：技术升级
+> - 引入 lockfile v3 格式（更快、更小）
+> - 改进依赖树算法
+> - **npm v7.x** (2020-10)：重大更新版本
+> - **peer dependencies 自动安装**（npm 3-6 仅警告）
+> - 严格的 peer dependencies 冲突检查
+> - 新增 workspace 支持
+>
+> **运行环境要求**：
+>
+> - ✅ **npm 10.x**: Node.js >= 18.17.0
+> - ✅ **npm 11.x**: Node.js >= 20.5.0
+> - ⚠️ **npm 7+**: peer dependencies 行为有重大变更
 
-**当前稳定版本**：
-
-- **npm CLI v10.x**: v10.9.2 (2024 年 12 月发布) - 推荐使用
-- **npm CLI v11.x**: 最新版本 (2024 年 11 月发布) - 包含破坏性变更
-- **Node.js LTS**: v18.x, v20.x, v22.x
-
-**主要版本历史和特性**：
-
-- **npm v11.x** (2024-11)：最新版本
-  - `npm init` 新增 type 提示（ESM/CommonJS）
-  - `npm publish` 默认 dist-tag 行为变更
-  - `bun.lockb` 文件加入严格忽略列表
-  - 进一步改进性能和安全性
-- **npm v10.x** (2023-09)：当前稳定版本，生产环境推荐
-  - 显著改进安装性能和依赖解析算法
-  - 增强安全审计功能
-  - 优化 lockfile 生成速度
-- **npm v9.x** (2022-10)：引入重要特性
-  - 新增 `overrides` 字段支持（覆盖传递依赖版本）
-  - 改进 workspace 功能
-- **npm v8.x** (2021-10)：技术升级
-  - 引入 lockfile v3 格式（更快、更小）
-  - 改进依赖树算法
-- **npm v7.x** (2020-10)：重大更新版本
-  - **peer dependencies 自动安装**（npm 3-6 仅警告）
-  - 严格的 peer dependencies 冲突检查
-  - 新增 workspace 支持
-
-**运行环境要求**：
-
-- ✅ **npm 10.x**: Node.js >= 18.17.0
-- ✅ **npm 11.x**: Node.js >= 20.5.0
-- ⚠️ **npm 7+**: peer dependencies 行为有重大变更
-  :::
-
-:::warning 注意事项
-
-- 本文档主要针对 **npm 10.x**，大部分配置与 npm 11.x 兼容
-- **npm 7+ 重要变更**：peer dependencies 现在会自动安装
-  - **npm 3-6**：peer dependencies 仅警告，不自动安装
-  - **npm 7+**：peer dependencies 自动安装，冲突时报错
-  - 如遇冲突，可临时使用 `legacy-peer-deps=true` 恢复旧行为
-- 配置文件格式为 **INI 格式**，不支持 JSON
-- 敏感信息（如 token）**必须使用环境变量**（`${VAR}`），不要直接写入配置文件
-- 配置优先级：命令行参数 > 环境变量 > 项目 .npmrc > 用户 ~/.npmrc > 全局配置
-  :::
+> [!WARNING] 注意事项
+>
+> - 本文档主要针对 **npm 10.x**，大部分配置与 npm 11.x 兼容
+> - **npm 7+ 重要变更**：peer dependencies 现在会自动安装
+> - **npm 3-6**：peer dependencies 仅警告，不自动安装
+> - **npm 7+**：peer dependencies 自动安装，冲突时报错
+> - 如遇冲突，可临时使用 `legacy-peer-deps=true` 恢复旧行为
+> - 配置文件格式为 **INI 格式**，不支持 JSON
+> - 敏感信息（如 token）**必须使用环境变量**（`${VAR}`），不要直接写入配置文件
+> - 配置优先级：命令行参数 > 环境变量 > 项目 .npmrc > 用户 ~/.npmrc > 全局配置
 
 ## 配置文件
 

@@ -22,36 +22,34 @@ turbo init
 turbo run build
 ```
 
-:::tip 版本说明
-本文档基于 **Turborepo 2.x** 编写。Turborepo 2.0 引入了重大变更，包括将 `pipeline` 重命名为 `tasks`。
+> [!TIP] 版本说明
+> 本文档基于 **Turborepo 2.x** 编写。Turborepo 2.0 引入了重大变更，包括将 `pipeline` 重命名为 `tasks`。
+>
+> **Turborepo 1.x vs 2.x 主要区别**：
+>
+> - ✅ **Turborepo 2.x**（推荐）：
+> - 使用 `tasks` 替代 `pipeline` 配置任务
+> - 改进的 UI 模式（`--ui` 标志）
+> - 更好的错误信息和日志输出
+> - 支持任务标签（tags）用于分组执行
+> - 移除了一些已废弃的选项
+> - ⚠️ **Turborepo 1.x**（本文档部分兼容）：
+> - 使用 `pipeline` 配置任务
+> - 基础的日志输出
+> - 仍被广泛使用但不再推荐
+>
+> **迁移提示**：
+>
+> - 如果使用 Turborepo 1.x，将文档中的 `tasks` 替换为 `pipeline` 即可
+> - Turborepo 2.x 向后兼容 `pipeline`，但建议迁移到 `tasks`
+> - 配置选项大部分保持一致，迁移成本较低
 
-**Turborepo 1.x vs 2.x 主要区别**：
-
-- ✅ **Turborepo 2.x**（推荐）：
-  - 使用 `tasks` 替代 `pipeline` 配置任务
-  - 改进的 UI 模式（`--ui` 标志）
-  - 更好的错误信息和日志输出
-  - 支持任务标签（tags）用于分组执行
-  - 移除了一些已废弃的选项
-- ⚠️ **Turborepo 1.x**（本文档部分兼容）：
-  - 使用 `pipeline` 配置任务
-  - 基础的日志输出
-  - 仍被广泛使用但不再推荐
-
-**迁移提示**：
-
-- 如果使用 Turborepo 1.x，将文档中的 `tasks` 替换为 `pipeline` 即可
-- Turborepo 2.x 向后兼容 `pipeline`，但建议迁移到 `tasks`
-- 配置选项大部分保持一致，迁移成本较低
-  :::
-
-:::warning 注意事项
-
-- 本文档主要适用于 Turborepo 2.x，但大部分配置与 1.x 兼容
-- Turborepo 的配置选项可能随版本更新而变化
-- 建议参考 [官方文档](https://turbo.build/repo/docs) 获取最新信息
-- 本文档为了兼容性，在示例中同时展示 `tasks` 和 `pipeline` 用法
-  :::
+> [!WARNING] 注意事项
+>
+> - 本文档主要适用于 Turborepo 2.x，但大部分配置与 1.x 兼容
+> - Turborepo 的配置选项可能随版本更新而变化
+> - 建议参考 [官方文档](https://turbo.build/repo/docs) 获取最新信息
+> - 本文档为了兼容性，在示例中同时展示 `tasks` 和 `pipeline` 用法
 
 ### 核心特性
 
@@ -242,12 +240,11 @@ apps/docs/turbo.json
 
 **作用**：定义任务及其依赖关系（Turborepo 的核心配置）。
 
-:::tip 配置键名变更
-
-- **Turborepo 2.x**：使用 `"tasks"` 键
-- **Turborepo 1.x**：使用 `"pipeline"` 键
-- 两者功能完全相同，只是键名不同
-  :::
+> [!TIP] 配置键名变更
+>
+> - **Turborepo 2.x**：使用 `"tasks"` 键
+> - **Turborepo 1.x**：使用 `"pipeline"` 键
+> - 两者功能完全相同，只是键名不同
 
 ```json
 // Turborepo 2.x（推荐）
@@ -881,12 +878,11 @@ NODE_ENV=production turbo run build
 
 **作用**：控制任务的日志输出方式。
 
-:::tip 配置键名变更
-
-- **Turborepo 2.x**：使用 `outputLogs` 配置
-- **Turborepo 1.x**：使用 `outputMode` 配置
-- 命令行仍可使用 `--output-logs` 标志
-  :::
+> [!TIP] 配置键名变更
+>
+> - **Turborepo 2.x**：使用 `outputLogs` 配置
+> - **Turborepo 1.x**：使用 `outputMode` 配置
+> - 命令行仍可使用 `--output-logs` 标志
 
 ```json
 {

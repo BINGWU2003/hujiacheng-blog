@@ -7,41 +7,39 @@ tags: []
 categories: ["博客"]
 ---
 
-
-
 先看看block和code-group的效果:
 
-::: info
-123 `script` [baidu](https://www.baidu.com)
-:::
+> [!NOTE]
+> 123 `script` [baidu](https://www.baidu.com)
 
-::: tip
-123 `script` [baidu](https://www.baidu.com)
-:::
+> [!TIP]
+> 123 `script` [baidu](https://www.baidu.com)
 
-::: warning
-123 `script` [baidu](https://www.baidu.com)
-:::
+> [!WARNING]
+> 123 `script` [baidu](https://www.baidu.com)
 
-::: danger
-123 `script` [baidu](https://www.baidu.com)
-:::
+> [!CAUTION]
+> 123 `script` [baidu](https://www.baidu.com)
 
-::: details
-123 `script` [baidu](https://www.baidu.com)
-:::
+> [!NOTE]-
+> 123 `script` [baidu](https://www.baidu.com)
 
-::: code-group
+{{< tabs >}}
+{{< tab label="index.js" >}}
 
-```js [index.js]
-const foo = 'foo'
+```js
+const foo = "foo";
 ```
 
-```ts [index.ts]
-const foo: string = 'foo'
+{{< /tab >}}
+{{< tab label="index.ts" >}}
+
+```ts
+const foo: string = "foo";
 ```
 
-:::
+{{< /tab >}}
+{{< /tabs >}}
 
 ## 发现
 
@@ -57,25 +55,23 @@ Markdown-It 的原来总的来说可以分为两个步骤: `parse` 和 `render`�
 
 看看 [`render`](https://github.com/markdown-it/markdown-it/blob/master/lib/renderer.mjs#L114)，解析后的内容是一个 tokens，renderer 函数接收 tokens 和其他参数，在这里我们就可以处理得到最后渲染的 html 了。
 
-::: tip tokens
-官方对于 [tokens](https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md?plain=1#L41) 的解释大概就是:
-
-我们使用更底层的数据表示 -- tokens，而不是传统的AST( 抽象语法树(Abstract Syntax Tree，AST)，是源代码语法结构的一种抽象表示。 以树状的形式表现编程语言的语法结构，每个节点都表示源代码中的一种结构)
-
-- tokens是一个简单是序列数组
-- 开始和结束标签是分开的
-- 有一些特殊的标记对象，即内联容器，他们具有嵌套标记。这些带有内联标记的序列，例如粗体、斜体、文本等。
-
-总的来说，token流是:
-
-- 在顶层一一成对或单个块标记的数组:
-  - 开始/结束的标题、列表、块引用、段落等。
-  - code blocks, fenced blocks, 水平线，HTML 块，内联容器
-- 每个内联token都有一个children属性，其中包含用于内联内容的嵌套token流:
-  - 开始/结束的粗体、斜体、链接、内联代码等。
-  - 文本，换行符
-
-:::
+> [!TIP] tokens
+> 官方对于 [tokens](https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md?plain=1#L41) 的解释大概就是:
+>
+> 我们使用更底层的数据表示 -- tokens，而不是传统的AST( 抽象语法树(Abstract Syntax Tree，AST)，是源代码语法结构的一种抽象表示。 以树状的形式表现编程语言的语法结构，每个节点都表示源代码中的一种结构)
+>
+> - tokens是一个简单是序列数组
+> - 开始和结束标签是分开的
+> - 有一些特殊的标记对象，即内联容器，他们具有嵌套标记。这些带有内联标记的序列，例如粗体、斜体、文本等。
+>
+> 总的来说，token流是:
+>
+> - 在顶层一一成对或单个块标记的数组:
+> - 开始/结束的标题、列表、块引用、段落等。
+> - code blocks, fenced blocks, 水平线，HTML 块，内联容器
+> - 每个内联token都有一个children属性，其中包含用于内联内容的嵌套token流:
+> - 开始/结束的粗体、斜体、链接、内联代码等。
+> - 文本，换行符
 
 你可以通过 [markdown-it demo](https://markdown-it.github.io/) 中的debug来查看内容转换成 token 后是什么样子。
 
@@ -107,33 +103,33 @@ pnpm install markdown-it markdown-it-container -D
 ### createContainer
 
 ```ts
-import type MarkdownIt from 'markdown-it'
-import type { RenderRule } from 'markdown-it/lib/renderer.mjs'
-import container from 'markdown-it-container'
+import type MarkdownIt from "markdown-it";
+import type { RenderRule } from "markdown-it/lib/renderer.mjs";
+import container from "markdown-it-container";
 
-type ContainerArgs = [typeof container, string, { render: RenderRule }]
+type ContainerArgs = [typeof container, string, { render: RenderRule }];
 
 function createContainer(
   klass: string,
   defaultTitle: string,
-  md: MarkdownIt
+  md: MarkdownIt,
 ): ContainerArgs {
   return [
     container,
     klass,
     {
       render() {
-        return ''
-      }
-    }
-  ]
+        return "";
+      },
+    },
+  ];
 }
 ```
 
 编写一个通用的 container，之后我们就能在使用插件时直接使用:
 
 ```ts
-md.use(...createContainer('tip', 'TIP', md))
+md.use(...createContainer("tip", "TIP", md));
 ```
 
 ### render
@@ -142,56 +138,54 @@ md.use(...createContainer('tip', 'TIP', md))
 
 由于 Markdown-It-container 已经帮我们处理过了 tokens, 所以我们 tokens[idx] 所得到的就只会是 `:::` 开头结尾的段落。
 
-::: details 被container解析后的token
-
-```js
-Token = {
-  type: 'container_tip_open',
-  tag: 'div',
-  attrs: null,
-  map: [158, 169],
-  nesting: 1,
-  level: 0,
-  children: null,
-  content: '',
-  markup: ':::',
-  info: ' tip',
-  meta: null,
-  block: true,
-  hidden: false
-}
-Token = {
-  type: 'container_tip_close',
-  tag: 'div',
-  attrs: null,
-  map: null,
-  nesting: -1,
-  level: 0,
-  children: null,
-  content: '',
-  markup: ':::',
-  info: '',
-  meta: null,
-  block: true,
-  hidden: false
-}
-```
-
-可以看出被解析后并且赋予了 `type`，并将 `info` 中的 `:::` 解析到 `markup` 中，而 `info` 为 `:::` 后跟的文本。
-
-另外`nesting`这个字段代表标签的类型，后面会用到:
-
-- 1 代表标签的开始
-- -1 代表标签的闭合
-- 0 代表自闭合标签
-
-:::
+> [!NOTE]- 被container解析后的token
+>
+> ```js
+> Token = {
+>   type: "container_tip_open",
+>   tag: "div",
+>   attrs: null,
+>   map: [158, 169],
+>   nesting: 1,
+>   level: 0,
+>   children: null,
+>   content: "",
+>   markup: ":::",
+>   info: " tip",
+>   meta: null,
+>   block: true,
+>   hidden: false,
+> };
+> Token = {
+>   type: "container_tip_close",
+>   tag: "div",
+>   attrs: null,
+>   map: null,
+>   nesting: -1,
+>   level: 0,
+>   children: null,
+>   content: "",
+>   markup: ":::",
+>   info: "",
+>   meta: null,
+>   block: true,
+>   hidden: false,
+> };
+> ```
+>
+> 可以看出被解析后并且赋予了 `type`，并将 `info` 中的 `:::` 解析到 `markup` 中，而 `info` 为 `:::` 后跟的文本。
+>
+> 另外`nesting`这个字段代表标签的类型，后面会用到:
+>
+> - 1 代表标签的开始
+> - -1 代表标签的闭合
+> - 0 代表自闭合标签
 
 ```ts
 function createContainer(
   klass: string,
   defaultTitle: string,
-  md: MarkdownIt
+  md: MarkdownIt,
 ): ContainerArgs {
   return [
     container,
@@ -205,11 +199,11 @@ function createContainer(
        */
       render(tokens, idx, _options, env: { references?: any }) {
         // 拿到 `:::` 的token
-        const token = tokens[idx]
+        const token = tokens[idx];
         // 解析 token 中 info 的文本，slice的作用是文本后面还可能有其他文本，这里截取掉前面固有的关键字，获得后面的文本，如果没有则是''
-        const info = token.info.trim().slice(klass.length).trim()
+        const info = token.info.trim().slice(klass.length).trim();
         // 获取标签的属性
-        const attrs = md.renderAttrs(token)
+        const attrs = md.renderAttrs(token);
         /**
          * 判断是否标签开始，否则一定为标签结束，不可能为自闭合标签，因为渲染的结果为div。
          * 获取title，就是 ::: 加上关键字后面的部分，还需看是否有链接引用
@@ -218,34 +212,31 @@ function createContainer(
         if (token.nesting === 1) {
           const title = md.renderInline(info || defailtTitle, {
             references: env.references,
-          })
+          });
 
-          if (klass === 'details') {
-            return `<details class="${klass} custom-block"${attrs}><summary>${title}</summary>\n`
+          if (klass === "details") {
+            return `<details class="${klass} custom-block"${attrs}><summary>${title}</summary>\n`;
           }
-          return `<div class="${klass} custom-block"${attrs}><p class="custom-block-title">${title}</p>\n`
+          return `<div class="${klass} custom-block"${attrs}><p class="custom-block-title">${title}</p>\n`;
+        } else {
+          return klass === "details" ? "</details>\n" : "</div>\n";
         }
-        else {
-          return klass === 'details' ? '</details>\n' : '</div>\n'
-        }
-      }
-    }
-  ]
+      },
+    },
+  ];
 }
 ```
 
-::: tip
-`env` 用于在分布式规则之间传递数据并返回附加的渲染器所需的 metadata, 例如reference。它也可以用来在特定情况下注入数据。通常，你可以通过 `{}` 空对象，然后将更新后的对象传递给渲染器。
-
-`references` 在 MarkdownIt 渲染过程中用于存储和查找 Markdown 文档中的引用链接信息。它会使用 `references` 对象中的数据来生成正确的链接。
-
-```md
-[link text][ref]
-
-[ref]: http://example.com 'Optional Title'
-```
-
-:::
+> [!TIP]
+> `env` 用于在分布式规则之间传递数据并返回附加的渲染器所需的 metadata, 例如reference。它也可以用来在特定情况下注入数据。通常，你可以通过 `{}` 空对象，然后将更新后的对象传递给渲染器。
+>
+> `references` 在 MarkdownIt 渲染过程中用于存储和查找 Markdown 文档中的引用链接信息。它会使用 `references` 对象中的数据来生成正确的链接。
+>
+> ```md
+> [link text][ref]
+>
+> [ref]: http://example.com "Optional Title"
+> ```
 
 ### 使用
 
@@ -254,64 +245,83 @@ function createContainer(
 我是使用了 `unplugin-vue-markdown` 在 vue 中可以使用 markdown 当作页面:
 
 ```ts
-import Markdown from 'unplugin-vue-markdown/vite'
+import Markdown from "unplugin-vue-markdown/vite";
 
 export default defineConfig({
   plugins: [
     Markdown({
       async markdownItSetup(md) {
-        md.use(...createContainer('tip', 'TIP', md))
-        md.use(...createContainer('warning', 'WARNING', md))
-        md.use(...createContainer('danger', 'DANGER', md))
-        md.use(...createContainer('info', 'INFO', md))
-        md.use(...createContainer('details', 'Details', md))
-      }
-    })
-  ]
-})
+        md.use(...createContainer("tip", "TIP", md));
+        md.use(...createContainer("warning", "WARNING", md));
+        md.use(...createContainer("danger", "DANGER", md));
+        md.use(...createContainer("info", "INFO", md));
+        md.use(...createContainer("details", "Details", md));
+      },
+    }),
+  ],
+});
 ```
 
 这样引入五次比较麻烦，并且写死了title，优化一下会更灵活:
 
-::: code-group
+{{< tabs >}}
+{{< tab label="containers.ts" >}}
 
-```ts [containers.ts]
+```ts
 // 定义一个ContainerOptions
 export interface ContainerOptions {
-  infoLabel?: string
-  tipLabel?: string
-  warningLabel?: string
-  dangerLabel?: string
-  detailsLabel?: string
+  infoLabel?: string;
+  tipLabel?: string;
+  warningLabel?: string;
+  dangerLabel?: string;
+  detailsLabel?: string;
 }
 
 // 创建一个plugin方法
 export function containerPlugin(
   md: MarkdownIt,
   options: Options,
-  containerOptions?: ContainerOptions
+  containerOptions?: ContainerOptions,
 ) {
-  md.use(...createContainer('tip', containerOptions?.tipLabel || 'TIP', md))
-  md.use(...createContainer('warning', containerOptions?.warningLabel || 'WARNING', md))
-  md.use(...createContainer('danger', containerOptions?.dangerLabel || 'DANGER', md))
-  md.use(...createContainer('info', containerOptions?.infoLabel || 'INFO', md))
-  md.use(...createContainer('details', containerOptions?.detailsLabel || 'Details', md))
+  md.use(...createContainer("tip", containerOptions?.tipLabel || "TIP", md));
+  md.use(
+    ...createContainer(
+      "warning",
+      containerOptions?.warningLabel || "WARNING",
+      md,
+    ),
+  );
+  md.use(
+    ...createContainer("danger", containerOptions?.dangerLabel || "DANGER", md),
+  );
+  md.use(...createContainer("info", containerOptions?.infoLabel || "INFO", md));
+  md.use(
+    ...createContainer(
+      "details",
+      containerOptions?.detailsLabel || "Details",
+      md,
+    ),
+  );
 }
 ```
 
-```ts [vite.config.ts]
+{{< /tab >}}
+{{< tab label="vite.config.ts" >}}
+
+```ts
 export default defineConfig({
   plugins: [
     Markdown({
       async markdownItSetup(md) {
-        md.use(containerPlugin)
-      }
-    })
-  ]
-})
+        md.use(containerPlugin);
+      },
+    }),
+  ],
+});
 ```
 
-:::
+{{< /tab >}}
+{{< /tabs >}}
 
 ### 样式
 
@@ -501,7 +511,7 @@ pnpm install nanoid -D
   <div class="tabs">
     <input type="radio" id="" checked />
     <label for=""></label>
-    <input type="radio" id=""/>
+    <input type="radio" id="" />
     <label for=""></label>
   </div>
   <div>
@@ -519,16 +529,15 @@ pnpm install nanoid -D
   <div class="tabs">
     <input type="radio" id="" checked />
     <label for=""></label>
-    <input type="radio" id=""/>
+    <input type="radio" id="" />
     <label for=""></label>
   </div>
   <div>
+    <!-- 代码块部分 -->
+    <pre><code></code></pre>
+    <pre><code></code></pre>
 
-<!-- 代码块部分 -->
-<pre><code></code></pre>
-<pre><code></code></pre>
-
-<!-- 结束标签 -->
+    <!-- 结束标签 -->
   </div>
 </div>
 ```
@@ -545,13 +554,13 @@ code-group 和 custom-block 类似，固定了 name 为 `code-group`，并且 re
 function createCodeGroup(): ContainerArgs {
   return [
     container,
-    'code-group',
+    "code-group",
     {
       render() {
-        return ''
-      }
-    }
-  ]
+        return "";
+      },
+    },
+  ];
 }
 ```
 
@@ -561,14 +570,14 @@ function createCodeGroup(): ContainerArgs {
 function createCodeGroup(): ContainerArgs {
   return [
     container,
-    'code-group',
+    "code-group",
     {
       render(tokens, idx) {
         // 以防忘记，这里判断的是带有 code-group 的 token 的标签是否是开始标签，而不是判断所有的 tokens
         if (tokens[idx].nesting === 1) {
-          const name = nanoid(5) // radio 唯一 name，才能实现单选
-          const tabs = '' // tabs html
-          const checked = 'checked'
+          const name = nanoid(5); // radio 唯一 name，才能实现单选
+          const tabs = ""; // tabs html
+          const checked = "checked";
 
           /**
            * 这里除了要处理渲染开始和结束标签的HTML,还要拿到其中代码片段的 title
@@ -577,70 +586,78 @@ function createCodeGroup(): ContainerArgs {
           for (
             let i = idx + 1;
             !(
-              tokens[i].nesting === -1
-              && tokens[i].type === 'container_code-group_close'
+              tokens[i].nesting === -1 &&
+              tokens[i].type === "container_code-group_close"
             );
             i++
           ) {
             // 兼容在md中直接使用 <pre><code></code></pre> 编写代码块，并包含属性data-title=""，那么也可以识别出来
-            const isHtml = tokens[i].type === 'html_block'
+            const isHtml = tokens[i].type === "html_block";
 
-            if ((tokens[i].type === 'fence' && tokens[i].tag === 'code') || isHtml) {
+            if (
+              (tokens[i].type === "fence" && tokens[i].tag === "code") ||
+              isHtml
+            ) {
               // 获取 title
-              const title = extractTitle(isHtml ? tokens[i].content : tokens[i].info, isHtml)
+              const title = extractTitle(
+                isHtml ? tokens[i].content : tokens[i].info,
+                isHtml,
+              );
 
               if (title) {
-                const id = nanoid(7) // radio 中 id 和 label 中 for 对应
-                tabs += `<input type="radio" name="group-${name}" id="tab-${id}" ${checked}><label for="tab-${id}">${title}</label>`
+                const id = nanoid(7); // radio 中 id 和 label 中 for 对应
+                tabs += `<input type="radio" name="group-${name}" id="tab-${id}" ${checked}><label for="tab-${id}">${title}</label>`;
 
                 // 给第一个代码块 token.info 加上 active 属性
-                if (checked && !isHtml)
-                  tokens[i].info += ' active'
-                checked = ''
+                if (checked && !isHtml) tokens[i].info += " active";
+                checked = "";
               }
             }
           }
 
-          return `<div class="code-group"><div class="tabs">${tabs}</div><div class="blocks">\n`
+          return `<div class="code-group"><div class="tabs">${tabs}</div><div class="blocks">\n`;
         }
-        return `</div></div>\n`
-      }
-    }
-  ]
+        return `</div></div>\n`;
+      },
+    },
+  ];
 }
 ```
 
-::: details render中使用到的工具
-```ts
-/**
- * 去除块内注释并提取data-title属性值
- */
-export function extractTitle(info: string, html = false) {
-  if (html) {
-    return (
-      info.replace(/<!--[\s\S]*?-->/g, '').match(/data-title="(.*?)"/)?.[1] || ''
-    )
-  }
-  return info.match(/\[(.*)\]/)?.[1] || extractLang(info) || 'txt'
-}
-```
-
-```ts
-/**
- * 提取代码块的语言，```js = js
- */
-export function extractLang(info: string) {
-  return info
-    .trim()
-    .replace(/=(\d*)/, '')
-    // eslint-disable-next-line regexp/optimal-quantifier-concatenation
-    .replace(/:(no-)?line-numbers(\{| |$|=\d*).*/, '')
-    .replace(/(-vue|\{| ).*$/, '')
-    .replace(/^vue-html$/, 'template')
-    .replace(/^ansi$/, '')
-}
-```
-:::
+> [!NOTE]- render中使用到的工具
+>
+> ```ts
+> /**
+>  * 去除块内注释并提取data-title属性值
+>  */
+> export function extractTitle(info: string, html = false) {
+>   if (html) {
+>     return (
+>       info.replace(/<!--[\s\S]*?-->/g, "").match(/data-title="(.*?)"/)?.[1] ||
+>       ""
+>     );
+>   }
+>   return info.match(/\[(.*)\]/)?.[1] || extractLang(info) || "txt";
+> }
+> ```
+>
+> ````ts
+> /**
+>  * 提取代码块的语言，```js = js
+>  */
+> export function extractLang(info: string) {
+>   return (
+>     info
+>       .trim()
+>       .replace(/=(\d*)/, "")
+>       // eslint-disable-next-line regexp/optimal-quantifier-concatenation
+>       .replace(/:(no-)?line-numbers(\{| |$|=\d*).*/, "")
+>       .replace(/(-vue|\{| ).*$/, "")
+>       .replace(/^vue-html$/, "template")
+>       .replace(/^ansi$/, "")
+>   );
+> }
+> ````
 
 ### 使用
 
@@ -663,31 +680,29 @@ export function extractLang(info: string) {
 ```ts
 export function preWrapperPlugin(md: MarkdownIt) {
   // fence本身就是render，但是我们需要重写它
-  const fence = md.renderer.rules.fence!
+  const fence = md.renderer.rules.fence!;
 
   md.renderer.rules.fence = (...args) => {
-    const [tokens, idx] = args
+    const [tokens, idx] = args;
     // 拿到所有 fence 的 token
-    const token = tokens[idx]
+    const token = tokens[idx];
 
     // 移除代码块定义的 title，eg: [index.js]会被整个移除
-    token.info = token.info.replace(/\[.*\]/, '')
+    token.info = token.info.replace(/\[.*\]/, "");
 
     // 判断 info 中是否有 `active`
     // eslint-disable-next-line regexp/no-unused-capturing-group
-    const active = / active( |$)/.test(token.info) ? ' active' : ''
+    const active = / active( |$)/.test(token.info) ? " active" : "";
 
     // 移除 active
-    token.info = token.info.replace(/ active$/, '').replace(/ active /, ' ')
+    token.info = token.info.replace(/ active$/, "").replace(/ active /, " ");
 
     // 获取定义代码块的语言, 这个方法在上面有定义过 `render中使用到的工具`
-    const lang = extractLang(token.info)
+    const lang = extractLang(token.info);
 
     // 自定义包裹后渲染原来的 fence即可
-    return (
-      `<div class="language-${lang}${active}">${fence(...args)}</div>`
-    )
-  }
+    return `<div class="language-${lang}${active}">${fence(...args)}</div>`;
+  };
 }
 ```
 
@@ -698,14 +713,14 @@ export default defineConfig({
   plugins: [
     Markdown({
       async markdownItSetup(md) {
-        md.use(preWrapperPlugin)
+        md.use(preWrapperPlugin);
 
         // container
-        md.use(containerPlugin)
-      }
-    })
-  ]
-})
+        md.use(containerPlugin);
+      },
+    }),
+  ],
+});
 ```
 
 现在再看看HTML，它已经正确显示了，接下来我们只需要加上样式就可以了。
@@ -765,7 +780,7 @@ html.dark .code-group .tabs {
   z-index: 1;
   height: 2px;
   border-radius: 2px;
-  content: '';
+  content: "";
   background-color: transparent;
   transition: background-color 0.25s;
 }
@@ -787,14 +802,14 @@ html.dark .code-group input:checked + label::after {
   background: #ffffff;
 }
 
-.code-group div[class*='language-'] {
+.code-group div[class*="language-"] {
   display: none;
   margin-top: 0 !important;
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
 }
 
-.code-group div[class*='language-'].active {
+.code-group div[class*="language-"].active {
   display: block;
 }
 ```
@@ -808,63 +823,58 @@ html.dark .code-group input:checked + label::after {
 ```ts
 export function useCodeGroups() {
   const initializeCodeGroups = () => {
-    document.querySelectorAll('.code-group > .blocks').forEach((el) => {
+    document.querySelectorAll(".code-group > .blocks").forEach((el) => {
       Array.from(el.children).forEach((child) => {
-        child.classList.remove('active')
-      })
-      el.children[0]?.classList.add('active')
-    })
-  }
+        child.classList.remove("active");
+      });
+      el.children[0]?.classList.add("active");
+    });
+  };
 
   onMounted(() => {
     if (import.meta.env.DEV) {
-      initializeCodeGroups()
+      initializeCodeGroups();
     }
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('click', (e) => {
-        const el = e.target as HTMLInputElement
+    if (typeof window !== "undefined") {
+      window.addEventListener("click", (e) => {
+        const el = e.target as HTMLInputElement;
 
-        if (el.matches('.code-group input')) {
-          const group = el.parentElement?.parentElement
-          if (!group)
-            return
+        if (el.matches(".code-group input")) {
+          const group = el.parentElement?.parentElement;
+          if (!group) return;
 
           // 获取点击的 tab 索引
-          const i = Array.from(group.querySelectorAll('input')).indexOf(el)
-          if (i < 0)
-            return
+          const i = Array.from(group.querySelectorAll("input")).indexOf(el);
+          if (i < 0) return;
 
-          const blocks = group.querySelector('.blocks')
-          if (!blocks)
-            return
+          const blocks = group.querySelector(".blocks");
+          if (!blocks) return;
 
-          const current = Array.from(blocks.children).find(child =>
-            child.classList.contains('active'),
-          )
-          if (!current)
-            return
+          const current = Array.from(blocks.children).find((child) =>
+            child.classList.contains("active"),
+          );
+          if (!current) return;
 
           // 获取点击的 tab 对应的代码块
-          const next = blocks.children[i]
-          if (!next || current === next)
-            return
+          const next = blocks.children[i];
+          if (!next || current === next) return;
 
-          current.classList.remove('active')
-          next.classList.add('active')
+          current.classList.remove("active");
+          next.classList.add("active");
 
-          const label = group.querySelector(`label[for="${el.id}"]`)
-          label?.scrollIntoView({ block: 'nearest' })
+          const label = group.querySelector(`label[for="${el.id}"]`);
+          label?.scrollIntoView({ block: "nearest" });
         }
-      })
+      });
     }
-  })
+  });
 
   onUpdated(() => {
     if (import.meta.env.DEV) {
-      initializeCodeGroups()
+      initializeCodeGroups();
     }
-  })
+  });
 }
 ```
 
@@ -872,6 +882,6 @@ export function useCodeGroups() {
 
 ```vue
 <script setup lang="ts">
-useCodeGroups()
+useCodeGroups();
 </script>
 ```

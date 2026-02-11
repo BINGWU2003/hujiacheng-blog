@@ -27,38 +27,36 @@ npm create vite@latest my-vue-app -- --template vue
 npm create vite@latest my-react-app -- --template react-ts
 ```
 
-:::tip 版本说明
-本文档基于 **Vite 5.x** 编写，同时包含 **Vite 6.x** 的新特性说明。
+> [!TIP] 版本说明
+> 本文档基于 **Vite 5.x** 编写，同时包含 **Vite 6.x** 的新特性说明。
+>
+> **Vite 版本历史**：
+>
+> - ✅ **Vite 6.0**（2024-11-26 发布）：
+> - 新增 Environment API（实验性）
+> - 支持 Node.js 18、20、22+
+> - Sass 默认使用 modern API
+> - 改进 CSS 输出文件名自定义
+> - npm 下载量：17M+/周
+>
+> - ✅ **Vite 5.0**（2023 年发布）：
+> - 改进开发服务器性能
+> - 更好的 CSS 处理
+> - npm 下载量：7.5M+/周
+>
+> **主要特性**：
+>
+> - ⚡ 开发环境使用原生 ES 模块，无需打包
+> - 📦 生产环境使用 Rollup 打包，输出优化
+> - 🔌 兼容 Rollup 插件生态系统
+> - 🎯 默认支持 TypeScript、JSX、CSS 预处理器
 
-**Vite 版本历史**：
-
-- ✅ **Vite 6.0**（2024-11-26 发布）：
-  - 新增 Environment API（实验性）
-  - 支持 Node.js 18、20、22+
-  - Sass 默认使用 modern API
-  - 改进 CSS 输出文件名自定义
-  - npm 下载量：17M+/周
-
-- ✅ **Vite 5.0**（2023 年发布）：
-  - 改进开发服务器性能
-  - 更好的 CSS 处理
-  - npm 下载量：7.5M+/周
-
-**主要特性**：
-
-- ⚡ 开发环境使用原生 ES 模块，无需打包
-- 📦 生产环境使用 Rollup 打包，输出优化
-- 🔌 兼容 Rollup 插件生态系统
-- 🎯 默认支持 TypeScript、JSX、CSS 预处理器
-  :::
-
-:::warning 注意事项
-
-- Vite 需要 Node.js 18.0+ 或 20.0+ 版本
-- 开发时基于浏览器原生 ES 模块，需要现代浏览器支持
-- 某些 CommonJS 依赖可能需要预构建优化
-- SSR 应用需要额外配置
-  :::
+> [!WARNING] 注意事项
+>
+> - Vite 需要 Node.js 18.0+ 或 20.0+ 版本
+> - 开发时基于浏览器原生 ES 模块，需要现代浏览器支持
+> - 某些 CommonJS 依赖可能需要预构建优化
+> - SSR 应用需要额外配置
 
 ## 配置文件
 
@@ -312,12 +310,11 @@ console.log(__API_URL__);
 console.log("https://api.example.com");
 ```
 
-:::warning 注意事项
-
-- 值会被直接插入到代码中，字符串需要 `JSON.stringify()`
-- 替换是简单的文本替换，不会解析语法
-- 避免定义与全局变量冲突的名称
-  :::
+> [!WARNING] 注意事项
+>
+> - 值会被直接插入到代码中，字符串需要 `JSON.stringify()`
+> - 替换是简单的文本替换，不会解析语法
+> - 避免定义与全局变量冲突的名称
 
 ### 1.5 plugins
 
@@ -453,11 +450,10 @@ import utils from "./utils"; // 自动解析 utils.ts
 import data from "./data.json"; // 必须写 .json
 ```
 
-:::warning 注意事项
-
-- 不建议忽略自定义导入类型（如 `.vue`）的扩展名
-- 可能影响 IDE 和类型支持
-  :::
+> [!WARNING] 注意事项
+>
+> - 不建议忽略自定义导入类型（如 `.vue`）的扩展名
+> - 可能影响 IDE 和类型支持
 
 ### 1.8 publicDir
 
@@ -498,12 +494,11 @@ import logo from './assets/logo.png'
 <img src="/logo.png" />
 ```
 
-:::tip 何时使用 public
-
-- 文件名不需要 hash
-- 文件被数千个文件引用
-- 文件路径必须固定（如 `robots.txt`）
-  :::
+> [!TIP] 何时使用 public
+>
+> - 文件名不需要 hash
+> - 文件被数千个文件引用
+> - 文件路径必须固定（如 `robots.txt`）
 
 ## 二、开发服务器配置
 

@@ -29,33 +29,31 @@ npx cz
 # 或者使用 git cz(需要全局安装或配置脚本)
 ```
 
-:::tip 版本说明
-本文档基于 **Commitizen 4.x** (cz-cli) 编写，适用于 JavaScript/TypeScript 项目。
+> [!TIP] 版本说明
+> 本文档基于 **Commitizen 4.x** (cz-cli) 编写，适用于 JavaScript/TypeScript 项目。
+>
+> **当前版本**：
+>
+> - **Commitizen (cz-cli)**: v4.3.1 (2024-09-27 发布)
+> - **cz-conventional-changelog**: v3.3.0 (2019 发布，5年未更新)
+>
+> **注意区分两个同名项目**：
+>
+> - ✅ **commitizen/cz-cli** (本文档)：Node.js 生态，用于 JavaScript/TypeScript 项目
+> - ⚠️ **commitizen-tools/commitizen**：Python 生态，用于 Python 项目
+>
+> **主要版本历史**：
+>
+> - **v4.3.1** (2024-09-27)：修复重试提交后的进程关闭问题
+> - **v4.3.0** (2024-01-19)：最新功能版本
+> - **v4.2.x** (2020-2021)：稳定版本系列
 
-**当前版本**：
-
-- **Commitizen (cz-cli)**: v4.3.1 (2024-09-27 发布)
-- **cz-conventional-changelog**: v3.3.0 (2019 发布，5年未更新)
-
-**注意区分两个同名项目**：
-
-- ✅ **commitizen/cz-cli** (本文档)：Node.js 生态，用于 JavaScript/TypeScript 项目
-- ⚠️ **commitizen-tools/commitizen**：Python 生态，用于 Python 项目
-
-**主要版本历史**：
-
-- **v4.3.1** (2024-09-27)：修复重试提交后的进程关闭问题
-- **v4.3.0** (2024-01-19)：最新功能版本
-- **v4.2.x** (2020-2021)：稳定版本系列
-  :::
-
-:::warning 注意事项
-
-- `cz-conventional-changelog` 适配器已 5 年未更新（v3.3.0），但仍然可用且稳定
-- 如果需要更现代的适配器，建议使用 `cz-customizable`、`@commitlint/cz-commitlint` 或 `cz-git`
-- 确保 Node.js 版本 >= 14.x（Commitizen 4.x 要求）
-- 本文档的配置选项主要适用于各类适配器，具体选项可能因适配器而异
-  :::
+> [!WARNING] 注意事项
+>
+> - `cz-conventional-changelog` 适配器已 5 年未更新（v3.3.0），但仍然可用且稳定
+> - 如果需要更现代的适配器，建议使用 `cz-customizable`、`@commitlint/cz-commitlint` 或 `cz-git`
+> - 确保 Node.js 版本 >= 14.x（Commitizen 4.x 要求）
+> - 本文档的配置选项主要适用于各类适配器，具体选项可能因适配器而异
 
 **提交效果对比**:
 

@@ -7,8 +7,6 @@ tags: []
 categories: ["博客"]
 ---
 
-
-
 ## 什么是模块化
 
 - 将复杂的程序根据规则或规范拆分成为若干模块，一个模块包括输入和输出
@@ -66,16 +64,16 @@ function m2() {
 
 ```js
 const __module = {
-  data: 'xxx',
+  data: "xxx",
   foo() {
     // ...
   },
   bar() {
     // ...
-  }
-}
+  },
+};
 
-__module.data = '123' // 可直接修改
+__module.data = "123"; // 可直接修改
 ```
 
 ### IIFE 模式
@@ -100,25 +98,25 @@ __module.data = '123' // 可直接修改
 
 ```js
 // module.js
-;(function (window) {
-  const data = 'xxx'
+(function (window) {
+  const data = "xxx";
   // 操作数据的函数
   function foo() {
     // 用于暴露有函数
-    console.log(`foo() ${data}`)
+    console.log(`foo() ${data}`);
   }
   function bar() {
     // 用于暴露有函数
-    console.log(`bar() ${data}`)
-    otherFun() // 内部调用
+    console.log(`bar() ${data}`);
+    otherFun(); // 内部调用
   }
   function otherFun() {
     // 内部私有的函数
-    console.log('otherFun()')
+    console.log("otherFun()");
   }
   // 暴露行为
-  window.__module = { foo, bar } // ES6写法
-})(window)
+  window.__module = { foo, bar }; // ES6写法
+})(window);
 ```
 
 ### IIFE 模式增强
@@ -127,26 +125,26 @@ __module.data = '123' // 可直接修改
 
 ```js
 // module.js
-;(function (window, $) {
-  const data = 'www.baidu.com'
+(function (window, $) {
+  const data = "www.baidu.com";
   // 操作数据的函数
   function foo() {
     // 用于暴露有函数
-    console.log(`foo() ${data}`)
-    $('body').css('background', 'red')
+    console.log(`foo() ${data}`);
+    $("body").css("background", "red");
   }
   function bar() {
     // 用于暴露有函数
-    console.log(`bar() ${data}`)
-    otherFun() // 内部调用
+    console.log(`bar() ${data}`);
+    otherFun(); // 内部调用
   }
   function otherFun() {
     // 内部私有的函数
-    console.log('otherFun()')
+    console.log("otherFun()");
   }
   // 暴露行为
-  window.__module = { foo, bar }
-})(window, jQuery)
+  window.__module = { foo, bar };
+})(window, jQuery);
 ```
 
 ```
@@ -217,49 +215,47 @@ Node.js 中，每个模块都有一个 exports 接口对象，我们需要把公
 
 ```js
 function foo() {}
-const bar = ''
+const bar = "";
 
-exports.foo = foo
-exports.bar = bar
+exports.foo = foo;
+exports.bar = bar;
 ```
 
-::: tip
-暴露的关键词是 exports，不是 export。其实，这里的 exports 类似于 ES6 中的 export 的用法，都是用来导出一个指定名字的对象。
-:::
+> [!TIP]
+> 暴露的关键词是 exports，不是 export。其实，这里的 exports 类似于 ES6 中的 export 的用法，都是用来导出一个指定名字的对象。
 
 ##### 暴露: `module.exports`
 
 `module.exports`用来导出一个默认对象，没有指定对象名
 
 ```js
-module.exports = {}
+module.exports = {};
 
 // or
-const name = 'leet'
-module.exports.name = name
+const name = "leet";
+module.exports.name = name;
 
 // 重复使用module.exports整个赋值会覆盖上一次的赋值
 ```
 
-::: tip `exports`和`module.exports`的区别
-主要：
-
-- 使用 exports 时，只能单个设置属性 `exports.a = a`
-- 使用 module.exports 时，即单个设置属性`module.exports.a`，也可整个赋值`module.exports = obj`
-
-其他：
-
-- Node 中每个模块的最后，都会执行`return: module.exports`
-- Node 中每个模块都会把`module.exports`指向的对象赋值给一个变量`exports`，也就是说`exports = module.exports`
-- `module.exports = xxx`，表示当前模块导出一个单一成员，结果就是 xxx
-- 如果需要导出多个成员，则必须使用`exports.foo = xxx; exports.bar = xxx`。或者`module.exports.foo = xxx; module.exports.bar = xxx`
-
-**暴露的模块到底是谁**
-
-暴露的本质就是`exports`对象。
-
-方式一的 exports.a = a 可以理解成是，给 exports 对象添加属性。方式二的 module.exports = a 可以理解成是给整个 exports 对象赋值。方式二的 module.exports.c = c 可以理解成是给 exports 对象添加属性。
-:::
+> [!TIP] `exports`和`module.exports`的区别
+> 主要：
+>
+> - 使用 exports 时，只能单个设置属性 `exports.a = a`
+> - 使用 module.exports 时，即单个设置属性`module.exports.a`，也可整个赋值`module.exports = obj`
+>
+> 其他：
+>
+> - Node 中每个模块的最后，都会执行`return: module.exports`
+> - Node 中每个模块都会把`module.exports`指向的对象赋值给一个变量`exports`，也就是说`exports = module.exports`
+> - `module.exports = xxx`，表示当前模块导出一个单一成员，结果就是 xxx
+> - 如果需要导出多个成员，则必须使用`exports.foo = xxx; exports.bar = xxx`。或者`module.exports.foo = xxx; module.exports.bar = xxx`
+>
+> **暴露的模块到底是谁**
+>
+> 暴露的本质就是`exports`对象。
+>
+> 方式一的 exports.a = a 可以理解成是，给 exports 对象添加属性。方式二的 module.exports = a 可以理解成是给整个 exports 对象赋值。方式二的 module.exports.c = c 可以理解成是给 exports 对象添加属性。
 
 ##### 引入: `require`
 
@@ -278,30 +274,35 @@ require 函数用来在一个模块中引入另外一个模块。传入模块名
 
 **_输入的是被输出的值的拷贝_**。一旦输出这个值，模块内部的变化就影响不到这个值。
 
-::: code-group
+{{< tabs >}}
+{{< tab label="lib.js" >}}
 
-```js [lib.js]
-let counter = 1
+```js
+let counter = 1;
 function incrementCounter() {
-  ++counter
+  ++counter;
 }
 
 module.exports = {
   counter,
-  incrementCounter
-}
+  incrementCounter,
+};
 ```
 
-```js [main.js]
-const counter = require('./lib.js').counter
-const incrementCounter = require('./lib.js').incrementCounter
+{{< /tab >}}
+{{< tab label="main.js" >}}
 
-console.log(counter) // 3
-incrementCounter()
-console.log(counter) // 3
+```js
+const counter = require("./lib.js").counter;
+const incrementCounter = require("./lib.js").incrementCounter;
+
+console.log(counter); // 3
+incrementCounter();
+console.log(counter); // 3
 ```
 
-:::
+{{< /tab >}}
+{{< /tabs >}}
 
 counter 输出后，lib.js 模块内部的变化就影响不到 counter 了。因为 counter 是一个原始类型的值，会被缓存，除非写成一个函数，才能得到内部变动的值。
 
@@ -345,7 +346,7 @@ counter 输出后，lib.js 模块内部的变化就影响不到 counter 了。�
 - 默认：export default
 
 ```js
-export const name = 'Leet'
+export const name = "Leet";
 
 // or
 // const name = 'Leet'
@@ -365,7 +366,7 @@ export const name = 'Leet'
 ##### 引入: import
 
 ```js
-import { name } from 'xxx.js'
+import { name } from "xxx.js";
 
 // or 别名
 // import { name as firstName } from 'xxx.js'
@@ -383,9 +384,8 @@ import { name } from 'xxx.js'
 // })
 ```
 
-::: tip
-当`import`是，如果引入的是`export`具名导出的数据，则需要知道变量名或函数名，否则无法加载。如果是`export default`则可以自定义名称。
-:::
+> [!TIP]
+> 当`import`是，如果引入的是`export`具名导出的数据，则需要知道变量名或函数名，否则无法加载。如果是`export default`则可以自定义名称。
 
 #### 与 CommonJS 模块的差异
 
@@ -400,14 +400,13 @@ import { name } from 'xxx.js'
 
 第二个差异是因为 CommonJS 模块加载的是一个对象(exports)，该对象只有在脚本完全加载完成时才会生成；而 ESModule 模块不是对象，他的对外接口只是一种静态定义，在代码解析阶段就会生成。
 
-::: tip
-我们在搭建框架后，有些配置文件又是后会报红，是因为文件没有遵循对应的模块化规范。
-
-- `.mjs`遵循 ESModule 规范，可以使用 import、export
-- `.cjs`遵循 CommonJS 规范，可以使用 exports、module.exports、require
-
-也可以通过`package.json`来指定遵循哪个规范，`type: module`，`type: commonjs`。
-:::
+> [!TIP]
+> 我们在搭建框架后，有些配置文件又是后会报红，是因为文件没有遵循对应的模块化规范。
+>
+> - `.mjs`遵循 ESModule 规范，可以使用 import、export
+> - `.cjs`遵循 CommonJS 规范，可以使用 exports、module.exports、require
+>
+> 也可以通过`package.json`来指定遵循哪个规范，`type: module`，`type: commonjs`。
 
 ### AMD、CMD 和 UMD
 
@@ -420,17 +419,17 @@ CommonJS 规范加载模块是同步的，也就是说，只有加载完成，�
 ```js
 // 定义没有依赖的模块
 define(() => {
-  return 模块
-})
+  return 模块;
+});
 
 // 定义有依赖的模块
-define(['module1', 'module2'], (m1, m2) => {
+define(["module1", "module2"], (m1, m2) => {
   // 模块
-})
+});
 
-require(['module1', 'module2'], (m1, m2) => {
+require(["module1", "module2"], (m1, m2) => {
   // ...
-})
+});
 ```
 
 #### CMD
@@ -440,26 +439,26 @@ CMD 规范专门用于浏览器端，模块的加载是异步的，模块使用�
 ```js
 // 定义没有依赖的模块
 define((require, exports, module) => {
-  exports.xxx = value
-  module.exports = value
-})
+  exports.xxx = value;
+  module.exports = value;
+});
 
 // 定义有依赖的模块
 define((require, exports, module) => {
   // 引入依赖模块(同步)
-  const module2 = require('./module2')
+  const module2 = require("./module2");
   // 引入依赖模块(异步)
-  require.async('./module3', (m3) => {})
+  require.async("./module3", (m3) => {});
   // 暴露模块
-  exports.xxx = value
-})
+  exports.xxx = value;
+});
 
 define((require) => {
-  const m1 = require('./module1')
-  const m4 = require('./module4')
-  m1.show()
-  m4.show()
-})
+  const m1 = require("./module1");
+  const m4 = require("./module4");
+  m1.show();
+  m4.show();
+});
 ```
 
 #### UMD
@@ -470,23 +469,21 @@ define((require) => {
 未来同一个 JavaScript 包运行在浏览器端、服务区端都只需要遵守同一个写法就行了。
 
 ```js
-;((global, factory) => {
+((global, factory) => {
   // 如果 当前的上下文有define函数，并且AMD  说明处于AMD 环境下
-  if (typeof define === 'function' && define.amd) {
-    define(['moduleA'], factory)
-  }
-  else if (typeof exports === 'object') {
+  if (typeof define === "function" && define.amd) {
+    define(["moduleA"], factory);
+  } else if (typeof exports === "object") {
     // commonjs
-    const moduleA = require('moduleA')
-    modules.exports = factory(moduleA)
-  }
-  else {
-    global.moduleA = factory(global.moduleA) // 直接挂载成 windows 全局变量
+    const moduleA = require("moduleA");
+    modules.exports = factory(moduleA);
+  } else {
+    global.moduleA = factory(global.moduleA); // 直接挂载成 windows 全局变量
   }
 })(this, (moduleA) => {
   // 本模块的定义
-  return {}
-})
+  return {};
+});
 ```
 
 ## 参考

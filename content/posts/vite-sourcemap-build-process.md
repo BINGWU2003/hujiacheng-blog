@@ -78,17 +78,16 @@ mappings: "AAAA;AACA,SAASA,UAAW;AAC3B"
 5. names 数组索引（可选）
 ```
 
-:::info VLQ 编码示例
-
-```
-"AAAA" 解码为 [0, 0, 0, 0]
-意思是：生成代码第0列 → 第0个源文件的第0行第0列
-
-"SAASA" 解码为 [9, 0, 0, 9, 0]
-意思是：生成代码第9列 → 同一源文件的同一行第9列，使用 names[0]
-```
-
-:::
+> [!NOTE] VLQ 编码示例
+>
+> ```
+> "AAAA" 解码为 [0, 0, 0, 0]
+> 意思是：生成代码第0列 → 第0个源文件的第0行第0列
+>
+> "SAASA" 解码为 [9, 0, 0, 9, 0]
+> 意思是：生成代码第9列 → 同一源文件的同一行第9列，使用 names[0]
+> ```
+>
 
 ---
 
@@ -148,14 +147,13 @@ sourcemap: "hidden";
 // dist/assets/index-a1b2c3d4.js.map  ← 文件存在但不被引用
 ```
 
-:::tip 选择建议
-| 场景 | 推荐配置 | 原因 |
-|------|----------|------|
-| 开发环境 | `true` | 便于调试 |
-| 生产环境（内部） | `true` | 错误追踪 + 调试 |
-| 生产环境（公开） | `'hidden'` | 上传到监控平台，不暴露给用户 |
-| 需要最小体积 | `false` | 不生成 Source Map |
-:::
+> [!TIP] 选择建议
+> | 场景 | 推荐配置 | 原因 |
+> |------|----------|------|
+> | 开发环境 | `true` | 便于调试 |
+> | 生产环境（内部） | `true` | 错误追踪 + 调试 |
+> | 生产环境（公开） | `'hidden'` | 上传到监控平台，不暴露给用户 |
+> | 需要最小体积 | `false` | 不生成 Source Map |
 
 ---
 
@@ -377,24 +375,23 @@ export default _sfc_main;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkhlbGxvV29ybGQudnVlIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQU9BLENBQUE7QUFDQTtBQUNBOzs7O0FBTEE7QUFDQTtBQUNBOzs7OzsifQ==
 ```
 
-:::info Source Map 内容解码
-
-```json
-{
-  "version": 3,
-  "sources": ["HelloWorld.vue"],
-  "names": [],
-  "mappings": ";;;;;;AAOA,CAAA;AACA;AACA;;;AALA;AACA;AACA;;;;;;",
-  "sourcesContent": ["<template>\n  <div class=\"hello\">..."]
-}
-```
-
-mappings 解码后的部分映射：
-
-- 空行 `;;;;;;` 表示编译后的 import 语句没有直接对应源码
-- `AAOA` → 映射到源文件第 8 行（script 内容开始）
-- `AALA` → 映射到源文件第 2 行（template 内容开始）
-  :::
+> [!NOTE] Source Map 内容解码
+>
+> ```json
+> {
+> "version": 3,
+> "sources": ["HelloWorld.vue"],
+> "names": [],
+> "mappings": ";;;;;;AAOA,CAAA;AACA;AACA;;;AALA;AACA;AACA;;;;;;",
+> "sourcesContent": ["<template>\n  <div class=\"hello\">..."]
+> }
+> ```
+>
+> mappings 解码后的部分映射：
+>
+> - 空行 `;;;;;;` 表示编译后的 import 语句没有直接对应源码
+> - `AAOA` → 映射到源文件第 8 行（script 内容开始）
+> - `AALA` → 映射到源文件第 2 行（template 内容开始）
 
 ---
 
@@ -546,11 +543,10 @@ CSS 输出                    映射到 SCSS
 行 9: color: #3a8ee6       → main.scss 行 11 (darken() 计算)
 ```
 
-:::tip 变量追踪
-虽然 `$primary-color` 定义在 `_variables.scss` 中，Source Map 会指向**使用位置**（main.scss 行 8），而不是变量定义位置。
-
-这是因为调试时我们通常想知道"这个样式是在哪里写的"，而不是"变量在哪定义"。
-:::
+> [!TIP] 变量追踪
+> 虽然 `$primary-color` 定义在 `_variables.scss` 中，Source Map 会指向**使用位置**（main.scss 行 8），而不是变量定义位置。
+>
+> 这是因为调试时我们通常想知道"这个样式是在哪里写的"，而不是"变量在哪定义"。
 
 ### 6.3 Scoped CSS 的 Source Map
 
@@ -725,11 +721,10 @@ n (第一个)       names[2]      count
 o               names[3]      increment
 ```
 
-:::warning 为什么调试时能看到原始变量名？
-浏览器 DevTools 使用 Source Map 的 `names` 数组恢复原始标识符名称。
-
-当你在压缩代码中悬停 `n` 变量时，DevTools 会显示 `count` 这个原始名称。
-:::
+> [!WARNING] 为什么调试时能看到原始变量名？
+> 浏览器 DevTools 使用 Source Map 的 `names` 数组恢复原始标识符名称。
+>
+> 当你在压缩代码中悬停 `n` 变量时，DevTools 会显示 `count` 这个原始名称。
 
 ### 8.4 Terser vs esbuild 的 Source Map 质量
 

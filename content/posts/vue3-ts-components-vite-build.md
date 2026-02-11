@@ -42,34 +42,32 @@ npm install --save-dev vite
 npm install --save-dev @vitejs/plugin-vue vue-tsc unplugin-dts @types/node
 ```
 
-:::tip 版本说明
-本文档基于 **Vite 7.x** 编写（当前最新稳定版本）。
+> [!TIP] 版本说明
+> 本文档基于 **Vite 7.x** 编写（当前最新稳定版本）。
+>
+> **Vite 版本演进**：
+>
+> - **Vite 7.x**（2024年12月发布，本文档）：
+> - 进一步改进的 Environment API
+> - 更好的性能优化
+> - 增强的 SSR 和模块图处理
+> - 默认使用 Rollup 4.x
+> - 完全向后兼容库模式配置
+>
+> - Vite 6.x（2024年11月发布）：
+> - 引入 Environment API
+> - 改进的 SSR 支持
+>
+> - Vite 5.x（稳定版本）：
+> - 广泛使用的版本
+> - 完整的库模式支持
 
-**Vite 版本演进**：
-
-- **Vite 7.x**（2024年12月发布，本文档）：
-  - 进一步改进的 Environment API
-  - 更好的性能优化
-  - 增强的 SSR 和模块图处理
-  - 默认使用 Rollup 4.x
-  - 完全向后兼容库模式配置
-
-- Vite 6.x（2024年11月发布）：
-  - 引入 Environment API
-  - 改进的 SSR 支持
-
-- Vite 5.x（稳定版本）：
-  - 广泛使用的版本
-  - 完整的库模式支持
-    :::
-
-:::warning 注意事项
-
-- 本文档适用于使用 Vite 7.x 构建 Vue 3 组件库的项目
-- Vite 7.x 的库模式配置与 5.x/6.x 基本兼容
-- 升级时建议查看官方迁移指南
-- 迁移指南：https://vitejs.dev/guide/migration
-  :::
+> [!WARNING] 注意事项
+>
+> - 本文档适用于使用 Vite 7.x 构建 Vue 3 组件库的项目
+> - Vite 7.x 的库模式配置与 5.x/6.x 基本兼容
+> - 升级时建议查看官方迁移指南
+> - 迁移指南：https://vitejs.dev/guide/migration
 
 ## 配置文件
 
@@ -346,13 +344,12 @@ export default defineConfig({
 
 **作用**：配置 TypeScript 类型检查选项。由于使用 Vite 进行构建，TypeScript 主要负责类型检查，实际的编译和打包由 Vite 处理。
 
-:::tip 重要说明
-使用 Vite 时，TypeScript 的配置可以大幅简化：
-
-- **Vite 负责**：代码转换、打包、输出文件
-- **TypeScript 负责**：类型检查、IDE 智能提示
-- **无需配置**：`outDir`、`declaration`（由 unplugin-dts 处理）
-  :::
+> [!TIP] 重要说明
+> 使用 Vite 时，TypeScript 的配置可以大幅简化：
+>
+> - **Vite 负责**：代码转换、打包、输出文件
+> - **TypeScript 负责**：类型检查、IDE 智能提示
+> - **无需配置**：`outDir`、`declaration`（由 unplugin-dts 处理）
 
 ```json
 {
@@ -569,32 +566,31 @@ import Button from "@components/Button.vue";
 
 **注意事项**：
 
-:::warning 重要
-`paths` 配置需要与 Vite 的 `resolve.alias` 保持一致：
-
-```typescript
-// vite.config.ts
-export default defineConfig({
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-      '@components': resolve(__dirname, 'src/components')
-    }
-  }
-})
-
-// tsconfig.json
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"]
-    }
-  }
-}
-```
-
-:::
+> [!WARNING] 重要
+> `paths` 配置需要与 Vite 的 `resolve.alias` 保持一致：
+>
+> ```typescript
+> // vite.config.ts
+> export default defineConfig({
+> resolve: {
+> alias: {
+> '@': resolve(__dirname, 'src'),
+> '@components': resolve(__dirname, 'src/components')
+> }
+> }
+> })
+>
+> // tsconfig.json
+> {
+> "compilerOptions": {
+> "paths": {
+> "@/*": ["src/*"],
+> "@components/*": ["src/components/*"]
+> }
+> }
+> }
+> ```
+>
 
 #### Vue 相关选项
 
@@ -873,20 +869,19 @@ export default defineConfig({
 });
 ```
 
-:::tip 配置说明
-
-- **unplugin-dts 配置**：
-  - 使用 `outDirs`（复数）根据官方 `CreateRuntimeOptions` 接口
-  - `copyDtsFiles: false` 避免复制不必要的 .d.ts 文件
-
-- **build.lib 配置**：
-  - `cssFileName` 用于指定 CSS 输出名称
-  - Vite 7.x 完全支持该配置
-
-- **rollupOptions.output**：
-  - `exports: 'named'` 使用命名导出模式
-  - `assetFileNames` 自定义资源文件命名
-    :::
+> [!TIP] 配置说明
+>
+> - **unplugin-dts 配置**：
+> - 使用 `outDirs`（复数）根据官方 `CreateRuntimeOptions` 接口
+> - `copyDtsFiles: false` 避免复制不必要的 .d.ts 文件
+>
+> - **build.lib 配置**：
+> - `cssFileName` 用于指定 CSS 输出名称
+> - Vite 7.x 完全支持该配置
+>
+> - **rollupOptions.output**：
+> - `exports: 'named'` 使用命名导出模式
+> - `assetFileNames` 自定义资源文件命名
 
 ### 4.2 多入口配置
 
@@ -950,15 +945,14 @@ export default defineConfig({
 }
 ```
 
-:::tip 版本说明（2025年最新）
-
-- **Vite**: `^7.0.0` - 最新稳定版本
-- **Vue**: `^3.5.0` - 最新稳定版本
-- **@vitejs/plugin-vue**: `^6.0.0` - 配合 Vite 7.x
-- **unplugin-dts**: `^1.0.0-beta.6` - 支持最新功能
-- **TypeScript**: `^5.9.0` - 最新稳定版本
-- **vue-tsc**: `^3.0.0` - Vue 3 类型检查工具
-  :::
+> [!TIP] 版本说明（2025年最新）
+>
+> - **Vite**: `^7.0.0` - 最新稳定版本
+> - **Vue**: `^3.5.0` - 最新稳定版本
+> - **@vitejs/plugin-vue**: `^6.0.0` - 配合 Vite 7.x
+> - **unplugin-dts**: `^1.0.0-beta.6` - 支持最新功能
+> - **TypeScript**: `^5.9.0` - 最新稳定版本
+> - **vue-tsc**: `^3.0.0` - Vue 3 类型检查工具
 
 ### 5.2 exports 字段说明
 
@@ -996,19 +990,18 @@ export default defineConfig({
 });
 ```
 
-:::warning 重要提示
-**为什么要外部化依赖**？
-
-- ✅ 减小打包体积：避免将 Vue 等大型依赖打包进库
-- ✅ 避免重复打包：使用库的项目可能已安装这些依赖
-- ✅ 保持版本灵活：允许使用者选择依赖版本
-
-**必须外部化的依赖**：
-
-- 所有 `peerDependencies` 中的包
-- 框架类库：`vue`, `react`, `angular` 等
-- 大型 UI 框架：`element-plus`, `ant-design-vue` 等
-  :::
+> [!WARNING] 重要提示
+> **为什么要外部化依赖**？
+>
+> - ✅ 减小打包体积：避免将 Vue 等大型依赖打包进库
+> - ✅ 避免重复打包：使用库的项目可能已安装这些依赖
+> - ✅ 保持版本灵活：允许使用者选择依赖版本
+>
+> **必须外部化的依赖**：
+>
+> - 所有 `peerDependencies` 中的包
+> - 框架类库：`vue`, `react`, `angular` 等
+> - 大型 UI 框架：`element-plus`, `ant-design-vue` 等
 
 ### 6.2 CSS 处理最佳实践
 

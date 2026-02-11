@@ -48,11 +48,10 @@ data:{"id":null,"object":null,"created":null,"model":"deepseek-chat","choices":[
 
 ```
 
-::: tip
-
-要注意的是每一条数据之间都是有`\n\n`分隔的，标准SSE事件，每条事件就是用'\n\n'分隔的。
-
-:::
+> [!TIP]
+>
+> 要注意的是每一条数据之间都是有`\n\n`分隔的，标准SSE事件，每条事件就是用'\n\n'分隔的。
+>
 
 ### 处理方法
 
@@ -60,11 +59,10 @@ data:{"id":null,"object":null,"created":null,"model":"deepseek-chat","choices":[
 
 如果使用`axios`，还得自定义适配器`adapter`让它支持流式
 
-::: tip
-
-不推荐，如果使用适配器，会完全替换掉axios的网络请求。当创建一个 axios 实例并为其指定 `adapter` 时，您就等于在告诉 axios：“对于这个实例发出的**所有**网络请求，不要再使用你内置的默认引擎（在浏览器中是 `XMLHttpRequest`）。请改用我提供给你的这个 `customFetchAdapter` 函数来执行实际的网络通信。”
-
-:::
+> [!TIP]
+>
+> 不推荐，如果使用适配器，会完全替换掉axios的网络请求。当创建一个 axios 实例并为其指定 `adapter` 时，您就等于在告诉 axios：“对于这个实例发出的**所有**网络请求，不要再使用你内置的默认引擎（在浏览器中是 `XMLHttpRequest`）。请改用我提供给你的这个 `customFetchAdapter` 函数来执行实际的网络通信。”
+>
 
 关键代码demo：
 

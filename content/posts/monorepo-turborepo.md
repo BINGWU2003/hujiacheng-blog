@@ -7,37 +7,35 @@ tags: []
 categories: ["笔记"]
 ---
 
-:::tip 版本说明
-本文档基于以下版本编写：
+> [!TIP] 版本说明
+> 本文档基于以下版本编写：
+>
+> **核心工具版本**：
+>
+> - **Turborepo**: v2.6.1 (2024 年 11 月发布)
+> - **pnpm**: v9.15.0 (2024 年 12 月发布)
+> - **Node.js**: 18.0.0+ (推荐 20.18.1 LTS)
+>
+> **重要里程碑**：
+>
+> - ✅ **Turborepo 2.0** (2024-06-04)：新终端 UI、Watch 模式、MIT 许可证
+> - ✅ **Turborepo 2.1** (2024-07)：改进的任务依赖和缓存
+> - ✅ **Turborepo 2.4** (2024-09)：性能优化和稳定性改进
+> - ✅ **Turborepo 2.6** (2024-11)：最新稳定版本
+>
+> **配置变更（v1.x → v2.x）**：
+>
+> - 🔄 `pipeline` → `tasks`：配置键名变更
+> - 🔄 `$schema` URL 更新为 v2
+> - ⚠️ **必须配置** `packageManager` 字段
+> - ✅ 环境变量配置稳定化
 
-**核心工具版本**：
-
-- **Turborepo**: v2.6.1 (2024 年 11 月发布)
-- **pnpm**: v9.15.0 (2024 年 12 月发布)
-- **Node.js**: 18.0.0+ (推荐 20.18.1 LTS)
-
-**重要里程碑**：
-
-- ✅ **Turborepo 2.0** (2024-06-04)：新终端 UI、Watch 模式、MIT 许可证
-- ✅ **Turborepo 2.1** (2024-07)：改进的任务依赖和缓存
-- ✅ **Turborepo 2.4** (2024-09)：性能优化和稳定性改进
-- ✅ **Turborepo 2.6** (2024-11)：最新稳定版本
-
-**配置变更（v1.x → v2.x）**：
-
-- 🔄 `pipeline` → `tasks`：配置键名变更
-- 🔄 `$schema` URL 更新为 v2
-- ⚠️ **必须配置** `packageManager` 字段
-- ✅ 环境变量配置稳定化
-  :::
-
-:::warning 注意事项
-
-- **Turborepo 2.x** 相比 1.x 有重大变更，建议新项目直接使用 2.x
-- **packageManager 字段**：Turborepo 2.0+ 要求在根 package.json 中定义（如 `"packageManager": "pnpm@9.15.0"`）
-- **迁移工具**：可使用 `npx @turbo/codemod migrate` 自动迁移 1.x 配置到 2.x
-- **pnpm 9.x**：引入了新的依赖解析算法，性能更优
-  :::
+> [!WARNING] 注意事项
+>
+> - **Turborepo 2.x** 相比 1.x 有重大变更，建议新项目直接使用 2.x
+> - **packageManager 字段**：Turborepo 2.0+ 要求在根 package.json 中定义（如 `"packageManager": "pnpm@9.15.0"`）
+> - **迁移工具**：可使用 `npx @turbo/codemod migrate` 自动迁移 1.x 配置到 2.x
+> - **pnpm 9.x**：引入了新的依赖解析算法，性能更优
 
 ## 什么是 Monorepo
 

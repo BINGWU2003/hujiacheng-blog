@@ -30,40 +30,38 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 ```
 
-:::tip 版本说明
-本文档基于 **EditorConfig 规范 v0.17.2** 编写，适用于所有支持 EditorConfig 的编辑器和 IDE。
+> [!TIP] 版本说明
+> 本文档基于 **EditorConfig 规范 v0.17.2** 编写，适用于所有支持 EditorConfig 的编辑器和 IDE。
+>
+> **当前规范版本**：
+>
+> - **EditorConfig 规范**: v0.17.2 (Copyright 2019-2024 by EditorConfig Team)
+> - **官方网站**: [editorconfig.org](https://editorconfig.org/)
+> - **规范文档**: [spec.editorconfig.org](https://spec.editorconfig.org/)
+>
+> **规范更新历史**：
+>
+> - **v0.17.2** (当前版本)：更新文件格式定义
+> - **v0.15.0**：重要变更 - 分号 (;) 和井号 (#) 只能在行首作为注释标记
+> - 修复了值中包含这些字符时的解析混淆问题
+> - **v0.14.0 及更早**：早期规范版本
+>
+> **主流编辑器支持**：
+>
+> - ✅ **Visual Studio Code** - 原生支持（需要扩展）
+> - ✅ **JetBrains IDEs** (WebStorm, IntelliJ IDEA 等) - 原生支持
+> - ✅ **Sublime Text** - 通过插件支持
+> - ✅ **Vim** - 通过插件支持
+> - ✅ **Atom** - 通过插件支持
+> - ✅ **Emacs** - 通过插件支持
 
-**当前规范版本**：
-
-- **EditorConfig 规范**: v0.17.2 (Copyright 2019-2024 by EditorConfig Team)
-- **官方网站**: [editorconfig.org](https://editorconfig.org/)
-- **规范文档**: [spec.editorconfig.org](https://spec.editorconfig.org/)
-
-**规范更新历史**：
-
-- **v0.17.2** (当前版本)：更新文件格式定义
-- **v0.15.0**：重要变更 - 分号 (;) 和井号 (#) 只能在行首作为注释标记
-  - 修复了值中包含这些字符时的解析混淆问题
-- **v0.14.0 及更早**：早期规范版本
-
-**主流编辑器支持**：
-
-- ✅ **Visual Studio Code** - 原生支持（需要扩展）
-- ✅ **JetBrains IDEs** (WebStorm, IntelliJ IDEA 等) - 原生支持
-- ✅ **Sublime Text** - 通过插件支持
-- ✅ **Vim** - 通过插件支持
-- ✅ **Atom** - 通过插件支持
-- ✅ **Emacs** - 通过插件支持
-  :::
-
-:::warning 注意事项
-
-- **注释规则变更**：v0.15.0+ 中，`;` 和 `#` 只能在行首作为注释，不能在行中间
-- **大小写敏感**：配置文件名必须是小写的 `.editorconfig`
-- **作用范围**：配置从当前目录向上查找，直到找到 `root = true` 或到达文件系统根目录
-- **插件版本**：编辑器插件版本号独立于规范版本号
-- **属性优先级**：较近的 `.editorconfig` 文件的配置会覆盖较远的配置
-  :::
+> [!WARNING] 注意事项
+>
+> - **注释规则变更**：v0.15.0+ 中，`;` 和 `#` 只能在行首作为注释，不能在行中间
+> - **大小写敏感**：配置文件名必须是小写的 `.editorconfig`
+> - **作用范围**：配置从当前目录向上查找，直到找到 `root = true` 或到达文件系统根目录
+> - **插件版本**：编辑器插件版本号独立于规范版本号
+> - **属性优先级**：较近的 `.editorconfig` 文件的配置会覆盖较远的配置
 
 ## 为什么需要 EditorConfig
 

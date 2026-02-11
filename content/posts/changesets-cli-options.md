@@ -28,35 +28,33 @@ npx changeset version
 npx changeset publish
 ```
 
-:::tip 版本说明
-本文档基于 **@changesets/cli 2.x** 编写，适用于 Monorepo 项目的版本管理和 changelog 生成。
+> [!TIP] 版本说明
+> 本文档基于 **@changesets/cli 2.x** 编写，适用于 Monorepo 项目的版本管理和 changelog 生成。
+>
+> **当前版本**：
+>
+> - **@changesets/cli**: v2.29.7 (2024 年发布)
+>
+> **主要更新** (2024):
+>
+> - ✅ 更新 is-ci 依赖，改进 CI 环境检测
+> - ✅ npm 7+ 兼容性改进，正确处理 stderr 输出
+> - ✅ 改进 2FA 检查时的错误信息显示
+> - ✅ pnpm workspaces exclude 规则支持
+> - ✅ 修复 pre 模式下的版本号生成问题
+>
+> **核心工作流程**：
+>
+> 1. 📝 开发时：使用 `npx changeset` 记录变更
+> 2. 🔢 发布前：使用 `npx changeset version` 更新版本号和 changelog
+> 3. 🚀 发布时：使用 `npx changeset publish` 发布到 npm
 
-**当前版本**：
-
-- **@changesets/cli**: v2.29.7 (2024 年发布)
-
-**主要更新** (2024):
-
-- ✅ 更新 is-ci 依赖，改进 CI 环境检测
-- ✅ npm 7+ 兼容性改进，正确处理 stderr 输出
-- ✅ 改进 2FA 检查时的错误信息显示
-- ✅ pnpm workspaces exclude 规则支持
-- ✅ 修复 pre 模式下的版本号生成问题
-
-**核心工作流程**：
-
-1. 📝 开发时：使用 `npx changeset` 记录变更
-2. 🔢 发布前：使用 `npx changeset version` 更新版本号和 changelog
-3. 🚀 发布时：使用 `npx changeset publish` 发布到 npm
-   :::
-
-:::warning 注意事项
-
-- 本工具专为 **Monorepo** 设计，单包项目可使用 npm version 或 semantic-release
-- 需要配合 Git 使用，依赖 commit 信息生成 changelog
-- 推荐与 Commitlint 配合使用，确保提交信息规范
-- CI/CD 集成需要配置 NPM_TOKEN 等环境变量
-  :::
+> [!WARNING] 注意事项
+>
+> - 本工具专为 **Monorepo** 设计，单包项目可使用 npm version 或 semantic-release
+> - 需要配合 Git 使用，依赖 commit 信息生成 changelog
+> - 推荐与 Commitlint 配合使用，确保提交信息规范
+> - CI/CD 集成需要配置 NPM_TOKEN 等环境变量
 
 ### 核心特性
 

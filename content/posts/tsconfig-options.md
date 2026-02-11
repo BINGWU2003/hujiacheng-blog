@@ -16,24 +16,22 @@ categories: ["笔记"]
 tsc --init
 ```
 
-:::tip 版本说明
-本文档基于 **TypeScript 5.9+** 编写，包含最新的配置选项和最佳实践。如果你使用旧版本 TypeScript，某些选项可能不可用。
+> [!TIP] 版本说明
+> 本文档基于 **TypeScript 5.9+** 编写，包含最新的配置选项和最佳实践。如果你使用旧版本 TypeScript，某些选项可能不可用。
+>
+> **主要更新**：
+>
+> - ✅ 新增 TypeScript 5.0+ 的 `verbatimModuleSyntax`、`allowImportingTsExtensions` 等选项
+> - ✅ 新增 TypeScript 5.4+ 的 `module: "preserve"` 选项
+> - ✅ 更新了现代前端项目（Vite/Next.js）的推荐配置
+> - ✅ 更新了 Node.js ESM 项目的最佳实践
+> - ✅ 补充了 `noUncheckedIndexedAccess`、`moduleDetection` 等重要选项
 
-**主要更新**：
-
-- ✅ 新增 TypeScript 5.0+ 的 `verbatimModuleSyntax`、`allowImportingTsExtensions` 等选项
-- ✅ 新增 TypeScript 5.4+ 的 `module: "preserve"` 选项
-- ✅ 更新了现代前端项目（Vite/Next.js）的推荐配置
-- ✅ 更新了 Node.js ESM 项目的最佳实践
-- ✅ 补充了 `noUncheckedIndexedAccess`、`moduleDetection` 等重要选项
-  :::
-
-:::warning 注意事项
-
-- 配置选项会随 TypeScript 版本更新而变化
-- 不同的构建工具（Vite、Webpack、esbuild）可能需要不同的配置
-- 建议使用 `tsc --init` 生成初始配置，然后根据项目需求调整
-  :::
+> [!WARNING] 注意事项
+>
+> - 配置选项会随 TypeScript 版本更新而变化
+> - 不同的构建工具（Vite、Webpack、esbuild）可能需要不同的配置
+> - 建议使用 `tsc --init` 生成初始配置，然后根据项目需求调整
 
 ## 基础结构
 

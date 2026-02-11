@@ -133,23 +133,22 @@ const user = {
 console.log(user.name);
 ```
 
-::: info 1.为什么proxy的receiver指向user？
-
-handler.get的receiver为proxy或者继承了proxy的对象：
-
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get
-
-因为user的**proto**指向了proxy（即继承了proxy），所以receiver指向了user。
-
-2.reflect的get的receiver有什么用？
-
-如果target对象中指定了getter，receiver则为getter调用时的this值。
-
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get
-
-即当访问user.name（getter访问器）时，会在proxy的handler.get中执行Reflect.get(target, key, receiver)，使target的this指向receiver（即user），所以this.\_name指向了user.\_name。
-
-:::
+> [!NOTE] 1.为什么proxy的receiver指向user？
+>
+> handler.get的receiver为proxy或者继承了proxy的对象：
+>
+> https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get
+>
+> 因为user的**proto**指向了proxy（即继承了proxy），所以receiver指向了user。
+>
+> 2.reflect的get的receiver有什么用？
+>
+> 如果target对象中指定了getter，receiver则为getter调用时的this值。
+>
+> https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get
+>
+> 即当访问user.name（getter访问器）时，会在proxy的handler.get中执行Reflect.get(target, key, receiver)，使target的this指向receiver（即user），所以this.\_name指向了user.\_name。
+>
 
 ---
 

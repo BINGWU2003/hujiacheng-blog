@@ -13,10 +13,9 @@ categories: ["笔记"]
 
 vite.config.ts 配置
 
-:::warning 注意事项
-
-- 不建议使用相对路径，建议使用绝对路径
-  :::
+> [!WARNING] 注意事项
+>
+> - 不建议使用相对路径，建议使用绝对路径
 
 ```ts
 import { defineConfig } from "vite";
