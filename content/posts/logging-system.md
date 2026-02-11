@@ -9,7 +9,6 @@ showToc: true
 TocOpen: false
 ---
 
-
 ## 概述
 
 本应用实现了一个完整的日志记录和管理系统，用于记录应用运行过程中的关键信息、错误和用户操作。日志系统具有自动清理、用户友好的查看界面等特性。
@@ -80,7 +79,7 @@ function log(message) {
     checkLogFile()
       .then(() => {
         const logMessage = `${dayjs().format(
-          "YYYY/MM/DD HH:mm:ss"
+          "YYYY/MM/DD HH:mm:ss",
         )}: ${message}\n`;
         appendFile(filePath, logMessage, (err) => {
           if (err) {
@@ -183,7 +182,7 @@ function createTray() {
           click: () => {
             const logFilePath = join(
               app.getPath("logs"),
-              `${dayjs().format("YYYY-MM-DD")}.log`
+              `${dayjs().format("YYYY-MM-DD")}.log`,
             );
             if (existsSync(logFilePath)) {
               shell.openPath(logFilePath);
@@ -289,7 +288,6 @@ ipcRenderer.invoke("generate-log", "用户登录成功");
 用户可以通过以下方式查看日志：
 
 1. **通过托盘菜单**：
-
    - 右键点击系统托盘中的应用图标
    - 选择"日志" → "查看所有日志"或"查看当天日志"
 
@@ -367,12 +365,10 @@ YYYY/MM/DD HH:mm:ss: 日志消息内容
 ### 常见问题
 
 1. **日志文件不存在**
-
    - 检查应用是否有写入权限
    - 确认日志目录是否可访问
 
 2. **日志写入失败**
-
    - 检查磁盘空间是否充足
    - 确认文件是否被其他程序占用
 
@@ -381,4 +377,3 @@ YYYY/MM/DD HH:mm:ss: 日志消息内容
    - 确认日期解析逻辑是否正常工作
 
 ---
-
