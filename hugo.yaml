@@ -1,4 +1,4 @@
-baseURL: "https://hujiacheng.com/"
+baseURL: "https://hujiacheng-blog.netlify.app/"
 languageCode: "zh-cn"
 title: "hujiacheng的技术博客"
 theme: "PaperMod"
@@ -55,20 +55,18 @@ params:
 
   # 首页配置
   homeInfoParams:
-    Title: "你好，我是 hujiacheng"
+    Title: "Hey, I'm hujiacheng"
     Content: |
-      欢迎来到我的技术博客！
+      Welcome to my tech blog.
 
-      在这里我会分享编程实践、技术思考和学习笔记。
+      这里记录我在软件开发中的思考与实践。
 
-      持续学习，保持好奇。
+      内容涵盖前后端开发、工具链、架构设计等方向。
 
   # 社交链接
   socialIcons:
     - name: github
-      url: "https://github.com/hujiacheng"
-    - name: email
-      url: "mailto:your-email@example.com"
+      url: "https://github.com/BINGWU2003"
     - name: rss
       url: "/index.xml"
 

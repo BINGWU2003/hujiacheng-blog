@@ -1,5 +1,5 @@
 ---
-title: "关于我"
+title: "关于"
 url: "/about/"
 summary: "关于我"
 hidemeta: true
@@ -9,32 +9,31 @@ ShowWordCount: false
 ShowBreadCrumbs: false
 ---
 
-## 你好！
+## About Me
 
-我是**hujiacheng**，一名技术爱好者。
+我是 **hujiacheng**，一名软件开发者。
 
-### 关于本站
+这是我的个人技术博客，用来记录开发过程中的技术总结、学习笔记和工程实践。
 
-这是我的个人技术博客，主要记录：
+### 内容方向
 
-- 日常开发中的技术总结
-- 学习新技术的笔记与心得
-- 实用的工具与工作流分享
-- 编程思考与架构设计
+- 前端与后端开发实践
+- 开发工具与工作流优化
+- 系统设计与架构思考
+- 技术选型与踩坑记录
 
 ### 技术栈
 
-<!-- 根据你的实际情况修改 -->
+**前端** -- HTML / CSS / JavaScript / TypeScript / Vue / React
 
-- **前端**: HTML / CSS / JavaScript / TypeScript / Vue / React
-- **后端**: Node.js / Go / Python
-- **工具**: Git / Docker / Linux
+**后端** -- Node.js / Go / Python
 
-### 联系方式
+**工具** -- Git / Docker / Linux / VS Code
 
-- **GitHub**: [hujiacheng](https://github.com/hujiacheng)
-- **Email**: your-email@example.com
+### 找到我
+
+- GitHub: [BINGWU2003](https://github.com/BINGWU2003)
 
 ---
 
-> 写博客是一种输出倒逼输入的学习方式。希望这里的内容对你有所帮助！
+> Build, break, learn, repeat.
