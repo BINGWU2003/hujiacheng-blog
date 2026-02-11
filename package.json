@@ -1,0 +1,9 @@
+{
+  "name": "hujiacheng-blog",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server --port 3333",
+    "build": "hugo --gc --minify",
+    "preview": "hugo server --port 3333 --buildDrafts"
+  }
+}
