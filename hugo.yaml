@@ -1,0 +1,120 @@
+baseURL: "https://hujiacheng.com/"
+languageCode: "zh-cn"
+title: "hujiacheng的技术博客"
+theme: "PaperMod"
+
+pagination:
+  pagerSize: 10
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+# SEO & 性能优化
+enableEmoji: true
+enableGitInfo: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+# 输出格式 - 支持搜索索引和 RSS
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  title: "hujiacheng的技术博客"
+  description: "分享前端开发、后端技术、架构设计与编程实践的个人技术博客"
+  keywords: [技术博客, 前端开发, 后端技术, 编程, 架构设计]
+  author: "hujiacheng"
+  # images: ["/images/avatar.png"]
+
+  DateFormat: "2006-01-02"
+  defaultTheme: auto
+
+  # 阅读体验优化
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  ShowLastMod: true
+  ShowToc: true
+  TocOpen: false
+  UseHugoToc: true
+
+  # 评论（取消注释并填入你的配置来启用）
+  # comments: true
+
+  # 首页配置
+  homeInfoParams:
+    Title: "你好，我是 hujiacheng"
+    Content: |
+      欢迎来到我的技术博客！
+
+      在这里我会分享编程实践、技术思考和学习笔记。
+
+      持续学习，保持好奇。
+
+  # 社交链接
+  socialIcons:
+    - name: github
+      url: "https://github.com/hujiacheng"
+    - name: email
+      url: "mailto:your-email@example.com"
+    - name: rss
+      url: "/index.xml"
+
+  # 搜索配置
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+# 菜单配置
+menu:
+  main:
+    - identifier: archives
+      name: "归档"
+      url: /archives/
+      weight: 10
+    - identifier: tags
+      name: "标签"
+      url: /tags/
+      weight: 20
+    - identifier: categories
+      name: "分类"
+      url: /categories/
+      weight: 30
+    - identifier: search
+      name: "搜索"
+      url: /search/
+      weight: 40
+    - identifier: about
+      name: "关于"
+      url: /about/
+      weight: 50
+
+# Markdown 渲染配置
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    noClasses: true
+    style: monokai
