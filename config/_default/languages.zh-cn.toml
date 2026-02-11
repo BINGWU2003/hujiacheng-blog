@@ -9,12 +9,12 @@ title = "hujiacheng的技术博客"
   isoCode = "zh-cn"
   rtl = false
   dateFormat = "2006-01-02"
-  logo = "img/blowfish_logo_transparent.png"
+  logo = "img/avatar.png"
   description = "分享前端开发、后端技术、架构设计与编程实践的个人技术博客"
 
 [params.author]
   name = "hujiacheng"
-  image = "img/blowfish_logo.png"
+  image = "https://avatars.githubusercontent.com/u/124435001?v=4"
   headline = "🧑‍💻 前端工程师 | 💪 努力变得更好"
   bio = "Front-end Developer / Strive To Become Better"
   links = [

@@ -26,6 +26,12 @@
   url = "https://github.com/BINGWU2003"
   weight = 200
 
+[[main]]
+  identifier = "blowfish"
+  pre = "globe"
+  url = "https://blowfish.page"
+  weight = 210
+
 # -- Footer Menu --
 [[footer]]
   name = "标签"
