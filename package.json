@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "hugo server --port 3333",
     "build": "hugo --gc --minify",
-    "preview": "hugo server --port 3333 --buildDrafts"
+    "preview": "hugo server --port 3333 --buildDrafts",
+    "theme:init": "git submodule update --init --recursive",
+    "theme:update": "git submodule update --remote themes/blowfish"
   }
 }
