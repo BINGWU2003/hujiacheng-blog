@@ -45,6 +45,4 @@ showRelatedContent: false
 ## 📬 联系我
 
 - {{< icon "github" >}} [GitHub](https://github.com/BINGWU2003)
-- 💬 微信: BINGWU_BW
-- 🐧 QQ: 1034291441
-- ✉️ 邮箱: [hujiacheng2003@163.com](mailto:hujiacheng2003@163.com)
+- {{< icon "envelope" >}} [hujiacheng2003@163.com](mailto:hujiacheng2003@163.com)
