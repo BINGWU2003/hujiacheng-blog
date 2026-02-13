@@ -127,7 +127,58 @@ categories: ["笔记"]
 **结论：**
 算法选择 `2, 3, 4` 是因为它具有**更高的容错率**和**更广的兼容性**。虽然在这个特定例子中两者长度一样，但在更复杂的随机数据中，**贪心策略（选小的）总是能大概率保证最终序列是最长的。**
 
-## 6. 回溯修正 (Backtracking)
+## 6. LIS 算法完整流程图
+
+下面的流程图展示了 LIS 算法从初始化到回溯的完整执行流程：
+
+{{< mermaid >}}
+flowchart TD
+Start([开始]) --> Init["初始化:<br/>p = arr.slice<br/>result = 0<br/>i = 0"]
+Init --> LoopCheck{"i 小于<br/>arr.length?"}
+
+    LoopCheck -->|是| CheckZero{"arr(i)<br/>不等于 0?"}
+    LoopCheck -->|否| Backtrack[回溯阶段开始]
+
+    CheckZero -->|是| GetLast["获取 j =<br/>result 末尾索引"]
+    CheckZero -->|否| NextIter1["i 自增"]
+    NextIter1 --> LoopCheck
+
+    GetLast --> Compare{"arr(i)<br/>大于<br/>arr(j)?"}
+
+    Compare -->|是| Append["追加操作:<br/>p(i) = j<br/>result.push(i)"]
+    Compare -->|否| BinarySearch["二分查找:<br/>找到第一个<br/>比 arr(i) 大的位置 u"]
+
+    Append --> NextIter2["i 自增"]
+    NextIter2 --> LoopCheck
+
+    BinarySearch --> CheckReplace{"arr(i) 小于<br/>arr(result(u))?"}
+
+    CheckReplace -->|是| Replace["替换操作:<br/>if u 大于 0:<br/>  p(i) = result(u-1)<br/>result(u) = i"]
+    CheckReplace -->|否| NextIter3["i 自增"]
+
+    Replace --> NextIter4["i 自增"]
+    NextIter4 --> LoopCheck
+    NextIter3 --> LoopCheck
+
+    Backtrack --> BackInit["u = result.length<br/>v = result 末尾元素"]
+    BackInit --> BackLoop{"u 大于 0?"}
+
+    BackLoop -->|是| BackRestore["result(u) = v<br/>v = p(v)<br/>u 自减"]
+    BackLoop -->|否| Return([返回 result])
+
+    BackRestore --> BackLoop
+
+    style Start stroke:#4caf50,stroke-width:3px
+    style Return stroke:#4caf50,stroke-width:3px
+    style Append stroke:#ff9800,stroke-width:2px
+    style Replace stroke:#e91e63,stroke-width:2px
+    style BinarySearch stroke:#2196f3,stroke-width:2px
+    style Backtrack stroke:#9c27b0,stroke-width:2px
+    style BackRestore stroke:#9c27b0,stroke-width:2px
+
+{{< /mermaid >}}
+
+## 7. 回溯修正 (Backtracking)
 
 从 `result` 的末尾开始，利用 `p` 还原真相。
 
@@ -144,7 +195,7 @@ categories: ["笔记"]
 
 **最终输出**: `[0, 3, 4, 5]` (对应值 `2, 3, 4, 9`)。✅
 
-## 7. 源码逐行精读
+## 8. 源码逐行精读
 
 ```javascript
 function getSequence(arr) {
@@ -204,7 +255,7 @@ function getSequence(arr) {
 }
 ```
 
-## 8. 总结 Q&A
+## 9. 总结 Q&A
 
 ### Q1: 为什么回溯时，`result` 中间的乱序不会导致错误？
 

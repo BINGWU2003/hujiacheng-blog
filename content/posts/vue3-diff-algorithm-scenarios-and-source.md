@@ -14,6 +14,54 @@ Vue 3 的 Diff 算法采用了 **双端对比 + 最长递增子序列 (LIS)** �
 - **目标**：以最小的代价（最少的 DOM 操作）将旧的 DOM 结构更新为新的结构。
 - **流程**：先处理“头”和“尾”相同的节点（预处理），缩小乱序范围；最后处理剩余的乱序节点。
 
+### 1.1 算法流程图
+
+{{< mermaid >}}
+flowchart TD
+Start([开始 patchKeyedChildren]) --> SyncStart[场景1: 从头同步<br/>Sync from Start]
+SyncStart --> SyncEnd[场景2: 从尾同步<br/>Sync from End]
+SyncEnd --> CheckRemaining{检查剩余节点}
+
+    CheckRemaining -->|i > oldEnd<br/>且 i <= newEnd| MountNew[场景3: 新增挂载<br/>Mount New Nodes]
+    CheckRemaining -->|i > newEnd<br/>且 i <= oldEnd| UnmountOld[场景4: 删除多余<br/>Unmount Old Nodes]
+    CheckRemaining -->|还有乱序节点| UnknownSeq[场景5: 乱序序列处理<br/>Unknown Sequence]
+
+    MountNew --> End([结束])
+    UnmountOld --> End
+
+    UnknownSeq --> BuildMap[5.1 构建新节点映射表<br/>keyToNewIndexMap]
+    BuildMap --> TraverseOld[5.2 遍历旧节点<br/>Patch or Unmount]
+    TraverseOld --> CheckMoved{是否需要<br/>移动节点?}
+
+    CheckMoved -->|moved = true| CalcLIS[5.3 计算 LIS<br/>getSequence]
+    CheckMoved -->|moved = false| ReverseLoop[倒序遍历<br/>挂载新节点]
+
+    CalcLIS --> ReverseLoop
+    ReverseLoop --> CheckNode{检查节点}
+    CheckNode -->|值为 0| Mount[挂载新节点]
+    CheckNode -->|不在 LIS 中| Move[移动节点]
+    CheckNode -->|在 LIS 中| Skip[跳过 不移动]
+
+    Mount --> MoreNodes{还有节点?}
+    Move --> MoreNodes
+    Skip --> MoreNodes
+    MoreNodes -->|是| CheckNode
+    MoreNodes -->|否| End
+
+    classDef startEnd stroke:#0ea5e9,stroke-width:3px
+    classDef complexNode stroke:#f59e0b,stroke-width:2px,stroke-dasharray: 5 5
+    classDef mountNode stroke:#10b981,stroke-width:2px
+    classDef unmountNode stroke:#ef4444,stroke-width:2px
+    classDef lisNode stroke:#06b6d4,stroke-width:2px
+
+    class Start,End startEnd
+    class UnknownSeq,BuildMap,TraverseOld complexNode
+    class MountNew,Mount mountNode
+    class UnmountOld unmountNode
+    class CalcLIS,ReverseLoop lisNode
+
+{{< /mermaid >}}
+
 ## 2. 场景一：从头同步 (Sync from Start)
 
 **逻辑**：

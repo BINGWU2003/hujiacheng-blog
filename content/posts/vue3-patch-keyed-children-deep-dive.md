@@ -31,6 +31,78 @@ Vue 的目标是：**复用能复用的，删除多余的，新增没有的，�
 2. **清理旧节点 (Clean Old)**：遍历旧节点，进行打补丁 (Patch) 或 删除 (Unmount)。
 3. **移动与挂载 (Move & Mount)**：利用 LIS 算法，移动节点或挂载新节点。
 
+### 乱序 Diff 流程图
+
+{{< mermaid >}}
+flowchart TD
+Start([开始乱序处理<br/>Unknown Sequence]) --> Step1[步骤1: 建立索引图<br/>Build keyToNewIndexMap]
+
+    Step1 --> InitVars[初始化变量<br/>patched=0, moved=false<br/>maxNewIndexSoFar=0]
+    InitVars --> Step2[步骤2: 遍历旧节点<br/>oldStartIndex to oldEnd]
+
+    Step2 --> CheckFull{patched 大于等于<br/>toBePatched?}
+    CheckFull -->|是<br/>名额已满| UnmountB[Unmount<br/>直接删除]
+    CheckFull -->|否| FindInMap{在 Map 中<br/>找到 Key?}
+
+    FindInMap -->|未找到| UnmountA[Unmount<br/>查无此人]
+    FindInMap -->|找到| RecordMap[记录映射<br/>newIndexToOldIndexMap]
+
+    RecordMap --> CheckOrder{newIndex 大于等于<br/>maxNewIndexSoFar?}
+    CheckOrder -->|是<br/>递增| UpdateMax[更新水位线<br/>maxNewIndexSoFar = newIndex]
+    CheckOrder -->|否<br/>乱序| SetMoved[标记 moved = true]
+
+    UpdateMax --> PatchNode[Patch 复用节点<br/>patched++]
+    SetMoved --> PatchNode
+
+    PatchNode --> MoreOld{还有旧节点?}
+    UnmountA --> MoreOld
+    UnmountB --> MoreOld
+    MoreOld -->|是| CheckFull
+    MoreOld -->|否| Step3
+
+    Step3[步骤3: 移动与挂载] --> CheckMoved{moved 等于 true?}
+    CheckMoved -->|是| CalcLIS[计算 LIS<br/>getSequence]
+    CheckMoved -->|否| SkipLIS[跳过 LIS 计算<br/>increasingNewIndexSequence = 空]
+
+    CalcLIS --> ReverseLoop[倒序遍历新节点<br/>toBePatched-1 to 0]
+    SkipLIS --> ReverseLoop
+
+    ReverseLoop --> CalcAnchor[计算锚点 Anchor<br/>下一个节点的 el]
+    CalcAnchor --> CheckValue{映射值<br/>等于 0?}
+
+    CheckValue -->|是<br/>新节点| Mount[Mount<br/>挂载新节点]
+    CheckValue -->|否| CheckMovedAgain{需要移动?}
+
+    CheckMovedAgain -->|moved=false| Skip[Skip<br/>跳过不动]
+    CheckMovedAgain -->|moved=true| InLIS{在 LIS 中?}
+
+    InLIS -->|是| Skip
+    InLIS -->|否| Move[Move<br/>移动节点]
+
+    Mount --> MoreNew{还有新节点?}
+    Skip --> MoreNew
+    Move --> MoreNew
+    MoreNew -->|是| CalcAnchor
+    MoreNew -->|否| End([结束])
+
+    classDef startEnd stroke:#0ea5e9,stroke-width:3px
+    classDef buildStep stroke:#8b5cf6,stroke-width:2px
+    classDef cleanStep stroke:#f59e0b,stroke-width:2px
+    classDef moveStep stroke:#06b6d4,stroke-width:2px
+    classDef unmountNode stroke:#ef4444,stroke-width:2px
+    classDef patchNode stroke:#10b981,stroke-width:2px
+    classDef lisNode stroke:#8b5cf6,stroke-width:2px,stroke-dasharray:5 5
+
+    class Start,End startEnd
+    class Step1,InitVars,FindInMap buildStep
+    class Step2,CheckFull,RecordMap,CheckOrder,UpdateMax,SetMoved cleanStep
+    class Step3,CheckMoved,ReverseLoop,CalcAnchor,CheckValue,CheckMovedAgain,InLIS moveStep
+    class UnmountA,UnmountB unmountNode
+    class PatchNode,Mount,Move patchNode
+    class CalcLIS,SkipLIS lisNode
+
+{{< /mermaid >}}
+
 ### 第一步：建立新节点索引图 (KeyToNewIndexMap)
 
 Vue 为了避免在遍历旧节点时使用双重循环（导致 复杂度），首先会遍历一遍**新节点列表**，生成一个 `Map`。
