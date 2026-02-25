@@ -137,3 +137,40 @@ const Button: React.FC<Props> = ({ type, className }) => {
 | **动态绑定**   | `:class="{ active: ok }"` | `cx({ active: ok })`             |
 | **外部类名**   | 自动合并                  | 手动合并或在 `cx` 参数中加入变量 |
 | **智能补全**   | Volar                     | `sass-dts` + `createCx`          |
+
+## 7. vscode css modules插件
+
+也可以使用vscode的css modules插件，来实现css modules的智能补全和动态绑定。
+
+但是cx函数的类型提示会失效,只能手动输入。
+
+插件地址：[vscode-css-modules](https://marketplace.visualstudio.com/items?itemName=clinyong.vscode-css-modules)
+
+```tsx
+import { createCx } from "../../utils/typedCx";
+import rawStyles from "./button.module.scss";
+
+interface ButtonProps {
+  isPrimary: boolean;
+  isDisabled: boolean;
+}
+
+const cx = createCx(rawStyles);
+
+const Button = ({ isPrimary, isDisabled }: ButtonProps) => {
+  return (
+    <div className={rawStyles.container}>
+      <button
+        className={cx("btn-primary", {
+          "btn-disabled": isDisabled,
+          "btn-primary": isPrimary,
+        })}
+      >
+        提交
+      </button>
+    </div>
+  );
+};
+
+export default Button;
+```
