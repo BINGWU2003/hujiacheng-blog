@@ -58,7 +58,7 @@ queryString.stringify({
 
 直接用 form 表单提交数据就是这种，它和 query 字符串的方式的区别只是放在了 body 里，然后指定下 content-type 是 `application/x-www-form-urlencoded`。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b09a4411e26a40a0be7272dae3213eeb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/133f466ffda6.png)
 
 因为内容也是 query 字符串，所以也要用 encodeURIComponent 的 api 或者 query-string 库处理下。
 
@@ -70,7 +70,7 @@ queryString.stringify({
 
 form data 不再是通过 & 分隔数据，而是用 --------- + 一串数字做为 boundary 分隔符。因为不是 url 的方式了，自然也不用再做 url encode。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af563395e1984ea5b90a19a04ce6730f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/83429a46ff70.png)
 
 form-data 需要指定 content type 为 `multipart/form-data`，然后指定 boundary 也就是分割线。
 
@@ -86,7 +86,7 @@ form-urlencoded 需要对内容做 url encode，而 form data 则需要加很长
 
 可以直接指定content type 为 application/json 就行：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c429166d35264cea922ebe45d399d4ef~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a395f5467440.png)
 
 我们平时传输 json 数据基本用的是这种。
 
@@ -102,30 +102,30 @@ Nest 创建一个 crud 服务是非常快的，只需要这么几步：
 ```
 nest new xxx
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90a973017feb47e48e69c5054b2faa83~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=942&h=738&s=241806&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4683dcd1b03c.png)
 
 *   在根目录执行 nest g resource person 快速生成 person 模块的 crud 代码
 ```
 nest g resource person
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11b0c13aa815440eac113ad6b73f42a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=834&h=458&s=111235&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/489520bdbb46.png)
 
 *   nest start --watch 启动 Nest 服务
 ```
 nest start --watch
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a5e59b898a14bfbbfa649299f91d2ec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1536&h=550&s=228917&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62e2f72e4e84.png)
 
 这样一个有 person 的 crud 接口的服务就跑起来了。
 
 服务跑起来以后是这样的
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47547045ae0e48f0959e9f52b284cfe7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8612834780b7.png)
 
 打印出了有哪些接口可以用，可以在浏览器测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b290de4da2f249358342ceb7aa3c3dcf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/67adeaf32ef2.png)
 
 api 接口跑通了，再支持下静态资源的访问：
 
@@ -154,7 +154,7 @@ bootstrap();
 
 重启服务，然后浏览器访问下试试：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a1c5ea5d5c44227b083db1bd516f950~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62aff8dc79cb.png)
 
 api 接口和静态资源的访问都支持了，接下来就分别实现下 5 种前后端 http 数据传输的方式吧。
 
@@ -195,7 +195,7 @@ export class PersonController {
 
 启动服务，在浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03cc5b8bea74411eb1d2c13ff9951be2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2feb9c768398.png)
 
 控制台打印了服务端返回的消息，证明服务端拿到了通过 url param 传递的数据。
 
@@ -219,7 +219,7 @@ export class PersonController {
 
 注意，这个 find 的路由要放到 :id 的路由前面，因为 Nest 是从上往下匹配的，如果放在后面，那就匹配到 :id 的路由了。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c07cbcf33e64205904f6dd0a813cda6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ce9391b1537.png)
 
 前端代码同样是通过 axios 发送一个 get 请求：
 
@@ -250,7 +250,7 @@ export class PersonController {
 
 然后测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4648b0e210f49f2885e0f2e10654cdc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53d39b7fad2c.png)
 
 服务端成功接受了我们通过 query 传递的数据。
 
@@ -260,7 +260,7 @@ export class PersonController {
 
 form urlencoded 是通过 body 传输数据，其实是把 query 字符串放在了 body 里，所以需要做 url encode：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e33a33bdee4541eaab6af22108010161~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4fb4c1ad8d3.png)
 
 用 Nest 接收的话，使用 @Body 装饰器，Nest 会解析请求体，然后注入到 dto 中。
 
@@ -314,7 +314,7 @@ export class PersonController {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2579657d1464c618e7ef7f5b1032f2d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7aa54096d88b.png)
 
 服务端成功的接收到了数据。
 
@@ -324,7 +324,7 @@ export class PersonController {
 
 json 需要指定 content-type 为 `application/json`，内容会以 JSON 的方式传输：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1e8cb55184943d9be3df6ccf9644f74~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bca31881aaad.png)
 
 后端代码同样使用 @Body 来接收，不需要做啥变动。form urlencoded 和 json 都是从 body 取值，Nest 内部会根据 content type 做区分，使用不同的解析方式。
 
@@ -363,7 +363,7 @@ export class PersonController {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8976bc8696d846a58e4812a7ab5f6d2f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed182ac11f54.png)
 
 服务端成功接收到了通过 json 传递的数据！
 
@@ -373,7 +373,7 @@ json 和 form urlencoded 都不适合传递文件，想传输文件要用 form d
 
 form data 是用 -------- 作为 boundary 分隔传输的内容的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e22d13b586a4d358cb569acd4cf35dc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ec2bb3f2131.png)
 
 Nest 解析 form data 使用 FilesInterceptor 的拦截器，用 @UseInterceptors 装饰器启用，然后通过 @UploadedFiles 来取。非文件的内容，同样是通过 @Body 来取。
 
@@ -436,17 +436,17 @@ file input 指定 multiple 可以选择多个文件。
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29fbb5ee24af48c1b1744c129c77fb7a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f986c3c9cd83.png)
 
 服务端接收到了 name 和 age：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c56d6418815c4726a493d4f1ffef72b0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a7e09ecf9f8.png)
 
 去服务器控制台看下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8924b69b7c044b65a475ad8576f6c549~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6817a5056078.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78efe5d63a0846799583ca66f3dc5c39~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3e9d9154c5d.png)
 
 可以看到，服务器成功的接收到了我们上传的文件。
 

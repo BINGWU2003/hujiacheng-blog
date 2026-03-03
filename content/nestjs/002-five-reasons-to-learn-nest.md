@@ -41,7 +41,7 @@ express、koa 这种处理请求响应的库并不能约束代码的写法，代
 
 <https://github.com/apitable/apitable/tree/35b05eb421d31a4e4b68ca0bacb1fb484186f4ea/packages/room-server>
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c03ce098c634b8781fc03d5c68c6949~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f49fbff58a70.png)
 
 那 egg 和 midway 呢？
 

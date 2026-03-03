@@ -33,7 +33,7 @@ Nest 是对标 Java 的 Spring 框架的后端框架，它有很多概念。
 
 比如这里就是声明了一个 /user/create 的 post 接口，声明了一个 /user/list 的 get 接口。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a19d46cc04f8400da242cdf3256b87c4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1908&h=1002&s=260008&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/207721840a98.png)
 
 在 class 上和它方法的方法上加上 @Controller、@Get、@Post 的装饰器就可以了。
 
