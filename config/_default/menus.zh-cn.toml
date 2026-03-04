@@ -6,9 +6,14 @@
   weight = 10
 
 [[main]]
-  name = "NestJS"
-  pageRef = "nestjs"
+  name = "小册"
   weight = 15
+
+[[main]]
+  name = "NestJS"
+  parent = "小册"
+  pageRef = "nestjs"
+  weight = 10
 
 [[main]]
   name = "标签"
