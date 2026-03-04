@@ -15,119 +15,119 @@ Nest 的功能都是大多通过装饰器来使用的，这节我们就把所有
 
     nest new all-decorator -p npm
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1824b5769a7c4cd4a1862918af0dffe8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/710285627e9b.png)
 
 Nest 提供了一套模块系统，通过 @Module声明模块：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/350bf6ae1f1d425aba1e30a2112c75f4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4b8451a9259.png)
 
 通过 @Controller、@Injectable 分别声明其中的 controller 和 provider：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/835bb7e52eb24497bec4a6c97a682307~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f36a35ced6c.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63c2e0a4e2e04d638fd510e658429265~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ba1650c89da.png)
 
 这个 provider 可以是任何的 class：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a32aed0be559462d8734925deebc8e1f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd87cda2fa21.png)
 
 注入的方式可以是构造器注入：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97763942ca1843eab617d82a2b6ee164~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e3d7d1887ff0.png)
 
 或者属性注入：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b66d2ff31184e689a22bef888eb4b77~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/063345407175.png)
 
 属性注入要指定注入的 token，可能是 class 也可能是 string。
 
 你可以通过 useFactory、useValue 等方式声明 provider：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/035c9f0ee8e540aaa5e1ceadb1ce9aa2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bda6c0fd5629.png)
 
 这时候也需要通过 @Inject 指定注入的 token：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16e14a5849b64701b3f74162046c6f38~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ecb41592627.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97c08058adb944cabe6367d070c01546~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1eb3fa49cdc5.png)
 
 这些注入的依赖如果没有的话，创建对象时会报错。但如果它是可选的，你可以用 @Optional 声明一下，这样没有对应的 provider 也能正常创建这个对象。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9742d2a930b47018c07a627b57cfdb3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e04df804d881.png)
 
 如果模块被很多地方都引用，为了方便，可以用 @Global 把它声明为全局的，这样它 exports 的 provider 就可以直接注入了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16ce92233e484b4e974c9af63f24a8bc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3fddecffabaa.png)
 
 filter 是处理抛出的未捕获异常的，通过 @Catch 来指定处理的异常：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cd95a5fb6b44d17869c3ae45fda9467~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ecd7dd75452a.png)
 
 然后通过 @UseFilters 应用到 handler 上：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f824522eee2d4c9f96b38b1784879280~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1491bbd56ada.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73b48391b96245438e60872b913d5108~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d5cc3cd54a74.png)
 
 除了 filter 之外，interceptor、guard、pipe 也是这样用：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54b937a0d54a40a19b81624eb8e82a1b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d3c1e09b2f64.png)
 
 当然，pipe 更多还是单独在某个参数的位置应用：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fced92c2344495b86524871d8ed9cfa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51b9962eb893.png)
 
 这里的 @Query 是取 url 后的 ?bbb=true，而 @Param 是取路径中的参数，比如 /xxx/111 种的 111
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f61a443880944b1bb1aff47d2e77e769~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/52c3779f5d8c.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/493ea39f11f1488ba3bd53dc6f4ee405~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e640ded44a80.png)
 
 此外，如果是 @Post 请求，可以通过 @Body 取到 body 部分：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a10d3521580a486ca1348b3f9b7bdde8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b20486f5d13f.png)
 
 我们一般用 dto 的 class 来接受请求体里的参数：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58338c7cc0634a388c58bde39f5bc8b6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d8a1befae67.png)
 
 nest 会实例化一个 dto 对象：
 
 用 postman 发个 post 请求：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a959786094d4690832d0af884921c12~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a361ce85a61.png)
 
 可以看到 nest 接受到了 body 里的参数：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4bfb3d526abb4b478ccd3bc9988d486f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c2ba8480ef40.png)
 
 除了 @Get、@Post 外，还可以用 @Put、@Delete、@Patch、@Options、@Head 装饰器分别接受 put、delete、patch、options、head 请求：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf5a32293fde40beb8e9f19d91e81329~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d1a31f8a91e4.png)
 
 handler 和 class 可以通过 @SetMetadata 指定 metadata：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/937ac8e44f2d4fedb9818a0b6c8e70c5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6cfbed6f7b92.png)
 
 然后在 guard 或者 interceptor 里取出来：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27163078cd944d68b10c13068dc08145~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c45dd3432361.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5971233494fb4a1bb6968501878dd66a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d1bb90fe87f.png)
 
 你可以通过 @Headers 装饰器取某个请求头 或者全部请求头：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59578d6bc6a64764a276c3fb8abbb1e8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8e323bed50e.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/583883749dc14df0b5d1ed7efbffee1c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76ad5f799cfa.png)
 
 通过 @Ip 拿到请求的 ip：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0dadc94181774a94aa3913d8d793909f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d40cc2c9245.png)
 
 通过 @Session 拿到 session 对象：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f8c71364e3849e3b6fd1b9b9dacaeea~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e4aa73019e42.png)
 
 但要使用 session 需要安装一个 express 中间件：
 
@@ -135,25 +135,25 @@ handler 和 class 可以通过 @SetMetadata 指定 metadata：
 
 在 main.ts 里引入并启用：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5971294374b641c7b099f95471b4f6e6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6fb3424c3860.png)
 
 指定加密的密钥和 cookie 的存活时间。
 
 然后刷新页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d3b62447a4041e6b9f666da1d8e2705~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/729a805e0f10.png)
 
 会返回 set-cookie 的响应头，设置了 cookie，包含 sid 也就是 sesssionid。
 
 之后每次请求都会自动带上这个 cookie：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/466415bd1d9941a38053e08a61d53d89~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ec3d239e627d.png)
 
 这样就可以在 session 对象里存储信息了。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f5bb63a915e4218aa6e1a997e8e4db0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccfb3691c902.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/83805b26ffed403fb45106412479d766~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/29becd24308f.gif)
 
 @HostParam 用于取域名部分的参数：
 
@@ -161,7 +161,7 @@ handler 和 class 可以通过 @SetMetadata 指定 metadata：
 
     nest g controller aaa --no-spec --flat
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a30b153d260842c4b0a21aa9ab37bd46~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/100631a1e6af.png)
 
 这样指定 controller 的生效路径：
 
@@ -179,11 +179,11 @@ export class AaaController {
 
 controller 除了可以指定某些 path 生效外，还可以指定 host：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0acf98f2b82041df81cb8a7e92f639b2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/074a175e7fe8.png)
 
 然后再访问下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e44328d1d6d74a01914d0ac5187a8bc4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b703200e7e2.gif)
 
 这时候你会发现只有 host 满足 xx.0.0.1 的时候才会路由到这个 controller。
 
@@ -201,71 +201,71 @@ export class AaaController {
 }
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a059c8c10ae74b80862238fdf7935043~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d48824b9c420.gif)
 
 前面取的这些都是 request 里的属性，当然也可以直接注入 request 对象：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f2bd6c37caf46b6b1e4b96f29e78291~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be72c11e4af9.png)
 
 通过 @Req 或者 @Request 装饰器，这俩是同一个东西：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4041e1d300b14403bc05d1bc296829f4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85d7c46017db.png)
 
 注入 request 对象后，可以手动取任何参数：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2bfdaeb455a34a6a8d1bf655fdc979c4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bddc1055ff03.png)
 
 当然，也可以 @Res 或者 @Response 注入 response 对象，只不过 response 对象有点特殊：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0069b293e87e44a8af1df6a6150ff511~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78d32fb8e737.png)
 
 当你注入 response 对象之后，服务器会一直没有响应：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a328cef97c9242fb8c2b93e50feb9b9c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de6c32f4d8a5.png)
 
 因为这时候 Nest 就不会再把 handler 返回值作为响应内容了。
 
 你可以自己返回响应：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b22ecf0abbab49eca095d05d8a03644e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8450a89095d8.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b940ec0f01b4a268b32ac10f7d15842~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a76ef30d067.png)
 
 Nest 这么设计是为了避免你自己返回的响应和 Nest 返回的响应的冲突。
 
 如果你不会自己返回响应，可以通过 passthrough 参数告诉 Nest：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/404c6fe6d28947de89e1b94d3b535e5c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dbc3f65b4881.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b940ec0f01b4a268b32ac10f7d15842~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a76ef30d067.png)
 
 除了注入 @Res 不会返回响应外，注入 @Next 也不会：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b696471d11644cc8dc4a07efd697546~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/320f68d173d2.png)
 
 当你有两个 handler 来处理同一个路由的时候，可以在第一个 handler 里注入 next，调用它来把请求转发到第二个 handler：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f74e4f19b09e434496a5dfe35caedc66~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9396c7b03b51.png)
 
 Nest 不会处理注入 @Next 的 handler 的返回值。
 
 handler 默认返回的是 200 的状态码，你可以通过 @HttpCode 修改它：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7148d5f586494f9891b1d4a43cebc103~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5217f44c87c.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2e4d8c9ee3b4598b6bfdd53f6d1c61d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63a5e8d42940.png)
 
 当然，你也可以修改 response header，通过 @Header 装饰器：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ce211852e9e4d5c9d9f954355f5c60b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d42847c5de6.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00ef498cad0d4670821b46eb64a12731~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de1600eb74c7.png)
 
 此外，你还可以通过 @Redirect 装饰器来指定路由重定向的 url：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ee4edf4a78b4fb683fb4f48d91270a5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20c10159ca26.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d563d9e5836f49038f9ad7db40702f85~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed46081a4c57.gif)
 
 或者在返回值的地方设置 url：
 
@@ -282,7 +282,7 @@ async jump() {
 
 你还可以给返回的响应内容指定渲染引擎，不过这需要先这样设置：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3dc3a9722af1467eb26f7b21f028abfe~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b542eb860a3.png)
 
 ```javascript
 import { NestFactory } from '@nestjs/core';
@@ -311,17 +311,17 @@ bootstrap();
 
 然后准备图片和模版文件：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3eab9c35c1534e2b9a173302480cda32~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ddbad9afb56f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5afa60e3c49c4ac7af3fe65f1f52a96c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8ecba5b4e660.png)
 
 在 handler 里指定模版和数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcd6047993244f07a6ac050aaf654573~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/091ad562950a.png)
 
 就可以看到渲染出的 html 了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b59a367d570e4a5f84332ee02b8ac0d8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4abe5ca90cb.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/all-decorator)。
 

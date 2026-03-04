@@ -15,7 +15,7 @@ series_order: 24
 
 repl 是 read-eval-paint-loop，也就是这个：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/777cf2c0ab8b4f648dc795a37f320162~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=566&h=482&s=51437&e=png&b=000000)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ec9133e7c5b.png)
 
 Nest 能不能这样来测试呢？
 
@@ -27,24 +27,24 @@ Nest 能不能这样来测试呢？
 nest new repl-test
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/137a3efc322e4e26ba648fb4a617f2f9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=840&h=642&s=141942&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d8ec0acfe62.png)
 
 然后创建两个模块：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6754d51a50bb4e16866d1c4483ba3c2b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=926&h=1016&s=239764&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c0b83aecb76.png)
 
 把服务跑起来：
 
 ```
 npm run start:dev
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/086be719b6654c86a246a2858423b588~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1704&h=994&s=451390&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/521f2c11ddb2.png)
 
 浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c09659fd4f4649f59ad5f9ba34369c4c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=600&h=182&s=19289&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62a5c1853e23.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0d3997c6ede4de5a952612758bd4505~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=604&h=204&s=19983&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45ffdf706e3e.png)
 
 我们前面都是这么测试接口的。
 
@@ -73,7 +73,7 @@ npm run start:dev -- --entryFile repl
 
 也就是会传给 nest start
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b21e78e1a14452c80196ae20c545812~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=690&h=114&s=25838&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/064b40aba413.png)
 
 当然，你直接执行 nest start 也可以：
 
@@ -83,11 +83,11 @@ nest start --watch --entryFile repl
 
 跑起来后，执行 debug()，会打印所有的 module 和 module 下的 controllers 和 providers。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b15e5eb0e5b474db29720e3211d9a9d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=588&h=794&s=87297&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/622b7e8f76aa.png)
 
 而且，你可以 get() 来取对应的 providers 或者 controllers 调用：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebfcd94265ab490a8d31e3ebf6b542f5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1062&h=698&s=116051&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6417e38c221d.png)
 
 get、post 方法都可以调用。
 
@@ -95,11 +95,11 @@ get、post 方法都可以调用。
 
 那我们加一些：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdf7f5845e854489b829e8186aac5695~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=690&h=286&s=36309&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2de80c909f95.png)
 
 然后添加 ValidationPipe：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01be04999b794519b5e3fdf793c37b82~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1046&h=612&s=127403&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/982fa53c3ee9.png)
 
 安装校验相关的包：
 
@@ -128,7 +128,7 @@ npm run start:dev
 ```
 然后 postman 里测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c14f46a195014e37b9c954d504fbfb5c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=788&h=838&s=83951&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2fb5ad75077.png)
 
 可以看到，ValidationPipe 生效了。
 
@@ -142,7 +142,7 @@ npm run start:dev -- --entryFile repl
 
 可以看到，并没有触发 pipe：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfd8ec0cd0ff4570b7a77d1794988bcd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1098&h=804&s=167939&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe0bf15e8a70.png)
 
 也就是说，它只是单纯的传参调用这个函数，不会解析装饰器。
 
@@ -150,11 +150,11 @@ npm run start:dev -- --entryFile repl
 
 但是测试 service 很不错：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/637e0aaca9bd4ffca0ea475da193c2bc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=644&h=214&s=26237&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/846ff569d63e.png)
 
 比如测试某个项目的 UserService 的 login 方法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c56f9d0f87ac40a5978c5f47ecd902fa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&h=1422&s=336812&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/26ab684b7f9e.png)
 
 就很方便。
 
@@ -162,23 +162,23 @@ npm run start:dev -- --entryFile repl
 
 debug() 可以查看全部的 module 或者某个 module 下的 cotrollers、providers：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47567c24da6341bb93687460679247a5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=466&h=644&s=62438&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8714558ade0c.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8bf9ec2ffbd40a8a1b9b97fc276aa44~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=426&h=296&s=28159&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d3ae06d1abb1.png)
 
 methods() 可以查看某个 controller 或者 provider 的方法：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/843e3284b7444bff885c5a825cf853a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=530&h=338&s=27089&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ccf09da031f.png)
 
 get() 或者 $() 可以拿到某个 controller 或者 provider 调用它的方法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e4482f8468f4657aa76e08100e363d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=288&s=40856&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4fddd738fa40.png)
 
 常用的 api 就这些。
 
 此外，按住上下键可以在历史命令中导航：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/981e59361f9e45b0b425cdedcf8e0bd3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1234&h=718&s=96689&e=gif&f=26&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6953a4e92d7f.gif)
 
 但有个问题。
 
@@ -203,15 +203,15 @@ bootstrap();
 ```
 再跑的时候也是有历史的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d9ffa40680b4004a7f84bba633b0524~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1572&h=764&s=319655&e=gif&f=42&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d784f768d9a.gif)
 
 其实就是 nest 会把历史命令写入文件里，下一次跑就可以用它恢复历史了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7adf2d8d4d024957b788c25fd46cf2af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=482&h=272&s=27250&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/240fc36ddc1e.png)
 
 你还可以把这个命令配到 npm scripts 里：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8da4ff55b144c98b61c6a4ab7af0873~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=924&h=114&s=25935&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50fcd896e457.png)
 
 然后直接 npm run repl:dev 来跑。
 

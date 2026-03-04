@@ -17,7 +17,7 @@ npx typeorm@latest init --name typeorm-all-feature --database mysql
 ```
 然后改下用户名密码数据库，把连接 msyql 的驱动包改为 mysql2，并修改加密密码的方式：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e65e7022353432fb0e3b44505b547af~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f2a3da1d53d.png)
 
 ```typescript
 import "reflect-metadata"
@@ -59,11 +59,11 @@ user、password 是登录数据库的用户名和密码。
 
 database 是要指定操作的 database，因为 mysql 是可以有多个 database 或者叫 schema 的。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3bd5f96b94741ff87b656584a4edaa3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bf772562b054.png)
 
 synchronize 是根据同步建表，也就是当 database 里没有和 Entity 对应的表的时候，会自动生成建表 sql 语句并执行。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3db666e0d544ed8a13939e80bb6ac4c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/496857f933d1.png)
 
 当然，如果有对应的表就不会创建了。
 
@@ -73,13 +73,13 @@ entities 是指定有哪些和数据库的表对应的 Entity。
 
 除了 class，还可以通过这种方式指定：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e900f3ca41e4ec290afecb12921d69a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/66bd9172daf0.png)
 
 migrations 是修改表结构之类的 sql，暂时用不到，就不展开了。
 
 subscribers 是一些 Entity 生命周期的订阅者，比如 insert、update、remove 前后，可以加入一些逻辑：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd69bce785c74e63bf7c70b8a3881325~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6fa1af2c1d72.png)
 
 poolSize 是指定数据库连接池中连接的最大数量。
 
@@ -91,11 +91,11 @@ extra 是额外发送给驱动包的一些选项。
 
 DataSource 会根据你传入的连接配置、驱动包，来创建数据库连接，并且如果指定了 synchronize 的话，会同步创建表。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13574d2cbcab420594c68b22a5c76aa7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/609476bdbd7e.png)
 
 而创建表的依据就是 Entity：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ad4d6c2c372447da02d9f2f745e6eac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7695271377fe.png)
 
 跑一下：
 ```
@@ -103,7 +103,7 @@ npm run start
 ```
 比如这个 Entity 就会执行这样的 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43eabb8c38e64b3fbad642e8adb3d8af~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49369b3eb16e.png)
 
 主键为 INT 自增、firstName 和 lastName 是 VARCHAR(255)，age 是 INT。
 
@@ -166,31 +166,31 @@ nullable 设置 NOT NULL 约束，unique 设置 UNIQUE 唯一索引。
 
 type 这里指定的都是数据库里的数据类型。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6d8d778ba3c4e569b5abd68e0c3a773~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea1b4e78872e.gif)
 
 然后在 DataSource 的 entities 里引入下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3431824d221481f91e3020a52bdeeb0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a47249b79be.png)
 
 重新跑 npm run start。
 
 生成建表 sql 是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7092c94ea067447aadff8806f2bcb9dd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f07a42bc0a1.png)
 
 格式化一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e5a0c83ad8344089b98788d55f99847~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c7ad0e83daa6.png)
 
 对比着 Entity 看下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93bd5026335149edaa0809092e6a2ef5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35a569cadbc0.png)
 
 是不是就明白怎么映射了？
 
 在 mysql workbench 里看下，确实生成了这个表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afcd64e6dba1446ab7a8114e1cad2444~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/350e8e606599.png)
 
 表创建好了，接下来就是增删改查了。
 
@@ -214,13 +214,13 @@ AppDataSource.initialize().then(async () => {
 
 删除 User 表重新跑 npm run start。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/084859cba8c74a17a0f404d6a60db9f2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc294995a8ac.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b93845bcf05b4270a1290ab4a8359320~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9e0a8335158.png)
 
 可以看到数据库插入了这条记录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77d8c04d92394f379425f75c968465be~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d09e9bc370ce.png)
 
 如果你指定了 id，那就变成修改了：
 
@@ -243,17 +243,17 @@ AppDataSource.initialize().then(async () => {
 
 重新跑下 npm run start。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/620f22208da34a76af7ebe3ec6d09ea0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/326d0493cb37.png)
 
 可以看到，生成的 sql 语句变成了 select 和 update：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/635bd50975a14fb79fd31142dc622503~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6ef40218f3b0.png)
 
 当你指定了 id 的时候，typeorm 会先查询这个 id 的记录，如果查到了，那就执行 update。
 
 在 mysql workbench 里看下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ef46bd77a8d489a897348707b0f9dc1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/372631cf8274.png)
 
 确实修改了。
 
@@ -280,13 +280,13 @@ AppDataSource.initialize().then(async () => {
 
 我们 npm run start 跑一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab4f3167d36f4e6da3e92969911e8aef~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fc7b83c577ab.png)
 
 可以看到确实生成了 3 条 insert into 的 sql 语句。
 
 数据库中也能看到：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a4ea2f430be4f37a09901d271aa3991~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/24ce15f01b12.png)
 
 批量修改也很容易想到，是这样写：
 
@@ -308,11 +308,11 @@ AppDataSource.initialize().then(async () => {
 
 执行 npm run start，会看到一条 select 语句， 3 条 update 语句：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/76aa394475a6459a83ece608184cd6c7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc0fdc54c0f9.png)
 
 在 workbench 里也可以看到数据被修改了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c39aa49edf94c32a52742ad8a12946e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fecf4eeba54e.png)
 
 这就是 typeorm 里新增和修改的方式，使用 save 方法。
 
@@ -335,11 +335,11 @@ AppDataSource.initialize().then(async () => {
 
 执行下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b871457474e34430ac73ab50729dca7d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f6fc8e303bd.png)
 
 数据库了对应记录就被删除了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/355ae75b691843d9a143525a7130f8ad~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/159d9991ccd7.gif)
 
 这里也可以用 remove 方法：
 
@@ -386,7 +386,7 @@ AppDataSource.initialize().then(async () => {
 
 控制台打印了查询出的数据：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b35f9ecd71f427cbb08c4d361bccd28~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/974e3f2d5d0e.png)
 
 也可以通过 findBy 方法根据条件查询：
 
@@ -404,7 +404,7 @@ AppDataSource.initialize().then(async () => {
 }).catch(error => console.log(error))
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb9b2f24cbd7447b8e512bc32ce0edec~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e8c1dfdb261.png)
 
 此外，你还可以用 findAndCount 来拿到有多少条记录：
 
@@ -422,7 +422,7 @@ AppDataSource.initialize().then(async () => {
 
 会额外执行一个统计的 sql：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8579254a024945acb0cdb85a1133c70f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23165649b18c.png)
 
 count 是可以指定条件的：
 
@@ -441,7 +441,7 @@ AppDataSource.initialize().then(async () => {
 
 可以看到，生成的 sql 里多了一个 where 条件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b9ea24966784cfbb34d514ce6976d8d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a3d01f5ebc6.png)
 
 除了可以查询多条，还可以查询一条，使用 findOne：
 
@@ -471,7 +471,7 @@ AppDataSource.initialize().then(async () => {
 
 查询结果如下:
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8a78ff10d6a44679ba516f47e6f54c7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a48a6ef1ea79.png)
 
 findOne 只是比 find 多加了个 LIMIT 1，其余的都一样。
 
@@ -501,7 +501,7 @@ AppDataSource.initialize().then(async () => {
 
 把它改为 find，id 改为 In(\[4, 8]) 之后，结果如下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8125186d186242a5808b1a229a93c4cb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/472a9cd1f6cd.png)
 
 通过 findOneBy 也可以：
 
@@ -519,7 +519,7 @@ AppDataSource.initialize().then(async () => {
 
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac138e01557a4a62889dc64d5aeff80c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/587a82bb9d26.png)
 
 此外，findOne 还有两个特殊的方法：
 
@@ -545,7 +545,7 @@ AppDataSource.initialize().then(async () => {
 
 findOneOrFail 或者 findOneByOrFail，如果没找到，会抛一个 EntityNotFoundError 的异常：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c99afb58485b4cd1a639705baaeea0e8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/992a7663706c.png)
 
 此外，你还可以用 query 方法直接执行 sql 语句：
 
@@ -560,7 +560,7 @@ AppDataSource.initialize().then(async () => {
 }).catch(error => console.log(error))
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff2f8b7f751d4260ac96a813c3586514~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68557e57d7b1.png)
 
 但复杂 sql 语句不会直接写，而是会用 query builder：
 
@@ -577,13 +577,13 @@ console.log(user);
 
 生成的 sql 语句如下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe7d9cddd5104c2d96338594b0c37799~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b5591972ed0.png)
 
 有同学说，用 query builder 和我用 find 指定 where 有什么区别么？
 
 比如这种复杂的关联查询：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/001dab3056554f77aa363f4d9b32c889~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4768cd6fe4d5.png)
 
 涉及到多个表，也就是多个 Entity 的关联查询，就得用 query builder 了。
 
@@ -604,17 +604,17 @@ await AppDataSource.manager.transaction(async manager => {
 });
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0fc82b394b94424dad6ae1124970d339~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f618bc62d3e3.png)
 
 还有，调用每个方法的时候都要先传入实体类，这也太麻烦了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d249eb48590b49db85284b9b4da6cdd8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1e634f2425c2.png)
 
 有没有什么简便方法呢？
 
 有，可以先调用 getRepository 传入 Entity，拿到专门处理这个 Entity 的增删改查的类，再调用这些方法：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/621f7d87ca734963aff778b7e4ee454e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/26061224c8b7.png)
 
 具体的方法和 EntityManager 是一样的。
 
@@ -624,7 +624,7 @@ await AppDataSource.manager.transaction(async manager => {
 
 我们过了一遍 TypeORM 的各种概念，画个图总结下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df762fa8ccb948f6ae3ca66a92640975~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e228820d57c.png)
 
 DataSource 里管理着数据库连接配置，数据库驱动包，调用它的 intialize 方法会创建和 mysql 的连接。
 

@@ -13,7 +13,7 @@ series_order: 13
 
 比如 google 登录、github 登录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/725ac02344fb4a939ef66777c077c941~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=564&h=808&s=126271&e=png&b=faf9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bce959d8646b.png)
 
 这样免去了输入用户名密码的麻烦，直接用别的账号来登录当前网站。
 
@@ -25,7 +25,7 @@ series_order: 13
 
 它提供了非常多的[策略](https://www.passportjs.org/packages/)。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23d094ef71dd4c9ca46f4aa4e1105247~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2270&h=1788&s=453315&e=png&b=131313)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e6cbd50f215b.png)
 
 上节我们用的 passport-local（用户名密码认证）、passport-jwt（jwt 认证）只是最基础的。
 
@@ -35,25 +35,25 @@ series_order: 13
 
 我们来生成一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f812ffa5df8d49169fff7aaf6522cff3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1102&h=1174&s=281398&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/896a1cd97449.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ac307ba0aa8408ab2d07dbc1e581894~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=980&h=776&s=89173&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b027b50fa529.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37b7ae17dc65469690c47e40ba586fc7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2474&h=700&s=114679&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d480560a1760.png)
 
 点击 settings > developer settings > new OAuth App
 
 填入信息后，点击 register application：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f3a349ae7674fae9e44376a6b145c55~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2056&h=1520&s=237169&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/655ca2d35bb4.png)
 
 现在 client id 有了，点击生成 secret
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc140c8e15bb4786bf12577c06934834~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2204&h=1118&s=193621&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4186467b1772.png)
 
 提示你了，这里的 secret 只能看见这一次，复制保存下来（当然，丢了也没啥，可以再次生成）：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f382063da4e46d99e9e44272475ef7f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1592&h=734&s=116886&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5b7e0151b187.png)
 
 有了 client id 和 secret 之后，就能实现 github 登录了。
 
@@ -63,7 +63,7 @@ series_order: 13
 nest new github-login
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/085f9becea2f4f01a0097bf238e5588d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=890&h=584&s=354080&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/803ebb10252b.png)
 
 进入项目，安装 passport 的包：
 
@@ -82,7 +82,7 @@ npm install --save-dev @types/passport-github2
 ```
 nest g module auth
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/663ea234321b4b4d823e2ae9eb187d42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=746&h=146&s=38226&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f1985cd1318.png)
 
 然后添加 auth/auth.strategy.ts
 
@@ -159,11 +159,11 @@ login 是触发 github 登录的，然后 callback 是回调的 url。
 
 当你访问 http://localhost:3000/login ，会跳转 github 登录授权页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5329de71f7684e00a4f394a4ddb5a1c2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1394&h=1402&s=213381&e=png&b=f5f7f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8cf10b205b5a.png)
 
 然后点击 authorize，会回调 callback 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7729404b0da247a082c70e9c12e9f3cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2130&h=1840&s=584010&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eda173ae7f2d.png)
 
 这样我们拿到 id 就可以唯一标识这个用户。
 
@@ -214,7 +214,7 @@ async authCallback(@Req() req) {
 }
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3c93e536a2749f183022b2aa96f8d14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2570&h=1502&s=280659&e=gif&f=39&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7cbb67f3bb50.gif)
 
 可以看到，现在访问 http://localhost:3000/login 会跳转 github 登录，然后授权后访问 callback，我们根据 id 查询出了用户信息返回。
 

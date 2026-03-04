@@ -11,7 +11,7 @@ series_order: 5
 
 用户管理模块我们实现了登录、注册、认证鉴权，还剩下一些列表、更新等接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a58b258db9d4449913d0194cbbc1006~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f6e972dbb659.png)
 
 这节把修改密码、修改信息的接口写完。
 
@@ -20,7 +20,7 @@ series_order: 5
 ```
 nest g interceptor format-response --flat
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a8b8759fb744a7e8ee24bf6ec478b15~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/636ae9d68d0d.png)
 
 使用 map 操作符来修改响应：
 
@@ -47,32 +47,32 @@ export class FormatResponseInterceptor implements NestInterceptor {
 ```
 全局启用它：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01b6e7aaca854229826e588d46a0914c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8582ce8fd095.png)
 
 这时候访问 http://localhost:3000 ，可以看到响应格式变了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/574ea5d4ef8642aabe863b9769b86fd2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e211351e44c.png)
 
 这里我用了一个 [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?utm_source=ext_sidebar&hl=zh-CN) 的 chrome 插件来格式化。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6370ba96078440649a1f49a43890c2b6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9d6146130f4a.png)
 
 然后再试下其它接口：
 
 响应格式确实变了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df4ff7c8076a493395775ae6fbb8d224~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43958e8d2520.png)
 
 抛出的异常还是由内置的 Exception Filter 来处理，返回响应：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d017ea629bf4d47b512070949b1313f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6636ae5bff66.png)
 
 然后再加一个接口访问记录的 interceptor：
 
 ```
 nest g interceptor invoke-record --flat
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a2ccc8cfa2945c1b32171ffc48acb69~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9370ad2a44c4.png)
 
 记录下访问的 ip、user agent、请求的 controller、method，接口耗时、响应内容，当前登录用户等信息。
 
@@ -123,17 +123,17 @@ export class InvokeRecordInterceptor implements NestInterceptor {
 ```
 全局启用这个 interceptor：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9d34854adda4076979d96f9e26c3a87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4f720ac34b9.png)
 
 试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b01861d339ca4ae2a7069f61569d5192~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53714ced3586.png)
 
 访问管理员的登录的接口。
 
 可以看到控制台打印了请求的路径、请求方法、controller、handler 等信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/399a1cf537cc4a929c99df71f26b6592~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac19df74ebfd.png)
 
 这里因为是本地访问，所以是 ::1 的 ip，相当于 localhost。
 
@@ -141,37 +141,37 @@ user 因为当前还没有，所以是 undefined
 
 响应之后打印了接口耗时以及接口返回的数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb637af933ec421dbd69f2c6b5f0084c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e12824f73c42.png)
 
 我们拿着个 access_token 放在 header 来访问 /aaa 接口试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4930687fa5841a284335de8a03b4cf1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a5b4e62ecbca.png)
 
 可以看到，请求之前打印了访问的 controller、handler、user等信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ab9cb388bb84a6aa6b351489aa9c2ba~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47e1d64522d8.png)
 
 响应之后打印了接口耗时和响应内容等信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d41fc558b07845c39485d3ad8851422e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4670833009c7.png)
 
 为什么 interceptor 里能拿到 user 信息呢？
 
 因为这是在 LoginGuard 里从 jwt 取出来放到  request.user 的，而 Guard 在 interceptor 之前调用：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24060e0f32204907887ede38c1aa018c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fb5760fee7cd.png)
 
 然后实现普通用户和管理员修改密码、修改信息的接口。
 
 涉及到这 4 个页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c114411bf1274e2a9f202d5188ebf55a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/914f03c4c6b5.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba086b9a407b469fbc79517adeb22ce1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d561c2fcd8a.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed7c126be9bb4a8ba9283af6d2974331~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30db11fcb989.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e41292a1b954faaa343a2bf166500d5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8eade8bfe76.png)
 
 分别是 /user/update_password 和 /user/admin/update_password、/user/update、/user/admin/update
 
@@ -205,13 +205,13 @@ async findUserDetailById(userId: number) {
 ```
 我们测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/966a6657688d4a6fa6791451b66cf3ea~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5a462293811.png)
 
 登录用户端，拿到 access_token。
 
 然后加到 header 里访问 /user/info
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cdd9f904865481d9c38f29e15d90c45~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62b546ff9f05.png)
 
 成功拿到了 user 的信息。
 
@@ -263,15 +263,15 @@ async info(@UserInfo('userId') userId: number) {
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c49feb281701423baa0616962971bd20~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a0685303299.png)
 
 现在返回的内容就是合理的了。
 
 然后实现修改密码的接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a65f846d206a403087fad09b01e1d934~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/853070386ed9.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19a290b2c22f4fe680469d6487f9c462~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f56e4ab3823b.png)
 
 管理员和用户修改密码的页面是一样的，我们就用一个接口就好了。
 
@@ -324,17 +324,17 @@ export class UpdateUserPasswordDto {
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2d55bf2cbdb4f67b9e25f3f4249aac3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8edf2c01e988.png)
 
 登录用户端，拿到 access_token，然后访问 /user/update_password 和 /user/admin/update_password 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cafdf225f1384f118de02dafb7f06ec6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a1c645c92ccc.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72e52666915b4ad482a685a8e7b41a42~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f29b72550f2.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3292d88ef3a648a8bf4285ce6e0c9234~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5282867a6961.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b67e1b0442614ec68ef0e765a4b7ecfa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af0227a02907.png)
 
 都能正常接收到数据。
 
@@ -389,47 +389,47 @@ async updatePassword(userId: number, passwordDto: UpdateUserPasswordDto) {
 
 登录 lisi 账号，拿到 access_token
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e319f1f1a75649e7a0bd17ffc6127bb2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9e230bd7d1b2.png)
 
 数据库中可以查到 lisi 的邮箱：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25c7bb113f8547b8883790c9ed3b2a3d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e0b13c29957.png)
 
 带上 access_token 访问更新密码接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c65750439d5a40058510dafcd5b6f494~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a687f1c09341.png)
 
 先手动去 redis 里添加 update_password_captcha_yy@yy.com 的 key，值为 123123（注意，我们现在用的是 redis 的 db1）
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/933ce5b5ab3b4bf782583aa2cf362334~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/210b2d1cea5c.png)
 
 半小时过期。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ef5d9c41ccd4de189dd47bf002f26b3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/94a5395bbed7.png)
 
 然后再试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c06ef3cd4ae4293bc9e76dfb2036261~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9ce841d78e4.png)
 
 修改成功。
 
 数据库里看不到具体的密码，但也能看出确实变了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0712607079b34a3997aee3ee4a484ea0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e70e8cfd66b.png)
 
 之前是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25c7bb113f8547b8883790c9ed3b2a3d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e0b13c29957.png)
 
 然后我们登录下试试就知道了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a67c4ee5c824ecaa059abc98bcbbb2d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a759be83fa5.png)
 
 用之前的密码登录，会提示密码错误。
 
 换成新密码就好了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f38faa8921947adb024ad8384d146db~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f76be04ad48d.png)
 
 然后再加上这个发送邮箱验证码的接口：
 ```javascript
@@ -451,9 +451,9 @@ async updatePasswordCaptcha(@Query('address') address: string) {
 
 然后还有修改个人信息的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed7c126be9bb4a8ba9283af6d2974331~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30db11fcb989.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e41292a1b954faaa343a2bf166500d5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8eade8bfe76.png)
 
 对应 /user/udpate 和 /user/admin/update 接口。
 
@@ -535,25 +535,25 @@ async update(userId: number, updateUserDto: UpdateUserDto) {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e71ec42689634a16babd5168267d07e9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/14917df60fd8.png)
 
 登录 lisi 账号拿到 token
 
 带上 token 访问 /user/update 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/541a3999e234491e934cca29000332c4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/238dd4a30e70.png)
 
 提示验证码失效，在 redis 里添加 update_user_captcha_yy@yy.com 的 key，值为 123456
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c8cff2e7c6149dfb6222f7cea7661f4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d2c52fbfac57.png)
 
 然后再试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43ca8c083d7b4b168d954870f0f647c6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c0bdeb6512a.png)
 
 用户信息修改成功了，在数据库里也可以看到确实修改了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57a1d28fd08d44abaea93fa7ee562e9e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/57314e6472ce.png)
 
 这样，修改接口就完成了。
 

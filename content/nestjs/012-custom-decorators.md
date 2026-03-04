@@ -31,13 +31,13 @@ Nest 内置了很多装饰器，大多数功能都是通过装饰器来使用的
 
 创建个 decorator。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34a2f8ed60a3463dbfacdae8bc18db87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/777b762f273c.png)
 
 这个装饰器就是自定义的装饰器。
 
 之前我们是这样用的 @SetMetadata
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a85dbbd4a45b4c5a8bcf7993164a8d2a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0d123bc2521d.png)
 
 然后加个 Guard 取出来做一些判断：
 
@@ -67,7 +67,7 @@ export class AaaGuard implements CanActivate {
 ```
 加到路由上：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70f5dbc7b8aa46669f37d0663c2f4219~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15aa753af642.png)
 
 把服务跑起来：
 
@@ -76,7 +76,7 @@ npm run start:dev
 ```
 然后访问 http://localhost:3000 可以看到打印的 metadata
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b0dafaa775240379f7cdd3547f8c8bf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f567d99f3d2e.png)
 
 但是不同 metadata 有不同的业务场景，有的是用于权限的，有的是用于其他场景的。
 
@@ -84,11 +84,11 @@ npm run start:dev
 
 这时候就可以这样封装一层：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7af839f85a644f0d9b534f316cdc8305~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80c04fb7eae1.png)
 
 装饰器就可以简化成这样：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5596734fbcbc442f92d5b91c7ae98984~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea8760676a61.png)
 
 还有，有没有觉得现在装饰器太多了，能不能合并成一个呢？
 
@@ -112,7 +112,7 @@ export function Bbb(path, role) {
 
 在自定义装饰器里通过 applyDecorators 调用其他装饰器。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f6aba8b0b4d46ceb3e8ce4ca699d136~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/682df33f63d1.png)
 
 这三个 handler 的装饰器都是一样的效果。
 
@@ -132,17 +132,17 @@ export const Ccc = createParamDecorator(
 
 先用用看：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/049a351152e84649ac59ac1794270c09~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fff28031cb9e.png)
 
 大家猜这个 c 参数的值是啥？
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2eca5013dd2a4353aa056f8cf6738b34~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5cfc61011f66.png)
 
 没错，就是 ccc，也就是说参数装饰器的返回值就是参数的值。
 
 回过头来看看这个装饰器：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1e24d56299b4fcc8016633dbaeb5f84~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/99b1b8d44af2.png)
 
 data 很明显就是传入的参数，而 ExecutionContext 前面用过，可以取出 request、response 对象。
 
@@ -166,7 +166,7 @@ export const MyHeaders = createParamDecorator(
 
 效果如下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06295629b23d4ce5a0f6b6266053e607~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f3cb19ff79d.png)
 
 分别通过内置的 @Headers 装饰器和我们自己实现的 @MyHeaders 装饰器来取请求头，结果是一样的。
 
@@ -183,9 +183,9 @@ export const MyQuery = createParamDecorator(
 
 用一下试试看：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/170ee0fa7c6e4b93925fe4ae529c0920~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9dbd08535dd6.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eefd9211413d47ba88eb35460e5a97bb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4ca1174f159.png)
 
 和内置的 Query 用起来一毛一样！
 
@@ -193,11 +193,11 @@ export const MyQuery = createParamDecorator(
 
 而且这些装饰器和内置装饰器一样，可以使用 Pipe 做参数验证和转换：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff3a66af71ed46de86c271f18fe05b4f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5b1236b918a.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01487cf59b00422f94731a9324394e59~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccaa8f6e8135.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8deb7674a4324d15b62043305dbca6c5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/18952b55bade.png)
 
 知道了如何自定义方法和参数的装饰器，那 class 的装饰器呢？
 
@@ -205,31 +205,31 @@ export const MyQuery = createParamDecorator(
 
 比如单个装饰器：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9262db3b20574da3a40c8d30b88401e6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e1e147afdfff.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fc1008f19e747ab8d1be64a1b504276~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/003c1666eaba.png)
 
 可以看到自定义装饰器生效了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee94a6fa7bca460cb6a646bab2a5302e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d7466a90a386.png)
 
 也可以通过 applyDecorators 组合多个装饰器：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae3041a6f8d74fa3aa193dee0f928818~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7cde08d63682.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/acbc270d31214cf0b70a159e2ee34426~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/91cc1d675e6b.png)
 
 在 guard 里加一条打印：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e84006ac2134962b02300ed11c18430~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25bcc8c0b7b1.png)
 
 浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6a472090a5a442aa4d999c99051bff9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5a70672a95b1.png)
 
 可以看到 metadata 也设置成功了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73a3a453c06c4510853ca290d76c5c08~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1dff74e882b3.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/custom-decorator)
 

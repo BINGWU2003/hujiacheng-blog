@@ -13,7 +13,7 @@ series_order: 8
 
 每个 database 包含表、视图、存储过程、函数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97557d444a2446769c21b93976c58121~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/66f751568242.png)
 
 表的增删改查我们已经学会了。
 
@@ -44,7 +44,7 @@ CREATE VIEW customer_orders AS
 select * from customer_orders
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a744c384856142cb9849d82839295fa8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb6ac84d6e47.png)
 
 视图有什么好处呢？
 
@@ -81,15 +81,15 @@ DELIMITER ;
 
 创建这个存储过程：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/968a0bd7d21d44d9b50a3351e3b6e305~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ffa725224fd3.png)
 
 刷新就可以看到这个刚创建的存储过程：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b357a81cae34c32bf0957e2d6c9c958~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a1ce9301b813.png)
 
 点击第二个图标就可以传参数调用：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7f800792e654f999b5c7e6183328b5c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68f78198ad8a.png)
 
 当然你可以在 sql 里调用：
 
@@ -99,7 +99,7 @@ CALL get_customer_orders(5);
 
 调用使用 CALL 存储过程(参数) 的形式：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1958a5c84d74e6690bc651e2908a70d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76cca4d38404.png)
 
 可以看到，存储过程可以封装一些 sql，用的时候传入参数 CALL 一下就行。
 
@@ -135,15 +135,15 @@ BEGIN、END 中间的是函数体。
 SET GLOBAL log_bin_trust_function_creators = 1;
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72f3b5d2b695469b81c8cb742b3abc1b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0340cf4b9960.png)
 
 之后之后再创建 function：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/553524ecde574780bdf7250c5d1753b9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cff85a53451f.png)
 
 创建成功之后就可以在 sql 里用它了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c5a5d773fd441848c84450b78b92dd3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39bf7067b8f1.png)
 
 比如创建这个视图的 price 的平方：
 ```sql
@@ -151,7 +151,7 @@ CREATE VIEW order_items_view AS
     SELECT product_name, price FROM practice.order_items;
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86a4e4b5291345db82a24af6645a8529~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5f2337b1d49.png)
 
 就可以用上这个函数：
 
@@ -159,11 +159,11 @@ CREATE VIEW order_items_view AS
 select product_name, square(price) from order_items_view
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6d017e9a9dfb49c3aafa8a46df7cf3d8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77f1546542c2.png)
 
 你也可以可视化的调用这个 function：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cdc27e41ff440d2b66529c3c817198a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe61ca21fb06.png)
 
 当然，这个函数没啥意义，我们再创建个有意义一点的：
 
@@ -191,15 +191,15 @@ DELIMITER ;
 ```sql
 select id, get_order_total(id) from orders;
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f444958cfd846c48324e1d30e6ace83~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a89a47ed4c4.png)
 
 我们自己来算算对不对：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e7c71045af044508600b0d4f4c91f83~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9f04aba8e23a.png)
 
 id 为 3 的订单的总额是对的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d142d163654b4ab0b9147738a702e05e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f95042d6157.png)
 
 这就是自定义函数。
 

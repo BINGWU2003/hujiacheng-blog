@@ -25,11 +25,11 @@ series_order: 3
 
 这样两个表，分别存储用户信息，还有身份证信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7ac9f4ac6fa4e93b2c51b66d9757b9c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2be33cfe7782.png)
 
 它们之间是一对一的关系，这时就可以用外键来表示。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/520ee3961ce045fd8dae99388f04821d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5c573b55dde8.png)
 
 user 表的主键是 id、可以通过 id 来唯一标识一个 user。
 
@@ -43,15 +43,15 @@ user 表叫主表，使用外键引用它的 id\_card 表是从表。
 
 选中 hello-mysql 数据库，点击建表按钮：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7057a83d1824e18af6e798da0120281~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25160a3fbe91.png)
 
 分别添加 id、name 列：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72b3b3f6baa447d185a4c4df8ea2a8b0~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bedf2d9e2bec.png)
 
 点击 apply，建表 sql 如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65a3a93170424521a193b2c303b6bfc2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c0deaf6b93f2.png)
 
 你也可以直接用这个 sql 来建表：
 
@@ -65,7 +65,7 @@ CREATE TABLE `hello-mysql`.`user` (
 
 然后再建个 id\_card 表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65592844feda4d7f808aa44e9e610791~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f127a11ee8bd.png)
 
 id 为 INT 类型，设置 primary key、not null 的约束，然后设置 auto increment。
 
@@ -75,19 +75,19 @@ user\_id 为 INT 类型。
 
 然后添加外键：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb36a6531bff4f9eb99d1bd6d7194e0c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce18d2ce3b66.png)
 
 指定外键 user\_id 关联 user 表的 id。
 
 这里还要选择主表数据 update 或者 delete 的时候，从表怎么办：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/56073e48339c461a8dac495f096f71f3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f4418425efb6.png)
 
 我们先用默认的。
 
 点击 apply，生成的建表 sql 是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2579cd003f0a4b58aef966455cee8961~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c631a29ddcba.png)
 
 ```sql
 CREATE TABLE `id_card` (
@@ -112,9 +112,9 @@ CONSTRINT user\_id FOREIGN KEY 是给 user\_id 添加一个外键约束，然后
 
 然后就可以看到 user 和 id\_card 表了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4f50e3b75404fbdb9ecbe1796f9ca61~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de6638a18c92.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36c8133bcdc0463f956c39d24a38521c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c34567313e3.png)
 
 我们插入几条数据：
 
@@ -133,7 +133,7 @@ INSERT INTO `user` (`name`)
 		('陈十二'); 
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd7df24a9d3541e189f20fe390689ecc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/73b23f9d85ee.png)
 
 查询一下：
 
@@ -141,7 +141,7 @@ INSERT INTO `user` (`name`)
 SELECT * FROM user;
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72b370030a3f4fb38443d1cc21e7f357~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e21b629786cc.png)
 
 用户表数据成功插入了。
 
@@ -162,7 +162,7 @@ INSERT INTO id_card (card_name, user_id)
 	('610101199010101023',10);
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38421eabe50d418585e0ecce78195352~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2bc6f4aeddaa.png)
 
 查询一下：
 
@@ -170,7 +170,7 @@ INSERT INTO id_card (card_name, user_id)
 SELECT * FROM id_card;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2eedd5e4bb341288dfac40eb154fb28~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/412a625490fc.png)
 
 这样，一对一关系的数据就插入成功了。
 
@@ -184,15 +184,15 @@ SELECT * FROM user JOIN id_card ON user.id = id_card.user_id;
 
 这里用到了 JOIN ON，也就是连接 user 和 id\_card 表，关联方式是 user.id = id\_card.user\_id，也就是 id\_card 表中的外键关联 user 表的主键。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/520ee3961ce045fd8dae99388f04821d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5c573b55dde8.png)
 
 点击左上角按钮，新建一条 sql：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09826ae8450342d39f1649a1e4b7648b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/edc423a13705.png)
 
 查询的结果是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ec86f4db396478b8561852175421b43~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/494fe117bfce.png)
 
 这里的两个 id 分别是 user 和 card 的 id，而且后面的 user\_id 也没必要展示。
 
@@ -206,7 +206,7 @@ SELECT user.id, name, id_card.id as card_id, card_name
 
 指定显示的列，并给 id\_card 表的 id 起个 card\_id 的别名。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c680ece661bf4157b02913f5479f43a0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ddfbd37e3e93.png)
 
 这就是多表关联查询，语法是 JOIN ON。
 
@@ -214,7 +214,7 @@ SELECT user.id, name, id_card.id as card_id, card_name
 
 比如这样：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c75226700d694130a11039f6ca2e718e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96b2bfdde847.png)
 
 选中单元格，点击 delete 就可以把它置为 null。
 
@@ -222,7 +222,7 @@ SELECT user.id, name, id_card.id as card_id, card_name
 
 这时候再执行上面那条 sql 来查询，就可以看到少了两条记录：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9960fb6c72374da09f8b5977aab243e1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25fc952f644b.png)
 
 因为 JOIN ON 其实默认是 INNER JOIN ON，相当于这么写：
 
@@ -232,7 +232,7 @@ SELECT user.id, name, id_card.id as card_id, card_name
     INNER JOIN id_card ON user.id = id_card.user_id;
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cc40772e66742e19e0ab1a97961173a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a8816c550df.png)
 
 INNER JOIN 是只返回两个表中能关联上的数据。
 
@@ -254,7 +254,7 @@ SELECT user.id, name, id_card.id as card_id, card_name
 
 当使用 RIGHT JOIN 时，会额外返回右表中没有关联的数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de446edf08e04ef0af975b87d5bdd0fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/48cc14ea7edd.png)
 
 可以看到返回了所有 id\_card 的数据，没有关联 user 的记录 user 信息为 null。
 
@@ -266,7 +266,7 @@ SELECT user.id, name, id_card.id as card_id, card_name
     LEFT JOIN id_card ON user.id = id_card.user_id;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cf88544235e462d8c3ea2d34e9a5077~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fc46a869d3a2.png)
 
 一般情况，还是用默认的 JOIN ON 比较多，也就是 INNER JOIN。
 
@@ -278,11 +278,11 @@ SELECT user.id, name, id_card.id as card_id, card_name
 
 我们之前设置的是默认的 RESTICT：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2134c6a4b35a43fc86935a968942810a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3cb65e7d15a8.png)
 
 其实可选的值有 4 种：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f5ab0aabb994bf99731137c9475d804~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a08927c9f874.png)
 
 *   CASCADE： 主表主键更新，从表关联记录的外键跟着更新，主表记录删除，从表关联记录删除
 
@@ -296,56 +296,56 @@ SELECT user.id, name, id_card.id as card_id, card_name
 
 现在 user 表是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25ebae1ab06b4097a745c443fda34359~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f48ad4ae0220.png)
 
 右键选择 delete row：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6a77afd4f704c56849a1cd8150197c3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/42f7b92c3a10.png)
 
 这时候会提示你更新失败，因为有外键的约束。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f91da3522b949c684beab76fe7b6ecf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/daf947a5ad1f.png)
 
 点击 revert，回到之前的状态：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4f8b0cfd8244a67a29a3d616fdcaac6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0db57f938cd8.png)
 
 然后更新 id 为 11，点击 apply：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d889df506c704bc0904933f2cf5857d0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b56fe2c7940.png)
 
 同样会提示你更新失败，因为有外键的约束：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6186789b3a447c6b8ab327a1e5b1d67~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/485f1e5f2a4d.png)
 
 这就是 **RESTIRCT 和 NO ACTION 的处理逻辑：只要从表有关联记录，就不能更新 id 或者删除记录。**
 
 我们手动把从表记录的关联去掉，也就是删除第一条记录的外键（按 delete 键）：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb9535d02ee544368a49d8d69a5b3377~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d8eb730b8d7.png)
 
 点击 apply 应用这次改动。
 
 然后再试下主表的更新：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32d11bccbbe14d9e996415f0573feb1c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9dd8a0d67d11.png)
 
 这次就更新成功了！
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9536fecbfb6b4b1a8efd34aa23a462f0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1e064f2ce915.png)
 
 再来试下删除：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7e5128b7cfd46d7a8a553c46afa0a44~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/790dc013721a.png)
 
 同样也成功了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6a81c40fb7a486cab97c966b59f4f32~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8ca4cb287c9b.png)
 
 这就是 RESTRICT 或者 NO ACTION，只有当从表没有关联的记录的时候，才能更新主表记录的 id 或者删除它。
 
 我们再来试试 CASCADE：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e7357d1bb3a1466c987c58905178e481~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/636623178b90.png)
 
 修改外键级联方式为 CASCADE，点击 apply。
 
@@ -355,39 +355,39 @@ SELECT user.id, name, id_card.id as card_id, card_name
 
 把 id 为 2 的 user 的 id 改为 22，点击 apply：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42c706c63fa04056a8374adbe6d30bc3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cbcc5ec97f1d.png)
 
 再看下 id\_card 表的数据，你会发现 user\_id 跟着改了。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2dedfb9e04484069970d2efa76bdc6fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa49e8cb393d.png)
 
 然后把 id 为 22 的 user 删除掉，点击 apply：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb22b69d3f774ab1846093ff1d97a924~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/898251121995.png)
 
 再看下 id\_card 表会发现那条 user\_id 为 22 的记录也没了。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26d293ab656f406db2a4204f673764d2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8276d1df85f3.png)
 
 这就是级联方式为 **CASCADE 的处理逻辑：主表删除，从表关联记录也级联删除，主表 id 更新，从表关联记录也跟着更新。**
 
 然后再试下 set null：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66cda20b31a34821a2f3778fc0ccf47d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/33fadbf0cc63.png)
 
 修改之后点击 apply。
 
 查询下现在的 id\_card 表的数据：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ec6ad89254d42a79a0326f506266493~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15763c3a82d3.png)
 
 把 user 表中 id 为 5 的记录 id 改为 55，点击 apply：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6477a549c9024a42b5b6e90b2d779660~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd4dafd1cdc2.png)
 
 这时候 id\_card 中那条记录的外键被置为 null 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dfbe2579e22c4d749de268738df1a8f5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0231a2e8ad8a.png)
 
 这就是 **set null 的处理逻辑：主表记录删除或者修改 id，从表关联记录外键置为 null。**
 

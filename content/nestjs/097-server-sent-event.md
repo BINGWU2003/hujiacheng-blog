@@ -17,7 +17,7 @@ series_order: 17
 
 WebSocket 的通信过程是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d77dfe73e74d4fac89f8747266c01cd1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1260&h=810&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f979515ef4c4.png)
 
 首先通过 http 切换协议，服务端返回 101 的状态码后，就代表协议切换成功。
 
@@ -25,7 +25,7 @@ WebSocket 的通信过程是这样的：
 
 而 HTTP 的 Server Sent Event 是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d99ee4d7ad0471db06cb16280001d77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1294&h=832&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/364b5960fd04.png)
 
 服务端返回的 Content-Type 是 text/event-stream，这是一个流，可以多次返回内容。
 
@@ -43,15 +43,15 @@ Sever Sent Event 就是通过这种消息来随时推送数据。
 
 这也是基于 SSE。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/008f737072b3484ea1362a14139c49f6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2156&h=1232&e=gif&f=45&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68e37161f11d.gif)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5dea4c6489fa45e0905ddc5d16551daa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=598&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0130dcf9efbb.png)
 
 或者这个 ai 聊天产品：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9902559ed7b74b1c8e7851ec8f247dd6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2636&h=1446&s=565001&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a4645efd77f.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f72947cc056542e6af55829fb50bf435~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1784&h=646&s=191801&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8a0509195fa9.png)
 
 知道了什么是 SSE 以及它的应用，我们来自己实现一下吧：
 
@@ -61,22 +61,22 @@ Sever Sent Event 就是通过这种消息来随时推送数据。
 nest new sse-test
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adde2c230c76422495a89e8d98d11ab6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=804&h=686&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/97aaeb3a7f5d.png)
 
 把它跑起来：
 
 ```
 npm run start:dev
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca328c8232d04975bc43366c6fae6d14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1900&h=452&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a4df94de6c4.png)
 
 访问 http://localhost:3000 可以看到 hello world，代表服务器跑成功了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53b674db7798413193a4c69560368a95~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=604&h=186&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9aee17d700c4.png)
 
 然后在 AppController 添加一个 stream 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34eabde3dd8f48aaa2448dd0d5ebef6b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=1122&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a146a12e42c.png)
 
 这里不是通过  @Get、@Post 等装饰器标识，而是通过 @Sse 标识这是一个 event stream 类型的接口。
 
@@ -109,7 +109,7 @@ stream() {
 ```
 npx create-react-app --template=typescript sse-test-frontend
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e01a275e8994ecc9da577af5aa80db7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1092&h=244&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/59b98cddfa55.png)
 
 在 App.tsx 里写如下代码：
 
@@ -137,21 +137,21 @@ export default App;
 
 我们在 nest 服务开启跨域支持：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66d522b6a18944f09ebb9a6755588199~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1062&h=504&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/da7ba6119f63.png)
 
 然后把 react 项目 index.tsx 里这几行代码删掉，它会导致额外的渲染：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b495ad20d295425888b3759d2238d929~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=846&h=456&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e959bcf74fdc.png)
 
 执行 npm run start
 
 因为 3000 端口被占用了，它会跑在 3001：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c25c8cf6f05241bf8a02f695e022f442~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=966&h=434&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80c4a6052ee5.png)
 
 浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce8133bed60e490dba2fba6c99943358~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=986&h=842&e=gif&f=37&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd169f5308b7.gif)
 
 看到一段段的响应了没？
 
@@ -159,11 +159,11 @@ export default App;
 
 在 devtools 里可以看到，响应的 Content-Type 是 text/event-stream：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/caacaaed946a4ca9b744ccfb7564d629~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1442&h=622&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88251d425ae4.png)
 
 然后在 EventStream 里可以看到每一次收到的消息：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42356050a93842ce81ea68d16d9b79f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=336&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/932ec274470e.png)
 
 这样，服务端就可以随时向网页推送消息了。
 
@@ -171,7 +171,7 @@ export default App;
 
 可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/EventSource#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7) 看到：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/738fa0f21305432bbec7f5e9d51d5064~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1462&h=538&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8b4b36961c6.png)
 
 除了 ie、edge 外，其他浏览器都没任何兼容问题。
 
@@ -183,7 +183,7 @@ export default App;
 
 比如这个站内信：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc91875b11784430af4e49df01b4e990~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1390&h=1088&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/176cce75013c.png)
 
 这种推送用 WebSocket 就没必要了，可以用 SSE 来做。
 
@@ -199,7 +199,7 @@ export default App;
 
 tail -f 命令可以实时看到文件的最新内容：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/981b74e7c9474732867d32ad8b9f5992~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1284&h=1180&e=gif&f=46&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5c57d3a6231b.gif)
 
 我们通过 child_process 模块的 exec 来执行这个命令，然后监听它的 stdout 输出：
 
@@ -214,7 +214,7 @@ childProcess.stdout.on('data', (msg) => {
 ```
 用 node 执行它：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89d57f5c4c8a43b6a0020c07cc8df196~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1040&h=1018&e=gif&f=31&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3d81c1ba1f3.gif)
 
 然后添加一个 sse 的接口：
 
@@ -233,11 +233,11 @@ return new Observable((observer) => {
 
 浏览器连接这个新接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23ba4a4421ce4324956053feb043be08~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1470&h=720&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c2a43ecaf5e.png)
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c46cf62c6194fc28f614337bcbe6b81~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1752&h=934&e=gif&f=38&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5eff07194b9.gif)
 
 可以看到，浏览器收到了实时的日志。
 
@@ -254,11 +254,11 @@ const buffer = readFileSync('./package.json');
 
 console.log(buffer);
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e01065105a604bc38582258f51db45b6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1208&h=176&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8aebdc74b901.png)
 
 而 Buffer 有个 toJSON 方法：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e87134d7364b4b2f9a84f850bf0eae84~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1120&h=1048&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d7c86e97c6b.png)
 
 这样不就可以通过 sse 的接口返回了么？
 
@@ -273,9 +273,9 @@ stream3() {
     });
 }
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ace2ca2874ec4161ac09ca557a5f6d96~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1454&h=758&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c62a897efba.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3dd21acf5d4a42a4b16b1e9142f72add~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1058&h=1404&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cdd81c210b40.png)
 
 确实可以。
 

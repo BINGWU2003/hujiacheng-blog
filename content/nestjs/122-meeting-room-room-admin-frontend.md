@@ -13,9 +13,9 @@ series_order: 14
 
 先写管理端的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1794ecbb9564d5fb3fe5daee2fc6f9a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca71228e6bd7.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3114dba5c0d49ac8b24936c8115f7da~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0531a016d87b.png)
 
 把管理端项目跑起来：
 
@@ -23,13 +23,13 @@ series_order: 14
 npm run start
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f8ce55ab4d64245b41c0afbdf814dcd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1474&h=604&s=58621&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d6c9ae53d99.png)
 
 我们已经添加了对应的路由，但是还没做点击菜单时的切换。
 
 加一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8724997b0b15470dae4287ede9f06ea3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1072&h=1144&s=190245&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f20913da01c2.png)
 ```javascript
 const handleMenuItemClick: MenuClickEventHandler = (info) => {
     let path = '';
@@ -73,7 +73,7 @@ export function Statistics() {
 ```
 注册这三个组件对应的路由：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/995d49bde91740d48aef4e8e1a182d58~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=980&h=1206&s=166155&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7f5089815503.png)
 
 ```javascript
 {
@@ -99,11 +99,11 @@ export function Statistics() {
 ```
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45f96bcdbcc548d19d1f697f552d2d55~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1696&h=1058&s=358284&e=gif&f=39&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9d21b334618b.gif)
 
 然后还要加上页面刷新时选中对应菜单项的逻辑：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae4b1d66356e49ab8f886296e87debe9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1094&h=982&s=168638&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3cfbcf912d1d.png)
 
 ```javascript
 const location = useLocation();
@@ -124,11 +124,11 @@ function getSelectedKeys() {
 ```
 这样，刷新后也会选中对应的菜单项：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a9ca939b7c247b3ae0fdb8451b81526~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1288&h=772&s=210113&e=gif&f=39&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/46dba52357ad.gif)
 
 然后来实现会议室管理页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1794ecbb9564d5fb3fe5daee2fc6f9a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca71228e6bd7.png)
 
 和我们前面写过的用户列表差不多：
 
@@ -271,7 +271,7 @@ css 部分如下：
     margin-bottom: 40px;
 }
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d1a062e0ae7431c9d6f380922780a43~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2342&h=826&s=125953&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d0d252b82f72.png)
 
 然后我们在 interfaces.ts 添加 list 接口：
 
@@ -290,7 +290,7 @@ export async function meetingRoomList(name: string, capacity: number, equipment:
 ```
 在页面调用下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40438a251bb64c80b5e448392f4857d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1454&h=970&s=258407&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27ea13c65744.png)
 
 ```javascript
 const searchMeetingRoom = useCallback(async (values: SearchMeetingRoom) => {
@@ -310,18 +310,18 @@ const searchMeetingRoom = useCallback(async (values: SearchMeetingRoom) => {
 }, []);
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21b3b4e387944c8893e47cc856bc95c4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2324&h=982&s=196826&e=gif&f=20&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d6b39f06526.gif)
 
 按名称搜索：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4fa819c3070e44c7a43188a3fd2b85a4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2300&h=762&s=137368&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6602a010d03f.png)
 按容量搜索：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eda249542e914c2580a8b541bcf49ca9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2242&h=730&s=133129&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f95f058ab740.png)
 按设备搜索：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c28ee1967c7648f1a229604f396d143c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2294&h=774&s=149778&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/912a36dd7741.png)
 
 然后，最开始进入页面的时候也得搜索一次：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc660f43cb5b40d999e97e8d207823ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1318&h=748&s=171967&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b1a17dd0e674.png)
 
 ```javascript
 useEffect(() => {
@@ -334,7 +334,7 @@ useEffect(() => {
 ```
 最开始搜索一次，并且分页信息变了也重新搜索。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bd408655f574dda83164405f61f0534~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2254&h=1036&s=277659&e=gif&f=23&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63785489578b.gif)
 
 这样，刚进入页面就会触发一次搜索。
 
@@ -350,7 +350,7 @@ export async function deleteMeetingRoom(id: number) {
 
 然后添加删除按钮的处理逻辑：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1798fa0512c42f6be7d5838bbbf5c5f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1194&h=656&s=128749&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a9f3df9ddd5d.png)
 
 ```javascript
 <a href="#" onClick={() => handleDelete(record.id)}>删除</a>
@@ -367,13 +367,13 @@ const handleDelete = useCallback(async (id: number) => {
 }, []);
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/032baf5b1ad64b2cafce036cd66fdce7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2322&h=1084&s=462345&e=gif&f=32&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed31513a73a7.gif)
 
 提示删除成功，刷新后也确实没有了。
 
 不过应该是删除后自动刷新的。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8170f3b591d469b993074b456fb0cb6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1320&h=1174&s=260346&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5fe790ccf656.png)
 
 我们添加一个状态，删除后设置一个随机数，然后把它作为 useEffect 的依赖，这样就能触发重新搜索。
 
@@ -385,7 +385,7 @@ const [num, setNum] = useState<number>();
 setNum(Math.random());
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/022e8697a73f4c058f8240c3d8c52fe4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2302&h=948&s=315490&e=gif&f=23&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c1b0ada11a8f.gif)
 
 不过，删除操作最好加上个二次确认。
 
@@ -410,11 +410,11 @@ setNum(Math.random());
 
 这样，点击后就会出现一个确认框，确认后才会删除：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6747000bbf44fb3bffdd128423fae70~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=850&h=508&s=60368&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30be03ab461a.png)
 
 然后实现添加会议室：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3114dba5c0d49ac8b24936c8115f7da~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0531a016d87b.png)
 
 我们在 MeetingRoomManage 的同级添加一个 CreateMeetingRoomModal 组件：
 
@@ -446,7 +446,7 @@ export function CreateMeetingRoomModal(props: CreateMeetingRoomModalProps) {
 
 先添加一个状态代表 modal 是否打开：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9df0fc3c2f24eb2be4377a5a964db6b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1234&h=346&s=116053&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3cfac33c75c.png)
 
 ```javascript
 const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -454,7 +454,7 @@ const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
 然后添加 Modal 组件，并且点击按钮的时候 open：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24bd2799151c45789b52e3a3ab594a9b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1392&h=948&s=223724&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f32eb1bcaec.png)
 
 ```javascript
 <Button type="primary" style={{background: 'green'}} onClick={
@@ -473,7 +473,7 @@ const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
 这样，modal 就添加成功了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c461d0f83e0740ac82fdd7e786ec841d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2056&h=1014&s=990477&e=gif&f=32&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/583e0460bb8e.gif)
 
 然后实现 modal 的具体逻辑，创建会议室：
 
@@ -561,7 +561,7 @@ export function CreateMeetingRoomModal(props: CreateMeetingRoomModalProps) {
 ```
 在 modal 里添加一个表单，点击创建按钮的时候打印表单值。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24d81c5e8ef04636b52c13c5077f38be~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1648&h=1264&s=203734&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/703ad3ccd05e.png)
 
 我们在 interfaces.ts 添加创建会议室的接口：
 
@@ -572,7 +572,7 @@ export async function createMeetingRoom(meetingRoom: CreateMeetingRoom) {
 ```
 在组件里调用下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71166d4c140b47b99c62b8752aad2d0d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1044&h=668&s=147888&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/efd4391741a2.png)
 ```javascript
 const [form] = useForm<CreateMeetingRoom>();
 
@@ -599,11 +599,11 @@ const handleOk = useCallback(async function() {
 
 创建失败时：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b4bd79f88cd4dc6841d8c84110d1b28~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1896&h=1126&s=216434&e=gif&f=19&b=969696)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/687ea877353b.gif)
 
 创建成功时：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aedbcbf0b7004c55acc6f1143ef310c5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2226&h=1060&s=630734&e=gif&f=41&b=969696)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f1902b2fc29.gif)
 
 创建成功后，手动刷新页面，就看到了新的会议室。
 
@@ -611,13 +611,13 @@ const handleOk = useCallback(async function() {
 
 这样就会触发列表数据的刷新：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f6fb387eb6db4015972e96b12025627a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1094&h=452&s=117163&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be0368db828f.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd129212c13d4201956394f5ce6acec1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1072&h=460&s=109464&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d53ef21b703.png)
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/010c397e23d74607b7c2c6f82352da77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2052&h=986&s=536818&e=gif&f=17&b=969696)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b710f1ab8137.gif)
 
 最后，加上更新会议室的功能：
 
@@ -722,7 +722,7 @@ export async function findMeetingRoom(id: number) {
 
 先创建两个 state：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17b96f6f6bf04ecca604cac431b5e3bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1124&h=342&s=122932&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1604803a07e1.png)
 
 ```javascript
 const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -732,7 +732,7 @@ const [updateId, setUpdateId] = useState<number>();
 
 然后添加一个更新按钮，点击的时候打开弹出弹窗，设置 id：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24bed2dffe4e4cb8bcba896b8e159d5b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1026&h=804&s=137317&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f18e2c1685db.png)
 
 ```javascript
 {
@@ -760,7 +760,7 @@ const [updateId, setUpdateId] = useState<number>();
 
 在下面加上弹窗：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c59b24a46f7b4932997a00ebc67c442f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1018&h=524&s=127330&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5a469ad48f3a.png)
 
 ```javascript
 <UpdateMeetingRoomModal isOpen={isUpdateModalOpen} handleClose={() => {
@@ -770,21 +770,21 @@ const [updateId, setUpdateId] = useState<number>();
 ```
 这样更新弹窗就加上了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/353b73b58db547d9ab662522a1190adf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1966&h=990&s=1561529&e=gif&f=36&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dafa2de8cbaa.gif)
 
 然后我们要把 id 传过去：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b80d3d07bab748f48247c6d5ad44946c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1084&h=256&s=81925&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4d4e36578c17.png)
 
 updateId 的默认值是 undefined，可能为空，加上 ! 代表非空。
 
 然后在组件里添加这个参数：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2727b87815e843f294a8a3c059eccb20~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=682&h=392&s=81006&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dbd059bca165.png)
 
 并且调用查询接口，查询 id 对应的数据来回显：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04366194b9c84a368c61e2e565cb38e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1190&h=960&s=207490&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34a57f24ec67.png)
 
 ```javascript
 useEffect(() => {
@@ -812,11 +812,11 @@ useEffect(() => {
 ```
 现在就能回显数据了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35364c988d8445b09a70628b5ebe46bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2064&h=1100&s=1571260&e=gif&f=42&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d3c513e136ef.gif)
 
 然后再加上更新数据的接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/441e992f6e5848c09048d12b3c2d1451~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=748&s=145567&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6e4de83a7dcf.png)
 
 ```javascript
 const handleOk = useCallback(async function() {
@@ -842,7 +842,7 @@ const handleOk = useCallback(async function() {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac548b59d5964adbbdd7aa5b0cd2f903~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1932&h=1076&s=789169&e=gif&f=45&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c5bfee7c902.gif)
 
 更新成功了。
 

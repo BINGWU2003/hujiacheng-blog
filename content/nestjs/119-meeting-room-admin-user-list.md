@@ -13,13 +13,13 @@ series_order: 11
 
 涉及到这些页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f4f48617f204906a5cf3379936518fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=1050&s=57943&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/205a88db82cb.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da8c422c3e2848ef86b1f77027b79ee8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1278&h=890&s=91964&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a71190e6a74.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce7922e5d4e24a2ea5457075866b19e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=852&s=54200&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a178fc12d972.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f037c80960cf4a20b04283fc4c454578~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1474&h=1006&s=64942&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de5194dcabbb.png)
 
 这节我们来写前两个。
 
@@ -28,7 +28,7 @@ series_order: 11
 ```
 npx create-react-app --template=typescript meeting_room_booking_system_frontend_admin
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf5645fda44641acb503ec5ade74b1dc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1118&h=202&s=59282&e=png&b=000000)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/08fea4d85ffb.png)
 
 进入项目目录，把开发服务跑起来：
 
@@ -37,7 +37,7 @@ npm run start
 ```
 浏览器访问 http://localhost:3000 可以看到这个界面：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e578f28f353c488c8426699af3896f48~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f8637bae16b1.png)
 
 就说明 react 项目成功跑起来了。
 
@@ -106,13 +106,13 @@ root.render(<RouterProvider router={router}/>);
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d7b5b0240f94d73aa0cba2cbcc1c830~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=462&s=441246&e=gif&f=61&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a4df5e6a639.gif)
 
 都没问题。
 
 把 src 目录下其余文件去掉：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20e73f7432c44e23bde08e1de692533f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/159afe304ab4.png)
 
 然后创建 4 个组件：
 
@@ -150,7 +150,7 @@ export function ErrorPage() {
 ```
 改下 index.tsx 配置对应的路由：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/338b09b3452a47a08b2a6c794d967344~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1278&h=1132&s=205581&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/836d93591306.png)
 
 ```javascript
 import ReactDOM from 'react-dom/client';
@@ -188,18 +188,18 @@ root.render(<RouterProvider router={router}/>);
 ```
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46eb44289c8b469eb87729ac9f0a9d9d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=534&h=164&s=14881&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/46c4401aaf61.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/871a1b02f26145dc85037751119a15c9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=724&h=208&s=24314&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c4522b3eaff.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9691fb4812e4df99162de835d4d3230~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=622&h=200&s=17219&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/69ca865dc50f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e838778ff8849f19bf2dcc90cf4620f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=582&h=190&s=18502&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a878945fa450.png)
 都没啥问题。
 
 然后来写 Login 页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f4f48617f204906a5cf3379936518fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=1050&s=57943&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/205a88db82cb.png)
 
 引入 Ant Design 组件库：
 
@@ -216,7 +216,7 @@ export function Login() {
 }
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9c984c744ec49a1a24e5b9c8bab3b94~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81bfa82ea91b.png)
 
 没啥问题，说明 antd 引入成功了。
 
@@ -297,19 +297,19 @@ login.css 如下：
 ```
 访问 /login，可以看到现在的登录页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aafe778501fb48d0ba4d4a581cbd1a2d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1402&h=860&s=68708&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9909d72a8273.png)
 
 然后看一下接口文档 http://localhost:3005/api-doc
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6c732fe2b634bb28d2697b5be2bf715~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=682&h=670&s=55233&e=png&b=f1f8f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f0af24a0eb54.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d47c5ffcf1474b8f8a8b3103bac84011~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=802&h=1230&s=148643&e=png&b=ecf6f0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff47bdbcf25d.png)
 
 传入用户名、密码、返回用户信息和 token。
 
 在 postman 里测试下登录接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daaefa943b8040f79b6e479439013388~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=966&h=1216&s=141059&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30ba65eb7ed8.png)
 
 然后在点击登录按钮之后，用 axios 调用它：
 
@@ -367,15 +367,15 @@ const onFinish = useCallback(async (values: LoginUser) => {
 
 登录下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/804cf14e55ba417cb8bb5e19c46f8965~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2136&h=1022&s=222720&e=gif&f=22&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/72914af1bc25.gif)
 
 提示 400 错误没处理。
 
 因为接口返回 400 的时候，axios 会抛异常：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/058a8b97c445448fa244edad97db13b9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=740&h=208&s=43281&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c24d44e867d5.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97c548038fe146d3b3380e4f64f33bae~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=678&h=178&s=31645&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0b9335758a5b.png)
 
 我们加一个响应的 interceptor，返回 error.response 而不是 Promise.reject(error.response)
 
@@ -393,17 +393,17 @@ axiosInstance.interceptors.response.use(
 
 当用户不存在时：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb4b71e3cbe84c449f2a1f1f2a0734b0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=962&h=628&s=49391&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96c37eeec874.png)
 
 当密码错误时：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5207dce8428a4e5b8ecd3562aee99786~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1038&h=634&s=52906&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/82edf5d1b831.png)
 
 登录成功时：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58eef93c68ca4cc0b79b7a42e4ed3b4d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1498&h=838&s=112885&e=gif&f=22&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a86055539ad9.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d1f95e2a5bd4c5f805e726b448f2e64~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=442&s=131911&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f79b5767bc09.png)
 
 都没啥问题。
 
@@ -411,7 +411,7 @@ axiosInstance.interceptors.response.use(
 
 然后是用户管理的页面： 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c2d3c95f2d640fc9e7a785d5c5c5ef6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1278&h=890&s=96530&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04d649501c8a.png)
 
 修改下 Index.tsx
 
@@ -470,13 +470,13 @@ css 如下：
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/014c671b804445e7aca8981ad5e5a2f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1402&h=448&s=63498&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/71285fde869f.png)
 
 没啥问题。
 
 不知道同学们有没有发现，其实这个页面应该是三级路由：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e4b045cfbcd461d86ea38484c217930~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1038&h=682&s=101354&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f8245d1445a2.png)
 
 因为左边这部分也是要多个页面共用的。
 
@@ -521,7 +521,7 @@ export function Menu() {
 
 渲染出来是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa3dbde68dfa40b4be6fda4c762d861b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=874&h=432&s=43399&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af9fcc75c8ec.png)
 
 我们来写一下 Menu 组件：
 ```javascript
@@ -575,11 +575,11 @@ menu.css 如下：
 ```
 渲染出来是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/440b72a63ccc4a0fbf895d7f7d43addc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=942&h=584&s=57621&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4dc0ebb939e.png)
 
 然后来写 UserManage 组件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b27b7789cfa45778f51a82786c8a969~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1034&h=678&s=84160&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5a0f39e8d8fd.png)
 
 可以分为 2 部分，上面的搜索表单、下面的结果表格。
 
@@ -648,7 +648,7 @@ UserManage.css
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c3707b563af4426ad2255623c101c1d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1968&h=1004&s=130495&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ae47839421fb.png)
 
 然后再写 table 部分：
 ```javascript
@@ -759,30 +759,30 @@ export function UserManage() {
 
 渲染出来是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5eefc673345d496795397ccd86a49a01~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2010&h=854&s=109808&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8a924a7c376f.png)
 
 然后我们调用下搜索接口。
 
 看下接口文档：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21fffa8c553f4ce69bd55ac2352bfcba~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1210&h=1362&s=130120&e=png&b=eef4fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ad62a07666e.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cd4d8a033ae4606902aa5233a38278d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=930&h=1046&s=113974&e=png&b=eef4fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8daff0b7db7b.png)
 
 在 postman 里调用下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32716e1400494b7eb6d295cf5bc83272~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=816&h=798&s=69140&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3689f4950608.png)
 
 这个接口是需要登录的。
 
 我们先登录一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9f0c889d45040febc88194d2fe674b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1070&h=1060&s=203948&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f02d50de002b.png)
 
 带上 access_token 再访问：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44803be273644d6fa7f733ac7d7c7082~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=958&h=540&s=67937&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20ca3e26a44e.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ffb2c9d9bf74ad887167df002b9702c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1228&h=1306&s=151975&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/493cfc478706.png)
 
 返回了 8 条数据。
 
@@ -883,17 +883,17 @@ const searchUser = useCallback(async (values: SearchUser) => {
 
 然后修改下 table 的 dataSource：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/352e52da46824f8d8e092e19fb6064fc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1338&h=262&s=53708&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7b08eaace5ed.png)
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11e582d769334d4db1b00a30d3f32eba~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=968&h=668&s=52543&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5456c9d28e27.png)
 
 先登录。
 
 然后访问 http://localhost:3000/user_manage
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53f6b7670ed74ba685a2a5c43493fee2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2174&h=1458&s=565540&e=gif&f=44&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d2f4fdf82a0e.gif)
 
 搜索接口对接成功。
 
@@ -929,7 +929,7 @@ const changePage = useCallback(function(pageNo: number, pageSize: number) {
  
 这样，刚进入页面的时候，就会触发一次渲染，并且在分页设置改变时也会触发：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6907a31e61ba47dc8c3ef28f1ab6e7c7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2286&h=1364&s=240312&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b08470510869.png)
 
 然后修改下 headPic，改为图片：
 ```javascript
@@ -964,21 +964,21 @@ const columns: ColumnsType<UserSearchResult> = [
 ```
 这里用的是 antd 的 Image 组件，有预览的功能：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7cd1e6208e4126b4f3fb6ccc8fb912~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2242&h=1462&s=1757690&e=gif&f=25&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db51e145ffd6.gif)
 
 原型图还有个冻结功能：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9bb94645e5b249a8b86c2f42611771c1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=998&h=658&s=80389&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0853518545d5.png)
 
 看下接口文档：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9e005983431492daa6a07da88c36716~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1010&h=1238&s=92277&e=png&b=eff5fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49fa4ab94944.png)
 
 很简单，就是个 get 接口。
 
 我们在表格里加一列：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/806b06492b3346a98f7059b7fa785294~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1484&h=782&s=123594&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2e66bb0e517.png)
 
 ```javascript
 {
@@ -990,7 +990,7 @@ const columns: ColumnsType<UserSearchResult> = [
 ```
 这里用到了 id，我们在类型里加一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95d56c083fcc46d89fad7219c5f2a81a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=584&h=372&s=45796&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c2953e1b91a8.png)
 
 然后在 interfaces.tsx 添加这个接口：
 
@@ -1020,17 +1020,17 @@ async function freezeUser(id: number) {
 
 测试下：
 
-![2023-09-12 11.31.21.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7335c9dd95b44b299ae1b3d31b1407b5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2018&h=1258&s=332106&e=gif&f=17&b=fdfdfd)
+![2023-09-12 11.31.21.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1368b6de79fc.gif)
 
 然后我们还要把冻结状态显示出来：
 
 这部分数据是返回了的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31c269f7c7154d7d8224d583e50aaa4f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1112&h=886&s=186990&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce1da7212d26.png)
 
 需要添加一列：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c04e56c3e894ffe9e9689e080bf6a69~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1434&h=966&s=160836&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3abafe97820f.png)
 
 ```javascript
 {
@@ -1044,11 +1044,11 @@ async function freezeUser(id: number) {
 
 在类型部分也要添加下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/258e00bdf2f84d6dae979280a4ba4b14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=602&h=416&s=52472&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b14d868dd4af.png)
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/614e0be8869049fb85a050a93f06d113~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2180&h=1218&s=601737&e=gif&f=30&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c686192a355.gif)
 
 冻结之后，刷新页面，会显示已冻结。
 
@@ -1058,11 +1058,11 @@ async function freezeUser(id: number) {
 
 把 columns 移到组件内，用 useMemo 包裹，这样只会创建一次：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5cab0f177b4456d91a7d94d8ca2aee7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182&h=816&s=66791&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/86160729df97.png)
 
 freeezeUser 也是：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba05e989eca54d48874454ffd34b81d4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1138&h=578&s=114251&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a29770a6b141.png)
 
 ```javascript
 const freezeUser = useCallback(async (id: number) => {
@@ -1078,19 +1078,19 @@ const freezeUser = useCallback(async (id: number) => {
 ```
 添加一个 num 的 state，冻结之后设置一个随机值：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66aac163138c42b192a60cca73446347~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1154&h=898&s=201454&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/322e761f6b5a.png)
 
 把它添加到 useEffect 的依赖里，这样就能触发重新搜索：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e60613c7fcae48cf821a44425d513c84~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=598&h=348&s=36848&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7f22fe843141.png)
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5014ff49d8944873831d0316e1cc2879~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2046&h=1072&s=586595&e=gif&f=23&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8402e0a6af2c.gif)
 
 但其实现在这个重新搜索有问题：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/001d50c483ff48cfb4d12a04476a74b9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2090&h=992&s=455959&e=gif&f=34&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/092185a9b3ba.gif)
 
 我搜索之后再冻结，然后刷新就丢失了搜索条件了。
 
@@ -1098,11 +1098,11 @@ const freezeUser = useCallback(async (id: number) => {
 
 用 useForm 拿到 form 的 api：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fd64bc4f30b4c10af7b8d88f62682f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=902&h=492&s=69611&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f8cdafcab88.png)
 
 然后在搜索的时候拿到最新的表单值：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d84eb1a8c7d45e4be20a600512d9615~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=964&h=476&s=78143&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/385822b6e225.png)
 
 ```javascript
 useEffect(() => {
@@ -1115,7 +1115,7 @@ useEffect(() => {
 ```
 这样就可以了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22a0846d2def40c79f567fedb07ffeb6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2086&h=1192&s=508769&e=gif&f=38&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/18506e654979.gif)
 
 这样，用户管理页面就写完了。
  

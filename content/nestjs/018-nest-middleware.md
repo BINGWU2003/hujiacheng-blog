@@ -26,11 +26,11 @@ nest g middleware aaa --no-spec --flat
 ```
 创建个 middleware：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2120886bafd547569e157e22618acc9e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7958c3b93fb.png)
 
 因为这时候并不知道你用的 express 还是 fastify，所以 request、response 是 any，手动标注下类型就好了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2bba52f7fe81499290cbdaa94e1e38f0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/488f3b054778.png)
 
 这里是 express 的 request、response。
 
@@ -52,7 +52,7 @@ export class AaaMiddleware implements NestMiddleware {
 
 然后在 Module 里这样使用：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd6492db33c249b8a68fdb40eb733fac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/345da918a8ef.png)
 
 ```javascript
 import { AaaMiddleware } from './aaa.middleware';
@@ -82,21 +82,21 @@ export class AppModule implements NestModule{
 
 浏览器访问 <http://localhost:3000>
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2800e674faae47eaae69583181759c70~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f48d6254882a.png)
 
 可以看到中间件的逻辑都执行了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/851f6daac9024c909d6b25ffe6509065~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88b1f17d5267.png)
 
 这里也可以指定更精确的路由。
 
 我们添加几个 handler：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49019d736ee149ac987a986d769dd824~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7effc972de9f.png)
 
 然后重新指定 Middleware 应用的路由：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/276af257501a4a19acc5e1a600040d4d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5e04536ca70.png)
 
 ```javascript
 import { AaaMiddleware } from './aaa.middleware';
@@ -119,7 +119,7 @@ export class AppModule implements NestModule{
 ```
 可以看到，hello、hello2、world2 的路由都调用了这个中间件，而 world1 没有：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86ec746f0d634e9b80ade532f2dc70a2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a18f1c583a1.png)
 
 这就是 Nest 里 middleware 的用法。
 
@@ -150,15 +150,15 @@ export class AaaMiddleware implements NestMiddleware {
 }
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e953586b238c4da19a3ee9a10bb6302e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e0de5063334b.png)
 
 当然，这里也可以用构造器注入，这样更简洁一点：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94124984279d43edbc675a0a9df5e33c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af02c76ec860.png)
 
 这时在访问这个路由的时候，就可以看到中间件成功调用了 AppService：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c713f02f65c74fe4aabc3961811847b2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d269732e0a9a.png)
 
 这就是 Nest 注入的依赖。
 
@@ -166,7 +166,7 @@ export class AaaMiddleware implements NestMiddleware {
 
 看这个 apply 方法的类型声明也可以看出来：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ff0789b8d9944ad8af2f39cb736b324~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27b619f333c6.png)
 
 如果不需要注入依赖，那可以写函数形式的 middleware，这时候和 Express 的 middleware 就没啥区别了。
 
@@ -174,13 +174,13 @@ export class AaaMiddleware implements NestMiddleware {
 
 当然，应用实例对象也可以 use 中间件，这个就和 express 那个一样了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55e411f449d44284b05ddd28af32e2d5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1bda5831fdf1.png)
 
 不过这种形式不能注入依赖，而且也不能配置应用到什么路由，不建议用。
 
 app.use 等同于在 AppModule 的 configure 方法里的 forRoutes('\*')
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f4e084a33784f64b792fd9bafb8a7b4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6754527f78c5.png)
 
 此外，middleware 里有个 next 参数，而 Nest 还有个 @Next 装饰器，这俩的区别是什么呢？
 
@@ -188,11 +188,11 @@ middleware 的 next 参数就是调用下一个 middleware 的，这个很好理
 
 而 @Next 装饰器是调用下一个 handler 的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4109a967aac045079f337e77dc94b59c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e86fb3c4fb05.png)
 
 但如果是这样一个 handler，它就不返回值了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97f959fee86440b4832b34c4bda341fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3793b067bb05.png)
 
 这个和加上 @Response 装饰器的时候的效果一样。
 
@@ -200,15 +200,15 @@ middleware 的 next 参数就是调用下一个 middleware 的，这个很好理
 
 如果依然想让 Nest 把函数返回值作为响应，可以这样写：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d080ce7f3a4e4e3193476ba78f938a21~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/adc294c5063e.png)
 
 这个上节讲过。
 
 当然，传入 Next 参数的时候，一般是不需要在这里响应的，一般是调用下个 handler 来响应：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9313211d72a44cf7a1dc899932eda3f4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/782c18dc8eaf.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66f4e6a9470f427b8181e983cb1b8894~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/31c6600f5dbc.png)
 
 不过一般也不需要这样写，直接写在一个 handler 里就行。
 
@@ -216,13 +216,13 @@ middleware 的 next 参数就是调用下一个 middleware 的，这个很好理
 
 区别有两点：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/013d75fb98f045ecb06aee78c6689ad6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0eb4b74f17bd.png)
 
 interceptor 是能从 ExecutionContext 里拿到目标 class 和 handler，进而通过 reflector 拿到它的 metadata 等信息的，这些 middleware 就不可以。
 
 再就是 interceptor 里是可以用 rxjs 的操作符来组织响应处理流程的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b5826ac6aec4c0ea2ebb3fba0d69424~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e586bf8c4093.png)
 
 middleware 里也不可以。
 

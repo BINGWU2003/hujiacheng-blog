@@ -11,7 +11,7 @@ series_order: 12
 
 这节继续来写修改密码、修改信息页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf0e8640ca28418eba8f415f1a038649~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1646&h=1156&s=65457&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d5ad58eab7f.png)
 
 ![](<https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26ce08e936b34f138187ce4a2c520ced~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1208&h=844&s=41235&e=png&b=ffffff>)
 
@@ -134,7 +134,7 @@ css 部分如下：
 ```
 跑起来是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ef3fc0e9540411b83a82bd3222be056~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2128&h=1042&s=99191&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/93748f94a0a1.png)
 
 然后再调用下后端接口。
 
@@ -197,25 +197,25 @@ const onFinish = async (values: UpdatePassword) => {
 ```
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89777817cb57487aa14a2afcbb545d80~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2230&h=1182&s=140953&e=gif&f=34&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/231b651e5b38.gif)
 
 填入邮箱，点击发送验证码。
 
 提示发送成功。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ef7e3cdffbd4ed0bef21d0f92bb63d4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=562&h=268&s=38578&e=png&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/46c78b9fd4eb.png)
 
 邮箱里也收到了这个验证码。
 
 然后填入新密码，点击修改密码按钮：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/117eac3031744655992a3174bfa90a25~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2230&h=1182&s=163183&e=gif&f=33&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5f01c655d55.gif)
 
 提示修改成功，然后会跳到登录页面。
 
 在登录页面用新密码登录，提示登录成功。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f2919652f044a4ba644a03e7a8e693e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2230&h=1182&s=223797&e=gif&f=69&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e024c956b68.gif)
 
 这样，修改密码功能的前后端就都完成了。
 
@@ -227,9 +227,9 @@ const onFinish = async (values: UpdatePassword) => {
 
 而且界面上方是有公共的导航栏的。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17b153cd5a21466e8311dc3919540050~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1064&h=668&s=37616&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a60139d72638.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b6a14b89d054098a1bf7f4288526efb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1014&h=660&s=46365&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/86ce8bcd4765.png)
 
 所以这个页面要声明一个 /index 的路由作为父级路由，然后 /index/update_info 作为子路由。
 
@@ -293,7 +293,7 @@ css 如下：
 
 把它添加到 /index 的路由，并且添加两个子路由：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53cbf23629f147199b40e0ffa8b617ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1164&h=926&s=155427&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9756182d2382.png)
 ```javascript
 {
     path: "/",
@@ -312,16 +312,16 @@ css 如下：
 ```
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2c84908e0594f78a871d235d842f010~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2000&h=474&s=54246&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af9da43e8f05.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3f43440d51441d6957cfe574c40236e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2024&h=592&s=62624&e=png&b=ffffff)
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8f46fdee2ac4596b5b363f56a0f5d69~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2022&h=460&s=56997&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a238b6d974e.png)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20f5d2533ec7.png)
 
 没啥问题。
 
 然后在下面添加 update_info 路由，并实现 page/update_info/UpdateInfo 组件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61e2294846df4f7da6ec2a3d721e153b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/102cc7e33556.png)
 
 ```javascript
 {
@@ -444,7 +444,7 @@ css：
 
 访问 /update_info 可以看到这个页面：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f2699ce63a745d3b6934439404870e8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2096&h=1016&s=106420&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1476a3d90de7.png)
 
 这个页面涉及到 3 个接口：
 
@@ -472,7 +472,7 @@ export async function updateUserInfoCaptcha() {
 
 然后我们先做用户信息的回显：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a0517d1f653431aa790cd3ef79f3757~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1180&h=650&s=116467&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3e408bd2355.png)
 
 ```javascript
 useEffect(() => {
@@ -488,7 +488,7 @@ useEffect(() => {
 ```
 调用 getUserInfo 接口，返回数据后打印下。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e4be190ed1d4fc991117c0329cad486~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1900&h=1444&s=213688&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c6c963cca152.png)
 
 这个接口的访问需要登录，也就是要从 localStorage 里取出 token 放到 header 里。
 
@@ -545,25 +545,25 @@ axiosInstance.interceptors.response.use(
 
 访问 /update_info 页面 
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73623c43c8ab451096ee6ed8c47bd195~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=183446&e=gif&f=56&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77d463e2d42c.gif)
 
 提示没登录，然后跳转到了登录页。
 
 给用户图标添加跳到 /update_info 的链接：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b9ae89e153742a8af2ad4abcb1fc512~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1516&h=712&s=149854&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e86c305d808.png)
 
 我们登录下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9b7d719bfb44f4c904943de1c80d785~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=173817&e=gif&f=32&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce8248d7eeef.gif)
 
 再访问就不会 /update_info 跳转了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1079fbcd3ca349579ef88df74cd2506a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2346&h=1098&s=102722&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/561ce77a9a27.png)
 
 然后可以看到控制台打印了当前登录用户的信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6b50d1bd9a742fc920ed7c330f2f42c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2020&h=1178&s=166580&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/08d7f4fb4ff4.png)
 
 然后我们做下回显：
 
@@ -586,7 +586,7 @@ useEffect(() => {
 ```
 这样，回显的数据就有了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/715c92409f804d4dbfa60978eb19d9f9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2158&h=1378&s=215179&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49220cdcb556.png)
 
 然后实现发送验证码：
  
@@ -619,19 +619,19 @@ const onFinish = async (values: UserInfo) => {
 ```
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16029feda80b4e7c896a14ad9476cc5b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=137118&e=gif&f=31&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1beeafad7a70.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a15057c68bc44ebeae687cb651a8baeb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=522&h=240&s=36588&e=png&b=f4f4f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6eba81215dbc.png)
 
 修改信息，点击发送验证码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5016d6e1d29242fb94cd0fb5c7ab0a94~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=154700&e=gif&f=24&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f05543e56001.gif)
 
 填入验证码，点击修改，提示用户信息更新成功。
 
 去数据库里看一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81292b4439b04e738c010cd16e3454dd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=974&h=346&s=166658&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a09a6124e7fb.png)
 
 确实修改成功了。
 

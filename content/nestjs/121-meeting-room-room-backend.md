@@ -15,9 +15,9 @@ series_order: 13
 
 看下当时分析的需求：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/115207b6183243f59cc82845e5445c86~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1010&h=1058&s=148539&e=png&b=fefcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/48a98cc05c44.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0a7cba91eb247e9bd39ed629fd70b62~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=946&h=950&s=119536&e=png&b=fcf3f2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d89a43b56d7.png)
 
 以及我们分析出来的接口：
 
@@ -36,7 +36,7 @@ series_order: 13
 ```
 nest g resource meeting-room
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bdf1ad89dd5f47fa950659e70567d6d3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=966&h=294&s=84812&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd7995ccbfe1.png)
 
 修改下 meeting-room.entity.ts
 
@@ -115,7 +115,7 @@ export class MeetingRoom {
 
 在 entities 里引入下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4ffa26231ef4cf18ee0f331f81ba36c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=982&h=770&s=172196&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/41e1e9cd2811.png)
 
 把服务跑起来：
 
@@ -124,15 +124,15 @@ npm run start:dev
 ```
 会生成建表语句：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a87904e493334385997e055d7f07483f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1334&h=234&s=108356&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/177489cfd5ec.png)
 
 在 mysql workbench 里点击刷新就可以看到这个表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2be653160249403fb11d05c374ad06c2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=638&h=798&s=185766&e=png&b=e9e6e4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a2915dcf0fb6.png)
 
 点击第二个图标，查看表定义：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb744168fda14063ad2398f30f829435~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1508&h=912&s=379688&e=png&b=f1efee)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bcf6a131de1f.png)
 
 没啥问题。
 
@@ -140,9 +140,9 @@ npm run start:dev
 
 在 MeetingRoomModule 引入 MeetingRoom 的 Repository：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f734b6574d34024953429d945284b25~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=856&h=612&s=128891&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/10e85bd331c4.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6c741167d54474ca28e9a22aa0b9f73~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=852&h=586&s=134636&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6589bbdb1d8f.png)
 
 ```javascript
 @InjectRepository(MeetingRoom)
@@ -198,7 +198,7 @@ bootstrap();
 ```
 然后在 package.json 里添加一个 scripts
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/423669d0353c43d596659e1b511271f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=996&h=634&s=124531&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e796b19e820b.png)
 
 ```
 "repl": "nest start --watch --entryFile repl",
@@ -212,42 +212,42 @@ npm run repl
 ```
 methods(MeetingRoomService)
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e148a8e246e4e3095f2bb40c9f55533~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=494&h=300&s=24746&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f7c8792722e.png)
 
 然后调用下：
 
 ```
 get(MeetingRoomService).initData()
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9629d5c039764ed5ab462e1475548f4a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1332&h=702&s=214502&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78f226b33c95.png)
 
 打印了 3 条 insert 语句，之后又把它 select 出来返回：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43c01e0314a14bda9896cf917ae9408b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1304&h=674&s=213150&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76f489656200.png)
 
 数据库里也可以看到插入的三条数据：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/585a7e05e6e3433d98f0f3aa24640324~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1524&h=384&s=192008&e=png&b=e8e6e5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e0c557dae836.png)
 
 我们很多地方都是用的 repository.save，但如果你确定是 insert 或者 update 的时候，直接用 repository.insert  或者 repository.update 更好。
 
 先 truncate table 清空数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9acecd774ac5460c9c88fe60503026f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=720&h=738&s=220332&e=png&b=e7e3e0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed34ff4a2094.png)
 
 刷新可以看到，确实清空了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/402250c636c64892b68da07a7ea591be~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1168&h=366&s=119566&e=gif&f=15&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cbbc21d01d83.gif)
 
 把 save 换成 insert：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36878901246f48448439f3f2bee87c32~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=984&h=864&s=176152&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/718ea5b41001.png)
 
 重新跑一下：
 ```
 get(MeetingRoomService).initData()
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c3e91ec7ef44fc5a15d87fde8f4f798~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1190&h=356&s=88343&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/98003c1c9cee.png)
 
 现在是批量插入了 3 条数据。
 
@@ -312,7 +312,7 @@ npm run start:dev
 ```
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebd271cb6c1a4949b63170ff6f4d45e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1196&h=1314&s=161636&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/02ff13450137.png)
 
 没啥问题。
 
@@ -380,13 +380,13 @@ async create(meetingRoomDto: CreateMeetingRoomDto) {
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7e323cbb0c746efb2a3448de89c9695~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1286&h=824&s=105682&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b9453af5fca.png)
 
 这个错误的格式是我们在 exception filter 里自定义的。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3199d99f01d40f0b0aa658f7bfa4970~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1028&h=1164&s=169979&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/16478b3337c9.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64e7fcbf75e74ca98b43b72bc3fb9f17~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1138&h=320&s=142031&e=png&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb151a4280cd.png)
 
 创建成功时会返回创建成功的会议室信息。
 
@@ -405,7 +405,7 @@ async create(meetingRoomDto: CreateMeetingRoomDto) {
 }
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aca9a4d8ae7f42fb89f6b64342a340b6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=878&h=846&s=99750&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be9f2486fcb7.png)
 
 这样就能保证会议室名字不会重复。
 
@@ -473,15 +473,15 @@ async update(meetingRoomDto: UpdateMeetingRoomDto) {
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4f165d9ab2549fcb4730cac355d7905~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=996&h=958&s=108864&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0b9cf8aa726d.png)
 
 服务端打印了 select 和 update 的 sql：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac34c9ae875a4ec28fdaa922867611bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1448&h=446&s=172611&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3a59f0dbee6b.png)
 
 数据库中也更新了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5d39d84588044fdb48a9a7dbb803f86~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=802&h=318&s=101912&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04b5d0049928.png)
 
 然后还需要一个回显的接口，用在修改的时候回显数据：
 
@@ -505,7 +505,7 @@ async findById(id: number) {
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11c41d45c2aa4330b695eb20a6026ad8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=980&h=1064&s=132865&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/093055350198.png)
 
 然后是 delete 接口：
 
@@ -540,17 +540,17 @@ async delete(id: number) {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4be53c3459543339ebce76afbc92750~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=910&h=710&s=71020&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d5cfd4d368c.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6fa1601b92f40d599857b36fd4f80f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1392&h=346&s=171960&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/86efc1542b58.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c24e456169e44df0a5f992939c27ac17~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1042&h=336&s=166150&e=gif&f=17&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd879f62b7cc.gif)
 
 确实删除了。
 
 最后，还有个搜索接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3958d95537d4168854dc34688604afe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1228&h=844&s=78981&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49bc0a249fbd.png)
 
 我们没必要单独新建个接口，直接改下 list 接口就行：
 
@@ -606,11 +606,11 @@ async find(pageNo: number, pageSize: number, name: string, capacity: number, equ
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37b047abe26248a6a760218ab1c4ecda~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1126&h=1208&s=149733&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce094155ae97.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e20405c6737b408b935212701ad615b9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1126&h=1236&s=153829&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0f6bfc656802.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8eff66048ac4590a86d92517e6e8443~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1114&h=1256&s=150921&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/59891884373f.png)
 
 没啥问题。
 

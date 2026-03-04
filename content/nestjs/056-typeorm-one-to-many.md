@@ -15,7 +15,7 @@ series_order: 12
 
     npx typeorm@latest init --name typeorm-relation-mapping2 --database mysql
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dde5d6e41ad141319a2496d4d761ead7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/29fe5becc849.png)
 
 进入项目目录，安装驱动包 mysql2：
 
@@ -55,7 +55,7 @@ export const AppDataSource = new DataSource({
     npx typeorm entity:create src/entity/Department
     npx typeorm entity:create src/entity/Employee
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0604b5a3cac4b2f8e6bad406c303265~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d996300ef111.png)
 
 然后添加 Department 和 Employee 的映射信息：
 
@@ -93,15 +93,15 @@ export class Employee {
 
 把这俩 Entity 添加到 DataSource 的 entities 里：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03a61bf59552446aa4350256e51da21d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d0097354040.png)
 
 因为 index.ts 里用到了 User，我们用不到，把这些代码删掉：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74447a43f4684f26ba23e0b9f1e888cf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/770b3c11d7b7.png)
 
 然后 npm run start：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c92660e35454f9e8150d8eb3ee54d80~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/556fc0c81884.png)
 
 可以看到，这两个表都创建成功了。
 
@@ -109,23 +109,23 @@ export class Employee {
 
 通过 @ManyToOne 的装饰器：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfa9952b7f154b889fadcf0cfe7e1170~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed14e60913a0.png)
 
 在多的一方使用 @ManyToOne 装饰器。
 
 把这两个表删掉：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ac14654840f4316b4ed94f482f8b7c1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/86e2d833bba8.png)
 
 重新 npm run start：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2475c4ecb6a49f791202d4153bd212c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e8ae99197d43.png)
 
 就可以看到创建了两个表，并且在 employee 表添加了外建约束。
 
 workbench 里也可以看到这个外键：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2591f81f48c24601a0acbc0bfe03d99f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5bdff8297df5.png)
 
 改下 index.ts，新增一些数据，调用 save 保存：
 
@@ -161,21 +161,21 @@ AppDataSource.initialize().then(async () => {
 
 再跑下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4be620ad3f954e669b145d404f50be10~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4151aa8eab60.png)
 
 可以看到被 transaction 包裹的 4 条 insert 语句，分别插入了 Department 和 3 个 Employee。
 
 当然，如果是设置了 cascade，那就只需要保存 empolyee 就好了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/745f52949d64473d8eb2d7933e5d5af5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/121e6cbce600.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bca5a6471ba490cb5dc47e89be08025~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f3a0c82e7f35.png)
 
 department 会自动级联保存。
 
 不过一对多关系更多还是在一的那一方来保持关系，我们改下 Department：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b15bc0a2d4844769fba04375a9e6c04~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a80829f1d1a7.png)
 
 这里要通过第二个参数指定外键列在 employee.department 维护。
 
@@ -187,17 +187,17 @@ department 会自动级联保存。
 
 不过你也可以通过 @JoinColumn 来修改外键列的名字：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5de7e821f8f14236b9f03c22f68fb699~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4179fee84639.png)
 
 加上 @OneToMany 装饰器，再设置下 cascade：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e9078f868684211a03bf09c8c491917~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6bbcb48acd18.png)
 
 这样当你保存 department 的时候，关联的 employee 也都会保存了。
 
 不过这时候要把 @ManyToOne 的 cascade 去掉。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3b1a6a929c549d5bc613bb2fdf251fd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e400fc0859f2.png)
 
 不然，双方都级联保存，那不就无限循环了么？
 
@@ -231,7 +231,7 @@ AppDataSource.initialize().then(async () => {
 
 这样关联的 employee 就会自动保存：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c72d102c8b524a9882f20fff0b47425f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64ec7f758611.png)
 
 然后再来试下查询：
 
@@ -240,7 +240,7 @@ const deps = await AppDataSource.manager.find(Department);
 console.log(deps);
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84912b3adb084482a8bb78252feb61a2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7df9a5c682b.png)
 
 想要关联查询需要声明下 relations：
 
@@ -254,7 +254,7 @@ console.log(deps);
 console.log(deps.map(item => item.employees))
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa1c72281bf84b6e810505951c3f8c3d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/79cffa40a025.png)
 
 这个 relations 其实就是 left join on，或者通过 query builder 来手动关联：
 
@@ -268,7 +268,7 @@ console.log(es);
 console.log(es.map(item => item.employees))
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0923a93bc67344dfb0f1c5ba07aed1cc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b99a8d12de52.png)
 
 先 getRepository 再创建 query builder。
 
@@ -296,11 +296,11 @@ await AppDataSource.manager.delete(Department, deps[0].id);
 
 当然，如果你设置了 onDelete 为 SET NULL 或者 CASCADE：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc3d68fe32de4d9b81599b19b1c6563f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1688a00e4e0b.png)
 
 那就不用自己删 employee 了，只要删了 department，mysql 会自动把关联的 employee 记录删除，或者是把它们的外键 id 置为空。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd78e822ae5b47c09d18e02c534247c0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cf9fdb045bd.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/typeorm-relation-mapping2)。
 

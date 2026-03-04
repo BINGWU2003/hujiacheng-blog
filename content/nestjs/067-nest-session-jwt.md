@@ -69,11 +69,11 @@ sss(@Session() session) {
 
     nest start --watch
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74f805d6f4954fba8bbf5a070e08c31e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/99c9bfea5531.png)
 
 然后用 postman 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a533a453fe45496fb61084e9409345f9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8b246a905e9.gif)
 
 可以看到每次请求返回的数据都不同，而且返回了一个 cookie 是 connect.sid，这个就是对应 session 的 id。
 
@@ -113,7 +113,7 @@ JwtModule 是一个动态模块，通过 register 传入 option。
 
 或者是 registerAsync，然后通过 useFactory 异步拿到 option 传入：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0690af4482204510857f640ec11f1b9c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/892c09da5e57.png)
 
 这部分是动态模块的知识，忘了的同学可以看看动态模块那节。
 
@@ -121,7 +121,7 @@ JwtModule 是一个动态模块，通过 register 传入 option。
 
 然后在 controller 里注入 JwtModule 里的 JwtService：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66c2384eacb14d4795d359f9f58f8f18~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d675d5fccdd8.png)
 
 然后添加一个 handler：
 
@@ -143,7 +143,7 @@ ttt(@Res({ passthrough: true}) response: Response) {
 
 然后访问下试试看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a622591c25041c2bec8b2c73630aa97~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8ee1e65efa9.png)
 
 可以看到，返回的响应确实带上了这个 header。
 
@@ -189,19 +189,19 @@ ttt(@Headers('authorization') authorization: string, @Res({ passthrough: true}) 
 
 第一次访问，会返回 jwt token，把它复制下来：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f40b87a16e344006a58a29a95e3dee33~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a72e3b99577.png)
 
 放到请求的 header 里：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/825a4a3bba2c445a80ae0df3bb2316a9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f8875063b5f6.png)
 
 这时候响应为 2，并且返回一个新的 token：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a73e766c8b04e58a93d22fac74e7861~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23246fd2f591.png)
 
 把它复制下来放到 header 里再次请求：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65a1cd5c2144432bb077c39faf7ffe11~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dc77855d0da4.png)
 
 这时候返回的就是 3 了。
 
@@ -209,11 +209,11 @@ ttt(@Headers('authorization') authorization: string, @Res({ passthrough: true}) 
 
 那我们带一个错误的 token 呢？
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04d7d1d5150c445a92ce331dec24ebb1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee98e436965a.png)
 
 这时候 jwtService.verify 方法就会抛异常，然后我们返回了 401 错误。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bdf2a2485c3641e7ae0c8883f3825f34~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac20fbef7947.png)
 
 这样，我们就分别用 Nest 分别实现了 session + cookie 和 jwt 两种保存 http 状态的方式。
 

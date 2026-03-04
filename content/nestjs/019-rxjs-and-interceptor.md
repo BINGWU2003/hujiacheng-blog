@@ -28,11 +28,11 @@ of(1, 2, 3)
 
 用 node 跑一下，结果如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c0d7a255bb84cee9c3cd29cc2dfd009~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0cb35563e094.png)
 
 这里 node 能直接解析 esm 需要在 package.json 里设置 type 为 module：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/454464cf6765412198523a9c33ff6faf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc735ea986d7.png)
 
 这就是 map、filter 的 operator 的作用。
 
@@ -57,7 +57,7 @@ numbers$
 
 scan 是计数，map 是转换，结果如下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f53b914317474cb88ead3a21ac30d19c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/031b22a34d97.png)
 
 或者是节流、防抖：
 
@@ -128,25 +128,25 @@ tap operator 不会改变数据，只是额外执行一段逻辑。
 
 在 handler 上启用 interceptor：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d9bd2a014e840de8bbd782c4caee1cc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2953e790d96a.png)
 
 然后浏览器访问 <http://localhost:3000>
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c65983ca7714b7d9e13effcedc5f474~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b15888a6bb22.png)
 
 就会看到打印的耗时数据：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20b6ebab0a034cc4beeddc4e2d846557~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cf39a9f8a22.png)
 
 或者全局启用这个 interceptor：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13609d5a22d346f08ac3844c3dbe1395~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad5e8e795991.png)
 
 路由级别和全局级别的 interceptor 还是有区别的，路由级别的可以注入依赖，而全局的不行：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a509b7937904912b0617d540ed6b544~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b02a15496f0.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5eb833551804c0aa7ab24f4fc2d148d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/661c0c1bf62b.png)
 
 我们再来使用下别的 RxJS operator：
 
@@ -180,11 +180,11 @@ export class MapTestInterceptor implements NestInterceptor {
 
 在 controller 里引入下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc01fd3012b9483ca01bee46570cd8e0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6766eecb1a0b.png)
 
 跑下试试：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47a71b3069394bf49aecc524731ba47f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23398b6263ec.png)
 
 现在返回的数据就变成了这样。
 
@@ -225,13 +225,13 @@ export class TapTestInterceptor implements NestInterceptor {
 
 日志记录我们用的 nest 内置的 Logger，在 controller 返回响应的时候记录一些东西。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed609e29fa88415ea2bed46de8884f4e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cef2cc07293f.png)
 
 浏览器访问这个接口，会打印日志：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b82fffddcb744bbd932b63ad47f8b72d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1c0e1f245e14.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fda80ddff2f4c989f1b866102a577b6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0d71837284f7.png)
 
 这里我们用的是 Nest 内置的 Logger，所以打印格式是这样的。
 
@@ -266,27 +266,27 @@ export class CatchErrorTestInterceptor implements NestInterceptor {
 
 在 controller 里用一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb5fbe5adee840e8b58211dd6c849b55~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/690295930ebc.png)
 
 浏览器访问下，可以看到返回 500 的错误：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74998be76c3424b9fa81b6a546a50b8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77455e749665.png)
 
 打印了两次错误：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74d1cc1f61c84b6786bcbc117ea1284b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5a4142d2484.png)
 
 一次是我们在 interceptor 里打印的，一次是 exception filter 打印的。
 
 其实我们能看到这个 500 错误，就是内置的 exception filter 处理的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74998be76c3424b9fa81b6a546a50b8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77455e749665.png)
 
 对应的 Nest 源码如下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2198e6aae4344a2c9b64bc0fa5734b60~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac9ebdc60d9f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9eccf5302f942c2b8ac6c9075e92987~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/87b398b25f57.png)
 
 ## timeout
 
@@ -327,25 +327,25 @@ timeout 操作符会在 3s 没收到消息的时候抛一个 TimeoutError。
 
 在 controller 里用一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f5989c408b14c5ca0a40ad97f433647~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00fd0f25cf37.png)
 
 浏览器访问，3s 后返回 408 响应：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32efac20c280471898effb85d91fe169~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b21261810ff.png)
 
 就是在这里处理的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e3eb04201dc43008ad0349168319ced~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b8c37f93d85f.png)
 
 不信可以抛一个其他的 exception 试一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9973417e6f414bf88992f58161624c8d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47733bc5920c.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ca1c77286ba4951ba0b5693c5b54e5f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a892ddb056a8.png)
 
 最后，再来看下全局的 interceptor：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cea9df36fe24df9bd2f372cfe7453bc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f51761691962.png)
 
 因为这种是手动 new 的，没法注入依赖。
 
@@ -353,23 +353,23 @@ timeout 操作符会在 3s 没收到消息的时候抛一个 TimeoutError。
 
 nest 提供了一个 token，用这个 token 在 AppModule 里声明的 interceptor，Nest 会把它作为全局 interceptor：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e126e39cc9e435aac798e07947c4cfb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8a7cfe771eaa.png)
 
 在这个 interceptor 里我们注入了 appService：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b212d7a10d874341afdf2395e5e517ba~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e3d875bbec3b.png)
 
 添加一个路由：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecedb90ff1c8481b94dae6e796879e83~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/811206100244.png)
 
 访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a99e53b4ee544ba69d55b081e8a4288d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ecc869fcdf52.png)
 
 可以看到全局 interceptor 生效了，而且这个 hello world 就是注入的 appService 返回的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b91330c950347a3ab4dbb435ca1df43~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c60022d52732.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/interceptor-test)。
 

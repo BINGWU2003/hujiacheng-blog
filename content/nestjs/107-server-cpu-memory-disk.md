@@ -13,7 +13,7 @@ series_order: 27
 
 比如 CPU、内存、磁盘等：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/559b3f430278402cb932f3ef737c85b7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2210&h=1198&s=190259&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2cb33909f687.png)
 
 这是怎么实现的呢？
 
@@ -25,7 +25,7 @@ series_order: 27
 nest new server-status
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c56a1617eca4eb0a819064d89aa79c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=936&h=686&s=159449&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b64ac3292fb.png)
 
 在 AppController 加个接口，用 os.cpus 拿到 cpu 的信息：
 
@@ -55,21 +55,21 @@ export class AppController {
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ed12e3e86c6446ba41d5c7166f042a5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1546&h=370&s=135833&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8fa766ab3fb4.png)
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8176b06d7dc446b5ac6fad92a26eb6f6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=990&h=1302&s=135722&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cda6328fffbb.png)
 
 返回的数组元素个数就是 cpu 数。
 
 那具体的属性是什么意思呢？
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77e63f2dc6d344dda3cfcaa8ae1bdb2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1184&h=866&s=927954&e=gif&f=32&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/409614df2a06.gif)
 
 可以看到，times.user、times.sys、times.idle 分别代表用户代码占用的 cpu 时间、系统代码占用的 cpu 时间，空闲的 cpu 时间：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/115ecfa501ab442f9f244c3d43c68966~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1180&h=608&s=110146&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/655f6c289492.png)
 
 基于这些就能算出 cpu 的使用率、空置率来。
 
@@ -102,11 +102,11 @@ status() {
 然后 cpu 的系统使用率就是 sys/total，用户使用率是 user/total 而空置率就是 idle/total。
 
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c3a07d6060c464b93fe1298a3c6c90d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=686&h=344&s=34454&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc41f38fc2f4.png)
 
 对应的就是这部分信息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b2c333918e14c5181cf52bf2fd1b664~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1174&h=538&s=45380&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2197c6487d5c.png)
 
 然后继续拿内存信息：
 
@@ -174,7 +174,7 @@ os.totalmem 是总内存，os.freemem 是空闲内存，那差值就是已使用
 
 这样也可以求出内存使用率。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc7f468ede654ce381d6db9a4425a6d2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=760&h=650&s=67180&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7161a0d8bc8e.png)
 
 我们把它转成 GB 单位的数值返回：
 
@@ -199,17 +199,17 @@ getMemInfo() {
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27d1ba1ed95d4c62a84e94ac6278ed48~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=754&h=612&s=62155&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d915fd28da6.png)
 
 对应的是这部分信息：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/099a22854ab24f95b9616e374df31cd6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=578&h=492&s=34059&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1eb2969e1037.png)
 
 然后是磁盘信息：
 
 这里用到 [node-disk-info](https://www.npmjs.com/package/node-disk-info) 这个包：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a64e44266394fb488e0dcf68dfc894b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1520&h=628&s=104407&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62e5a3693dd5.png)
 
 安装下：
 
@@ -303,11 +303,11 @@ export class AppController {
 ```
 这里拿到的就是本地所有的磁盘信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b46e743377eb40f6b0f034dc8458c424~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=896&h=1270&s=167821&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a35769644dc.png)
 
 分别是路径、文件系统、总大小、已用大小、可用大小、已用百分比：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f37a661d02e4a1aab8bdf8d762c4474~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2100&h=280&s=55708&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d03b82f8cb9.png)
 
 最后，我们还要返回其他的服务器信息：
 
@@ -344,7 +344,7 @@ getServerIP() {
 ```
 这里的 os.networkInterfaces 是拿到所有网卡信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4122d908e2bf4d288fd9ad009a65cc85~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=872&h=638&s=127329&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85af0db55511.png)
 
 从中过滤出非 IPv4 的外部网卡的 ip 来返回。
 
@@ -352,21 +352,21 @@ getServerIP() {
 
 试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2386a8e611a4e7f82c10170b97fbfa3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=634&h=312&s=37614&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3abf90e5e4a4.png)
 
 和我系统设置里的 ip 一样：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a02adc972efe4ea0b2638333c02233cb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1342&h=446&s=88591&e=png&b=eeecec)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9eeafde2ab08.png)
 
 对应这部分信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9231ba0033264253a0e0d44b10627b2e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1822&h=278&s=47229&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9cb62adcbe3e.png)
 
 这样，服务器的状态数据就都拿到了。
 
 可以实现这样的服务监控页面：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0f236a9efd64d6cb82e75eaa5335dea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2656&h=1220&s=255530&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c1b83d2030f9.png)
 
 案例代码上传了[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/server-status)
 ## 总结

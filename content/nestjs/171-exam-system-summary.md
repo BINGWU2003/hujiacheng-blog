@@ -15,13 +15,13 @@ series_order: 17
 
 我们通过 monorepo 的方式组织项目：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0938182fd394471cbdfd964f3a500859~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=568&h=690&s=50940&e=png&b=191919)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9d0a14cd325.png)
 
 4 个微服务都是 apps 下的单独目录。
 
 然后公共模块放在 libs 下，通过 @app/xxx 在项目里引入。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43ffb748fb204c5993789de7529bc7f9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1000&h=888&s=175275&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4f47faea6cf5.png)
 
 每个微服务都是独立跑的：
 
@@ -38,25 +38,25 @@ npm run start:dev analyse
 
 在 exam 微服务暴露 tcp 端口：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed55cf79de664f4a9ef5cbcae8a51d57~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1530&h=840&s=240463&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9e67658d9bb.png)
 
 answer 微服务连接上它：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e1d60537d184629870bd9e17f2e0360~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1488&h=1040&s=242750&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f97312cc432e.png)
 
 在 exam 写一个消息处理函数：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29de328e0eb24bf09c143470bc94bcf9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1570&h=950&s=305507&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b304e8c71079.png)
 
 在 answer 里调用它：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1e283e18dcd4138b18afb1234b4bd08~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1862&h=846&s=306893&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aea9a88ab750.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b651b93e3ca5485ba8a7bc80427fe64d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=652&h=182&s=19781&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/40da35a65cfc.png)
 
 但这个项目的多个模块比较独立，最终也没用到 tcp 通信。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb7f61f5550f4fe7953a9add03c84157~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1108&h=510&s=48303&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/718e75d8d534.png)
 
 同样，rabbitmq 的异步通信也没用到。
 
@@ -66,44 +66,44 @@ answer 微服务连接上它：
 
 首先我们做了需求分析，分析了下有哪些功能：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34ff0fdfeadc444683d2baf737512d5c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=964&h=1058&s=119163&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8543e871a187.png)
 
 直接用的问卷星的页面作为原型图：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b84459485a4df49649711ec205c642~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2866&h=1300&s=351571&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64cce92c0a81.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/682f3d9f410940e8a195ef066b489c22~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2456&h=1238&s=283811&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9bc94fa75e08.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c4f4d9fae8145bc97b7323aec889053~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2912&h=1502&s=1189027&e=gif&f=69&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed1b80dbfb18.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07a38196a7ce497fb94d912443f2f59e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2302&h=1074&s=301412&e=png&b=fcfcfc)
-
-
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32f8b6710a62464c92b036ae331eaa06~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2184&h=1500&s=252196&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0cd776b29284.png)
 
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9e55fee4f6c4dde8f9b28f6659d6b9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1410&h=1446&s=139802&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3174263375b.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40ce6233f75b426eba496d0f75ce6d1d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2612&h=1102&s=240581&e=png&b=fbfbfb)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e663ad5b69c24d65ad968f40be2ea72d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2562&h=1222&s=359226&e=png&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b92f412ed6e.png)
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2f2269fc1f4.png)
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd247dc4e396.png)
 
 这一步主要是明确做什么。
 
 然后我们设计了下技术方案，做了技术选型：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd0c914e3ae64d988e3f87e93abdcb35~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1470&h=850&s=211771&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0e89628b8c88.png)
 
 当然，因为微服务之间比较独立，最终没用到微服务之间的同步（基于 tcp）和异步（基于消息队列）通信。
 
 数据库设计：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09e7755c1bbe4b44ac925983e152f9a4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=644&h=340&s=22559&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3864744f3452.png)
 
 
 分析了下接口：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88d6742e5fa349d7af1af37e6d9bdaf2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=842&h=1156&s=104489&e=png&b=fdfdfd)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/940cb93b9253.png)
 
 接下来进入开发：
 
@@ -122,11 +122,11 @@ libs 下的模块可以在每个 app 里引入，可以放一些公共代码。
 通过 prisma 的 migrate 功能，生成迁移 sql 并同步到数据库。
 
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc5e66b29d1c439ead8514356687e8d9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1634&h=598&s=194176&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e7c10a28a2a.png)
 
 之前用 TypeORM 也要做数据库迁移，不过需要自己准备这些 sql：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49c1f3712b88417b8dddd4c3a0608895~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1874&h=1028&s=543895&e=png&b=1e1e1e)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9988b0927c19.png)
 
 从数据库迁移方面来说，prisma 确实方便很多。
 
@@ -136,17 +136,17 @@ libs 下的模块可以在每个 app 里引入，可以放一些公共代码。
 
 我们做了一个简单的低代码编辑器：
 
-![2024-08-27 20.33.03.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6958f916045549f298aaf0dc95717b27~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2756&h=1458&s=596511&e=gif&f=70&b=fdfdfd)
+![2024-08-27 20.33.03.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ab0cf8defeaf.gif)
 
 可以拖拽题型到画布区，然后在右侧编辑：
 
-![2024-08-26 23.08.21.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57106a360f08412cbfd92b64d5f8fd89~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=452683&e=gif&f=70&b=fdfdfd)
+![2024-08-26 23.08.21.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b5421308cfa.gif)
 
 每个题目都设置分值、答案、答案解析
 
 最终生成一个 json，把这个 json 保存到数据库。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad5e3eb250b04e6ab76d9cd84cf631fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1916&h=106&s=125790&e=png&b=fbfbfb)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2adfd1a613d8.png)
 
 其实一般的低代码编辑器都是编辑器拖拽，服务端存 JSON。
 
@@ -163,7 +163,7 @@ libs 下的模块可以在每个 app 里引入，可以放一些公共代码。
 这样从新建考试，编辑试卷，到答题提交答案的流程就完成了。
 
 
-![2024-08-27 20.37.29.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3ec3edd795d495f9439747d62193436~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2756&h=1458&s=308015&e=gif&f=59&b=fefefe)
+![2024-08-27 20.37.29.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cc4663c684c2.gif)
 
 答题结果也是用 json 保存的。
 
@@ -184,10 +184,10 @@ libs 下的模块可以在每个 app 里引入，可以放一些公共代码。
 
 我们通过和试卷 json 的答案对比，实现了分数的计算：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14e6a3bdc5064872bc5b53d558b49d0b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1212&h=1408&s=292463&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38ede77b408a.png)
 
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e3c8c0031e44088b0cd9bff2de08dce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=1476&s=122372&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff87b7949aab.png)
 
 之后又实现了排行榜。
 
@@ -195,7 +195,7 @@ libs 下的模块可以在每个 app 里引入，可以放一些公共代码。
 
 然后加了一个弹窗来展示排行榜。
 
-![2024-08-27 20.02.19.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e29df85a6e484bf6a1d3079dd11d4301~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2756&h=1458&s=1301965&e=gif&f=46&b=fefefe)
+![2024-08-27 20.02.19.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a09f1a71ca79.gif)
 
 这样，整个流程的功能就开发完了。
 

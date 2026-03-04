@@ -20,7 +20,7 @@ npm install --save @nestjs/swagger
 ```
 在 main.ts 添加这段代码：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9cb79629ae02494a8f10ee0ba0d210c3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e756a99c70f.png)
 
 ```javascript
 const config = new DocumentBuilder()
@@ -35,21 +35,21 @@ SwaggerModule.setup('api-doc', app, document);
 
 访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb0ec13a8f534454b21c93635207f038~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e6efc93b7642.png)
 
 可以看到所有接口都列出来了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2632002787d947f896e24819148cac6d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/40054d10f1a2.png)
 
 还有用到的 schema，也就是对象的结构：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/422a5f7fc0074ab896e81c8a23ac8f3d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e8093c8bac76.png)
 
 只不过很多接口的文档是不对的：
 
 比如用户列表接口，这些参数都不是必选的，而且也没有响应相关的信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8db08cdb95824d03817172059cc059a5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8387d57e5df7.png)
 
 还有 schema 也没有具体的内容。
 
@@ -57,19 +57,19 @@ SwaggerModule.setup('api-doc', app, document);
 
 在 UserController 添加一个 @ApiTags
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d230e072de054ef4be2972b2c50c78de~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2506fd387ad6.png)
 
 这样这个 cotroller 的接口会被单独分组：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10fa746380f6435f9fc4e32c868999f2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b511a49fa9ec.png)
 
 然后我们一个个接口来看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ed9e75309924374a97f66b08911680a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2bc8c6cd33e.png)
 
 先是 /user/register-captcha 接口
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff4429ddfe634070b93ed382853ab6c1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0f50d4250dd2.png)
 
 ```javascript
 @ApiQuery({
@@ -87,15 +87,15 @@ SwaggerModule.setup('api-doc', app, document);
 ```
 通过 @ApiQuery 描述 query 参数，通过 @ApiResponse 描述响应。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c226a2c226604c82b080bc06a776aa28~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a4b96264d01.png)
 
 然后是 /user/register 接口：
 
 它一共有 2 种状态码，200 和 400：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2348b92ec922492bb9220b5141255cee~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47b1cca944e0.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1073f3ea16e14f3d9924a7aac2dbaa7a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b6708bb8741f.png)
 
 ```javascript
 @ApiBody({type: RegisterUserDto})
@@ -111,29 +111,29 @@ SwaggerModule.setup('api-doc', app, document);
 })
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7d3888d71464440bc6c4c08d8206055~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a31a0c10584b.png)
 
 请求体的属性需要去 dto 里标识：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e23b1103900f49c195545a8f211a2969~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5460fffdc0cc.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c904de33d354e11916f56d400d9e0f5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c3f7b2601adb.png)
 
 然后接口文档里就可看到请求体的信息了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd9ae1fb9e054b62b36db1e11ff91592~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ebb0643bfe42.png)
 
 下面的 schema 里的 RegisterUserDto 也有了内容：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/507510e54dca43c2a52a79abbec80b1e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3eb949c09234.png)
 
 接下来是 /user/login 接口：
 
 它也是有 400 和 200 两种响应：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1938c62e487448dd847280e2565bb1be~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ba44690c1bfa.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3138960114d142e793814edbfc206885~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/beb71c531608.png)
 
 ```javascript
 @ApiBody({
@@ -155,7 +155,7 @@ SwaggerModule.setup('api-doc', app, document);
 然后在 LoginUserDto 和 LoginUserVo 里标识下属性：
 
 LoginUserDto：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e784199fc1447ffb5bdffee2d5b6ab8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bfe7dcfe869d.png)
 
 LoginuserVo：
 
@@ -213,15 +213,15 @@ export class LoginUserVo {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4becc1d39cbc4a5dbe146986295b6896~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be04f623660e.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6e1168f077343d4908e1616bbaa9a8b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/70fc2b9b8507.png)
 
 /user/admin/login 的 swagger 装饰器和 /user/login 一样。
 
 然后继续看 /user/refresh 接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c03e7389acd24c89aeaf92d1657ba9c3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/579380468e46.png)
 ```javascript
 @ApiQuery({
     name: 'refreshToken',
@@ -242,13 +242,13 @@ export class LoginUserVo {
 
 用 @ApiQuery 标识 query 参数，用 @ApiResponse 标识两种响应。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb5d7836c77d445482bd6e1d90414ab2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c122c8d2a620.png)
  
 但现在刷新成功的 access_token 和 refresh_token 没有显示。
 
 所以我们也需要把这个返回值封装成 vo：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/027cb4c54b00432190bb3554dfa992d4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc2177f92995.png)
 
 新建 src/user/vo/refresh-token.vo.ts
 
@@ -265,7 +265,7 @@ export class RefreshTokenVo {
 ```
 把返回的结果封装成 vo：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29ee014300c440d4ab5ce5e322d42f0a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/691f35c9fd9f.png)
 
 ```javascript
 const vo = new RefreshTokenVo();
@@ -277,17 +277,17 @@ return vo;
 ```
 在 @ApiResponse 里标识这个 type
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d390166b24b4c33952a19651a1338b6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ef5f95343449.png)
 
 刷新下页面，可以看到现在接口文档里就有了返回数据的结构：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8725ded96f484f40acc168a8526547e9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d863b921fc26.png)
 
 /user/admin/login 的处理方式一样。
 
 接下来是 /user/info 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bdef74a687d4786ac2e4b483b1dffdd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b0fefa4d081b.png)
 
 加一下返回的数据的标识 @ApiResponse。
 
@@ -324,35 +324,35 @@ export class UserDetailVo {
 ```
 这样返回的数据结构就对了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6967a10bb794b11b30b24575a73f97f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8dc123840a5d.png)
 
 但这个接口是需要登录的，我们加一下标识：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/413d5a6bf0c945f4a7857742b53f524a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/005da6855941.png)
 
 然后在 main.ts 里加一下这种 bearer 的认证方式：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/586a90ae7d964291b21bedb0f75bcc62~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4bdbe15d4d91.png)
 
 这时候这个接口就有了锁的标记，代表需要登录了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f872562f56c54288803535e014dff025~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6fc2be89b16a.png)
 
 点击锁，填入 access_token，这样再测试接口的时候，会自动带上 token 标识：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e90bb9dd2914fc7864dc067df8a3845~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80291b762405.png)
 
 比如我输入 xxx，然后点击 authorize
 
 然后点击 try it out 和 execute，可以看到浏览器发送了这个请求，并且带上了 authorization 的 header 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de975505b4374adc932e8980b8602ee7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/10cfeb3ef6c4.png)
 
 可以在 swagger 文档里测试这个接口。
 
 接下来是 /user/update_password
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7359a3f566124a72b8b601b8014a9314~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3970275c0e06.png)
 
 ```javascript
 @ApiBearerAuth()
@@ -366,14 +366,14 @@ export class UserDetailVo {
 ```
 在 UpdateUserPasswordDto 里加一下 @ApiProperty
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f620d8c3ee744c249c6364103c655e02~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8dd9d85dab53.png)
 接口文档没啥问题：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70b6e7de3485400aacd615e947b5c5e5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f8327699b414.png)
 
 接下来是 /user/update_password/captcha 接口
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1926854b29ed408dbfe6cdb36ed3c3cb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f892f8765d6.png)
 
 这个接口是需要登录的，当时为了测试方便没有加，现在加一下：
 
@@ -391,11 +391,11 @@ export class UserDetailVo {
 @RequireLogin()
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2f4a7401c5849d79f3715bdc1e1c19e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/012268cfe8ff.png)
 
 然后是 /user/update 接口：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7dd319f321d46b4b9d13f1cc058d76a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3063430e7dcd.png)
 ```javascript
 @ApiBearerAuth()
 @ApiBody({
@@ -413,15 +413,15 @@ export class UserDetailVo {
 ```
 在 UpdateUserDto 里标识下 @ApiProperty
  
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e1ff3f94f254dc4b6387bc0966104ed~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/91ad11a60a04.png)
 
 刷新下，可以看到最新的接口文档：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a4d3ead23cd499e9aab5fc18fd63def~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2845ebd5b5c6.png)
 
 然后是 /user/freeeze 接口
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee6adf9f9a2745eab7d181f23ae83d70~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ea97efe5e2a.png)
 
 ```javascript
 @ApiBearerAuth()
@@ -439,13 +439,13 @@ export class UserDetailVo {
 
 刷新下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc42883dc2c24c5e94c3c82af1982836~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/030d941b193a.png)
 
 没啥问题。
 
 最后，还剩下 /user/list 接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac7c6fda80da4c1fa23381a93ecbee06~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f7c05614404.png)
 
 ```javascript
 @ApiBearerAuth()
@@ -482,7 +482,7 @@ export class UserDetailVo {
 ```
 这里的返回值需要封装个 vo：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc5f0e83f0984c51be62858635595658~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3af5623b196a.png)
 
 创建 src/user/vo/user-list.vo.ts
 ```javascript
@@ -530,7 +530,7 @@ export class UserListVo {
 
 然后把 findUsers 的返回值改为 UserListVo
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b61308edae734d78aa9518c0dcc3058a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/07bcb9a31259.png)
 
 ```javascript
 const vo = new UserListVo();
@@ -542,9 +542,9 @@ return vo;
 
 刷新下接口文档：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bde29165e214d35b8fb42a9a3628a93~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/48ea25f7398d.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b502e1a38ba4aff97c84993d23778cf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f525137c3a90.png)
 
 没啥问题。
 

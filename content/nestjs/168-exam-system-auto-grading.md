@@ -11,13 +11,13 @@ series_order: 14
 
 上节实现了答卷的提交，但是提交之后的分数页面还没写：
 
-![2024-08-27 16.14.41.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c037466feb51404a931835e83c90adf6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2832&h=1150&s=224897&e=gif&f=35&b=fefefe)
+![2024-08-27 16.14.41.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c89b9e45208.gif)
 
 这节来写一下。
 
 我们现在并没有做分数的计算：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fe4db286d014d019a72d6c69cc5902f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1426&h=332&s=125059&e=png&b=f1efee)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5fb24a5ccd63.png)
 
 答卷表里的 score 都是 0
 
@@ -27,14 +27,14 @@ series_order: 14
 
 我们只要根据 id 和 answer 表里的答案对比下就知道了：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c10e62fbb8f44a5b9b0f24281c560ccb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2788&h=1088&s=236933&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6940378f2a47.png)
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/029858e04691408bbbce822e69d02ec0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1592&h=258&s=118619&e=png&b=f3f1f0)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96b9f411a79b.png)
 
 改下 AnswerService 的 add 方法：
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14e6a3bdc5064872bc5b53d558b49d0b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1212&h=1408&s=292463&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38ede77b408a.png)
 ```javascript
 async add(dto: AnswerAddDto, userId: number) {
   const exam = await this.prismaService.exam.findUnique({
@@ -90,23 +90,23 @@ async add(dto: AnswerAddDto, userId: number) {
 
 新建试卷，进入编辑器：
 
-![2024-08-27 17.34.37.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f74743119ef14c9bbdab100c134ccc2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2832&h=1150&s=738113&e=gif&f=63&b=fefefe)
+![2024-08-27 17.34.37.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9033964089e7.gif)
 
 每种类型问题添加一个：
 
-![2024-08-27 17.36.09.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bbe70aece07441c6995d923439f4a357~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2832&h=1150&s=543410&e=gif&f=70&b=fefefe)
+![2024-08-27 17.36.09.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8914d9acc0c.gif)
 
 点击保存后，去答卷：
 
-![2024-08-27 17.42.38.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/262772e5c3784f0399d3bf713df92596~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2832&h=1150&s=773958&e=gif&f=70&b=fefefe)
+![2024-08-27 17.42.38.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c5db2aec068.gif)
 
 可以看到，计算出的分数是对的：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09f19212459d492a9c42852ca6592e2a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1690&h=274&s=126634&e=png&b=f8f8f8)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9a175321cb9.png)
 
 然后我们写下结果页面，显示下分数：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1644516568c4218aac873d586e8bf43~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=932&h=796&s=107667&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5daf4dfd45e8.png)
 
 ```javascript
 {
@@ -146,7 +146,7 @@ export function Res() {
 }
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92530a56231f46f694ee7b5af9ab7d78~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=884&h=448&s=30577&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9b339b78da2.png)
 
 在 interface/index.tsx 添加 find 接口：
 
@@ -157,18 +157,18 @@ export async function answerFind(id: number) {
 ```
 调用下：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36e899d41e1a4a06a8140dcd7438ba2e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1458&h=1028&s=189569&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27495d8daa30.png)
 
 根据 id 查询答卷，设置 score。
 
 并且根据 examId 查询下试卷：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf6a157854bf458e985d35bd0c04e0a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1374&h=722&s=126001&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d08873781e31.png)
 
 渲染 json 的逻辑和编辑器一样，只不过 value 直接指定为正确答案：
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94be89a09c7d4a118a32adcc5c986786~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1780&h=1282&s=283367&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d80fdb55c1f2.png)
 
 
 ```javascript
@@ -295,13 +295,13 @@ index.scss
 
 看下效果：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e3c8c0031e44088b0cd9bff2de08dce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=1476&s=122372&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff87b7949aab.png)
 
 没啥问题。
 
 我们整体试一下：
 
-![2024-08-27 18.07.53.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dfbee85e76fd4395a5f9f489028fc45c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2854&h=1514&s=645765&e=gif&f=70&b=fefefe)
+![2024-08-27 18.07.53.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96f747295768.gif)
 
 没啥问题。
 

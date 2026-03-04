@@ -17,7 +17,7 @@ series_order: 3
 
 我们来试一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79d19e3ae36b43db873c883bfed5e831~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/92372909746b.png)
 
 ```javascript
 setTimeout(() => {
@@ -26,7 +26,7 @@ setTimeout(() => {
 ```
 1s 以后抛一个错误，进程会终止。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b01b5671e64c49d8bbac08b0351a6937~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/22e96b973a2d.gif)
 
 然后我们把它放到 Docker 容器里跑。
 
@@ -46,11 +46,11 @@ CMD ["node", "/app/index.js"]
 ```shell
 docker build -t restart-test:first .
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30be5a3744f6419a835911a927f6e0d9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad0953920a4b.png)
 
 在 docker desktop 里可以看到：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/442eb01bbb4f480199d473cf41d87c0e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/06a1341427e7.png)
 
 然后把它跑起来：
 
@@ -59,7 +59,7 @@ docker run --name=restart-test-container restart-test:first
 ```
 可以看到，容器 1s 后就停掉了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b27ad9f647c84e7c8b52644a5831f0cd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/decff244a77a.png)
 
 当进程退出的时候，容器也会停止。
 
@@ -73,15 +73,15 @@ docker run -d --restart=always --name=restart-test-container2 restart-test:first
 
 然后你在 docker desktop 里就可以看到它一直在 restart：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3588c2f8a4964de09fb232ce2b1d172e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9e0eabe0ea72.png)
 
 打印了很多次错误日志：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d9da6312cb0441bbe32c69d0f787564~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cfb9ee48c56a.png)
 
 你可以点击停止，就不会再重启了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4d553a0a8cf465ab25bc1b1eaa40f51~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d24e180afb4a.png)
 
 这就是 docker 的自动重启功能。
 
@@ -109,20 +109,20 @@ CMD ["pm2-runtime", "/app/index.js"]
 docker build -t restart-test:second -f 222.Dockerfile .
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eae0f072c6ce4622b6c46733dd27db78~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/44fe901cf860.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9fcfa27f56a4cb69ea935a28679b29b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4f637eaf17ed.png)
 
 然后跑一下：
 ```
 docker run -d --name=restart-test-container3 restart-test:second
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ad67906ce364991acbe830204e06aff~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d5b44c2fc00.png)
 
 这时候你会发现容器一直是运行状态，但是内部的进程一直在重启：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/caf61e221d2c4f76a5efc38e0694f5e5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af6dae6d6052.png)
 
 也就是说，Docker 的自动重启功能和 PM2 的自动重启功能是重合的。
 
@@ -158,11 +158,11 @@ on-failure 是只有在非正常退出的时候才重启，相比之下，always
 docker run -d --restart=on-failure:2 --name=restart-test-container4 restart-test:first
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2f20974e8414438baf8e031343884fd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e9a77b4a0dc4.png)
 
 可以看到容器重启了 2 次，一共打印了 3 次错误就不再重启了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aecb683f615e4df5817857492d662dcd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8228c894c999.png)
 
 再来试试 unless-stopped：
 
@@ -172,23 +172,23 @@ unless-stopped 是除非手动停止，否则总是会重启。
 docker run -d --restart=unless-stopped --name=restart-test-container5 restart-test:first
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44c481d7b3a14646afeeca1869242df1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7611e4df7afc.png)
 
 可以看到容器一直在重启：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ee727df0f3c4255b288997a0bacd872~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e40b5603618b.png)
 
 除非点击停止按钮，也就是执行 docker stop 才会停止：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23e73caafe1f4b8d9da4fa258043fa37~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ec7ec3a4863a.png)
 
 ```
 docker stop restart-test-container5
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37f82a673df44b2dba54dad27b47406c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8669b7fab346.png)
 
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6cb0ae15b4864ca2bc211e985e86522e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bac25f524111.png)
 
 那看起来和 always 也没啥区别呀，都是只有手动 stop 才能停止，否则一直重启。
 
@@ -196,25 +196,25 @@ docker stop restart-test-container5
 
 现在 docker-test-container2 是用的 always 的重启策略，docker-test-container5 是用的 unless-stopped 的重启策略:
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c10f4ad725ac4f949ca99d498df45cfe~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bbe8c4f3a594.png)
 
 这俩容器都停掉了。
 
 现在我们重启 Docker：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c795fc3e9b67418eb32ccc804f7148d5~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/832c0ae00723.png)
 
 他会重启跑 Docker Engine ，也就是 Docker Deamon 的后台进程。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86d55f34b6e5426f87d014a701f97578~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b21e729d0d6.png)
 
 这时候你会发现，always 重启策略的容器又跑起来了，而 unless-stopped 的容器没有重启。这就是这俩的区别：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daf46a72601f43af877f5b6eee7dff41~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb56f602ff5d.png)
 
 Docker Compose 是用于同时跑多个 Docker 容器的，它自然也支持 restart 的配置：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c171bb5150949c5b1657523e6b96799~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/57b84ca7efcb.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/docker-restart-test)。
 

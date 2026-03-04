@@ -17,11 +17,11 @@ series_order: 27
 
 我们在 .env 文件里保存着 redis、mysql、nodemailer、nest 服务、jwt、minio 的配置：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1138896b225452c97347e06f3970973~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1616&h=1276&s=369203&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/54fa04191344.png)
 
 其实 google 登录的 client id 和 client secret 也应该在这里配置。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e1d80443bdc43f882aacacc380240b7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1538&h=1124&s=262699&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/171b64791072.png)
 ```
 # google 登录配置
 google_login_client_id=xxx
@@ -30,7 +30,7 @@ google_login_callback_url=http://localhost:3005/user/callback/google
 ```
 然后 google.strategy.ts 里取出来：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1b6262516d446358cb94d5829f74264~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1282&h=798&s=223453&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0456860c24f0.png)
 
 ```javascript
 constructor(configService: ConfigService) {
@@ -44,13 +44,13 @@ constructor(configService: ConfigService) {
 ```
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4edea2a5c48a448b92df210a73bdf6b1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2534&h=1618&s=343668&e=gif&f=24&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c6370c45977.gif)
 
 没啥问题。
 
 其实这个 client id 是测试用的，线上的肯定要另外申请，因为线上肯定不会是 http://localhost:3005 的域名。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1dcea7ce8124a32bfb4bb418d5b6b26~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1598&h=1690&s=214611&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39a45c596ba9.png)
 
 也就是说，dev 环境和 prod 环境的 .env 是不同的。
 
@@ -58,13 +58,13 @@ constructor(configService: ConfigService) {
 
 新建一个 src/.dev.env 的配置文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efeb6119013147dcaa83339839dab624~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1942&h=1288&s=405738&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c695cd1cf690.png)
 
 其他配置都一样，只是把启动端口改为 3006
 
 然后 ConfigModule 的 envFilePath 指定多个 .env 文件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6d42e43c2f1e4deeb48e52ae73aa5aaf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1382&h=692&s=151076&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5af4d8a12e1b.png)
 
 ```javascript
 ConfigModule.forRoot({
@@ -78,13 +78,13 @@ ConfigModule.forRoot({
 
 跑起来试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/537e7fc2fc12435083a17ea2441a4820~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=640&h=332&s=33936&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e60707bef24a.png)
 
 端口是 3005。
 
 删掉 .dev.env 再跑试试：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e9aa159b56d4229b6a1b9b4f3444667~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=638&h=420&s=34674&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fb72120345e6.png)
 
 现在就是跑在 .env 里配置的 3006 端口了，也就是 .dev.env 生效了。
 
@@ -100,7 +100,7 @@ ConfigModule.forRoot({
 
 我们加一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97dad1db201f43caa3d166b0080c4dea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=910&h=1144&s=190427&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/befc0c2bca5a.png)
 
 ```yml
 minio-container:
@@ -122,11 +122,11 @@ minio-container:
 
 把配置文件里的连接配置都改为容器名：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20b87033085a4dcbbe62d47e4692624c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1532&h=1308&s=292047&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd77224e9317.png)
 
 注释掉 fe 的容器，并且给 nest 容器映射下 3005 端口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efef27caabbc4018839be01c0f1fec23~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1256&h=974&s=149961&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7e25d50d232a.png)
 
 这里只测试下 nest 服务和 minio 服务就好了。
 
@@ -140,36 +140,36 @@ docker-compose up
 
 nest 和 minio 都跑起来了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/872bb80769574546b3202eda4cb129a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1994&h=1168&s=508973&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0195add802d2.png)
 
 浏览器访问下 minio 管理页面 http://localhost:9001/
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/692ecec386c04566a1d5a271a48b422f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1702&h=998&s=551743&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be2b8b6bd74f.png)
 
 没啥问题。
 
 访问下 minio 预签名的接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f056f7c7f3a44ecc85a45ba07329e86d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1486&h=904&s=181105&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a545f21c9ab8.png)
 
 也没问题，说明 nest 连接 minio 也是成功的。
 
 回过头来，我们再来优化下 docker-compose.yml
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4c9df2c864240d69dd76fd2a506e893~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1516&h=1398&s=312802&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/785535307531.png)
 
 可以通过 command 指定容器启动时执行的命令。
 
 我们在 mysql 容器启动的时候，修改默认字符集为 utf8
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a29d0811612842cf8d1af732644ebcdc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1650&h=914&s=191062&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9c00dbdadfc.png)
 
 ```yml
 command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci # 设置默认字符集
 ```
 此外，每个容器都应该加上重启策略：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47dd06473b69451a8a16d43976cb23fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1364&h=1676&s=295288&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c6afaf7f3ae.png)
 
 当容器意外停掉时重启。
 
@@ -191,21 +191,21 @@ command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_genera
 
 比如 LoginUserDto：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e166d0b3baf74b5daf8bf23cfc0f8fca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=918&h=778&s=121879&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78981db392b2.png)
 
 它的 username 和 password 在 RegiseterUserDto 里就可以复用：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2adc8d9f5fd4b36a4007072afc80cbe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1132&h=1422&s=243902&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cc474f5d30a.png)
 
 而 UpdateUserPasswordDto 和 UpdateUserDto 也可以复用 RegisterUserDto 的某些字段：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6e065fb46a447e780c4f7805c223404~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1108&h=1384&s=238127&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e6187bb2043f.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbf73051bd204fcda0d1c8cfb1b57780~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1002&h=1048&s=169784&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff6e7d968ec7.png)
 
 所以 RegisterUserDto 可以简化成这样：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c58395ced533426d93d04b6e1667626c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1858&h=1272&s=393746&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/353b0cbec984.png)
 
 ```javascript
 import { ApiProperty } from "@nestjs/swagger";
@@ -240,7 +240,7 @@ export class RegisterUserDto extends PickType(LoginUserDto, ['username', 'passwo
 
 而 UpdateUserPasswordDto 的字段可以全部从 RegisterUserDto 继承：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7932acf8b5d645d8b820af691845bf06~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2266&h=928&s=320734&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6135e96eb7b0.png)
 
 ```javascript
 import { ApiProperty, PickType } from "@nestjs/swagger";
@@ -253,7 +253,7 @@ export class UpdateUserPasswordDto extends PickType(RegisterUserDto, ['email', '
 ```
 UpdateUserDto 也是可以复用 RegisterUserDto 的大部分字段：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4071a1ee2524140ab12231e7e3c317f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1444&h=696&s=166969&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ffd975a5e593.png)
 
 ```javascript
 import { ApiProperty } from "@nestjs/swagger";
@@ -273,18 +273,18 @@ export class UpdateUserDto extends PickType(RegisterUserDto, ['email', 'captcha'
 把 frontend_user 跑起来，测试下这些功能：
 
 注册：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/957774503075485791c8d1739bff6d46~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2170&h=1508&s=249349&e=gif&f=19&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f02658bcdc1.gif)
 
 修改密码：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04bd29e83d1349c49717e908bb05c802~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1870&h=1390&s=227298&e=gif&f=16&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a5217a8c12e.gif)
 
 登录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc3c821d49ef45199296290130d0c546~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2196&h=1478&s=583732&e=gif&f=38&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78ea4cd98c1e.gif)
 
 修改个人信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8e76a74a20c4eadaa1e49c9eb3ac98b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2096&h=1418&s=169823&e=gif&f=21&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f24f089ffa75.gif)
 
 都没问题。
 
@@ -292,19 +292,19 @@ export class UpdateUserDto extends PickType(RegisterUserDto, ['email', 'captcha'
 
 现在的验证码其实有个问题：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3196cdca22ef41c495332561fc28c143~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1622&h=1494&s=1860217&e=gif&f=50&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b34aec6bd21.gif)
 
 发送了一个邮箱验证码之后下次修改信息还可以用这个验证码。
 
 因为在 redis 里这个验证码会保存 10 分钟：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e02f3560647e4919a19fca6ca9ccfb4b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2230&h=606&s=138676&e=png&b=151515)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d02ebca949aa.png)
 
 其实应该用完一次就删掉的。
 
 我们在 RedisSercie 添加一个 del 方法：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59d7f83160f04778a1e32f9d9b8ab696~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=1036&s=187951&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c8905acd069.png)
 
 ```javascript
 async del(key: string) {
@@ -313,7 +313,7 @@ async del(key: string) {
 ```
 更新完信息就调用它删掉验证码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72c4fcae5ab646f98ae925129daca837~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1332&h=348&s=86946&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e6d7b3d5e6a9.png)
 
 ```javascript
 @Post(['update', 'admin/update'])
@@ -327,7 +327,7 @@ async update(@UserInfo('userId') userId: number, @Body() updateUserDto: UpdateUs
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2727a03beb3849dba9ddcf51940ee170~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1132&h=480&s=111219&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e187588912c.png)
 
 ```javascript
 @Post(['update_password', 'admin/update_password'])
@@ -342,27 +342,27 @@ async updatePassword(@Body() passwordDto: UpdateUserPasswordDto) {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29a6457c6c7a459d8955d508e124889c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1766&h=1548&s=1222327&e=gif&f=33&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/821d05d10367.gif)
 
 现在一个验证码就只能用一次了。
 
 只不过提示不大对，应该提示这个：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c18968d78b54dcf9d475b6a9e8b675a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=960&h=632&s=105350&e=png&b=faf8fd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9e1aacbc66be.png)
 
 改一下 front_user 项目里 UpdateInfo 组件的 onFinish 的处理：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2c2b03fbe2d4468a8ed557ce48b8316~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1324&h=1042&s=234235&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f9b11cd8137.png)
 
 状态码非 20x 的时候展示返回的错误信息。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86e024b3597d47349477d4002350a705~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1536&h=1508&s=192766&e=gif&f=16&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c96debf08538.gif)
 
 现在就对了。
 
 front_admin 项目里的 InfoModify 组件也要做同样的修改：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b483be99e7b842478c979540305e3209~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1242&h=834&s=179854&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1c0ef7007b80.png)
 
 案例代码上传了[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/meeting_room_booking_system_backend)
 

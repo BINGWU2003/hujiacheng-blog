@@ -17,17 +17,17 @@ series_order: 1
 
 就和我们用 Docker 时一样，mysql 也是分为后台守护进程和客户端两方面。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb24542069c642528df69f7781b63d26~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b08b36805ead.png)
 
 我们会在命令行客户端或者 GUI 客户端里连接 MySQL，发送 SQL 语句来操作它。
 
 通过 Docker Desktop 查询下 MySQL 的镜像：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e845a52a08646088c4caf6e62a752bc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa7952e6f90f.png)
 
 点击 run，传入参数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33961dc3a8cd4d9c805c2ff096a1caf9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8146fe61363e.png)
 
 这里端口 3306 就是 client 连接 mysql 的端口。
 
@@ -39,23 +39,23 @@ series_order: 1
 
 之前我们也在 mysql 镜像的 dockerfile 里看到过这个 volume 声明：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d21fb69df4814ca6b09d860a76169aca~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/46c2630ab8d1.png)
 
 这里还要指定密码 MYSQL\_ROOT\_PASSWORD，也就是 client 连接 mysql server 的密码。
 
 如果不填，容器跑起来会有这样的提示：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d048bdc4e9a346e5a954a24e4a8aebef~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c41d73305c6f.png)
 
 让你必须指定这三个环境变量中的一个。
 
 现在 mysql 容器就成功跑起来了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d54eef315d2a454bab9b1980f1c7db72~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2be270298e30.png)
 
 mysql 镜像里带了 mysql 命令行工具，我们先用它连上 mysql server 操作下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12cfb210ec46413fa8c1f4d283162bf3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e3fca126aafc.png)
 
 输入 mysql -u root -p 然后会让你输入密码，之后就进入 mysql 操作界面了。
 
@@ -69,39 +69,39 @@ GUI 客户端有很多，这里我们用 mysql 官方的 GUI 客户端： [MySQL
 
 （m1 芯片要选择 arm 的包）
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f771e67913f4440a69cbe3cc3778cdf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/74e8a3e98cbd.png)
 
 它会让你登录，你可以点下面的 no thanks，直接开始下载：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/592ec2f05895495da340ff9ca7294659~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5edc354415c8.png)
 
 安装包下载后，点击安装。
 
 安装好后，打开 mysql workbench，点击这个 + 号：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6b8755152034d25bffb272c4a642c81~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/67e2a2b7797a.png)
 
 输入连接名，点击 store in keychain 输入密码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b076aa8b54e42d1acf080f15f878d4c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/685c077eb800.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe94aaf1a22944348e9b473fae832474~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fdea695f5d9f.png)
 
 之后你可以点击下 Test Connection 测试连接是否成功：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02a6fa76b8b54c4aaadf647086fb8754~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/213f87f45497.png)
 
 然后点击 ok。
 
 之后点击这个连接，进入操作 mysql server 的界面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/778b991cc2f14d99aaf946d057281649~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd61ee215766.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/474c3d7987c642c5a25c0af8e1b2dc00~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/627e5d3f25a5.png)
 
 点击 schemas 就可以看到 mysql 现在已有的数据库和它下面的表、视图、存储过程、函数等：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bef064519e443b7a58abbb04b6d34fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68b1c6c63110.png)
 
 什么是视图、存储过程、函数之后再讲。
 
@@ -109,19 +109,19 @@ GUI 客户端有很多，这里我们用 mysql 官方的 GUI 客户端： [MySQL
 
 它会自动执行查询这个表全部数据的 sql：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bf4bf35997b44e5ad5174d3e80b5a52~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/219fd0fa27d0.png)
 
 这就是这个表的数据：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fa9748f06c747739188e32c743b2044~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c0749d6f4dbe.png)
 
 点击第一个图标，会展示表的信息，比如多少列、多少行、占据了多大的空间等：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/537270f09a3b4f42afcfed0ab12f2e05~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9d6ff2a45a17.png)
 
 点击第二个图标是修改表的列的定义的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a46b949944341b8afebb294fd9362ac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/630a18b93393.png)
 
 不要改这个数据库，我们新建一个来测试。
 
@@ -131,7 +131,7 @@ GUI 客户端有很多，这里我们用 mysql 官方的 GUI 客户端： [MySQL
 
 每个数据库下存储着很多表、视图、存储过程和函数。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1551e10ee464e4aa12c041aa7d37bc2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d9195a1d573.png)
 
 当然，我们最常用的还是表。
 
@@ -139,23 +139,23 @@ GUI 客户端有很多，这里我们用 mysql 官方的 GUI 客户端： [MySQL
 
 点击第一个，创建个 database（或者叫 schema）：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71d2cee7bb0a48369e3348b3218298d1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d7aa49873b39.png)
 
 输入名字，指定字符集，点击右下角的 apply。
 
 创建成功之后，就可以看到我们刚建的数据库了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1afa8bd8e7d3421ebd418d98166bd347~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c2622d74c0ee.png)
 
 选中 hello-mysql 数据库，点击创建 table 的按钮，我们来建个表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3b76c4ccbee4e3ea0454b2241ad3349~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d99ba42505b.png)
 
 输入表名 student。
 
 先建立 id 列：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c692ce2b473346a9ab68d803d6ed32e0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b09f8c9834b.png)
 
 输入描述，选中 primary key、 auto increment 的约束。
 
@@ -167,7 +167,7 @@ primary key 自带了唯一（unique）和非空（not null）的约束。
 
 然后依次创建 name、age、sex、email、create\_time、status 列：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75b57c88448241759286441ce074e339~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a818e3fbca53.png)
 
 分别是名字、年龄、性别、邮箱、创建时间、是否删除的意思。
 
@@ -179,7 +179,7 @@ name 和 create\_time 添加非空约束。
 
 mysql 的数据类型有很多：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/453930c61b6a4a729743f49c858acf98~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cfca589bdaac.png)
 
 整数类的有：TINYINT、SMALLINT、MEDIUMINT、INT 和 BIGINT
 
@@ -217,7 +217,7 @@ mysql 的数据类型有很多：
 
 点击右下角的 apply，就会生成建表 sql：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7726bc5092b640a48609067038b2c61d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c21337aa14a5.png)
 
 这就是建表语句的语法。
 
@@ -229,7 +229,7 @@ mysql 的数据类型有很多：
 
 创建成功之后点击第三个图标，就可以查询这个表的所有数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8eacc77c17a24a84a39f9b7f2dfc3480~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/222ca21cef02.png)
 
 你可以新增几行数据，每一行数据叫做一个记录（Record）。
 
@@ -239,17 +239,17 @@ mysql 的数据类型有很多：
 
 （status 也不用设置，因为我们指定了默认值了）
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec7914c1266c467abc04a19c69b8c7fe~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e8d6731e768b.png)
 
 他会生成 insert 语句，这是向表中插入数据的语法：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1dac17b831e49a483273c1a86c2be3f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62c364aea804.png)
 
 把它复制一下，之后我们用 insert 语句来插入数据吧，mysql workbench 这个可视化编辑功能不好用。
 
 点击 apply 之后，mysql 会执行 sql，这时候就可以看到这条记录被插入了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/331d4828ca70470bb2e20f7c0de2520b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ad0f6e5b8e5.png)
 
 因为我之前测试的时候插入过几条，所以 id 自增到了 5，status 默认设置了 0。
 
@@ -265,27 +265,27 @@ INSERT INTO `hello-mysql`.`student` (`name`, `age`, `sex`, `email`, `create_time
 
 在上面的输入框输入这几条 sql，选中它们，然后点击执行 sql 的按钮：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb9cf395d2604199905d4c8d43b46192~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce56c9d34b37.png)
 
 下面是执行结果，可以看到都插入成功了，一共 3 行。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61222401e88b4d8795d0c6f75217b693~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a18956afdd89.png)
 
 然后再选中上面的查询 sql 来执行：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bcbc26509dcd41609e38a0140aa35fd1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4bf37fc654b2.gif)
 
 下面也同样会展示查询 sql 的执行情况，一共返回了 4 行数据：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43cb23dab16442ca9680cf3e8bf95dab~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ae72c71201a.png)
 
 新增学会了，修改和删除呢？
 
 我们同样可视化操作一下，然后看看 sql：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8de7ca71957e49f995d73464ae77b836~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c8bc171f52f.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/780a530ec409476986507fdb8a23c7dc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/84e8bfbb6bea.gif)
 
 修改和删除的 sql 分别是这样的：
 
@@ -356,16 +356,16 @@ SELECT * FROM `hello-mysql`.student;
 
 清空是 truncate：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f161834b59dc4e9287b2929e4e3de308~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e43cfeec746b.png)
 
 点击 review sql
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/568e4fcd2e7e49f4bd275f1496c01175~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b859c22237ee.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c70f0a8cffdc4f14912b2da2c106cc23~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23e4ffb07c7c.png)
 
 删除是 drop：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb7bb88d0ae14962b316d45b62071423~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5299c879d263.png)
 
 都很好理解。
 
@@ -373,7 +373,7 @@ SELECT * FROM `hello-mysql`.student;
 
 这些 sql 在 mysql 命令行里执行也是一样的。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5989606aabe4cfc94e371fdd9065cb3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d1976be90bdf.png)
 
 一般我们还是用 GUI 工具更多一些。
 
@@ -381,13 +381,13 @@ SELECT * FROM `hello-mysql`.student;
 
 可以先 use 数据库名 切换下数据库：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a647b8141594493a9a29a3c4b3ef4b4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/606abac2761b.png)
 
 这就像我们切到某个目录执行命令一样。
 
 在 mysql workbench 里也是这样，先选中 use xx 那行执行，然后再选中其他 sql 执行。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a8e3a2dda0f472dae8980076b370ab3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f8162689d965.gif)
 
 有同学可能会问，之前 sql 不一直都大写么？咋这里用小写了？
 
@@ -397,11 +397,11 @@ sql 语句不区分大小写，用大写只是关键词更容易区分一些。
 
 之前是没数据的，现在就有数据了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0acab77ce294379a36f39334b6353c1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/572067e2eea5.png)
 
 本地对应的目录也修改了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c7694e1422543548957e6377c06aa81~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b54e58d03413.png)
 
 这样还会丢数据么？
 

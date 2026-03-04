@@ -11,13 +11,13 @@ series_order: 2
 
 在掘金、知乎、抖音等平台，我们可以关注其他用户，其他用户也可以关注我们，而且如果彼此关注，会标出共同关注：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/83cfee2985794c9aa70681c0a8befe65~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=402&h=226&s=16200&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d22b6b6ddb1.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6267eb7098864bc9ad1bd38947d6396b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=224&s=17183&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62ca5f6811ac.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a840d5d8c2d441e0a6e624bf718c570e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1390&h=854&s=150292&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cc2b43130621.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f37bcdaf9ee4ad0805b2386d4841768~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1370&h=924&s=226747&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5749612ef3a2.png)
 
 这种关注、被关注，相互关注，我们每天都能见到。
 
@@ -51,7 +51,7 @@ Set 是集合，有很多命令：
 
 更多命令可以在 [redis 文档](https://redis.io/commands/sismember/)中搜索以 S 开头的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57f47f68a51a4c18ab0c9f0cb694007f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=814&h=902&s=151766&e=png&b=f6f8fb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e783c1e5a6e0.png)
 
 关注关系用 redis 来实现就是这样的：
 
@@ -67,13 +67,13 @@ Set 是集合，有很多命令：
 
 那相互关注的人就是 followers:1 和 following:1 的交集 SINTERSTORE 的结果，存入新集合，比如叫 follow-each-other:1
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63be34aa78174e28ac576083e41f44f1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1184&h=470&s=50305&e=png&b=fef9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2fd96634c266.png)
 
 然后返回关注者或者关注的人的时候，用 SISMEMBER 判断下用户是否在 follow-each-other:1 这个集合中，是的话就可以标记出互相关注。
 
 思路理清了，我们来写下代码。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f80d025db48e4f358a6990a8cb2963b0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=688&s=160896&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80476f33d0c1.png)
 
 安装 TypeORM 的包：
 ```bash
@@ -113,14 +113,14 @@ export class AppModule {}
 ```
 在 mysql workbench 里创建 following_test 数据库：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96d52317035e4069a495f0c8b1d928c0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1800&h=1114&s=382459&e=png&b=e7e5e5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34f75f73b731.png)
 
 新建一个 user 模块：
 
 ```
 nest g resource user --no-spec
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2113f05c4cb44006a79a500b07759a25~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=784&h=292&s=73752&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9098c3d70cf.png)
 
 改下 user.entity.ts
 
@@ -151,7 +151,7 @@ export class User {
 
 在 entities 引入这个 User：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4826a80c3214e9e924d716151c163fa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=776&h=692&s=110245&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d792d97d7af.png)
 
 把开发服务跑起来：
 
@@ -159,17 +159,17 @@ export class User {
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6a173d5becc446cb5d62accf25edfd2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1686&h=636&s=280881&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/01223950d509.png)
 
 在 mysql workbench 里可以看到 user 表和 user_followers_user 中间表
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8f0ffa92f154d039c53f79c766ee62d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=854&h=280&s=65482&e=png&b=ebe7e6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25c685970598.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/580588f3d64041ea8831439904c18034~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=892&h=250&s=56217&e=png&b=ebe8e7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0075569dba82.png)
 
 我们在 UserService 添加一个初始化数据的方法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b3cd38c8cf84e59ad7cecc5c546db53~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=988&h=1166&s=213194&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5cd19923bb1f.png)
 ```javascript
 @InjectEntityManager()
 entityManager: EntityManager;
@@ -213,17 +213,17 @@ async init() {
 ```
 浏览器访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67cae28e4c0c49cc974bc594837e73d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=738&h=188&s=21060&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db415acd2c72.png)
 
 打印了 6 条 sql 语句：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46b3c6c867c0414a8747d2f010301653~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2074&h=626&s=233512&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/48135e35fe5c.png)
 
 在 mysql workbench 里看下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b09a5afe2774f7787e83c60c4bd2b58~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=868&h=380&s=104706&e=png&b=eae6e5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2491c8144835.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a574da7bcdae49e88309da8c20eadac0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=852&h=314&s=78866&e=png&b=ebe8e7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f0f00ae730e2.png)
 
 张三的 id 是 5，他的三个关注者李四、王五、赵六，他关注的人李四、刘七。
 
@@ -244,7 +244,7 @@ nest g module redis
 nest g service redis
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaf36dbe385544309bc35de23c2a45a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=196&e=webp&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05fe13cd2d84.webp)
 
 在 RedisModule 创建连接 redis 的 provider，导出 RedisService，并把这个模块标记为 @Global 模块
 
@@ -393,17 +393,17 @@ async getFollowRelationship(userId: number) {
 
 代码比较多，我们一部分一部分的看：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e80fde93df5e4afda2f192156ce50967~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=616&s=84452&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05af2381295e.png)
 
 传入 userIds，查询对应的 User 信息返回。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4eac4179dcc14c92b0ce7facdef2bc4c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=890&h=504&s=72159&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3d2650e3e95.png)
 
 根据 id 查询用户的信息，关联查出 followers 和 following。
 
 如果 follwers 或者 following 为空，那就没有互相关注，可以直接返回。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/56c098baa25a416989b89b25e8594bc1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1698&h=558&s=159931&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d7925b24dda.png)
 
 否则就分别把 follwers 和 follwing 的 id 用 SADD 添加到两个集合中。
 
@@ -415,7 +415,7 @@ async getFollowRelationship(userId: number) {
 
 根据集合的 id 求出用户信息返回：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a9ee41036d649d0b76554eb9ac5cf66~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1424&h=860&s=202230&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd4fabfd61f2.png)
 
 在 UserController 添加一个路由：
 
@@ -431,19 +431,19 @@ async followRelationShip(@Query('id') id: string) {
 
 浏览器访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7a125740526474bab7354d8c28ecb6c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1228&h=1384&s=112362&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9fc2efe55b50.png)
 
 结果是正确的。
 
 在 RedisInsight 里可以看到这三个 set：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aebac60669f74b2f9c8ab9c102a5756f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1686&h=932&s=114978&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4ef489e12f85.png)
 
 逻辑比较复杂，我们调试下。
 
 点击 debug 面板的 create a launch.json file
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/244adf5d3f7f4cd5bef548988ca69475~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=642&h=472&s=51348&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c3ef63ba00a2.png)
 
 ```json
 {
@@ -469,25 +469,25 @@ async followRelationShip(@Query('id') id: string) {
 
 在代码里打两个断点：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e67fc1bbf94a49f7b0ca57f4a24ac4f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1110&h=934&s=221261&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ada52569bda.png)
 
 点击 debug 启动：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d3354bf801c4579a7018287ccb23d0b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2042&h=1498&s=516798&e=png&b=1a1a1a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d68f136510af.png)
 
 浏览器访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30ff0d0aed9f4666990e7904286807c7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1696&h=1056&s=406680&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2cdf2e00556a.png)
 
 可以看到，它走到了 else 部分。
 
 在 RedisInsight 里把这三个集合删掉：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afc555a52bde484ba2bfaea75811a36b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1282&h=598&s=61292&e=png&b=1a1a1a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/675d20e0723a.png)
 
 再次访问：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c10201730b174780bbeefb5edc839f2b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1660&h=1148&s=434894&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/da5c11009224.png)
 
 这时候走的就是另一个分支了。
 
@@ -495,7 +495,7 @@ async followRelationShip(@Query('id') id: string) {
 
 比如张三又关注了 id 为 3 的赵六：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77c732eae95149668f24eac579a7ca9b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1088&h=1376&s=109163&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/97c3bf429d84.png)
 
 这时要更新下数据库，并且更新 redis 里的 follwing 和 follow-each-other 集合。
 
@@ -552,29 +552,29 @@ async follow(@Query('id1') userId1: string, @Query('id2') userId2: string) {
 ```
 浏览器访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36a9600f47804417b175b7716f7c46bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=990&h=214&s=26300&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d60ee64d482a.png)
 
 可以看到，数据库和 redis 都更新了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c1b8185529c4bfeba6ebf39cc7212eb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1456&h=806&s=244939&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23e8d4624e6b.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0312d3a592146e4a4cf4092dbf424f4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1508&h=754&s=81248&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b03ad5ccdd7b.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70c7de7fc8784cb5b7ab87a9f47dd463~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1554&h=692&s=80814&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb6522177d9b.png)
 
 再次查询下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/140b07a1de3a4e099c5787c07f9de2e6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1078&h=1538&s=129669&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b51143375e1.png)
 
 这样，相互关注的功能就实现了。
 
 知乎、掘金这种关注关系都是这样实现的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6267eb7098864bc9ad1bd38947d6396b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=224&s=17183&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62ca5f6811ac.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a840d5d8c2d441e0a6e624bf718c570e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1390&h=854&s=150292&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cc2b43130621.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f37bcdaf9ee4ad0805b2386d4841768~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1370&h=924&s=226747&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5749612ef3a2.png)
 
 案例代码上传了[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/following)
 

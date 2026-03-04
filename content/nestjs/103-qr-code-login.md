@@ -13,23 +13,23 @@ series_order: 23
 
 比如掘金的登录就支持 APP 扫码的方式：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0fb47046ab8146eab82fb32fd9dc0fe4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1438&h=898&s=191078&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a155868251b.png)
 
 如果你 APP 没登录，扫码后会跳到登录页面：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0182a6e1fb546d0bd1150c74eaf9050~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=476&h=1002&s=1435289&e=gif&f=29&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/080df855a2d3.gif)
 
 登录之后，会进入确认界面，你可以选择授权登录或者取消：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b78b9d78cd9b4ec4b43365a7ce5f0a26~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=478&h=976&s=1081691&e=gif&f=45&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e9c8370959a4.gif)
 
 这边确认之后，pc 网站就登录了。
 
 知乎，b 站等也是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/383503009f304552b9d6fd592614e857~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1590&h=850&s=233151&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35c9ddb5e3ab.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28e706b5e1a44d21b73cf981cb44a414~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1554&h=670&s=130973&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1718ca6f3aa5.png)
 
 有没有感觉很神奇，为什么一扫二维码，然后确认下，那边就自动登录了呢？
 
@@ -37,23 +37,23 @@ series_order: 23
 
 我们先用解析工具解码下二维码的内容：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d8894d940ad4bcc8be2770b3be5fd45~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=628&h=948&s=195555&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/072ba98f1b3e.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dccfa3ca78964b58a8d95aae3c884dd7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=886&s=309358&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad27b1f0dbfa.png)
 
 可以看到，二维码的内容是一个 url，如果在手机浏览器打开，是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f07126cc2fd48428a8d23862fd92be7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=636&h=1168&s=192864&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a363224635a7.png)
 
 会让你下载 APP。
 
 而在 APP 里打开，就是登录确认界面了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92145ba5fb4e4d6f8cb87ce21c796067~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=1505&s=111235&e=jpg&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/97d576558d43.jpg)
 
 那确认的是哪个二维码呢？
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dccfa3ca78964b58a8d95aae3c884dd7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=886&s=309358&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad27b1f0dbfa.png)
 
 二维码这里是有个唯一 id 的，通过这个 id 就知道是哪个二维码。
 
@@ -67,23 +67,23 @@ series_order: 23
 
 最开始是未扫描状态：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/682727acbc2a45b785ae8e08f74794a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=482&h=534&s=45446&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2f071c9207d.png)
 
 扫码后会进入等待用户确认状态：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b59ef0f07f542098b2141c857b0e073~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=418&h=530&s=49587&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4bd3028105d0.png)
 
 确认后会进入同意授权状态：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45bfdfbcb0c6482680c08e0cfff18d00~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=482&h=534&s=46480&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a7fab46f473f.png)
 
 取消的话会进入取消授权状态：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/682727acbc2a45b785ae8e08f74794a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=482&h=534&s=45446&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2f071c9207d.png)
 
 长时间不操作会进入过期状态：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74ccab5aa7a741c3b63c41a7eee00932~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=490&h=514&s=51254&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/308dc6e237dd.png)
 
 也就是说，扫码后进行不同的操作就是修改这个 id 对应的二维码的状态。
 
@@ -99,27 +99,27 @@ websocket 么？
 
 最开始是 new：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/007fb6aebf714c8686f4a4e9ac1b75f0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1986&h=1186&s=309276&e=png&b=f4f4f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9f2447ebb9e.png)
 
 扫码后会变成 scanned：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/652f04b6310f43fab83a71c23d999d1f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1880&h=1134&s=315938&e=png&b=f3f3f3)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bbc5837785c7.png)
 
 知乎也是一样：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8cbcb7dd403041438ae83ee779b90914~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1302&h=896&s=345535&e=png&b=fdf8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a221e6b7405b.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67444d7606f348619610d7dc217a2c8c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1324&h=1184&s=457052&e=png&b=fdf7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f58cdb8d3453.png)
 
 这时候，手机会进入登录确认页面：
 
 bilibili 的登录确认页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e24874e2e9e455db4b281e981b5b1cc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=636&h=822&s=66456&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8788685a2758.png)
 
 知乎的登录确认页面：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc1a92ffa5e44f50a5ad1a44c56848da~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=468&h=1046&s=48147&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/abb51b6d2e8f.png)
 
 这边点击确认登录或者取消之后，会发请求修改 id 对应的二维码的状态。
 
@@ -127,7 +127,7 @@ bilibili 的登录确认页面：
 
 也就是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e253865ec4a24d868d21774cb41d709d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1620&h=1110&s=151466&e=png&b=fefcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/08eb7080167d.png)
 
 服务端有个 qrcode/generate 接口，会生成一个随机的二维码 id，存到 redis 里，并返回二维码。
 
@@ -145,7 +145,7 @@ bilibili 的登录确认页面：
 
 这里的 jwt 是保存登录状态的一种方案，会把用户信息放在 token 里返回，然后每次访问接口带上 authorization 的 header，携带 token。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d8ba39866154acbbf3c3f8006d265ba~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1168&h=472&s=64050&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/494f87ea52f8.png)
 
 思路理清了，我们来实现一下吧！
 
@@ -156,7 +156,7 @@ npm install -g @nestjs/cli
 nest new qrcode-login
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b752fa1160d46caaa326978a74f705e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=934&h=686&s=267305&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ad9154e351d.png)
 
 把它跑起来：
 
@@ -164,11 +164,11 @@ nest new qrcode-login
 npm run start:dev
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fafac79754a649d5a5778c1f8a6a1f27~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1864&h=506&s=149211&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62a38c5fd1c5.png)
 
 浏览器访问 http://localhost:3000 就可以可以看到 hello world，就代表服务跑起来了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6bd684dbb4f441c390b7f76268ee7cfb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=552&h=186&s=16445&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f591a891c6b.png)
 
 然后我们实现下生成二维码的接口：
 
@@ -180,7 +180,7 @@ npm install qrcode @types/qrcode
 
 添加一个路由：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68aab932c8504b2ca502e971483d598b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1190&h=1124&s=209155&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/efa3699a1dca.png)
 
 ```javascript
 import { randomUUID } from 'crypto';
@@ -201,7 +201,7 @@ async generate() {
 
 然后用 qrcode 生成二维码，只不过转成 base64 返回。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0eff253a775d4bf19c69dd98cc07062d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1120&h=432&s=156529&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8358eac5f6a1.png)
 
 我们在 html 里把它渲染出来看一下：
 
@@ -223,7 +223,7 @@ async generate() {
 ```
 然后在 main.ts 里支持这个目录下静态资源的访问，用 pages 作为前缀：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0af7e7200cc741d4bf8ec8346fb3c3c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1510&h=586&s=145389&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7f5fcb12e672.png)
 
 ```javascript
 import { NestFactory } from '@nestjs/core';
@@ -242,11 +242,11 @@ bootstrap();
 
 这样你访问 http://localhost:3000/pages/index.html 就可以看到二维码了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19ffbb16fffb4999a43d6ad3a1a95159~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=810&h=384&s=35573&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/66644824a212.png)
 
 我们用在线解码工具解码下看看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8157992f29e14a85a1ade9b273b01155~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=612&h=668&s=76718&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/772c14644e95.png)
 
 确实，内容就是生成的 uuid。
 
@@ -254,15 +254,15 @@ bootstrap();
 
 比如掘金的二维码解析出的内容：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/15a7e655674e46a19ee70cabaaa37bd8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=696&h=796&s=159392&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e5bf7c95a10.png)
 
 如果用手机浏览器扫这个码的话，打开的就是下载 APP 的页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b1ee0ad37594270931685e54cf80d4e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=500&h=1018&s=144169&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5baad5ed7d84.png)
 
 而如果用掘金 APP 扫码，扫出的就是登录确认页面了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cb5edeee7fb44d5a3f5ad6c4a0b6286~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=528&h=1062&s=68585&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c6c6d01fe0b3.png)
 
 这个很正常，因为如果随便一个浏览器都能扫码打开登录确认页面，那谁还下载掘金 APP 呢？
 
@@ -272,7 +272,7 @@ bootstrap();
 
 这里我们也改成一个 url：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d3719fa4057487a894679444e9cd932~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1722&h=424&s=83805&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50aa49d0f1f9.png)
 
 扫码就会打开这个页面，而这个页面就是登录确认页面。
 
@@ -300,35 +300,35 @@ bootstrap();
 
 [下载 charles](https://www.charlesproxy.com/download/)，打开
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ae04affd87e455fa823a51a122a42b2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=266&h=280&s=59590&e=png&b=9c5301)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e12e9f4e7a8.png)
 
 让电脑和手机连接同一个 wifi，然后在手机的 wifi 设置那里设置代理：
 
 代理的 ip 是电脑 ip，端口号就是 charles 代理服务的默认端口 8888
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c359f2d13a5a4732aba7d3cd97795ff3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=422&h=836&s=74404&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b5b05a6414a.png)
 
 这时候电脑上会收到连接提醒，同意下就好了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de7ad193b9814f808951345886b1ca22~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1548&h=374&s=103014&e=png&b=edecec)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/60d029f8a305.png)
 
 然后手机就可以访问电脑上的 nest 服务：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91613f501696463fbde4527b56043577~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=526&h=254&s=28438&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac8a4b6ce0af.png)
 
 看到这个 hello world 了没？
 
 这就是电脑上的这个 nest 服务返回的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b914063711e84a39b64d20295af04f30~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=556&h=170&s=17190&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f058771eb4fe.png)
 
 那个登录确认页面在电脑访问是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5355ebdbd8794068a8d5c11de7ffd4c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1000&h=256&s=31240&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac5967f2eca1.png)
 
 然后我把二维码的内容改为这个：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d8f6199974948999d2f7fa38a17e538~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1778&h=400&s=84824&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e4f9b8771068.png)
 
 修改下展示二维码的页面：
 
@@ -354,11 +354,11 @@ bootstrap();
 ```
 用 axios 请求生成二维码的接口，然后修改图片 src。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/506a59ae214e4e30ac46f3a1d7433535~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=766&h=426&s=37165&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca92523545f7.png)
 
 用手机扫码下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cf518d1fc74407a893c4db5006d77a5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=484&h=858&s=2198287&e=gif&f=40&b=eeeded)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/afa2cf37a3d2.gif)
 
 用微信扫码，可以看到，打开了登录确认页面。
 
@@ -400,21 +400,21 @@ bootstrap();
 </html>
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e19a73abaa9b48e5af24369a1166cb53~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=454&h=826&s=2135402&e=gif&f=36&b=edecec)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9d798665c109.gif)
 
 好看多了。
 
 二维码的内容解码后是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34dfd9cf20bc40309f15035451d36719~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=670&h=656&s=107357&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85fd1f2bdab9.png)
 
 然后我们来实现剩下的接口：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14b352ece74f47e48a1f4d366fd08b73~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1620&h=1110&s=138991&e=png&b=fefcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ec15c20ddf69.png)
 
 生成二维码之后，要在 redis 里保存一份，这里我们简化一下，直接用个 map 保存吧。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a865258dd20c4e97b5adc47dfd3ec81a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1358&h=1400&s=288652&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3305d4579645.png)
 
 ```javascript
 const map = new Map<string, QrCodeInfo>();
@@ -448,11 +448,11 @@ async check(@Query('id') id: string) {
 
 访问 /qrcode/generate 生成二维码和 id
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32a0669d416d45588dd18e90c9392a04~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1146&h=506&s=206489&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce5205296738.png)
 
 然后访问 /qrcode/check 拿到这个 id 的状态：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5c5997fff544697ada987914cb311b1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1140&h=162&s=29297&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0af4f06e07f9.png)
 
 然后再实现 /qrcode/confirm、/qrcode/cancel、/qrcode/scan 这三个接口：
 
@@ -491,29 +491,29 @@ async cancel(@Query('id') id: string) {
 
 先 qrcode/generate 生成二维码，拿到 id：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bde202b2c084200aa97f3cdccaa48ef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1260&h=560&s=249395&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a123de6f0a73.png)
 
 然后调用 qrcode/scan 修改状态，之后调用 qrcode/check 查询下状态：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8dd2fc138074fb585b663444ab44a9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=962&h=168&s=25143&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/928c5dbcf843.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8d4ceb466724d64a9e949a7571f18f1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=890&h=212&s=26986&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/123e697a9cd8.png)
 
 同样的方式测试 qrcode/cancel 和 qrcode/confirm 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65556923d4994c7cbeb65a89f75a0cc6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=902&h=212&s=24523&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5336f5e77f2.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd5ee75b095a4ef7858a6649f774fe79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=892&h=200&s=26773&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e7a896d6938e.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34d293f791ae4f57b87b213581be92f0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=854&h=196&s=23978&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0f5ef0ff0fca.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/431da08bfbfa42b7b42113b434e6db9b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=976&h=178&s=26816&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a2f45f816974.png)
 
 如果 id 不存在，会返回 400 的状态码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8673fb355f2e46d9a4d25747244b6717~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1152&h=298&s=61640&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f32f7885f852.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93911a7b52f342118a5859763578f210~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1474&h=200&s=36243&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4ae6e049d76d.png)
 
 然后就可以在 static/index.html 里加上 qrcode/check 接口来轮询二维码状态了。
 
@@ -568,7 +568,7 @@ async cancel(@Query('id') id: string) {
 
 使用 URLSearchParams 的 api 拿到 url 中的 id：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/498039aceff849ed9a5fd3f1c09fbaef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1144&h=684&s=83334&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d7a9f0cf5f76.png)
 
 然后修改这个 id 对应的二维码的状态。
 
@@ -638,27 +638,27 @@ async cancel(@Query('id') id: string) {
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df25ae7a819e44c89085f7423fdaea1a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1294&h=1128&s=175212&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc26cadb9521.png)
 
 打开页面后，生成二维码，这时候就开始轮询二维码状态。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba4aa28a974b424192a8f2187a91e561~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=564&h=1080&s=2449704&e=gif&f=31&b=edecec)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1cf6aef1397d.gif)
 
 手机扫码，进入登录确认页面。
 
 这时候二维码页面的状态变为了等待确认：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a746d614b3f64efdb96abf782c279541~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1246&h=1100&s=167076&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/314fc35cc53e.png)
 
 然后确认登录，这时候 pc 页面变为了已确认状态：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2968738cbb14eeca61adf33079a027e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=506&h=590&s=33749&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c59b6c92ea6e.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0069dbfa26684ad78e3c67e5675472ee~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1172&h=1054&s=145738&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68e022183f63.png)
 
 如果点击取消，那就会变为已取消状态：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d41bb6e935a040ca82a2d58c14cd626c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178&h=1066&s=149096&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9e9270bb58d6.png)
 
 这就是扫码之后，pc 上的二维码同步改变状态的原理。
 
@@ -678,11 +678,11 @@ npm install @nestjs/jwt
 
 在 AppModule 里引入它：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d73cce32ac3c4310aadd059b5bfc57d4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=808&h=714&s=125928&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d258dc633720.png)
 
 然后实现登录接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd64743493af46568c9c6a6d367e2dc2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=1256&s=259718&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8a889ec0f9ff.png)
 
 这里我们没有用数据库，只有 2 个用户，如果信息匹配，就返回 jwt 的 token：
 ```javascript
@@ -714,11 +714,11 @@ async login(@Query('username') username: string, @Query('password') password: st
 ```
 postman 里测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4f87496e12c47528e24322e1ef050aa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1002&h=706&s=78880&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ac5e875c12f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98ddf9d9bba84df5b4834c925db67392~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1056&h=776&s=89706&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c7a4e1a3e52a.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/781ec9ffe9b34d7888039312311605b3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1186&h=708&s=88776&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2d76c9770fb.png)
 
 登录成功后，会返回 token。
 
@@ -744,7 +744,7 @@ async userInfo(@Headers('Authorization') auth: string) {
 
 我们加上 authorization 的 header，访问下 userInfo 接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca79ec37b0e94bf79ab213afc12fa781~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=710&s=88816&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d9f92edd3ca.png)
 
 可以看到，拿到了用户的信息。
 
@@ -752,15 +752,15 @@ async userInfo(@Headers('Authorization') auth: string) {
 
 添加两个按钮：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a17c0ea10dd145008880099dd68b066f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=866&h=146&s=35108&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35daf731ff11.png)
 
 这俩按钮分别是登录不同的账号，拿到 token：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1902e94ca9d4b289a1bb8381834353e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1258&h=1052&s=168297&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a096b403b5a1.png)
 
 访问 confirm 接口时带上这个 token：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3558d46dbe824dec90b4b6ae9789dacd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1332&h=826&s=173309&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25e6ffdf0b09.png)
 
 ```html
 <!DOCTYPE html>
@@ -852,7 +852,7 @@ async userInfo(@Headers('Authorization') auth: string) {
 ```
 然后我们在 qrcode/confirm 接口里把 token 取出来，拿到其中的用户信息，保存到 map 里：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/39604c336b8547279f6e7dcaa05bba55~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1462&h=888&s=182870&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aaf602d6dbd6.png)
 
 ```javascript
 @Get('qrcode/confirm')
@@ -882,23 +882,23 @@ async confirm(@Query('id') id: string, @Headers('Authorization') auth: string) {
 
 确认的时候展示下登录用户的信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d80ee62f9e6e4526966e9b04cb9e7ba3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1562&h=716&s=179685&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a958df1e70e8.png)
 
 加上登录之后，我们再测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e7fa9d20c9f04917bf6c8a631d2cb5a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=840&h=508&s=42114&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0df2343118fc.png)
 
 手机扫码，点击登录光的账号，然后确认登录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef637d571a484fa79fb7445f5bf4e0c1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=664&h=1160&s=2104022&e=gif&f=23&b=8b8a8a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35102538cb15.gif)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0fe0804c441487f92d1d5647ff35d74~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=762&h=504&s=45558&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d4b1b9e051f.png)
 
 刷新页面，重新扫码，然后登录东东账号。
 
 这时候 pc 网站就显示了当前登录用户是 dong
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9505acdb3fb34872b69f605261ac5827~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=776&h=518&s=45876&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e1e36714c9a3.png)
 
 当然，登录状态需要一个 jwt，我们返回下就好了。
 
@@ -919,15 +919,15 @@ async check(@Query('id') id: string) {
 ```
 这样，当那边确认登录之后，这边就拿到了 jwt 的 token，也就是完成了登录了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/115f1d484a2d4faf86c64d12cb056f79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1648&h=1162&s=229328&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b6afd27602fa.png)
 
 对比下掘金的扫码登录流程：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d4e3c15bb5547728d2fb5e846d67fa0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1438&h=898&s=176458&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/65de663e130c.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf5208c73d254b27ac5e223b5a61e45f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=476&h=1002&s=169977&e=png&b=fdfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8db4b5431090.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ced7c4b4d7464a82b59497e259444b41~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=478&h=976&s=99098&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e78207e0356.png)
 
 是不是一摸一样？
 
@@ -944,7 +944,7 @@ async check(@Query('id') id: string) {
 
 它的实现原理是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a7469b3869b47b386b9b894d5b947c2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1620&h=1110&s=139485&e=png&b=fefcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/55f85618764a.png)
 
 pc 端生成二维码，然后不断轮询二维码状态。
 

@@ -11,9 +11,9 @@ series_order: 9
 
 用户相关的页面还剩下两个，这节我们来写一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b7366af920b41c890686f5a10c21d7b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77a25c7f1273.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/403f30e8cf80493c8af4ab50054aba3c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee2848c6d9bb.png)
 
 首先是修改密码的页面，把注册页面的表单拿过来改改就行：
 
@@ -131,25 +131,25 @@ css 部分如下：
 ```
 跑起来是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6ea926323a3413aa75eb2b72b58f132~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c1154fd142e6.png)
 
 然后再调用下后端接口。
 
 这时我发现一个问题：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22ee033ec679475aa76cf020c9dc5676~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62f9463ae646.png)
 
 之前写的 update_password 接口需要登录，然后用 @UserInfo 从 reqeust.user 取 userId。
 
 但其实这个页面是从这里点进来的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ff34ad6d0ca45f19ad70a44c59fb32a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/efdd1d98b355.png)
 
 这时候并没有登录，只是通过邮箱验证身份，然后修改密码。
 
 但是邮箱我们并没有添加唯一约束，只有 username 是在注册的时候做了唯一检查：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/713f2f53de354df39ca53076c970e85b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1acddf3f98b4.png)
 
 所以需要通过 username 来找到修改密码的用户。
 
@@ -157,25 +157,25 @@ css 部分如下：
 
 此外，我们在 User 的 entity 这里给 username 添加唯一约束：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0dbdf294100148f1bc98a82f6b3868f3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/923c059e8de2.png)
 
 然后可以看到 typeorm 确实给 username 添加了唯一索引：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c87e80604df24a84abe2e011e578cbd5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/458864301105.png)
 
 在 mysql workbench 里也可以看到：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df88120f70d04b98bd9c64ba767ea2b7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/976f79d1fb63.png)
 
 然后修改下 update_password 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca189ebeadf0487dbff03a672a81a792~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b32627fe43e.png)
 
 把 @RequireLogin、@ApiBearAuth 还有 @UsrInfo 去掉。
 
 修改 UpdatePasswordDto，添加 username 属性：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/989f7fec54114abc88a4a388a2da7c10~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c245fb731ff9.png)
 
 ```javascript
 @IsNotEmpty({
@@ -187,7 +187,7 @@ username: string;
 
 然后改下 UserService 的 updatePassword 方法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10b19058e7e14a37b54d070fc5ed2f5a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49e40611257b.png)
 
 改成根据 username 查询用户，并且还要验证下邮箱是否正确。
 
@@ -202,25 +202,25 @@ if(foundUser.email !== passwordDto.email) {
 ```
 还有，发送验证码接口的 @RequireLogin 和 @ApiBearerAuth 也要去掉：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af5877cc929f4f7abdbce26dae113357~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2334cd6f804c.png)
 
 测试下：
 
 请求 /user/update_password/captcha 接口发送验证码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e64810bb9cf84aa99d9b78f7aae3c880~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/884b260bc770.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b46b5454c2b9490f80c9084d83f54dba~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8cac8cbf6723.png)
 
 然后请求 /user/update_password 接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad21d242955b4f6ea9b029874c483b66~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/521aaf0a9d96.png)
 
 提示修改密码成功。
 
 我们在页面登录下试试：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9352ea8151d6400c9755f8cce24d8ee9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3bcec6bd9a8c.png)
 
 用最新密码登录，提示登录成功。
 
@@ -228,7 +228,7 @@ postman 里跑通流程之后，我们在页面里加一下。
 
 在更改密码页面加上 username 表单项：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b12a83a8aa6a4080841fd93368330911~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd285d7c1f92.png)
 
 ```javascript
 <Form.Item
@@ -244,7 +244,7 @@ postman 里跑通流程之后，我们在页面里加一下。
 
 类型中也加上 username：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/189d1d1ae9d748cb895e5a5ce5f92dc8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/29631f49bcd3.png)
 
 然后在 interfaces.ts 添加这两个接口：
 ```javascript
@@ -303,23 +303,23 @@ const onFinish = useCallback(async (values: UpdatePassword) => {
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbc7f42bc91e4a34b2c41ec71f9f2973~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad2177c2c5ed.png)
 
 填入邮箱，点击发送验证码。
 
 提示发送成功。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b27af2af83e343c4ba0f25fb0e19d385~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f40845b59cc.png)
 
 邮箱里也收到了这个验证码。
 
 然后填入新密码，点击修改密码按钮：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/880d11d06e68489895f6c3ef48f0dc45~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fd17fc54308.png)
 
 提示修改成功，然后会跳到登录页面：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2709c92a2b034af2b2e7b9c4e90d5c87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa22734ce44d.png)
 
 在登录页面用新密码登录，提示登录成功。
 
@@ -327,7 +327,7 @@ const onFinish = useCallback(async (values: UpdatePassword) => {
 
 然后还有一个更改个人信息的页面。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/403f30e8cf80493c8af4ab50054aba3c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee2848c6d9bb.png)
 
 这个页面有所不同。
 
@@ -335,7 +335,7 @@ const onFinish = useCallback(async (values: UpdatePassword) => {
 
 而且界面上方是有公共的导航栏的。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/763f8c79fb924e6c884af3342b767665~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43ce38762d44.png)
 
 所以这个页面要声明一个 /index 的路由作为父级路由，然后 /index/update_info 作为子路由。
 
@@ -399,7 +399,7 @@ css 如下：
 
 把它添加到 /index 的路由，并且添加两个子路由：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/182471b6be46400db2ac1ce06fd68220~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38f098ea7097.png)
 
 ```javascript
 {
@@ -420,17 +420,17 @@ css 如下：
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35f97b403326489eb77ecefa4e74b034~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9a7dc4ec5207.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b08fa7fd7cc04e0f92d0a48a29f1b27b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db8074dee437.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25b65315e3b34accb9d3b09e60b6090c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b73aa003563.png)
 
 没啥问题。
 
 然后在下面添加 update_info 路由，并实现 page/update_info/UpdateInfo 组件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61e2294846df4f7da6ec2a3d721e153b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/102cc7e33556.png)
 
 ```javascript
 import { Button, Form, Input, message } from 'antd';
@@ -545,7 +545,7 @@ css：
 
 访问 /update_info 可以看到这个页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdbc7a199b96467c8178303263698d65~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f5906c8e790.png)
 
 这个页面涉及到 3 个接口：
 
@@ -559,15 +559,15 @@ css：
 
 /user/info 接口没有参数，但是需要登录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f24c63941074ccb8d6f99506f197f78~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/687e308ed0d2.png)
 
 /user/update 接口需要在 body 传这么几个参数：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a0959e2ac2243df85f09c2702ac84ee~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/817d56c43022.png)
 
 /user/update/captcha 需要传一个邮箱地址：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/457dc1c5ed05499a9d7ea8beeb3d64fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43e420873019.png)
 
 不知道有没有同学发现这里有点不太合理：
 
@@ -581,29 +581,29 @@ css：
 
 改一下这个 login 接口，在 jwt 里放 email 的信息：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/383d258363e64af7a5ed2cf642eb9d5c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed5381bff4b8.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1efd2f5ffef435fbce540d1bcfd0696~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64630a6b6952.png)
 
 同时 refresh 接口也要改下放在 jwt 里的信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b523801fe1a54d84a597e5911757a0e4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/299eb80d84d8.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a02f258ab5c3470ba608be2246f0e44f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d4c6b91d1dc.png)
 
 这里要取 user.email，需要在 UserService 的 findUserById 方法里返回下 email：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84720182cae64e87874d6c71fd480f4f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/256ddbcf7640.png)
 
 然后在 LoginGuard 里从 jwt 里取出 email 来：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74e1689b21e24676864bb2e54c35201d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cfa90a020a0.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0753c6be22704694bed07af02f323c9c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f586c886a5f6.png)
 
 然后在 /user/update/captcha 就可以直接从 request.user 里拿 email 信息了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01ec356cbab6476ea482c9fdc90e9e9d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25a1789d5f77.png)
 
 把参数的标注去掉，其余的都不用变，这样就是从 jwt 里取登录用户的 email 来发邮件了。
 
@@ -611,27 +611,27 @@ css：
 
 先登录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bdff86b66e444cda8ac956f0ae81377b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85348659218c.png)
 
 然后用这个 accessToken 访问下发送验证码接口：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/327bf1f73d324d65a76ac98bdf3828d6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0adf711cecc3.png)
 
 发送成功，收到了这个验证码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4064d1cc933f40f5b0941f93b146c265~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f9b07c9c863.png)
 
 然后调用下查询用户信息的接口：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/640a1930a34348fdb1e9da26ea7b58fa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd93c6185e56.png)
 
 之后调用修改接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ad0755d5d7a4de39048f4d9b0d9bd65~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c91f178514e8.png)
 
 在数据库里看下，用户信息已经改过来了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/76678f13d7e44a3fa128cbad75d52b87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c0b7304eeb34.png)
 
 postman 里接口的流程跑通之后，我们在页面调用下。
 
@@ -779,27 +779,27 @@ if(!error.response) {
 ```
 是为了请求没有发送成功的情况的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c41c4d9c700f445b85f3601c68678587~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=662&h=316&s=62598&e=png&b=fefcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5d0846665da.png)
 
 请求没有发送成功时，错误对象没有 response 属性。
 
 接下来，我们先登录下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4bf746fc8f0642e98fc19e06296bfe38~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9c0143c9a76.png)
 
 给用户图标添加跳到 /update_info 的链接：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0658c70cd3c49b89f3a6d813e1a54e6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/919cb616be53.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b78070db300d4fbd88996ef93453fa86~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/090ac40d6a7c.png)
 
 然后可以看到控制台打印了当前登录用户的信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b4ae58579434d4b87bed572d378d1f1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9835ad2677d.png)
 
 然后我们做下回显：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/647af8a7d2ec487ca1a2d729f7deef55~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/18d39f7ba12a.png)
 
 ```javascript
 form.setFieldValue('headPic', data.headPic);
@@ -808,7 +808,7 @@ form.setFieldValue('email', data.email);
 ```
 这样，回显的数据就有了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24b695dd92e940a9becc6d5b75f4c821~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8e8c24d9673.png)
 
 然后实现发送验证码：
  
@@ -826,17 +826,17 @@ const sendCaptcha = useCallback(async function () {
 
 那这里的邮箱也是不应该修改的，给它加个 disabled：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e3d089323254c90b0eb987530dd96f3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c941cfd73c5c.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a63f00139e74ad4b2b407ddb2f54a0d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/52d21cae1d14.png)
 
 点击发送验证码。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f29f4a159b954c9588debf275f4472ec~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/40e29fe3f5d9.png)
 
 提示发送成功，邮箱里也收到了这个验证码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75b13b47b52c4a0a8a1888ec6e6c85a4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cad58bffd112.png)
 
 接下来就差更新接口了，我们调用下：
 
@@ -859,17 +859,17 @@ const onFinish = useCallback(async (values: UserInfo) => {
 测试下：
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74811a6e760a4ec08cf0ff594d54d308~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5386776a1d8f.png)
 
 修改信息，点击发送验证码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5df16c92cf374852ad591081f178d3a0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f8651b018d4.png)
 
 填入验证码，点击修改，提示用户信息更新成功。
 
 去数据库里看一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e39625951d2a400bb2a2531afb1bd2d5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0e5005bd8d42.png)
 
 确实修改成功了。
 

@@ -11,7 +11,7 @@ series_order: 15
 
 上节实现了好友、群聊的列表，这节来实现添加好友功能
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e41d00f882734035a8bddfc520d19ef0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1598&h=1076&s=73877&e=png&b=d2d2d2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/125fbd9c0f37.png)
 
 添加 src/pages/Friendship/AddFriendModal.tsx
 
@@ -81,9 +81,9 @@ export function AddFriendModal(props: AddFriendModalProps) {
 ```
 然后在 Friednship/index.tsx 里引入下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de65d54b0ab340a681c87ca245cce278~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1520&h=412&s=119230&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a32128d28d58.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/243c38da9edc4fa2be1df6ba83a228d9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1834&h=1020&s=247560&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ceac7b57d56.png)
 
 添加一个 state 控制弹窗显示隐藏，然后加一个按钮，点击的时候设置 state 为 true，关闭弹窗的时候设置 state 为 false
 
@@ -106,15 +106,15 @@ const [isAddFriendModalOpen, setAddFriendModalOpen] = useState(false);
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3dfde010a76b4bf6b708aa1b996ddb33~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=921945&e=gif&f=34&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96c868074411.gif)
 
 然后调用下添加好友的接口。
 
 之前是通过 id 来添加的好友：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3581a9e3d7dd46f286e6f43b8468e62d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1250&h=182&s=47440&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd5af4de5855.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b45538151de742ddb3c84fb6234df7fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=484&s=68847&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c157d01dcd4c.png)
 
 现在要改一下：
 
@@ -210,7 +210,7 @@ const handleOk = async function() {
 ```
 试下效果：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/455b7a262aed4a2fb488d86933bc7735~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=1044472&e=gif&f=70&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e4e9025bf56.gif)
 
 提示好友申请已发送。
 
@@ -218,13 +218,13 @@ const handleOk = async function() {
 
 /friendship/list 
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09e9fbf2d6d64d319c58b294fccff827~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=832&h=850&s=93648&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9257fb23547c.png)
 
 确实。
 
 然后查一下新的好友请求：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/def471c9c8e4480fb060dfeec3eb2fc9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=972&h=966&s=131565&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/859029ceaca6.png)
 
 已经有了。
 
@@ -234,7 +234,7 @@ const handleOk = async function() {
 
 之前的好友请求列表接口有点问题：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40eea35ab26a414797183a481eefba9e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=954&h=1088&s=139930&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fb8b2f43f9d3.png)
 
 其实用户发出的好友请求、发给用户的好友请求，都应该展示出来。
 
@@ -308,17 +308,17 @@ async list(userId: number) {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7dc5e8da898465f882561621efcaf2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=964&h=958&s=140550&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fbdc9efb0f8.png)
 
 因为现在还没有发送给当前用户的好友请求。
 
 我们在界面发送一个：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19fca22a7eb647fdbab93012440eba0a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=1072580&e=gif&f=69&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/527b11e303c9.gif)
 
 再查询就有了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3079afaf3f30429ebe7c86ca6d855bd1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1120&h=1254&s=196354&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/75e9d0df8df5.png)
 
 然后我们在页面把这个显示下就行：
 
@@ -364,7 +364,7 @@ css
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/348040a6df43478b992c5b7c7d1b0370~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=103653&e=gif&f=18&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dc7b168c2390.gif)
 
 然后在 interfaces 添加下接口：
 
@@ -466,25 +466,25 @@ export function Notification() {
 
 请求下接口，设置到 fromMe、toMe 的 state：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f1931470272469f840dfd070f7c2978~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1362&h=1140&s=228323&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ed2d6a32447.png)
 
 然后在 tab 内容展示下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/810730bf280848aaa806005ed247764d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=614&s=77814&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fa50c116846.png)
 
 看下效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91f2b68fac0d4b1388cba817e02e2512~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=336536&e=gif&f=23&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/269573474fe1.gif)
 
 数据请求成功。
 
 我们用 table 展示下就好了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cebb9dd030e844bd9b7d53ff900363a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1450&h=878&s=157780&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/231263b629a4.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18a199c7d32a4813b08f8cf56157206c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1298&h=1012&s=143967&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7147446ddc37.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dfcfd9f1e6364134b7933f873ce0a3f5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1212&h=1150&s=154136&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d0a6715a9623.png)
 ```javascript
 import { Button, Form, Input, Popconfirm, Table, Tabs, TabsProps, message } from "antd";
 import { useForm } from "antd/es/form/Form";
@@ -635,7 +635,7 @@ export function Notification() {
 ```
 看下效果：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9853d227e454a71989b226baafca8c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=309853&e=gif&f=34&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25865c1a93e8.gif)
 
 没啥问题。
 
@@ -652,7 +652,7 @@ export async function rejectFriendRequest(id: number) {
 ```
 然后页面上调用下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf6256c5ee9e4d739a69b54cfa1aed85~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1508&h=1392&s=276925&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2bdb6cc0916a.png)
 
 ```javascript
 {
@@ -705,31 +705,31 @@ async function reject(id: number) {
 ```
 试下效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fe1a6aa0e7640ccabac2adb1411f52e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=194242&e=gif&f=27&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a86bbd2315f.gif)
 
 同意后再看下好友列表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe9c9fe0bcdd40eba1f044ef44cbd8d0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2218&h=766&s=91203&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d23929de1567.png)
 
 多了小强这个好友。
 
 我们好像忘记展示 reason 了，补一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08e5e77402d840f38f76c360c5e4a5d8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1010&h=604&s=83179&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0967b532db19.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53d4bf7fb441442791a029beeac0eba0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1008&h=700&s=104677&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ba6401b805ed.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6e0e61d162243f1a9f59ab700e3b325~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=270319&e=gif&f=31&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5249fc4747f.gif)
 
 最后，我们整体测试下添加好友的功能：
 
 首先登录一个用户的账号，给 guang 发送好友请求：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a567136b1bec428a8206c65f0f588583~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=871415&e=gif&f=70&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa66424807fc.gif)
 
 然后登录 guang 的账号：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/031e3bca1ee04235a305fa0f341af96b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=678732&e=gif&f=65&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eec21518e88a.gif)
 
 同意之后，就可以在好友列表看到这个好友了。
 

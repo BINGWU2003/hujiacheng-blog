@@ -13,7 +13,7 @@ series_order: 7
 
 功能比较简单：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34f6cbd2e52c483e8d6a91f6033330e0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1354&h=1142&s=96014&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b8ee0b28167d.png)
 
 但是前后端都有，比较完整。
 
@@ -33,27 +33,27 @@ series_order: 7
 
 先注册个账号：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3edd949210ea4c2d84d64c77d1920928~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2424&h=1258&s=448023&e=gif&f=52&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c1e9c69e551b.gif)
 
 用这个账号登录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e97eb7e82bb44eb9eece9c6df29946e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2424&h=1258&s=698347&e=gif&f=54&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e85f3b9b721.gif)
 
 根据书名搜索图书：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50ccc9e0443a4e36aadb58a0d90ccb2c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2424&h=1258&s=951935&e=gif&f=70&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/32d5efbe357a.gif)
 
 新增图书：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24f0e478fd8240658b488cb3f7c8db5d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=6356259&e=gif&f=56&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c5a7921c09a.gif)
 
 编辑图书：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a467463fc3647ac9f4643fb2913c079~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=6043969&e=gif&f=59&b=fbfafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05c4c69ba25f.gif)
 
 删除图书：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aaa13c1b24264ad79f352c2a471a17c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=909694&e=gif&f=29&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c6c78a1e51a.gif)
 
 做完这个小项目，你可能对学的基础知识用在哪就有更具体的了解了。
 

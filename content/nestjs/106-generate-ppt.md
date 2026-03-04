@@ -19,9 +19,9 @@ series_order: 26
 
 这里大学的信息可以从[中国大学 MOOC](https://www.icourse163.org/university/view/all.htm#/)这里抓取：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7685b256da540b1a6d3cb27f3cd517c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2540&h=1308&s=626463&e=png&b=f4f4f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b2f7ff8c2bf.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41ede95f567f4a94a1ca714818cdc2fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2262&h=732&s=1498671&e=png&b=f4f3f3)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62d67d0aaf48.png)
 
 我们用 puppeteer 来爬取大学的校徽、名字、介绍，然后用这些信息来生成 pdf 等。
 
@@ -30,7 +30,7 @@ series_order: 26
 ```
 nest new ppt-generate
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/030f1726ea0847c48a0d8ac2337117e0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=902&h=682&s=158386&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f136a8f688c.png)
 安装 puppeteer：
 
 ```
@@ -107,27 +107,27 @@ async universityList() {
 ```
 npm run start:dev
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28491837b2814e89bfc15edc30d80d43~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1530&h=388&s=135507&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f88763ce156.png)
 
 试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/530b401efb444124904910ab1fed1190~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1866&h=1172&s=271513&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3871c600dfd3.png)
 
 然后继续点进详情页，拿到学校的描述：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41ede95f567f4a94a1ca714818cdc2fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2262&h=732&s=1498671&e=png&b=f4f3f3)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62d67d0aaf48.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c759433c2be041fbb80ab0a4a3b12f92~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1322&h=708&s=152949&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b9b9ff24c7f.png)
 
 抓取每个学校数据的时间太长，我们用 SSE（server sent event） 的方式返回数据。
 
 Sever Sent Event 就是服务端返回的 Content-Type 是 text/event-stream，这是一个流，可以多次返回内容，通过这种方式来随时推送数据。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d99ee4d7ad0471db06cb16280001d77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1294&h=832&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/364b5960fd04.png)
 
 SSE 类似这样用：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4b36d04da9b4038ba500018334d6a32~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=702&h=526&s=76304&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cdbdce5b62a8.png)
 
 改下 AppController
 
@@ -140,7 +140,7 @@ async universityList() {
 
 还有 AppService
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec62843bd95a40c094c3985911192f27~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1274&h=992&s=203102&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a5bfd7f44601.png)
 
 ```javascript
 import { Injectable } from '@nestjs/common';
@@ -216,7 +216,7 @@ export class AppService {
 
 试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6b115e9a3e44e3db881934be842c497~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1746&h=818&s=887003&e=gif&f=24&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2d58359c492.gif)
 
 **SSE 和爬虫简直是绝配！**
 
@@ -224,9 +224,9 @@ export class AppService {
 
 用法很简单：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6966b1961d96426c8ac059e3a119283d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1208&h=912&s=152741&e=png&b=f6f8fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/757810e07b16.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4faa895370a748c789116de57ccf4923~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1536&h=380&s=105740&e=png&b=f6f8fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d1f704511f9d.png)
 
 new 一个实例，添加一个 Slide，然后添加 text image 等内容，最后写入文件。
 
@@ -268,12 +268,12 @@ ppt.writeFile({
 node ./test.js
 ```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d3ae4466df44cfebb60f310ea2478af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1190&h=508&s=100282&e=png&b=1b1b1b)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/97ea64d21c6a.png)
 
 打开看一下：
 
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0fcade45cdec4a529c275070e3c92fb5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2550&h=1056&s=251018&e=png&b=fdfcfc)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38a85ed583ff.png)
 
 没问题。
 
@@ -281,11 +281,11 @@ node ./test.js
 
 顺便替换下校徽图片，之前取的这个：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab6418a383ed4acd9a7cfe8c5f996b7b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=888&h=374&s=78049&e=png&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8eb734632f9a.png)
 
 换成这里的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/349f5724193a40a5825b31b9a4b2a8fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1214&h=514&s=472665&e=png&b=f4f3f3)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1094b5b65312.png)
 
 ```javascript
 import { Injectable } from '@nestjs/common';
@@ -376,15 +376,15 @@ export class AppService {
   }
 }
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f54c2e41ca4b4b6ba62b578ccadc1fce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1322&h=1308&s=242893&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e21e4e3da784.png)
 
 跑一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5086d500d394dbcbb8f1b416bbd9bc2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1878&h=546&s=215761&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed42c435561d.png)
 
 跑完之后可以看到，动态生成了 400 多张 ppt：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8be1fd2d7d3482a8482a54e039c9eb5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2386&h=1250&s=3066927&e=gif&f=40&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f069bd7be81.gif)
 
 案例代码上传了 github：https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/ppt-generate
 

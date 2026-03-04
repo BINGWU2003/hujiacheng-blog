@@ -11,7 +11,7 @@ series_order: 11
 
 文章都会有个阅读量，那这个阅读量是怎么计数的呢？
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b7aa9c69b14847ad90c389f236593b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0af49b5100ce.png)
 
 有同学说，很简单啊，这不就是文章表里加个 views 的字段，然后每次刷新页面都加一么？
 
@@ -40,7 +40,7 @@ series_order: 11
 nest new article-views -p npm
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcfd1c5e7f004bb798b8a7ba9697e0de~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/694d7739dbc6.png)
 
 创建个 nest 项目。
 
@@ -88,11 +88,11 @@ export class AppModule {}
 CREATE DATABASE article_views DEFAULT CHARACTER SET utf8mb4;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/525cdf775e4347468986e5f7e214078a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1204&h=162&e=png&b=f5f4f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/890ce6b8c862.png)
 
 刷新可以看到这个 database
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/191672a15d064ac180dc2699a3650a94~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=500&h=456&e=png&b=e9e6e3)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3bb3af1b00bc.png)
 
 然后建个文章和用户的模块：
 
@@ -101,7 +101,7 @@ nest g resource user --no-spec
 nest g resource article --no-spec
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2067e9ddbd804c0b8f31b13f691eff20~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=884&h=602&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b896357b4343.png)
 
 添加 user 和 article 的 entity
 
@@ -166,17 +166,17 @@ export class Article {
 ```
 在 entities 引入：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa3df96660be4d22b6366d7d2d2a29b0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=1050&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/26a831a5fbb9.png)
 
 可以看到 typeorm 自动创建了这两个表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64dde61b048940b3b75bd83739afee0a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1634&h=670&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d536d1a915fd.png)
 
 然后插入一些数据：
 
 在 AppController 创建 init-data 的路由，然后注入 EntityManager：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0446c10bb0f94671bdd1a4b99b8ee92f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1108&h=862&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e26fb6bccc7e.png)
 
 ```javascript
 @InjectEntityManager()
@@ -214,18 +214,18 @@ export class Article {
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b41c9f560eb44c87bd7f2ef913f59c86~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=712&h=216&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ea3d8b52d1c.png)
 
 
 可以看到 4 条 insert 语句：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d1726aa77334d79b5430b2df16e7e19~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=672&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b087e8eea653.png)
 
 在 mysql workbench 里也可以看到两个表都插入了数据：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4ea593b965a4509941e46f57d2251c4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1758&h=394&e=png&b=f0eeed)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d3ee01f0864.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c0d4d171eb14fdebfe891e53e1ce7b9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1038&h=420&e=png&b=edeae8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/12c3cce2893d.png)
 
 然后先实现登录：
 
@@ -237,7 +237,7 @@ npm install express-session @types/express-session
 ```
 在 main.ts 里启用：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/689b475a6a8f4c6b9f3e8790dbc8a600~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=928&h=648&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b0023b02aa83.png)
 
 ```javascript
 import { NestFactory } from '@nestjs/core';
@@ -280,9 +280,9 @@ export class LoginUserDto {
 ```
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c02152dcbd440fe86ee86120ae7fd3f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=716&h=628&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/857cfe160460.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13514ad5de634e18876e9dfe0512625d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=772&h=396&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/261e4ae875ab.png)
 
 然后在 UserService 实现登录逻辑：
 
@@ -327,15 +327,15 @@ async login(@Body() loginUserDto: LoginUserDto, @Session() session) {
 
 当用户不存在时：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3afa73c85f8545339664bc4708c2f494~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=764&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64d17df8a9a9.png)
 
 当密码错误时：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d86d6b88e5a942049fe74e07cdf705f1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=818&h=748&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30aa69d9da7d.png)
 
 登录成功时：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66a65a32faca464fb889cfbd7b3da07d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=754&h=670&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7e38f9bde776.png)
 
 然后在 ArticleController 添加一个查询文章的接口：
 
@@ -359,7 +359,7 @@ async findOne(id: number) {
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1537ebd9b484709aa8933ccb5e02095~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=896&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/95e80a4babe2.png)
 
 然后我们在 ArticleController 加一个阅读的接口：
 
@@ -384,15 +384,15 @@ async view(id: number) {
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31879fdb321a4f5994a1fe2ba3dc09be~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1262&h=768&e=gif&f=24&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cbe5b756cd74.gif)
 
 数据库里阅读量确实更新了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0909a6305c95493997cd6f34f2fbccba~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1214&h=304&e=png&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3a81d81252aa.png)
 
 再次查询出来的就是新的阅读量：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9bb624bd733840e98795ceb1ceb09446~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=966&h=806&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5415083047d9.png)
 
 这样是能实现功能，但有前面我们讲到的两个问题：
 
@@ -415,7 +415,7 @@ nest g module redis
 nest g service redis
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaf36dbe385544309bc35de23c2a45a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=196&e=webp&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05fe13cd2d84.webp)
 
 在 RedisModule 创建连接 redis 的 provider，导出 RedisService，并把这个模块标记为 @Global 模块
 
@@ -527,15 +527,15 @@ async view(id: number) {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9546b6f44a01456eb5c7a1dfd755d2d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=772&h=640&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d36bb21b189.png)
 
 服务端打印了 3 条 sql：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3626eedca554a6587282af70d1c8ac8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1596&h=314&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/332154aefc09.png)
 
 redis 里也有了这个 hash 的结构：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e530ee6adad439ab08a6808947b4377~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2246&h=838&e=png&b=1a1a1a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dc6dc5e48aa7.png)
 
 为什么是 3 条呢？
 
@@ -543,7 +543,7 @@ redis 里也有了这个 hash 的结构：
 
 我们可以优化一下，把 save 换成 update：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/948b542076df453ebf7c84532609b353~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=984&h=652&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af75c30d95a7.png)
 
 ```javascript
 await this.entityManager.update(Article, {  id }, {
@@ -552,33 +552,33 @@ await this.entityManager.update(Article, {  id }, {
 ```
 然后把 redis 那条数据删掉：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9788237156734af0a24fa841d5c4b68c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1412&h=824&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a78b45bcd227.png)
 
 重新跑一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3737234048e341439251f70d71fa5c2c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1618&h=216&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76ace1f96511.png)
 
 现在就只有一条 select、一条 update 了。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/faf52919e478446bbfd90c65ca20931a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1944&h=706&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6bc1c747b597.png)
 
 然后多刷新几次：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/026c9f9fe0ab42b696cf2717c38a9a5c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1270&h=670&e=gif&f=19&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c5a074bb8e6.gif)
 
 没发送 sql，还是之前那两条：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed1d914a14f34ec193c2624d045e6ba8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1078&h=228&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47be414ac19b.png)
 
 因为这时候查的是 redis。
 
 redis 里数据更新了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/acb2f7c7a439424b81a837c26e163db9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1924&h=738&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b10865e8f5a.png)
 
 但是数据库里的 viewCount 还是 8
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0e47c613c6f475881a4f8a93aa3afe2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1042&h=240&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/904925ba1323.png)
 
 这样一重启 redis 数据就没了。
 
@@ -594,14 +594,14 @@ npm install --save @nestjs/schedule
 
 在 AppModule 引入下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da9dd554de1b4601ad796006221742af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=988&h=602&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c29e628e947.png)
 
 然后创建一个 service：
 ```
 nest g module task
 nest g service task
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54cfef67d208453eab9317728cdcfec3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=732&h=248&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f0dbba9a4ea.png)
 
 定义个方法，通过 @Cron 声明每 10s 执行一次：
 
@@ -620,7 +620,7 @@ export class TasksService {
 ```
 然后就可以看到控制台会每 10s 打印一次
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ebee4294bf994a3e8f057dfe909b3d14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1084&h=738&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9aadc31ab4a7.png)
 
 我们在 TaskModule 引入 ArticleModule：
 
@@ -639,7 +639,7 @@ export class TaskModule {}
 ```
 并且在 ArticleModule 导出 ArticleService
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bdb0e59201a84700b742a3673502a5f0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=882&h=488&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b70c76f8084.png)
 
 然后在 TaskService 里注入 articleService 
 ```javascript
@@ -666,7 +666,7 @@ export class TaskService {
 
 先在 RedisService 添加一个 keys 方法，用来查询 key：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0783f06b09b845ebbb813e6caf2e1cfb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=920&h=512&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ba429bc9ee40.png)
 
 ```javascript
 async keys(pattern: string) {
@@ -684,16 +684,16 @@ async flushRedisToDB() {
 
 我们先打印下 keys。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cadcfe5c40ad490dbf0d2a0243eff546~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=358&h=214&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c802afffce83.png)
 
 现在只有一个 key，我们再访问下另一篇文章
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b861eb19d5c4488a4cd691ff25941ac~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=742&h=576&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49fc13127cb0.png)
 
 现在就有 2 个 key 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a2623fea2564d47a42118e61bea4e99~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=496&h=174&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1bd8599dee50.png)
 
 我们把所有的 key 对应的值存入数据库：
 
@@ -721,27 +721,27 @@ async flushRedisToDB() {
 
 测试下：
   
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6ef2153ce824061a42daaa7f96303a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1320&h=864&e=gif&f=29&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7146a60a10f8.gif)
 
 刷新几次 view 接口，redis 里阅读量增加了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30c2b390069a404f922d08146b51dcb6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1916&h=678&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8dc06b96bf9.png)
 
 但是数据库里没变：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5e3bc2f86f24a409e6e16f1dca68490~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1108&h=238&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/37e69e7bb967.png)
 
 过了一会，控制台打印了 2 条 update 语句：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b2ded51d38646a0b1a6fc54b16a0fb9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1176&h=180&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c2c950f0cc0.png)
 
 数据库里的数据就更新了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64857cb5a78745028c80ea6d1da94b74~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1048&h=236&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90a96bc67ed2.png)
 
 接下来只要把定时任务的执行时间改为 4 点就好了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0bbbbb54c49e444fa3bcb3c7eeaba66d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=936&h=598&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d126145e7a6.png)
 
 ```javascript
 @Cron(CronExpression.EVERY_DAY_AT_4AM)
@@ -754,7 +754,7 @@ async flushRedisToDB() {
 
 我们可以在用户访问文章的时候在 redis 存一个 10 分钟过期的标记，有这个标记的时候阅读量不增加。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5efa6c2989b8452090c4d747cfdd8c64~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1018&h=1238&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/82662a39aed8.png)
 
 ```javascript
 await this.redisService.set(`user_${userId}_article_${id}`, 1, 3);
@@ -781,25 +781,25 @@ async view(@Param('id') id: string, @Session() session, @Req() req) {
 
 试试看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44075eeee18742dd8071c58547e67370~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1266&h=684&e=gif&f=38&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64e02cd61d69.gif)
 
 可以看到，现在就不是每次刷新都增加阅读量了，而是 3s 之后再刷新才增加。
 
 在 redis 里可以看到这个 key：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ee2fa1fe43b41a186ae89520ad89ab3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1246&h=600&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e8cb5c162105.png)
 
 只不过现在没登录，用的是 ip，而本地访问的时候获取的 ip 就是 ::1 这样的，线上就能拿到具体的 ip 了。
 
 然后我们登录下再访问：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63184b6d205448918f25939aeefb1459~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=696&h=586&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7e58b38007f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94fba69d15f5465c8a72e66e074222c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=750&h=584&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f58e20ae8ba5.png)
 
 这时用的就是用户 id 了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dca4a9e9f38343d9a38f3eece0a87d49~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1214&h=626&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c8d9acdd4d0.png)
 
 这样就实现了真实的阅读量计数。
 

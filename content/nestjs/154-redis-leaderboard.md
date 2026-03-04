@@ -13,23 +13,23 @@ series_order: 3
 
 比如经常有瓜的微博文娱榜：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/895af4664f9c4d408bb3af1a3ad3fe8b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=2400&s=707863&e=jpg&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/041a9256b4e2.jpg)
 
 掘金的文章榜：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb4f4b0f17c14e8db8c970921d52ed77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1450&h=1034&s=254377&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f249b11b2fd.png)
 
 作者榜：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5cdddd483994ca0b4b30cace85d46ab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2010&h=1280&s=446810&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3d034ea0185d.png)
 
 微信的步数排行榜：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8faab6319eff4995bef431ba5d648df6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=2400&s=475034&e=jpg&b=f6f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a0317bf7981.jpg)
 
 我最近订的自习室也有学习时长排行榜：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b76913360af465397faa8726871cf14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=2400&s=446365&e=jpg&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b3c777f272d.jpg)
 
 排行的依据各有不同，有的是根据学习时长，有的是根据阅读数、点赞数，有的是根据搜索次数等。
 
@@ -79,7 +79,7 @@ series_order: 3
 
 我们依次来试一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a956d7f9f434c3aa3a97ac728539a7f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1886&h=408&s=78708&e=png&b=121212)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c2ec2252d2a.png)
 
 ```redis
 ZADD set1 1 mem1 2 mem2 3 mem3
@@ -89,15 +89,15 @@ ZADD set1 1 mem1 2 mem2 3 mem3
 
 点击刷新就可以看到这个集合：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07c822cc10144c0d829d63a7851d6194~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2112&h=486&s=97806&e=png&b=121212)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/743eb51f1f06.png)
 
 三个成员，分数分别是 1、2、3
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8ad9d771a03471baaed48004c7e22cb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1758&h=760&s=72686&e=png&b=1a1a1a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bece46396361.png)
 
 用命令看的话就是 ZRANGE：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8360e1995a34411b9f78b42470e25221~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1396&h=636&s=47921&e=png&b=121212)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d2dbbb0b1374.png)
 
 ```
 ZRANGE set1 0 -1
@@ -107,14 +107,14 @@ ZRANGE set1 0 -1
 
 默认是分数从小到大排序，也可以从大到小，加个 REV 就行：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c2274688df24252b6f1af2fa6e6d34d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=640&h=604&s=32033&e=png&b=111111)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f6493db57073.png)
 
 ```
 ZRANGE set1 0 -1 REV
 ```
 还可以用 ZRANGESTORE 把它存入新集合：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dee4156d2a21452f9df5000b0cd5b3d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=814&h=542&s=33577&e=png&b=131313)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7ee37777b73.png)
 
 ```
 ZRANGESTORE rangeset set1 0 -1
@@ -125,18 +125,18 @@ ZRANGESTORE rangeset set1 0 -1
 ```
 ZRANGE rangeset 0 -1
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50ecf49386114801aeab23920d74d6ba~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=652&h=588&s=29240&e=png&b=111111)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5a5fb077f75.png)
 
 删除个成员试试：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00cabb70cf4646b5a47fa4b4f13c1713~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=546&h=526&s=21630&e=png&b=141414)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f29f6f31efdc.png)
 
 ```
 ZREM set1 mem1
 ```
 再查看下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33f92801ae5b494e8128597c1c062d26~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=590&h=566&s=25035&e=png&b=111111)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee4b597d2769.png)
 
 ```
 ZRANGE set1 0 -1
@@ -144,18 +144,18 @@ ZRANGE set1 0 -1
 
 用 ZCARD 查看集合的成员个数：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a98952d1ed5497d832f7504ae104b89~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=530&h=540&s=22247&e=png&b=141414)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8cbb8a0182aa.png)
 
 ```
 ZCARD set1
 ```
 用 ZSCORE 查看某个成员的分数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62a0fcae34644e75a0e9b885b350d3eb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=586&h=526&s=22440&e=png&b=131313)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38c353a8bb74.png)
 
 用 ZRANK 查看成员在集合内的排名：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8bc518809ac41f2870f4bdacfc8be32~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=596&h=518&s=23513&e=png&b=121212)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cde4c3843518.png)
 
 ```
 ZRANK set1 mem2
@@ -163,13 +163,13 @@ ZRANK set1 mem2
 
 然后用 ZINCRBY 给成员增加分数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72d32e595e9749439810722b7388aa9b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=568&h=532&s=21346&e=png&b=121212)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f2ba8a1dc6e.png)
 ```
 ZINCRBY set1 3 mem2
 ```
 看下新排名：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8f8bf78ef574f449938869d196d3fbd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=662&h=554&s=26498&e=png&b=101010)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5b20099dd7d5.png)
 
 ```
 ZRANGE set1 0 -1
@@ -179,7 +179,7 @@ mem2 就到下面去了。
 
 再创建一个集合 set2：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/307e9040f5ca4b1089e0eaf8defbdd0e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=598&h=530&s=27282&e=png&b=131313)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d86867394b1.png)
 
 ```
 ZADD set2 4 aaa 6 bbb
@@ -189,22 +189,22 @@ ZADD set2 4 aaa 6 bbb
 ```
 ZUNION 2 set1 set2
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0127cdaf4fe2489bad1ec981effefe98~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=576&h=630&s=31858&e=png&b=101010)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fbdb3d09ec2.png)
 
 还可以加上分数一起：
 ```
 ZUNION 2 set1 set2 WITHSCORES
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02c6bbc5651e417cb43ad35c9ca256ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=832&h=762&s=46886&e=png&b=0c0c0c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00eb6bf4a396.png)
 
 或者把合并后放到另一个集合：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc9243e2262e486b8c45f2d210f7de5d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=712&h=520&s=30388&e=png&b=121212)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aae0ade1f392.png)
 
 ```
 ZUNIONSTORE set3 2 set1 set2
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/842a9bdc20f341579da82c5bb894aca5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=558&h=610&s=31416&e=png&b=0f0f0f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4f8da354f93.png)
 
 ```
 ZRANGE set3 0 -1
@@ -223,11 +223,11 @@ ZUNIONSTORE s3 2 s1 s2
 
 在 s1 和 s2 集合中都有 aa，合并到 s3 之后 aa 的分数也合并了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67681baa9fc24e1f8d7384da1ddf636a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1508&h=710&s=65434&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb83b3501155.png)
 
 周榜、月榜、年榜就是这么实现的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b76913360af465397faa8726871cf14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=2400&s=446365&e=jpg&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b3c777f272d.jpg)
 
 月榜就是对周榜的合并，然后年榜就是月榜的合并，最后就会算出一个新的排行榜。
 
@@ -236,7 +236,7 @@ ZUNIONSTORE s3 2 s1 s2
 ```
 nest new ranking-list-test
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd50fea9c1484a23b5bfd18e0ceda0a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=914&h=698&s=162505&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/524c6c072f6a.png)
 
 安装 redis 的包：
 
@@ -251,7 +251,7 @@ nest g module redis
 nest g service redis
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaf36dbe385544309bc35de23c2a45a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=196&e=webp&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05fe13cd2d84.webp)
 
 在 RedisModule 创建连接 redis 的 provider，导出 RedisService，并把这个模块标记为 @Global 模块
 
@@ -361,7 +361,7 @@ nest g controller ranking --no-spec
 nest g service ranking --no-spec
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca093838eec144deaf478aefe1bd3739~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1032&h=280&s=75766&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/94df7e74de8f.png)
 
 我们就实现下自习室学习时长的月榜和年榜吧。
 
@@ -465,25 +465,25 @@ join 是加入自习室，learn 是增加学习时长，monthRanking 和 yearRan
 npm run start:dev
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/beeb51e757d2420d842b38e470f7cc00~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1626&h=526&s=243473&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9dddd41f899.png)
 
 在 postman 里调用下：
 
 ```
 localhost:3000/ranking/join?name=guang
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a97a74e8b1c3472b81243d6a13bc7f42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=486&s=49735&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e760bac3ca23.png)
 
 ```
 localhost:3000/ranking/join?name=dong
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a5d5407bae542538e1fe82e33395044~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=834&h=508&s=50805&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/042199f97d8c.png)
 ```
 localhost:3000/ranking/join?name=xiaohong
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/447497049a044e03b4ad7e5fec13106d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=818&h=482&s=50845&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/89afec8d50d0.png)
 
 调用 join 接口，加入三个同学。
 
@@ -492,58 +492,58 @@ localhost:3000/ranking/join?name=xiaohong
 ```
 localhost:3000/ranking/monthRanking
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b853d2f94b640a6a1b99e9210ee5e31~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=854&h=604&s=61985&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccbfbe6305f5.png)
 
 在 RedisInsight 里看下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cae0e1e536243f58f5f4816ac97871c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1114&h=394&s=41369&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e9b529c9821d.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c42317043a44a31813ee265ce01a395~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1398&h=716&s=75205&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/245fa060e234.png)
 
 然后调用 learn 接口，增加学习时长：
 
 ```
 localhost:3000/ranking/learn?name=dong&time=1
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42fe163b497e4e87a962ef59f104b020~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=930&h=530&s=52054&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5b8c81f8f234.png)
 
 ```
 localhost:3000/ranking/learn?name=guang&time=2
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e7a00ff1c3174b5eb8b6b8ad416ad5df~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=828&h=512&s=50445&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca6761a398e3.png)
 
 ```
 localhost:3000/ranking/learn?name=xiaohong&time=5
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd04544984174f71931f4f2e2c8c54d8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=904&h=502&s=51566&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a02e9f35bbee.png)
 
 ```
 localhost:3000/ranking/monthRanking
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2893cc2eab34c2cbde9bf6c6b080d21~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=874&h=610&s=58590&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8425304ff124.png)
 
 我们改下本地时间（mac 和 windows 改本地时间的方式不一样）：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71cc6666159d46d9a29733893a030bfd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=972&h=714&s=81104&e=png&b=f1edea)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c27aba44e01d.png)
 
 然后再调用 join 接口：
 
 ```
 localhost:3000/ranking/join?name=guang
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a97a74e8b1c3472b81243d6a13bc7f42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=486&s=49735&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e760bac3ca23.png)
 
 ```
 localhost:3000/ranking/join?name=dong
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a5d5407bae542538e1fe82e33395044~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=834&h=508&s=50805&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/042199f97d8c.png)
 ```
 localhost:3000/ranking/join?name=xiaogang
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a465751d23d04e29b65f8e2213e55a99~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=768&h=492&s=49518&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5727ee3d9281.png)
 
 之后增加学习时长：
 
@@ -551,42 +551,42 @@ localhost:3000/ranking/join?name=xiaogang
 ```
 localhost:3000/ranking/learn?name=dong&time=2
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/196cbe861cd3404e8ea4e6e3f612cf03~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=874&h=478&s=50637&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b1e5e11a5cd1.png)
 
 ```
 localhost:3000/ranking/learn?name=guang&time=3
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee692a502a5d4675b5fc17af21a257e9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=876&h=494&s=50919&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d7dae27de2a.png)
 ```
 localhost:3000/ranking/learn?name=xiaogang&time=4
 ```
 
 然后看下 3 月份的月榜：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/461d946832254886900f83491b3bbd1b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=858&h=502&s=51092&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e3e2c94b165.png)
 
 还有年榜：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e6b7c7751974570b23f4c8f5427e8c9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=780&h=658&s=60070&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/179dbd00a87d.png)
 
 可以看到，年榜是合并了所有月榜的结果。
 
 在 RedisInsight 里看下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2d7c497ada84c29920bdb0529789b40~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1098&h=598&s=71311&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bcf83b8b9636.png)
 
 每个月榜和年榜都是单独的 zset。
 
 这样我们就实现了学习时长的排行榜。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b76913360af465397faa8726871cf14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=2400&s=446365&e=jpg&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b3c777f272d.jpg)
 
 至于用户自己的排名和时长，就用 zScore、zRank 来实现。
 
 也就是这个我的排名功能：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/388f457677374ca3aa86bdc156ae64c0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=922&h=564&s=540511&e=png&b=374b6a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e1257c440210.png)
 
 案例代码上传了[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/ranking-list-test)
 

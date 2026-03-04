@@ -13,11 +13,11 @@ series_order: 18
 
 把用户端代码跑起来，首先写下预订历史页面：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c48a82b4211498baaddbbb3547fca63~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1476&h=884&s=66779&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20d27de5d642.png)
 
 这个页面就是一个列表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5243f2fa51946f192575f88c0baa822~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1136&h=796&s=82250&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7046c4d6a5d8.png)
 
 我们先写上面的 form：
 
@@ -112,15 +112,15 @@ export function BookingHistory() {
 
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d271754a30e8442285335cc2236ed77a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2620&h=838&s=92270&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/61ee37af8827.png)
 
 和后台管理的页面差不多，只不过这里没有 user 的搜索。
 
 我们登录的时候把它放到了 localStorage 里，所以这里从 localStorage 取就行：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe82c514ecbe40bead2566a06ae1512b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1370&h=442&s=110671&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a89f67105161.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad99206ec65d40b0af9e3e7032c6dd91~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1198&h=964&s=199462&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9679bc3670f1.png)
 
 ```javascript
 function getUserInfo() {
@@ -169,7 +169,7 @@ export async function bookingList(searchBooking: SearchBooking, pageNo: number, 
 然后在页面调用下：
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5104ce8a34b4c5b85a5e0f8d32591cc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1580&h=1590&s=362810&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9a522defa10d.png)
 ```javascript
 interface BookingSearchResult {
     id: number;
@@ -208,15 +208,15 @@ const searchBooking = async (values: SearchBooking) => {
  ```
 接口调用没啥问题：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee4234bf1f574c4584c585860a20d0d8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1416&h=1098&s=160749&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/248fd8a15296.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9eaf74fa453c466180a4ca918d48b294~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1836&h=1258&s=243903&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/426866fe1201.png)
 
 然后加上下面的表格：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c01c0cb2a8bf4b3e9c32b5fe0d6fd87d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1352&h=1370&s=205280&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac29b6095f00.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc9445b2049b444fac0b17e86fd07f91~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1094&h=294&s=60838&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ed73a595842.png)
 
 这些和后台管理一样，直接复制过来就行：
 
@@ -422,7 +422,7 @@ export function BookingHistory() {
 
 这样，列表就完成了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/146dc4bf86ba458d845ae22118eb8b60~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2766&h=964&s=192334&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0f5ba5cfa651.png)
 
 然后实现解除预定功能：
 
@@ -435,9 +435,9 @@ export async function unbind(id: number) {
 ```
 然后在页面调用下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8af9043095494b9382971e73d3b01ff2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=950&h=578&s=82790&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/22be3291800d.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3e54efc16424180b22c7231d4ecf4e5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=812&h=428&s=66227&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/112d317c41b8.png)
 
 ```javascript
 import { Button, DatePicker, Form, Input, Popconfirm, Table, TimePicker, message } from "antd";
@@ -662,17 +662,17 @@ export function BookingHistory() {
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/581c84cabc1d48929aed4f248c2b6d2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2358&h=1074&s=420561&e=gif&f=61&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5174d709ea2d.gif)
 
 没啥问题。
 
 如果没有合适的数据，就手动去数据库里改一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8803f967b9c4f6e89ea40b202320bc4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1834&h=600&s=453785&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34ead49226a9.png)
 
 接下来，还有一个添加预定的功能：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ab95474f0be488cbde34e4a7975f5e1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1368&h=968&s=74070&e=png&b=d7d7d7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9151133b10c.png)
 
 当点击会议室列表的预定按钮的时候，会弹出这个窗口。
 
@@ -772,11 +772,11 @@ export function CreateBookingModal(props: CreateBookingModalProps) {
 ```
 然后点击预定按钮的时候，显示这个弹窗：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4b996e8ab9a48209d994b28b7637b9f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2210&h=894&s=157484&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f296ce40461.png)
 
 添加 isCreateModalOpen 的 state 来标识弹窗是否打开，并且记录点击的是哪个会议室：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fdaa471d1374fb9b90428f14fc86f03~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1464&h=276&s=111904&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cbc09a92baa2.png)
 
 ```javascript
 const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -784,7 +784,7 @@ const [currentMeetingRoom, setCurrentMeetingRoom] =  useState<MeetingRoomSearchR
 ```
 点击预定按钮的时候，打开弹窗，记录当前会议室：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b46e523254347939475a12646a22f41~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=730&h=414&s=50866&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/13cd19a7adb3.png)
 
 ```javascript
 {
@@ -801,7 +801,7 @@ const [currentMeetingRoom, setCurrentMeetingRoom] =  useState<MeetingRoomSearchR
 ```
 然后弹窗传入当前的会议室，并且点击关闭的时候关闭弹窗：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc351559c9f646ae83d4828e49c7138d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1606&h=294&s=62449&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f01691e7a073.png)
 
 ```javascript
 {
@@ -815,12 +815,12 @@ const [currentMeetingRoom, setCurrentMeetingRoom] =  useState<MeetingRoomSearchR
 
 没啥问题：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/787ac7eaea2d44a4884ad4aa09022f1b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2058&h=1128&s=2202931&e=gif&f=69&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4d9ba4d74d4.gif)
 
 
 然后在 interface.ts 添加用到的接口：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bbc7c06400174b0a80ff8f076d4da6ac~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=806&h=890&s=96887&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ad67f8132ad.png)
 
 ```javascript
 export async function bookingAdd(booking: CreateBooking) {
@@ -861,11 +861,11 @@ const handleOk = async function() {
 ```
 没啥问题：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b24c0df2a973408cbacdc3ac389be261~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1866&h=1204&s=423594&e=gif&f=33&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e37a142e0ce.gif)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14a7e98af7a04241a198881d232da89e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2602&h=810&s=314162&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2451cfae04d7.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d7afc278aa348d288cdf9e1c22025b3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2496&h=1436&s=268575&e=png&b=8b8b8b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f26cc0672d98.png)
 
 
 这样，预定、预订历史、取消预订就都完成了。

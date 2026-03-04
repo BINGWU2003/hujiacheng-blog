@@ -30,7 +30,7 @@ series_order: 11
 ```
 nest new single-token-refresh
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/183ddb8edbfb4cba8b52eb1220266461~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1002&h=690&s=169562&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2612537908a4.png)
 
 进入项目，添加一个 user 模块：
 
@@ -38,7 +38,7 @@ nest new single-token-refresh
 nest g resource user --no-spec
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/324b1b8492ae4d8e8ca9396beae49179~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=944&h=320&s=78031&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3a17bac66614.png)
 
 加一个 login 的路由：
 
@@ -71,13 +71,13 @@ export class LoginUserDto {
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d70f2aac5c78440c8d559dd871781f46~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1914&h=488&s=199227&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00bc9a5a09d7.png)
 
 postman 访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3134d23118b04a3aa2ca4ec5ca1439fc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=920&h=612&s=68159&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8ef1d396f1e7.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04e7557bf27a44bea8596f2d826831ae~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=916&h=492&s=120281&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7f4b6ab41618.png)
 
 登录成功返回 jwt，安装下用到的包：
 
@@ -140,9 +140,9 @@ export class UserController {
 
 访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3899102f7c684f4ca2172d4b3714f8d3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=830&h=780&s=88491&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30978e571c3a.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0a0b4cae9d74b2f9f8fa829ef39bcb5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1266&h=770&s=116001&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/40ec770b2c9f.png)
 
 可以看到，登录后返回了 jwt。
 
@@ -152,7 +152,7 @@ export class UserController {
 nest g guard login --flat --no-spec
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0dd086e3737d495293829568f97b260e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=782&h=118&s=24253&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/173819a2a84e.png)
 
 登录鉴权逻辑和之前一样：
 
@@ -214,18 +214,18 @@ bbb() {
 aaa 接口可以直接访问，bbb 接口需要登录后才能访问。
 
 访问 aaa
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/618469c53a1147e49a34dd25a4eafbe6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=860&h=588&s=51974&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c50775a4a843.png)
 访问 bbb
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d0c6e740b3049e9a1e71513501aa4f1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=910&h=672&s=76101&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f93371f0905f.png)
 
 登录拿到 token：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/673c02f45294451ca518496aba45b47d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1198&h=716&s=113171&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b16097a167b8.png)
 
 带上 token 访问 bbb：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46462bd7aeef46338294e62d4db8dfd6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1294&h=922&s=122514&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ef61cf1366f8.png)
 
 带上 token 就可以访问需要登录的接口了。
 
@@ -237,7 +237,7 @@ aaa 接口可以直接访问，bbb 接口需要登录后才能访问。
 
 方式很简单，就是访问接口后返回新 token：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce7cd28baa3d4052ae9d5de16f305652~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1392&h=1032&s=223536&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/97c7452b6bcf.png)
 
 ```javascript
 import { JwtService } from '@nestjs/jwt';
@@ -283,7 +283,7 @@ export class LoginGuard implements CanActivate {
 ```
 试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8dc8647345f345b59493c130b9d5f113~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1448&h=1316&s=303542&e=gif&f=38&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/44508f2c0489.gif)
 
 这样每次返回新 token，不就永不过期了？
 
@@ -297,7 +297,7 @@ export class LoginGuard implements CanActivate {
 npx create-vite single-token-refresh-frontend
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2918c7575fe4d13b140f171f76fd8c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=936&h=372&s=49806&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5edb0b8c1196.png)
 
 进入项目，把服务跑起来：
 
@@ -306,17 +306,17 @@ npm install
 npm run dev
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3d6481146f2477784fbcbc7888a246f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=992&h=378&s=45163&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/92671be24c4e.png)
 
 浏览器访问下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/771c31512f9e4af8b28d416c1ded6beb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1580&h=1274&s=126131&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe283511a36c.png)
 
 项目跑起来后，我们调用下后端接口。
 
 首先后端要开启跨域：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d19adc275d6411c926766879d04a20e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1078&h=494&s=101844&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53c54f7a5de3.png)
 
 然后前端页面调用下：
 
@@ -358,13 +358,13 @@ export default App
 npm install --save axios
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ea3d54d987c4db184c92b1a04278f2e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1476&h=494&s=78239&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e73bb06aa0b.png)
 
 提示未登录（打印两次是 main.tsx 里的 StrictMode 导致的，去掉就好了）
 
 我们登录下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c3bec9efb64490fbf50900503bd97e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1506&h=1050&s=206086&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/06c8ee7ae1fb.png)
 
 ```javascript
 import { useEffect, useState } from 'react'
@@ -406,7 +406,7 @@ export default App
 ```
 现在接口就请求成功了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3351b93474db461c8b0dacc6578b0372~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2092&h=1244&s=129254&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9abc4ed0fafa.png)
 
 这个 token 我们一般都放到 localstorage 里，每次请求都带上。
 
@@ -441,23 +441,23 @@ axios.interceptors.response.use(
 
 打印下 header
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd49040f4f3d45409425d6d2634e0168~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1150&h=910&s=150053&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2cd8b4c33045.png)
 
 没有 token
 
 但我们明明返回了啊：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8f9a8c0355c47b3bc65df81c3e3f3d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2438&h=1032&s=268064&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eea71f61fa97.png)
 
 这也是跨域的问题，默认你能访问的 header 是有限的。
 
 如果想在代码访问别的 header，需要在后端支持下，在 Access-Controll-Expose-Headers 里加上这个 header
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d478babb56e14c5eaaca38aed3423f98~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1092&h=640&s=113409&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dede7ac41b5f.png)
 
 现在就可以访问这个 header 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d582ecdaa4f43b4b142f33a48eae5d2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1744&h=990&s=247701&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8b685e6b45a8.png)
 
 这样更新完 localStorage 里的 token，不就实现无感刷新了么？
 

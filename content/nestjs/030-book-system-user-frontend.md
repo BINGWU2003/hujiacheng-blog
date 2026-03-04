@@ -13,9 +13,9 @@ series_order: 4
 
 先写登录、注册页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1578dceac85e45eab4f98002815da005~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1594&h=1104&s=60485&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4532e87a65b6.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65c476e3a31d48b1ac38c73ee849f6cd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1148&h=794&s=42653&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43a431949941.png)
 
 用 create-vite 新建个 react 项目：
 
@@ -23,7 +23,7 @@ series_order: 4
 npx create-vite book-management-system-frontend
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a1dd3d2ab0f4ab6a4d5b89e2d82c42c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=842&h=396&s=50708&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd2a4841057f.png)
 
 进入项目目录，把开发服务跑起来：
 
@@ -32,11 +32,11 @@ npm install
 npm run dev
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b671d9f107b44197ae702f3c6272fd07~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1060&h=396&s=51870&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ec39de4633f.png)
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ff0b9ee2246403897353c33ffbee7c5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1942&h=1218&s=143939&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35a4bb035870.png)
 
 然后我们添加 router：
 
@@ -95,19 +95,19 @@ root.render(<RouterProvider router={router}/>);
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02bf16d9751e464d8a6f9d12310f3906~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1154&h=576&s=333697&e=gif&f=52&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f8e00ead56d1.gif)
 
 都没问题。
 
 然后在 src 下创建 3 个组件：Login、Register、BookManage，把其余无用文件去掉：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d95d605c748046298910d1f9cc8a9c21~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1698&h=726&s=121859&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c86e3b888a5.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e99aa9498764770a20393e4331e602d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1388&h=1124&s=192703&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4ddf65d04869.png)
 
 然后来写 Register 页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65c476e3a31d48b1ac38c73ee849f6cd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1148&h=794&s=42653&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43a431949941.png)
 
 引入 Ant Design 组件库：
 
@@ -127,7 +127,7 @@ export function Login(){
 }
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f669b6383581495dbdda5254917b18cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=750&h=282&s=23558&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/711261ffeb90.png)
 
 没啥问题，说明 antd 引入成功了。
 
@@ -232,11 +232,11 @@ layout 是指定 label 和 input 部分的比例分配的，总共是 24。
 
 看下现在的注册页面：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e63728ed1b0b4278be4be9526fb28ec7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2336&h=1170&s=109094&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8888cd31eb5c.png)
 
 输入用户名、密码、确认密码，点击注册：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d2d8c7f5fba4c80b08610110cf71f00~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1654&h=1138&s=144013&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c86f60b13eb4.png)
 
 控制台打印了拿到的表单值。
 
@@ -299,17 +299,17 @@ const onFinish = async (values: RegisterUser) => {
 
 注册下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60fb53901c6a48048626312caebddc8a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=554&s=156813&e=png&b=fdf8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ee61a4d97b4.png)
 
 提示跨域。
 
 在后端项目支持下跨域访问：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/523b83b817044c669f9be95434a7f375~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1200&h=652&s=139090&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8af1ad08b363.png)
 
 再试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84b5e90b39b44c0b87b35079b2bf259d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2126&h=1200&s=605633&e=gif&f=62&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23957f44f6a3.gif)
 
 没啥问题。
 
@@ -406,13 +406,13 @@ export function Login() {
 ```
 试一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16d56bb7fb6d46a1807a4ce918beffd9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1730&h=1054&s=130523&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a0ad8bc781a.png)
 
 没啥问题。
 
 然后在 interfaces/index.ts 里添加 login 接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c790b028bad549be885b8253244676f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1658&h=1002&s=205453&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/31b420b3ea95.png)
 
 ```javascript
 export async function login(username: string, password: string) {
@@ -423,7 +423,7 @@ export async function login(username: string, password: string) {
 ```
 在页面调用下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ba63ad932d641ffb26604eb2164c208~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1698&h=1098&s=209769&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90e6148af394.png)
 
 ```javascript
 const onFinish = async (values: LoginUser) => {
@@ -444,7 +444,7 @@ const onFinish = async (values: LoginUser) => {
 ```
 试下效果：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/990bae9d45ba4599b3f877740098aeb6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2126&h=1200&s=428883&e=gif&f=52&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e92c3092800.gif)
 
 至此，注册、登录的前后端都完成了。
 

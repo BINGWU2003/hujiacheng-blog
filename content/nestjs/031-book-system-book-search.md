@@ -13,9 +13,9 @@ series_order: 5
 
 就是一个页面和几个弹窗：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ad8ba6dae6747deb5ad3206d22577ab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=1136&s=466112&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e951c3d02b91.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe0a85e0c3fd498697bf5403f54dc30f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=1138&s=299584&e=png&b=d9d9d9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a12ac1918e20.png)
 
 我们先写下图书列表：
 
@@ -113,17 +113,17 @@ export function BookManage(){
 ```
 这里还需要重置样式，在 main.tsx 里引入下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c09e753b426b4f3abda6cdbe0889b7aa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1456&h=668&s=181818&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5b1588ee1595.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ab6b343acac4a0fa430a4129c8afefa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1150&h=582&s=80793&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce9afec27929.png)
 
 看下效果：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81d960c621b54e90a840d2751f90e7b7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2732&h=1552&s=12076644&e=gif&f=32&b=f6f4f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/22e34e9cc1b3.gif)
 
 然后我们在 interfaces/index.ts 里加下图书列表的请求：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e15345f004d54bcd9be45e701b4cadf5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1618&h=764&s=162826&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/667b79cd3bb5.png)
 ```javascript
 export async function list() {
     return await axiosInstance.get('/book/list');
@@ -131,9 +131,9 @@ export async function list() {
 ```
 然后在组件里调用下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bbeb60083eb1459c864c2de04bcb787b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1402&h=1404&s=243267&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c31d1bd9f4fb.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b1efdbbb94d4663a571e5f3cde8d1a5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1878&h=1114&s=233060&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/67270ce0f586.png)
 
 ```javascript
 import { Button, Card, Form, Input, message } from 'antd';
@@ -244,13 +244,13 @@ export function BookManage(){
 ```
 看下效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62aba3fd8d2848cbabe94b2995994351~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2158&h=1250&s=419878&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b9d3a939f57.png)
 
 可以看到，图书列表加载并渲染了出来。
 
 然后来实现下搜索，之前的 list 接口没支持搜索，我们改造下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a88de65acd54e0bbf7018d9b840493b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1192&h=454&s=101479&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/29b4139f09d8.png)
 
 在 /book/list 接口添加一个 name 参数。
 
@@ -262,7 +262,7 @@ async list(@Query('name') name: string) {
 ```
 然后在 BookService 里实现下搜索：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f2dfd622bb04414ae9d7d42512848b5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1280&h=830&s=160888&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0dbb22c97f0e.png)
 
 ```javascript
 async list(name: string) {
@@ -276,17 +276,17 @@ async list(name: string) {
 
 当没传参数时：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9da8d6522b694bafa60a0f4af3ab194a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=1252&s=223167&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1200e3f9db2d.png)
 
 传 name=西 时：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90e35212417c40849fcd5946547e89d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1294&h=896&s=143869&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dbe99bd0f31f.png)
 
 传 name=水 时：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00bb2acbfe31479a9bc8e9dcdf258f7f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1244&h=906&s=141699&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f68d2a0b4cc7.png)
 
 然后我们在前端代码里调用下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f44896ea0d3452dacfbc270b2e21a66~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1180&h=708&s=119455&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7ca9b55ce2e.png)
 
 ```javascript
 export async function list(name: string) {
@@ -297,7 +297,7 @@ export async function list(name: string) {
     });
 }
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f536b815f5ac489f892154c3db67d47d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1554&h=1396&s=286192&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/774b13c7df46.png)
 
 当 form 提交的时候，修改 name 的 state，然后 name 的 state 改变触发重新搜索。
 
@@ -389,7 +389,7 @@ export function BookManage(){
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92a3c26d91f94e8faa25e49b6da02560~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2424&h=1258&s=993053&e=gif&f=70&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/650931b35e5b.gif)
 
 案例代码上传了[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/book-management-system-frontend/)
 ## 总结

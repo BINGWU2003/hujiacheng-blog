@@ -11,18 +11,18 @@ series_order: 2
 
 我们最常用的网络协议是 HTTP，它是一问一答的模式，客户端发送请求，服务端返回响应。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6da9b16984df497f885b585c1a0ae229~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1058&h=682&s=56511&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81861200ccb8.png)
 
 有时候也会用 Server Sent Event，它是基于 HTTP 的，客户端发送请求，服务端返回 text/event-stream 类型的响应，可以多次返回数据。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d99ee4d7ad0471db06cb16280001d77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1294&h=832&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/364b5960fd04.png)
 
 
 但是 HTTP 不能服务端向客户端推送数据，SSE 适合一次请求之后服务端多次推送数据的场景。
 
 类似聊天室这种，需要实时的双向通信的场景，还是得用 WebSocket。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d77dfe73e74d4fac89f8747266c01cd1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1260&h=810&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f979515ef4c4.png)
 
 在 Nest 里实现 WebSocket 的服务还是很简单的。
 
@@ -32,7 +32,7 @@ series_order: 2
 nest new nest-websocket
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/72fad8b1901b45c5bb0b76b2dac096eb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=954&h=698&s=164649&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e73e21a37ad8.png)
 
 进入项目，安装用到的包：
 
@@ -45,11 +45,11 @@ npm i --save @nestjs/websockets @nestjs/platform-socket.io
 nest g resource aaa
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/935142a52e374c62859b0127dc3c8b37~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=958&h=426&s=107584&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d501235cad18.png)
 
 生成的代码很容易看懂：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee0f45755ff4410998795c9f1da2d632~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1170&h=1130&s=280664&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ced875a954c.png)
 
 @WebSocketGateWay 声明这是一个处理 weboscket 的类。
 
@@ -63,7 +63,7 @@ nest g resource aaa
 
 具体的实现在 AaaService 里：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74be7181e8674a7a9003afdd10100178~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1020&h=1008&s=182754&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e9ab4c511e4.png)
 
 然后我们加一下客户端代码，跑起来试试。
 
@@ -134,11 +134,11 @@ bootstrap();
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e54288524c5c458e8f1623883f190333~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1776&h=554&s=243746&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e1516633b66.png)
 
 浏览器访问下 http://localhost:3000
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1888dd8944bd4cd08a59579a9320e825~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=978&h=972&s=97892&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/28083da7be54.png)
 
 可以看到，CRUD 方法都有了正确的响应。
 
@@ -148,17 +148,17 @@ npm run start:dev
 
 这样：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a362ed2d7e74839a5f384da5de5a078~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=610&s=127164&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c2dd819b8b0a.png)
 
 分别指定 event 和 data。
 
 这时候原来的代码就收不到 findAll 返回的消息了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66f6642d80544f7e8d4e93cfe4a5787c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=986&h=956&s=90176&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f0540b29d88.png)
 
 因为返回的消息是 guang，可以加一下这个事件的监听：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/296d293e676742c987b55aa8057d1905~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=806&h=482&s=97323&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/52b12bc9b9a1.png)
 
 ```javascript
 socket.on('guang', function(data) {
@@ -167,13 +167,13 @@ socket.on('guang', function(data) {
 ```
 这样就收到消息了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46ac2ba29cbb43f0a221e5bd705bf35d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=966&h=962&s=95949&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90b602c320bd.png)
 
 那如果我不是马上发送消息，而是过几秒再发呢？
 
 这就要返回 rxjs 的 Observer 了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1468d5c160148178c339270825e02e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1120&h=810&s=160555&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8dcb59300da7.png)
 
 ```javascript
 @SubscribeMessage('findAllAaa')
@@ -196,7 +196,7 @@ findAll() {
 
 可以看到，2s、5s 的时候，收到了服务端传过来的消息。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e6bb22a986b4fb39c2def618eff5561~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=922&h=672&s=65781&e=gif&f=27&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/995bc976c92f.gif)
 
 有这些就足够用了，websocket 是用来双向实时通信的。
 
@@ -207,7 +207,7 @@ findAll() {
 npm install socket.io
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7cf4aba85c7045d78df8519a16986f39~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1198&h=856&s=207195&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b3aa0862fa4.png)
 
 ```javascript
 @SubscribeMessage('findOneAaa')
@@ -218,13 +218,13 @@ findOne(@MessageBody() id: number, @ConnectedSocket() server: Server) {
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/593aa19c68f244019cab9c2455f0c933~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=816&h=762&s=58989&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4fb6be3e43e9.png)
 
 这样也可以，但是和具体的平台耦合了，不建议这样写。
 
 除了 @ConnectedSocket 装饰器注入实例，也可以用 @WebSocketServer 注入实例：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1d9098eaae24585b6c7701ad6a1453e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=996&h=734&s=187879&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/508466860d9c.png)
 
 ```javascript
 @WebSocketServer()
@@ -237,13 +237,13 @@ create(@MessageBody() createAaaDto: CreateAaaDto) {
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/417aaf0a8e7e44fc9ef65e903f8d15a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=780&h=850&s=68755&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5635293050e5.png)
 
 同样，也是不建议用的。
 
 此外，服务端也有 connected、disconnected 等生命周期函数：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/831abbd32acd42c890ec043663ee9385~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1390&h=446&s=92366&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/22ce29206de3.png)
 ```javascript
 @WebSocketGateway()
 export class AaaGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect{

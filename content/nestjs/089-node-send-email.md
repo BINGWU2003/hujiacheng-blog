@@ -15,9 +15,9 @@ series_order: 9
 
 大多数人会回答，就用邮箱客户端啊，比如 qq 邮箱的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b92c0eae252a47a8a22512126f4fe0e3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9fb9c33d799.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf6ac87027e24e3b9a55f63346be519e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/74a500cfba87.png)
 
 但是这样体验并不好，比如写邮件的时候：
 
@@ -27,7 +27,7 @@ series_order: 9
 
 但是它只支持富文本编辑器：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01086b793a8b4063ac6a5930140f952a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/855407f3500d.png)
 
 再比如收邮件的时候，我想把一些重要邮件的内容保存下来，附件啥的都下载到本地。
 
@@ -51,23 +51,23 @@ series_order: 9
 
 在邮箱帮助中心 https://service.mail.qq.com/ 可以搜到如何开启 smtp、imap 等服务：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0224a90307f8434dbbfa14bd294b39e9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1902410b98ca.png)
 
 开启后可以在设置里看到：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9000e01314fc470b87a406fb254d003b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a557954f80db.png)
 
 然后在帮助中心页面搜索授权码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45036a9ade4f47339c0e4c3bf7a12840~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d0cf2c3b4cd.png)
 
 按照指引生成一个授权码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48886d0d39564171ac029998ef538cba~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2efcf32af790.png)
 
 这个是 qq 邮箱特有的一个第三方登录密码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22911ac0100b4f2a9f0e829b67a1e57e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a59e403f9384.png)
 
 然后就可以开始写代码了：
 
@@ -99,35 +99,35 @@ main().catch(console.error);
 ```
 安装 nodemailer 包，然后执行上面的代码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1de52723b3e745b1aae9ccc95899d04b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f6db6b58f27.png)
 
 可以看到邮件发送成功了。
 
 我们在邮箱里看看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2811274a2652417fbfff8148640c0e4c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e302b2e35c9.png)
 
 确实收到了这个邮件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f8c9963490a4a78b6a6c26530e3c7f6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a4f9dcc0e9d.png)
 
 这样我们就用 node 发送了第一个邮件！
 
 而且邮件是支持 html + css 的，比如把我之前写的一个 [3 只小鸟的 button 的 html](https://juejin.cn/post/7167355169934409758) 拿过来：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8cfe464929c448648c2dae4a5d6eb788~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f95206c3e3d4.gif)
 
 放到一个文件里，然后发邮件的时候读取这个文件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98d204cc417b4ff9808fc7d15cf90002~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e53b17202acb.png)
 
 然后再跑下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16aa6adb898148649ea359e17a5b6fc9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e4c155b5edfd.png)
 
 收到的邮件也渲染出了这个 html，并且 css 动画也是正常的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88eeaf82f5bc42f889e2fd7fcddd5984~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cef447c93761.gif)
 
 那是不是可以加一些 js 呢？
 
@@ -172,7 +172,7 @@ imap.connect();
 
 这里的 imap 服务器的信息也是在帮助中心里搜索：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea3ac2f7d42045fc89be427d743ba163~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/978225e8a39d.png)
 
 search 的参数我们写了两个：
 
@@ -184,11 +184,11 @@ search 的参数我们写了两个：
 
 我们跑下试试：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19eb0a88b68f4d8c834e036f8ea57bac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/256c1ffe963d.png)
 
 可以看到打印了搜索出的符合条件的邮件的 id，然后我们来处理下这些 id：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00ae4bdbd1d3420e99090cad776606b6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/263dc77765ff.png)
 
 ```javascript
 const { MailParser } =require('mailparser');
@@ -212,7 +212,7 @@ function handleResults(results) {
 ```
 这里用 imap.fetch 来请求这些 id 的内容，bodies 为 '' 是查询 header + body 的意思：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e3f9dde7ec14b6daa10976e81c2ad00~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fbffb4108f67.png)
 
 然后处理下 body 的内容，把结果保存到 info 对象里。
 
@@ -270,21 +270,21 @@ function handleResults(results) {
 
 可以看到，我们前面发的那两个邮件都取到了。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0b1c3627ab64a0eab41dc9a336c0315~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8f99a1b4d91.png)
 
 日期也确实都是 7 月 10 日的。
 
 我邮箱里有这样一个邮件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de8337f6903345bfa2aba85a5f1709bb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/09154fa74019.png)
 
 可以看到，附件也下载到了 files 目录下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4882b3059d6b484da4390e4047420cd6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/344da9fb3b63.png)
 
 我们把 html 的内容保存到本地文件里：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19d2c63615d94709823359ba7d6b6716~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d64cff166a65.png)
 
 ```javascript
 const filePath = path.join(__dirname, 'mails', info.theme + '.html');
@@ -296,11 +296,11 @@ fs.writeFileSync(filePath, info.html || info.text)
 
 邮件内容和附件内容都保存了下来：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f334573062dd4f499677968c60c265fd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/72b3eb20ff32.png)
 
 在邮箱里可以看到也是这些邮件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8351c9d67104b86b88944dbfab86b09~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38bbc127e9f8.png)
 
 我们打开这些 html 看看，起一个 http-server：
 
@@ -308,9 +308,9 @@ fs.writeFileSync(filePath, info.html || info.text)
 npx http-server .
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7e13671716e40fa871186fcb12db58e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e92017bb0f45.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b2e7aec109740918a71ac4d2d309f84~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4f1a7c16ae93.png)
 
 和在邮箱里看一模一样。
 

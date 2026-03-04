@@ -25,11 +25,11 @@ series_order: 7
 
 比如 3 号订单的这三个商品，我们把它数量都改为 1。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e5885c3c6204ad7be3074d56959a396~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68d7b919cb38.png)
 
 那总金额就是 200，需要改 order 表的 total\_amount 为 200。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3f96bada39043db80e6403244fb8517~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f69976c0fdde.png)
 
 我们先开启事务：
 
@@ -49,9 +49,9 @@ UPDATE orders SET total_amount=200 WHERE id=3;
 
 然后再查询下现在 orders 表和 order\_items 表的数据。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8af0e19c621496e8716415091d7bc03~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c722dafd778.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/696b943b02ee4dd4bb06844f520e2f86~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fce2ceaf9a30.png)
 
 确实改了。
 
@@ -59,13 +59,13 @@ UPDATE orders SET total_amount=200 WHERE id=3;
 
 别担心，这时候只要执行下 ROLLBACK 就好了。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a3b0375015d4c3e9953b3e22007b5e9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1305dd2e6c02.png)
 
 你会发现它们的数据恢复了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdfc9cdd127d49a6a08c5c96fc7a105d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3813d93cce5d.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e118f1008cea47a6a16e5e126442ae88~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/26886bfab6e2.png)
 
 如果你确实想提交，那可以执行 COMMIT：
 
@@ -81,7 +81,7 @@ COMMIT;
 
 这时候数据就真正被修改，不能回滚了。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5dcbd8db05d841558b94878df722d250~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9240e4cad71b.png)
 
 那如果我不是想回滚所有的 sql 语句，只是回滚一部分呢？
 
@@ -106,9 +106,9 @@ SAVEPOINT ccc;
 
 执行这段 sql，数据确实修改了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/daa1f65396244e10b9c42d8bd0d9d956~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6ae553a9f590.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98f1bc6bfe7c4fdd94711a65cb5f853e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c22916a40a3.png)
 
 这时候我们回滚到 bbb 的位置：
 
@@ -118,15 +118,15 @@ ROLLBACK TO SAVEPOINT bbb;
 
 然后再查询下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/409590407c3a4531a554cccb8c90b17a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/203705f5039f.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6cd3d76b94e74effae007b0affb8a25c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/09de58d5b848.png)
 
 这时候 order\_items 表修改成功了，但是 orders 表修改没成功。
 
 这确实是这个点的状态：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3624c6256ba64b88a3a6c28cb0d5ff3d~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4f6bdb60fad1.png)
 
 再回滚到 ccc：
 
@@ -134,9 +134,9 @@ ROLLBACK TO SAVEPOINT bbb;
 ROLLBACK TO SAVEPOINT ccc;
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b513594165d74aaaa8265482781c3acb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/313eadde1aa5.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04b52bfed97540308b3fac02ce561afa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a016c722ff57.png)
 
 这时候就都修改成功了。
 
@@ -187,7 +187,7 @@ MYSQL 有 4 种事务隔离级别：
 ```sql
 select @@transaction_isolation
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7baa2d25c6a4ddc963c9f54390bdfad~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ba951be2dac.png)
 
 这个了解就好，一般用默认的。
 

@@ -15,13 +15,13 @@ RBAC 是 Role Based Access Control，基于角色的权限控制。
 
 上节我们学的 ACL 是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/782aa95188114311bf09706428c92270~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe71ef473dfd.png)
 
 直接给用户分配权限。
 
 而 RBAC 是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6df45dc5d1ef4ba881a9974bf635f828~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a0d9f53d4888.png)
 
 给角色分配权限，然后给用户分配角色。
 
@@ -46,11 +46,11 @@ RBAC 是 Role Based Access Control，基于角色的权限控制。
 ```sql
 CREATE DATABASE rbac_test DEFAULT CHARACTER SET utf8mb4;
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8b509f1367145c791e9a285824c7268~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/54b52be4ebdc.png)
 
 可以看到创建出的 database：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d7793d4faf849129943e2d0138fe6e9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a73a3b47c365.png)
 
 然后创建 nest 项目：
 
@@ -58,7 +58,7 @@ CREATE DATABASE rbac_test DEFAULT CHARACTER SET utf8mb4;
 nest new rbac-test -p npm
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35066d285daa4fd18ee672d6636db0ce~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9e614fcafc23.png)
 
 安装 typeorm 的依赖：
 
@@ -105,12 +105,12 @@ export class AppModule {}
 nest g resource user
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d6d66d7feca42a79ff2eabe6fa08e83~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04d26edc3de1.png)
 
 添加 User、Role、Permission 的 Entity：
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bbade0f25c94049b3a5ff0362ecaa82~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/831a8a0c44c2.png)
 
 用户、角色、权限都是多对多的关系。
 
@@ -212,14 +212,14 @@ Permission 有 id、name、createTime、updateTime 4 个字段。
 
 然后在 TypeOrm.forRoot 的 entities 数组加入这三个 entity：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/473156a1bb154c9ebb5a6aab0dbd9d38~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f25e8d728b16.png)
 
 把 Nest 服务跑起来试试：
 
 ```
 npm run start:dev
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f73b90864b9546c596120da55e82e40d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b70bd93c0ca.png)
 
 可以看到生成了 user、role、permission 这 3 个表，还有 user_roole_relation、role_permission_relation 这 2 个中间表。
 
@@ -227,21 +227,21 @@ npm run start:dev
 
 在 mysql workbench 里看下这 5 个表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c16f960e04b444b85fd116c88b0c0c2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4eb16a14d78a.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2067c6648d65480dbd14684e93440b2e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35923de7e366.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58c805339829499a916c265b5e5fc0c4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/543fec66589d.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd68bf843a1b408a93668bde85387f35~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b6232265c3d.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2cf2c5285154c6d8885584463c86a47~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/13847e1e9b3f.png)
 
 还有外键：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40146db63eb54a5c8a5ede096243218e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dab580520151.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a85552c665548678304f8fb2cdc2845~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/21d64af11a22.png)
 
 都没啥问题。
 
@@ -365,7 +365,7 @@ npm run start:dev
 
 服务端控制台打印了一堆 sql：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/356705c44c78489388ad6d3cfb2eab03~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f0ebbb80a05b.png)
 
 可以看到分别插入了 user、role、permission 还有 2 个中间表的数据。
 
@@ -373,23 +373,23 @@ npm run start:dev
 
 permission 表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/841bdfcd3c914d54850d4dd9c1efd66e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/034f6bcac9b0.png)
 
 role 表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6af139f124d742929ea14c06de7eb797~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d466081c6ba2.png)
 
 user 表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1745c9474b4a43f2ad05da7461ddb929~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dcaab02fb138.png)
 
 role_permission_relation 中间表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc600565951247988191a9ae64b82bbb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0239cdd064ac.png)
 
 user_role_relation 中间表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8beb4f2e5ea74ee6a4dec47da5502446~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2fec6fb5d843.png)
 
 都没啥问题。
 
@@ -437,19 +437,19 @@ export class UserLoginDto {
 
 全局启用 ValidationPipe：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ed775c910a84e5294fc51d393965998~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51bf22d76297.png)
 
 然后在 postman 里测试下：
 
 ValidationPipe 不通过的时候，会返回错误信息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df202c93f6d643f9a1a009d38b6de2a7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d03d9f79684.png)
 
 ValidationPipe 通过之后，就会执行 handler 里的方法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c823ec87861a4eeea897f66dbe2e3f74~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d6975c65c088.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ceff4fea046e4a66b5942589293d836b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/74a7a2d5ad54.png)
 
 接下来实现查询数据库的逻辑，在 UserService 添加 login 方法：
 
@@ -493,9 +493,9 @@ async login(@Body() loginUser: UserLoginDto){
 
 可以看到，user 信息和 roles 信息都查询出来了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b917fdfd1f2a4c32bffb984bbb52916a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed5e7ddc2dc8.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef10e46be0ef472eb23b290a0d840662~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/555515e2166b.png)
 
 我们要把 user 信息放到 jwt 里，所以安装下相关的包：
 
@@ -503,13 +503,13 @@ async login(@Body() loginUser: UserLoginDto){
  
 然后在 AppModule 里引入 JwtModule：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d468382f52544f44bfebcfddcc713783~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/87d86079dc1d.png)
 
 设置为全局模块，这样不用每个模块都引入。
 
 然后在 UserController 里注入 JwtModule 里的 JwtService：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c432c2bec944ae5996e74f5f903daa6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e410d0d84b7c.png)
 
 把 user 信息放到 jwt 里，然后返回：
 
@@ -533,7 +533,7 @@ async login(@Body() loginUser: UserLoginDto){
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba388f4965e6436497bff42234713aad~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c8e9543e1fc.png)
 
 服务端在登录后返回了 jwt 的 token。
 
@@ -544,15 +544,15 @@ async login(@Body() loginUser: UserLoginDto){
 nest g resource aaa 
 nest g resource bbb 
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a06b3ef207e4eb3b91ac07ad48b9819~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d11124c11c0.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c91016bc4be4ee0b6a4445d0d357ab5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63bdeb6d935e.png)
 
 现在这些接口可以直接访问：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a9724b76fae4a16965bf58f27295d38~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b56f28192749.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e96a5281a094eeeaaba535bc2ead0cc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e9f301302a6a.png)
 
 而实际上这些接口是要控制权限的。
 
@@ -606,13 +606,13 @@ export class LoginGuard implements CanActivate {
 
 然后把它放到 request 上：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3dd353f6eaf14ff795d2312f900b593b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad30dee69095.png)
 
 但这时候会报错 user 不在 Request 的类型上。
 
 扩展下就好了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04b5bf978da74390983d44189cf01ed7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4df6f2feda6a.png)
 
 ```typescript
 declare module 'express' {
@@ -628,25 +628,25 @@ declare module 'express' {
 
 上节我们是一个个加的 Guard：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486fb3ea083b440dbbfa5985389787c1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/483bd211eccb.png)
 
 这样太麻烦了，这次我们全局加：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8281ab12a654bd9ae05d1f86020a824~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d6fa3b143a68.png)
 
 前面讲过，通过 app.userGlobalXxx 的方式不能注入 provider，可以通过在 AppModule 添加 token 为 APP_XXX 的 provider 的方式来声明全局 Guard、Pipe、Intercepter 等：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efd69b23eecf4b1f96f009795b6d9117~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c957cb1f4721.png)
 
 再访问下 aaa、bbb 接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb743fcf74184c539050f24133f1d261~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7eace854315f.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/965d59386b1a477782cfc731b5d21aa2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/69401084ff56.png)
 
 但这时候你访问 /user/login 接口也被拦截了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efc12f8ee98542249fe52c3272714c4b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5665f43ed82b.png)
 
 我们需要区分哪些接口需要登录，哪些接口不需要。
 
@@ -663,15 +663,15 @@ export const  RequireLogin = () => SetMetadata('require-login', true);
 
 在 aaa、bbb 的 controller 上用一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a5656697a5e499f8648e3bfb0225a31~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0d02887a8d10.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b91023de50de42a288b8adaa3bd86a2c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c1b8a7ef30f7.png)
 
 我们支持在 controller 上添加声明，不需要每个 handler 都添加，这样方便很多。
 
 然后需要改造下 LoginGuard，取出目标 handler 的 metadata 来判断是否需要登录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ebc51e075c14e7d973bafc39c5abb42~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7835b66e8ae1.png)
 
 ```javascript
 const requireLogin = this.reflector.getAllAndOverride('require-login', [
@@ -692,27 +692,27 @@ if(!requireLogin) {
 
 现在登录接口能正常访问了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a38a45faddf454f926c337f9fd9e127~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c6263fc507fb.png)
 
 因为没有 require-login 的 metadata：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8df2766d29984b4b941ef887ca84bc95~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a40fcc3c2747.png)
 
 而 aaa、bbb 是需要登录的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42222c343ce144b2a9e2681a049c1398~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50b68c765422.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5228c44bafd4764a93e771bb3a7894c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8ef45075ad0.png)
 
 因为它们包含 require-login 的metadata：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6c35ef9d5184fab91a98c00774ea4c5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e4f2113834eb.png)
 
 然后我们登录下，带上 token 访问试试：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5330bbbfce0f4874aa8cd99faca56148~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/65fb506d9e49.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9d4581b5824437aac91a32f3e929fc6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4fff9577a837.png)
 
 带上 token 就能正常访问了。
 
@@ -725,11 +725,11 @@ nest g guard permission --no-spec --flat
 ```
 同样声明成全局 Guard：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab462c4d0b644b7bbce3832b7a30808c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd29dc38723d.png)
 
 PermissionGuard 里需要用到 UserService，所以在 UserModule 里导出下 UserService：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c8158f0210946bebe6a12f2e289f121~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0b0ee09289e6.png)
 
 注入 UserService：
 
@@ -818,15 +818,15 @@ export class PermissionGuard implements CanActivate {
 
 带上 token 访问：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/edce48228f664ebc866b1a5ab8f9d017~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23f2f896fe4f.png)
 
 可以看到打印了这个用户拥有的角色的所有 permission 信息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e72abec4874844e2a21e47552adaaaa9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a75a3d25243.png)
 
 再增加个自定义 decorator：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3202ef8fd95f40208dcf173ffea6b1fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4bbfd8069c5e.png)
 
 ```typescript
 export const  RequirePermission = (...permissions: string[]) => SetMetadata('require-permission', permissions);
@@ -834,12 +834,12 @@ export const  RequirePermission = (...permissions: string[]) => SetMetadata('req
 
 然后我们在 BbbController 上声明需要的权限。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/53bbafe2e8044568afe0ca91c958f251~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c438ecf2e116.png)
 
 在 PermissionGuard 里取出来判断：
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c2fe257fec34293881f66744a458814~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6cd2bba6c681.png)
 
 
 ```javascript
@@ -852,11 +852,11 @@ console.log(requiredPermissions);
 ```
 先打印下试试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8fb77e7e1b44a9391eccf4a77c303fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3f3ac8e8975d.png)
 
 带上 token 访问：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a162f4f285464092bbcdcdf425445b0a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/076e1cc58eb5.png)
 
 可以看到打印了用户有的 permission 还有这个接口需要的 permission。
 
@@ -864,7 +864,7 @@ console.log(requiredPermissions);
 
 添加这样的对比逻辑：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/399a549210db4c95bf785bda6b443115~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd880c2791e8.png)
 
 ```javascript
 for(let i = 0; i < requiredPermissions.length; i++) {
@@ -880,19 +880,19 @@ for(let i = 0; i < requiredPermissions.length; i++) {
 
 当前用户是李四，是没有访问 bbb 的权限的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57ed01373705498fb6e8d951997dc6f3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d04ccbd8241b.png)
 
 我们再登录下张三账号：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3408c41c38d4dd4bfb30b1bf46b973f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c129c26aea3.png)
 
 用这个 token 去访问下 bbb 接口，就能正常访问了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eaf67dc7a42b4e6fab09fb1018226aaf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3298d19afb6b.png)
 
 他是有这个权限的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f08e5980ebe74e95a27e19094c682b4d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9aeb7fcbdd3e.png)
 
 这样，我们就实现了基于 RBAC 的权限控制。
 

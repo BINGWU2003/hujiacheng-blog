@@ -17,7 +17,7 @@ series_order: 29
 
 登录之后，我们会在 localStorage 保存 access_token、refresh_token、user_info 的信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0eb23683ebe34f2b93516e62c3faa2b6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1292&s=373906&e=gif&f=11&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a4ae69493351.gif)
 
 然后进入会议室列表页。
 
@@ -25,37 +25,37 @@ series_order: 29
 
 但是现在没登录访问会议室列表页不会自动跳转登录页：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5014a774e0494512a0a8b704ba24191f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3214&h=1230&s=408110&e=gif&f=14&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8cdac58cf5cc.gif)
 
 只有点击其他页面的时候，才会跳转登录页：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4515e916435a4b768d5953ee22cbe85e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3076&h=1372&s=748865&e=gif&f=22&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6dba0dfed16b.gif)
 
 因为这些页面的接口需要需要登录，没登录访问会返回 401，我们在响应的拦截器里做了处理，如果返回 401 就跳转登录页：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/854f28308d8a4517a2e4c32442ad52e5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1226&h=1200&s=200910&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a6b87e67724.png)
 
 但是只在接口返回 401 的时候做处理不够，我们应该在路由级别也做下判断，也就是路由守卫。
 
 分析下 frontend_user 的现有路由，需要登录的这几个页面都会渲染 Index 组件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fca86f7f02c845a1a43c593482d2b8b4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1132&h=1618&s=221799&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ad37cc6fa7e.png)
 
 所以我们在 Index 组件里做下判断就好了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd2d546fecff4702a248f7f08f9daae1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1340&h=1298&s=300915&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2faf5b90ee3a.png)
 
 之前有从 localStorage 里取 user_info 设置 headPic 的逻辑，我们加个 else，跳转登录页就好了。
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7140cba19f04703bc86f29667cfdee6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3366&h=1526&s=569901&e=gif&f=23&b=fbf8fc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/16563578b5b4.gif)
 
 现在没有 user_info 的时候，也就是没有登录的时候就会跳转登录页了。
 
 同理，frontend_admin 项目也是这样改：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4bac54ea0654ba4b627a413e7ace448~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1396&h=1246&s=262156&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/467d7e916001.png)
 
 ```javascript
 useEffect(()=> {
@@ -67,7 +67,7 @@ useEffect(()=> {
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da0419e093a649b69785531339ed69bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3072&h=1756&s=588115&e=gif&f=24&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5f07af46283.gif)
 
 没登录的时候，也同样跳转了登录页。
 
@@ -81,7 +81,7 @@ useEffect(()=> {
 npx create-vite test-memo
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2201fd42f2574c179eaacb65b0aeb37e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=736&h=444&s=65713&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/17f014eb7a09.png)
 
 进入项目，安装依赖，然后把开发服务跑起来：
 
@@ -91,13 +91,13 @@ npm install
 npm run dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9077bfa37cb459aa06239b21d5614c9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182&h=434&s=54569&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c737737d684.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ba1fdc214eb46c9bf19a358cb91d514~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2860&h=1668&s=202010&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b6fb91164084.png)
 
 去掉 main.tsx 里的 index.css 和 StrictMode：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd166d5c3ac34111b624b3395cdfc976~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1512&h=614&s=118969&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9dbb21762c7.png)
 
 然后改下 App.tsx
 
@@ -128,7 +128,7 @@ App 组件里有一个定时器，不断的修改 setState 来触发重新渲染
 
 这时候 Aaa 会不会重新渲染呢？
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7ff3b02c2a34641966217878ae22ad6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=794&s=56025&e=png&b=f2f0fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c6695f3af070.png)
 
 答案是每次都会重新渲染。
 
@@ -136,7 +136,7 @@ App 组件里有一个定时器，不断的修改 setState 来触发重新渲染
 
 这时候就可以用 memo 来做：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/764f27b70f2d43229d49c5f6be886ba9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1230&h=1270&s=194307&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc2211ed3342.png)
 
 ```javascript
 import { memo, useEffect, useState } from 'react'
@@ -166,13 +166,13 @@ export default App
 
 现在 Aaa 就只会渲染一次了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08c4793ad0864d359c8754b3b15916a3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=902&h=698&s=49311&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de267088268f.png)
 
 memo 里会对比 props 和上次有没有变化，没变就不会重新渲染。
 
 那如果我加一个函数作为参数呢？
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49644bfbd1c64a32b8cfa225ffe00b44~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1828&h=1314&s=237751&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/668a53b8adbd.png)
 
 ```javascript
 import { memo, useEffect, useState } from 'react'
@@ -201,13 +201,13 @@ export default App
 ```
 这时候每次都会重新渲染：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cc1d8944c144136b831d936ad5de05a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=836&h=736&s=53252&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5360afb85671.png)
 
 因为函数每次都变，也就是参数每次都变，加了 memo 也没用。
 
 这时候用 useCallback 就可以解决这个问题，它只有依赖数组变的时候才会返回新的函数，否则一直返回同一个函数：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f6d47a1a45f745108704f39181f3c8e6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1452&h=1170&s=192597&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90b5198bdb6d.png)
 
 ```javascript
 import { memo, useCallback, useEffect, useState } from 'react'
@@ -241,13 +241,13 @@ export default App
 
 现在又只渲染一次了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd4ead614fd1485f800aef33bf00b059~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=784&h=724&s=47172&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6931e74c9905.png)
 
 所以说，memo 和 useCallback、useMemo 是配合使用的，我们之前单独用 useCallback 没什么意义。
 
 代码里的 useCallback 可以去掉。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94716c97a091477d82686288c16d24ab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1466&h=1174&s=276716&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4edf3131bb0c.png)
 
 案例代码上传了小册仓库：
 

@@ -17,7 +17,7 @@ series_order: 7
 nest new serializer-interceptor-test
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/39e6f51c2e4a49a190687b362dad3bbe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1042&h=700&s=172067&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f7f44d4340e.png)
 
 生成一个 user 的 CRUD 模块：
 
@@ -25,7 +25,7 @@ nest new serializer-interceptor-test
 nest g resource user --no-spec
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42e59b3383b94f83ad1e3c6dc93df1a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=790&h=352&s=44190&e=webp&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64c69dc3494d.webp)
 
 在 entity 里加一些内容：
 
@@ -124,14 +124,14 @@ export class User {
 
 然后我们自己来实现 ClassSerializerInterceptor，还有一个自定义装饰器 SerializeOptions：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/956baf8a69794f3da2d5fca9c29e8690~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=880&h=564&s=147255&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4d49456b9c0.png)
 
 先来写这个自定义装饰器，它比较简单：
 ```
 nest g decorator serialize-options --flat
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f36b85d40cdb40d1b3e0120d89447f5c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=794&h=82&s=22319&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c7f6da89f382.png)
 
 ```javascript
 import { SetMetadata } from '@nestjs/common';
@@ -158,7 +158,7 @@ export const SerializeOptions = (options: ClassTransformOptions) =>
 nest g interceptor class-serializer --flat --no-spec
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc2730355c7941f8a4e5d2ec57db04cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=882&h=124&s=29430&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2db4e24513ef.png)
 
 ```javascript
 import { CallHandler, ExecutionContext, Inject, Injectable, NestInterceptor } from '@nestjs/common';
@@ -195,13 +195,13 @@ export class ClassSerializerInterceptor implements NestInterceptor {
 
 我们把它加到 handler 上：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/207b3a403b68479182de119ef0a33a05~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1262&h=658&s=146839&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e0ac9b309c30.png)
 
 加一个调试配置：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44397a6f5cc3493fabd6fa0d0ed341cd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=522&h=416&s=45113&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dac4f3717ecf.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee9ef6d1e4c74a49a72a0dc31a73dfe3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1364&h=850&s=136490&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90a96438ce71.png)
 
 ```json
 {
@@ -226,18 +226,18 @@ export class ClassSerializerInterceptor implements NestInterceptor {
 ```
 打个断点，然后点击调试启动：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45921cf452b044b48da8575766cbd036~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1462&h=772&s=205956&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4d3b3c5e921.png)
 
 现在是 undefined：
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1300bbf55c324889b79f51373da9f90d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1550&h=722&s=244117&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8886f06c80ad.png)
 
 加一下 @SerializeOptions 装饰器，用我们刚才写的那个。然后点击 restart：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cfcd6f3abd294f52a001b4b3ac6831a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1078&h=512&s=113464&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76c6b3caf653.png)
 
 这时候就拿到 options 了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88d729ddd5f94c07ad35281dff88da9e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1582&h=632&s=228149&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2493bf65049f.png)
 
 然后我们继续写：
 
@@ -315,11 +315,11 @@ export class ClassSerializerInterceptor implements NestInterceptor {
 
 这里排除了 response 不是对象的情况和返回的是文件流的情况：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5fa2e02d9c84ec8b6fca845794c78ca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1252&h=982&s=217106&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45fe5016545c.png)
 
 transformToNewPlain 就是用 class-transformer 包的 instanceToPlain 根据对象的 class 上的装饰器来创建新对象：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ae99c9043874e8da8b4ce3d86c9a4de~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1004&h=392&s=58207&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49cd8489df97.png)
 
 有同学说不是 classToPlain 么？
 
@@ -329,14 +329,14 @@ transformToNewPlain 就是用 class-transformer 包的 instanceToPlain 根据对
 
 最开始的响应数据是 user 对象：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/656ac75777b242d4b6bef4dd30bdac1b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&h=744&s=183652&e=png&b=212121)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/98a70ee4471c.png)
 
 转换完之后就是新的对象了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99e6ea4a61254a75b873a68d8bce25ef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1310&h=1032&s=216608&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee0e3aa1a998.png)
 
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3028d46d8104f00b5313714d43482b2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=750&h=890&s=85370&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e00a1b913274.png)
 
 这样我们就实现了 ClassSerializerInterceptor 拦截器的功能。
 

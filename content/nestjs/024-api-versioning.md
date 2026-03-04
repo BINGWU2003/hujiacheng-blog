@@ -21,7 +21,7 @@ Nest 内置了这个功能，我们来试一下：
 nest new version-test
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbc6fecf784a40ffbd3c823017362a69~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=856&h=710&s=260160&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bedd6e9943cd.png)
 
 创建个 nest 项目。
 
@@ -31,7 +31,7 @@ nest new version-test
 nest g resource aaa --no-spec
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf3332080b664801b11e248725f7a073~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=774&h=360&s=88876&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d54c2ebe489e.png)
 
 把服务跑起来：
 
@@ -39,11 +39,11 @@ nest g resource aaa --no-spec
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21b85d2cd9344f2384a446d9b2e58367~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1590&h=548&s=232419&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/122e43f2e761.png)
 
 postman 里访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d41c68443f040309f25c13feba419a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=494&s=40222&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d7d122d42153.png)
 
 这是版本一的接口。
 
@@ -52,7 +52,7 @@ postman 里访问下：
 这样：
 
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c250308ccd844d718012f31be1936210~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1046&h=1046&s=203587&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/71fbb21617ed.png)
 
 在 controller 上标记为 version 1，这样默认全部的接口都是 version 1。
 
@@ -80,9 +80,9 @@ bootstrap();
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ceb66b0e2054af1b380f3941dabf294~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=834&h=744&s=71130&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f27cc7f1e1c.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d4017c479d2462aaaa3be46395b33e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=780&h=738&s=68871&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe33fa2a93d3.png)
 
 可以看到，带上 version:1 的 header，访问的就是版本 1 的接口。
 
@@ -92,7 +92,7 @@ bootstrap();
 
 但这时候有个问题：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0820e02311694cb99587de5e9bd47d50~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=844&h=834&s=86331&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88defc33e939.png)
 
 如果不带版本号就 404 了。
 
@@ -100,32 +100,32 @@ bootstrap();
 
 如果你想所有版本都能访问这个接口，可以用 VERSION_NEUTRAL 这个常量：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b8a0b312a954fcd9a06fa6ae61f3fc2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=952&h=940&s=177909&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c6f3d4c4cab.png)
 
 现在带不带版本号，不管版本号是几都可以访问这些接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74e38dbd860340ce92b733371d2a1e12~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=820&h=662&s=65007&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/478f5c6de732.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee57c76be2e144d09b5b5cf066443f04~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=824&h=688&s=65226&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ef199da096b.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a46469a0d5854a0eaba556af9fb40b4a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=860&h=682&s=67222&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/44a5dbe9928b.png)
 
 但是现在因为从上到下匹配，版本 2 的接口不起作用了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04e8fc6531764dcfbce0743dc3923d58~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=740&h=820&s=117414&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b33cfd709e5f.png)
 
 这时候或者可以把它移到上面去：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2e86f2604ee4129807e98954a972575~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=754&h=864&s=120678&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8079a29b4cd0.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e27d6c8fdbe74286a697fc4f9179708c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=782&h=690&s=64622&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fda2533b9fda.png)
 
 或者单独建一个 version 2 的 controller
 ```
 nest g controller aaa/aaa-v2 --no-spec --flat
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e1a6c503ba1493b93aee2f5d2dcae8b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=822&h=122&s=29419&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/057ec3bedb56.png)
 
 把 AaaController 里 version 2 的接口删掉，移到这里来：
 
@@ -148,27 +148,27 @@ export class AaaV2Controller {
 ```
 现在版本 2 就走的 AaaV2Controller：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9be3257c23fc4f52956cc93a8190c64f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=920&h=688&s=71303&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa62ab8e4d2c.png)
 
 其他版本走 AaaController：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/473e09b4438e44a483171d7804b91ad8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=748&h=650&s=61604&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/89bbfd0580f3.png)
 
 一般我们就是这样做的，有一个 Controller 标记为 VERSION_NEUTRAL，其他版本的接口放在单独 Controller 里。
 
 注意，controller 之间同样要注意顺序，前面的 controller 先生效：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/023021b745054ed99b8184fa4ebfc9a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1054&h=422&s=101609&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/effd5a3f6ac6.png)
 
 试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/860fb89a3c8e43f8921e4fffe6ed80e9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=842&h=538&s=56896&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0931b8c366df.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3edf83a92cf5454cb86fb9ec9820c931~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=572&s=54199&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4c94dac6c56.png)
 
 除了用自定义 header 携带版本号，还有别的方式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4ebe215f03746fc84767f688d362f77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=908&h=680&s=124059&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d21abeaa5b89.png)
 
 ```javascript
 app.enableVersioning({
@@ -178,9 +178,9 @@ app.enableVersioning({
 ```
 MEDIA_TYPE 是在 accept 的 header 里携带版本号：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7ff07b6eff24d84b1f463a15159b35e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=876&h=656&s=68634&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/424122364b28.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89e5cbf05f164f90b92ef10181241ce0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=878&h=652&s=67990&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63a9a0bc8afd.png)
 
 你也可以用 URI 的方式：
 
@@ -190,18 +190,18 @@ app.enableVersioning({
 })
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2862e5a2ccce4c9fb7b4033fa51aaea5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=788&h=586&s=55320&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c19868fe6fe2.png)
 
 
 但是这种方式不支持 VERSION_NEUTRAL，你要指定明确的版本号才可以：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a74148c256fd4ee5a09cd17d5ea1c30c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=694&h=664&s=66147&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d7e34613311e.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b1954e36140460689f19854d62c1927~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=838&h=528&s=113934&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/29c33a364c1d.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ce8e4c765354d06a654225b02a8106c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=820&h=566&s=55477&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b1667b437f23.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf2075b1dca3440a9b7da62add45e185~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=706&h=564&s=51386&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e06424677372.png)
 
 此外，如果觉得这些指定版本号的方式都不满足需求，可以自己写：
 
@@ -237,11 +237,11 @@ bootstrap();
 
 试一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c67fc216cb0945f995bdf277e1e320be~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=782&h=496&s=46961&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7f5c9de316c3.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db6ff09759d545c5b4d6f1cb62d1c61c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=718&h=482&s=42144&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d41523ecbe1.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f8f5eca724f4f4bb4102c5488829f28~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=830&h=604&s=66267&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db169e50d62c.png)
 
 这样，就能实现各种灵活的版本号规则。
 

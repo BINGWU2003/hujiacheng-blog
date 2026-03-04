@@ -11,19 +11,19 @@ series_order: 14
 
 这节来实现下好友/群聊页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf6a31ece4c34917809d8d59deda138d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1456&h=1000&s=68359&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/849776c8e8ec.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d804dc2ec06a44b99c29d4804ddf9282~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1404&h=944&s=65060&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/caba498460fe.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/429fd3a0e34140cc8b211973fd9db8ec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1594&h=1094&s=91696&e=png&b=d2d2d2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd091d3967ea.png)
 
 现在首页是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c10ac1e35c9e425db0de54787c5e2c06~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1834&h=1172&s=83901&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/61dc985b0d83.png)
 
 需要在 / 下添加一个二级路由：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/519df51e7a754242a887eda3fca3b573~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=916&h=1140&s=153425&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/799ccb9873a8.png)
 
 ```javascript
 {
@@ -150,7 +150,7 @@ export function Menu() {
 
 这里用到的 router 需要在 index.tsx 导出：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ca0768b34944f0998bf1ac57f3a2d4f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=474&s=92107&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47c53f872a54.png)
 
 menu.css 如下：
 
@@ -208,11 +208,11 @@ npm run dev
 
 点击菜单项的路由切换，以及刷新选中对应菜单项，都没问题。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d19700b47d1a484aae2e9ff35df3d366~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=228939&e=gif&f=40&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/875b97d80955.gif)
 
 然后来写下好友页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf6a31ece4c34917809d8d59deda138d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1456&h=1000&s=68359&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/849776c8e8ec.png)
 
 ```javascript
 import { Badge, Button, Form, Input, Popconfirm, Table, message } from "antd";
@@ -319,15 +319,15 @@ css 部分如下：
 ```
 看下效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/531d28dde43b4fe28c74d866b3449b4a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2236&h=966&s=88684&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d2b74fdb749.png)
 
 然后我们对接下后端接口：
 
 当时我们的好友列表接口没支持按照昵称搜索，加一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92fa93dbe0814afd9f59230656c59173~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1438&h=596&s=150473&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ab0d5f083b3.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b6887ebb21c48ff98ca63f0094135b1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1146&h=884&s=135291&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af0f4e9ea31b.png)
 
 ```javascript
 return res.filter((item: User) => item.nickName.includes(name))
@@ -335,9 +335,9 @@ return res.filter((item: User) => item.nickName.includes(name))
 
 试下效果：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/735394704f634415832711f245582d37~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=698&h=876&s=90086&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c6da504b9f72.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbc730cbfd8242e7876be1ef487b1a1d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=864&h=722&s=75272&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/65aded5395b4.png)
 
 没啥问题。
 
@@ -371,7 +371,7 @@ const searchFriend = async (values: SearchFriend) => {
 };
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/972f52276a5248f0978b7114d579467e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=211187&e=gif&f=34&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d931b46d4ce8.gif)
 
 没啥问题。
 
@@ -379,15 +379,15 @@ const searchFriend = async (values: SearchFriend) => {
 
 之前的 /chatroom/list 接口也没支持 name 参数，加一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a820c134cb3407e86ceb061a0395c38~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1310&h=506&s=140314&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20d0f39a3684.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e52e89d45a8e466fbfb74a0ed563ec8b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1204&h=830&s=147160&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/669b4c314e71.png)
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5caa1bff6a2b43c79f803e205d68ef4d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1010&h=868&s=108943&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/71589c99e3be.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aec79831ec854b9ca2772bf0b2f95472~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=902&h=818&s=88536&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8dd6a8bc491b.png)
 
 在 interfaces 加一下：
 
@@ -502,7 +502,7 @@ export function Group() {
 ```
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/522b735f23ea4ba0a3d83b79d658060e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=310081&e=gif&f=33&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/93eb95444c0d.gif)
 
 没啥问题。
 

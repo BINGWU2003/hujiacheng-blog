@@ -27,7 +27,7 @@ series_order: 13
 nest new event-emitter-test
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/327c737cf5284482ad74abd9c988ed0e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=954&h=698&s=161489&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a8860723c38.png)
 
 安装用到的包：
 
@@ -54,9 +54,9 @@ export class AppModule {}
 
 然后创建两个 module：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f42eed297e3448cb9514d0d59baa274d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=780&h=298&s=75317&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/df33b1a8711c.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/967b36c24c8141fb8af361eb50feb0ff~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=772&h=306&s=74252&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8cf62a20529.png)
 
 把服务跑起来：
 
@@ -64,13 +64,13 @@ export class AppModule {}
 npm run start:dev
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/519eed6dab934d4abaad97e44219b88e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1638&h=654&s=364853&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1236db0c1c45.png)
 
 访问下 aaa 和 bbb 的接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/946c6e7a3d0d46b6aeb667fbddaa4346~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=748&h=222&s=23147&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4be280d05fce.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78553f423f904cff88030a3c072b5517~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=848&h=276&s=25167&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/61e47360d8b9.png)
 
 没啥问题。
 
@@ -78,7 +78,7 @@ npm run start:dev
 
 这时候就可以用 Event Emitter 来做。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efb13c737f78487ca131426bd74aebc8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=982&h=828&s=168979&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c14de124b19.png)
 
 ```javascript
 @Inject(EventEmitter2)
@@ -95,7 +95,7 @@ findAll() {
 
 然后在 BbbService 里监听下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd79955ec0674a4a922f9b38ac9530a6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=938&h=726&s=151929&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78ce9b57c682.png)
 
 ```javascript
 @OnEvent('aaa.find')
@@ -106,9 +106,9 @@ handleAaaFind(data) {
 ```
 试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9d5219675ec4ad593e1e645b6adfc42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=238&s=23703&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7263bd6f35d6.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99dfdaba77024ecfa3f8b3fb8cac8c00~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=822&h=1088&s=293056&e=png&b=1a1a1a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6e07cfdb3375.png)
 
 可以看到 AaaService 的 findAll 调用的时候，自动触发了 BbbService 里的方法调用。
 
@@ -126,7 +126,7 @@ handleAaaFind(data) {
 
 此外，EventEmitterModule 还支持一些配置：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/faace15ae4414193967ad2a4698f5fc9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=558&h=328&s=34971&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca7526cdf1ab.png)
 
 wildcard 是允许通配符 *。
 
@@ -134,7 +134,7 @@ delimiter 是 namespace 和事件名的分隔符。
 
 配置之后就可以这样用了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/071ea45608614d3f946fa5e9e4b85d13~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=672&h=768&s=99877&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/688f9fb00bfb.png)
 
 ```javascript
 findAll() {
@@ -151,13 +151,13 @@ findAll() {
 
 BbbService 里可以用 aaa.* 通配符匹配：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c41b777e9a4c499286c784f438cd97f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=746&h=560&s=123828&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c5a069c41ab.png)
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f7bcec802874e568839310b2b64da4a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=712&h=218&s=22733&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e74b085cf405.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f9b8da3d6744c4c919a17069124fee1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=678&h=470&s=114493&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/133d885cd738.png)
 
 event emitter 用起来很简单，但却很有用，比直接引入模块注入依赖的方式方便太多了。
 
@@ -167,15 +167,15 @@ event emitter 用起来很简单，但却很有用，比直接引入模块注入
 nest g resource user --no-spec
 nest g resource notification --no-spec
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/600ff7e571214ec1b1e3b073c43f1b7c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=770&h=296&s=73799&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47e279b12fa0.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ac1846d1627468d9b7943455baa06e8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=972&h=296&s=83395&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a4dd9f36a0ba.png)
 
 ```
 nest g module email
 nest g service email --no-spec
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c50955f211e42a39a22f4299c04bb7d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=710&h=210&s=53119&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38d47810af05.png)
 
 创建 user 用户模块、notification 通知模块，email 邮件模块。
 
@@ -242,7 +242,7 @@ export class EmailModule {}
 
 这样 NotificationService 里就可以直接注入 EmailService 了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7677723e30848838a34f7dae8ad2e2a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1000&h=862&s=184919&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7e00cbb6077f.png)
 
 ```javascript
 @Inject(EmailService)
@@ -270,7 +270,7 @@ export class CreateUserDto {
 ```
 在 create 的时候调用下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2037448ce8614f1189f099e97dc5fe60~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=786&s=156904&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0f05a25df2a1.png)
 
 ```javascript
 @Inject(EventEmitter2)
@@ -287,11 +287,11 @@ create(createUserDto: CreateUserDto) {
 ```
 在 postman 里调用下 create 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08b0d7a936e84b31946897ecaf11b9a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=778&h=594&s=65248&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fbb84f505459.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a86fc83bc284137a72e7233cf58935a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=792&h=478&s=148792&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f697d8a625d5.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca091039e2744b6bb57b21d203338f40~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=506&h=252&s=28589&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6db1f9940375.png)
 
 通知成功了！
 

@@ -11,17 +11,17 @@ series_order: 12
 
 这节，我们来写管理端的这两个页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce7922e5d4e24a2ea5457075866b19e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=852&s=54200&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a178fc12d972.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f037c80960cf4a20b04283fc4c454578~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1474&h=1006&s=64942&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de5194dcabbb.png)
 
 很明显，它们是和这几个管理页面平级的，点击用户图标的时候打开：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/15459f904c474be0bad3403a96f70a48~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1388&h=732&s=74362&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2731d8caba8.png)
 
 所以，我们在它平级添加个路由：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd2506a3eb7242efbeb48f99547d6b92~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=1174&s=149599&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ada4b3b9181.png)
 
 ```javascript
 {
@@ -104,15 +104,15 @@ export function PasswordModify() {
 
 在 index.tsx 引入，然后跑一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a7db8f6e4bb42fe9ce1cc80a2717030~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=932&h=484&s=50494&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/466e2657e8e6.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecc82e80a42f4ee38f1da6fe343df5ea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=886&h=434&s=51776&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc6c093eaec6.png)
 
 没啥问题。
 
 但是现在点击菜单是没反应的，我们给它加上 click 事件。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89b884cc9b6046d7a704f7126f00e9bc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1166&h=920&s=168602&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c267ccdc6c1d.png)
 
 ```javascript
 const handleMenuItemClick: MenuClickEventHandler = (info) => {
@@ -126,21 +126,21 @@ const handleMenuItemClick: MenuClickEventHandler = (info) => {
 
 这里用到的 router 要在 index.tsx 里导出：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9ded1b38cb8469b9143e8813f25fe61~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=408&s=76242&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/09c9d3f84512.png)
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fec33aa11a6744bb9d79d20fcec4143a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1054&h=546&s=202089&e=gif&f=22&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/21229e2331a8.gif)
 
 点击菜单可以切换路由了。
 
 但现在有个问题，页面一刷新，选中的菜单项就变了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e09f174def714d518a05059d7e04fde9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=882&h=424&s=194471&e=gif&f=46&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b1cec31eeff.gif)
 
 我们需要根据当前路由来决定选中哪个：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e009f117f5e7487fa65ba8b12031cd04~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1584&h=654&s=137817&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d399a71eb9a1.png)
 
 这里用到了 react-router 的 useLocation 的 hook 来拿到当前地址：
 
@@ -149,11 +149,11 @@ location.pathname === '/user/info_modify' ? ['1'] : ['2']
 ```
 这样，刷新之后选中的菜单项也是对的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa8eef339a8042608b13f3a193907dcb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=952&h=450&s=136464&e=gif&f=31&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0fbde22d9005.gif)
 
 改下 Index 组件，添加两个链接：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/469a065b6e34465eb09ff68739091b87~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=916&h=720&s=139314&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd0243bf1074.png)
 
 ```html
 <div className="header">
@@ -176,11 +176,11 @@ location.pathname === '/user/info_modify' ? ['1'] : ['2']
 ```
 这样就可以方便跳转对应的路由了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/430f8f5b14164a4fa809285c57313d22~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1750&h=826&s=178938&e=gif&f=32&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47f0e0190bb9.gif)
 
 然后，我们来实现信息修改页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce7922e5d4e24a2ea5457075866b19e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=852&s=54200&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a178fc12d972.png)
 
 之前用户端修改信息页面也是类似的，我们直接拿过来就行：
 
@@ -353,11 +353,11 @@ export function HeadPicUpload(props: HeadPicUploadProps) {
 这些都是我们前面写过一遍的。
 
 渲染出来是这样的：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc66ffc5c02b4f25ba19dfcb3781fdb1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1390&h=1062&s=105257&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04de3336cb95.png)
 
 上传功能也是可用的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13ea12f22f364ce8bb2e4048a5b45386~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1508&h=1102&s=2554441&e=gif&f=44&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ab18f897c85.gif)
 
 然后我们还要加上回显接口、发送验证码接口、更新接口。
 
@@ -378,7 +378,7 @@ export async function updateUserInfoCaptcha() {
 ```
 然后先调用下回显接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a80c3ba613348729abaac5cb91caa74~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1088&h=650&s=118529&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2daa37531e38.png)
 
 ```javascript
 async function query() {
@@ -395,7 +395,7 @@ async function query() {
 }
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d99f772765944ffb6996f9ecf570082~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1296&h=1038&s=105185&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b01b8054e8b9.png)
 
 可以看到，正确回显了数据。
 
@@ -413,17 +413,17 @@ const sendCaptcha = useCallback(async function () {
 ```
 不过现在的邮箱地址不是真实的，我们手动去数据库里改一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be0d70d50be54ec684302156fbd29e25~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1278&h=690&s=291331&e=png&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/538f7c6e3a4a.png)
 
 改完点击 apply。
 
 然后需要重新登录一遍，因为现在后端会直接从 jwt 里取邮箱地址，重新登录才会更新。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d168bfc253124caeba8d900348eb8813~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1610&h=1042&s=123252&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/75abf1f77353.png)
 
 邮箱收到了验证码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4617abb6cff64ca7baa9d7a461e8cfc0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=550&h=246&s=29191&e=png&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/03b637c7f8c1.png)
 
 然后加上更新用户信息的接口：
 ```javascript
@@ -444,15 +444,15 @@ const onFinish = useCallback(async (values: UserInfo) => {
 ```
 上传头像，点击发送验证码，填入收到的验证码，点击修改：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3126a2b302f4cbf992cd7923afb945b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1658&h=1224&s=182721&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e691115195b5.png)
 
 修改成功后，刷新页面，可以看到依然是修改后的数据，就代表修改成功了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f230d255cfaf4c78be46a32c38d16e23~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1458&h=1306&s=250001&e=gif&f=21&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2926129011ce.gif)
 
 接下来是密码修改页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f037c80960cf4a20b04283fc4c454578~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1474&h=1006&s=64942&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de5194dcabbb.png)
 
 代码如下：
 
@@ -568,7 +568,7 @@ export function PasswordModify() {
 ```
 渲染出来是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/155046bc2a764dd89853348757faa5c5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1250&h=844&s=88595&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cdb846c8de66.png)
 
 然后在 interfaces.ts 加上用到的发送验证码、修改密码这两个接口：
 
@@ -587,7 +587,7 @@ export async function updatePassword(data: UpdatePassword) {
 ```
 然后先在页面调用下回显接口：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40e41b22a624401a95b04490b7a63ea5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1168&h=620&s=120954&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/86e487e1b4de.png)
 ```javascript
 useEffect(() => {
     async function query() {
@@ -605,11 +605,11 @@ useEffect(() => {
 ```
 并把邮箱 Input 设置为 disabled
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e97e4f7b3d0640f58308fb5d22c5804c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178&h=728&s=139128&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b758e69dab3.png)
 
 这样邮箱地址就会回显，并且只读：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a24c626f1aa240b0a8535128c7124e4d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1228&h=808&s=89414&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c79d9b7cad74.png)
 
 然后调用发送验证码接口：
 
@@ -630,11 +630,11 @@ const sendCaptcha = useCallback(async function () {
 ```
 点击发送验证码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aecd500776594a43bda17a6a642a02ab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1902&h=1042&s=138378&e=gif&f=24&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ae90effc67c8.gif)
 
 邮箱收到了对应的验证码：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/114b7251e9d04bfca1d1a7e235c92368~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=538&h=284&s=29654&e=png&b=f8f8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a90efb254ae7.png)
 然后加上修改密码接口：
 
 ```javascript
@@ -659,15 +659,15 @@ const onFinish = useCallback(async (values: UpdatePassword) => {
 ```
 提示密码修改成功：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54aaa08d41224c8492bf05d3ba3f6738~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1642&h=848&s=116278&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d1a9fcdd6a3d.png)
 
 我们可以去登录页面，用老密码试试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a27cef8f52944f95b160d28cb9d11db8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=996&h=614&s=51523&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d3424561757.png)
 
 再用新密码试试：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a4449dc50da4036b7fa36678fe1df61~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1094&h=658&s=54442&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9d560d48ef7.png)
 
 这样，管理端的用户相关的页面就完成了。
 

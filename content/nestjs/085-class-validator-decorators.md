@@ -19,7 +19,7 @@ series_order: 5
 nest new class-validator-decorators
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d7af944d38b4d50bf41fed5602c29c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1026&h=688&s=313314&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/59c6cd30128c.png)
 
 创建个 CRUD 模块：
 
@@ -27,13 +27,13 @@ nest new class-validator-decorators
 nest g resource aaa --no-spec
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/607e2e7bd0f84e2487119252fa87892f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=792&h=346&s=86022&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/18a0239de5fe.png)
 
 全局启用 ValidationPipe，对 dto 做校验：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3d0bd2c1e09499990ab88db86e58899~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=978&h=426&s=100502&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1e782aac4995.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bc21983dce14461b605477ebe7d107b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=900&h=482&s=98919&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/84189ba54fe3.png)
 
 ```javascript
 import { NestFactory } from '@nestjs/core';
@@ -75,15 +75,15 @@ export class CreateAaaDto {
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5416023b3e8f4e64a42b9416bc7f8f8f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1532&h=510&s=244441&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ffd6a9a8d5bd.png)
 
 postman 里访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/609738a364a44bdaa23b259fd7851cef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=806&h=790&s=79083&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49115547f813.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f1c0389b2624006aca0d0e512c226b4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=696&h=744&s=71630&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d560010ce49.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a30f1fddf7984de6a498ed5b440d65af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=662&h=536&s=46342&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d5d81f23fba.png)
 
 这就是 class-validator 的装饰器的用法。
 
@@ -91,11 +91,11 @@ postman 里访问下：
 
 和 @IsNotEmpty 相反的是 @IsOptional：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5448bb691b364a85825ecef18d6569ea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=834&h=384&s=87688&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e072ee54b58e.png)
 
 加上之后就是可选的了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1732de37c6ce40d48ba1c0af69e26bcb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=728&h=572&s=45140&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/026897571929.png)
 
 上节学的 PartialType 就是用的 IsOptional 装饰器实现的。
 
@@ -109,7 +109,7 @@ postman 里访问下：
 aaa: string;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75a1ff9e712e4bef89e486dcfc8004d7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1086&h=752&s=89576&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/292052a8067c.png)
 
 还有 @IsNotIn，可以限制属性不能是某些值：
 
@@ -120,7 +120,7 @@ aaa: string;
 @IsNotIn(['aaa@aa.com', 'bbb@bb.com'])
 aaa: string;
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e69acf3dc0934e72aeb069e601e04e93~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1180&h=682&s=94930&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5c77094d7ec.png)
 
 @IsBoolean、@IsInt、@IsNumber、@IsDate 这种就不说了。
 
@@ -130,9 +130,9 @@ aaa: string;
 @IsArray()
 bbb:string;
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d0593ba68f54db9b3af50642aa1cb26~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=670&h=570&s=50464&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b8317260e393.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc4a4af2eb82415ab4a8737d2cd32bf6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=658&h=770&s=68187&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e978fa0d1fc2.png)
 
 @ArrayContains 指定数组里必须包含的值：
 
@@ -141,7 +141,7 @@ bbb:string;
 @ArrayContains(['aaa'])
 bbb:string;
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3be40954cfd472f8d7f086149fc2ed3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=744&s=73050&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e654cba55e08.png)
 
 类似的还有 @ArrayNotContains 就是必须不包含的值。
 
@@ -158,7 +158,7 @@ bbb:string;
 bbb:string;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/287585c939b447d08e223b8fa903c78c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=880&h=768&s=89883&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88ab1acf7ec8.png)
 
 前面讲过 @IsNotEmpty，和它类似的还有 @IsDefined。
 
@@ -173,9 +173,9 @@ bbb:string;
 ccc: string;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f21e0ae4480b41c2a6abb4ba2ac19a5d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=682&h=646&s=54520&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9bf31ca8aa8.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d650e234876a48d599fdaa56ee30f05c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=760&h=800&s=77837&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd68bc5151ae.png)
 
 如果是 @IsNotEmpty，那空字符串也是不行的：
 
@@ -184,7 +184,7 @@ ccc: string;
 @IsNotEmpty()
 ccc: string;
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13ca17d521374bcebd274a7d967f8621~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=694&h=786&s=74939&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f72ef7e50376.png)
 
 数字可以做更精准的校验：
 
@@ -201,7 +201,7 @@ ddd:number;
 
 @IsDivisibleBy 是必须被某个数整除。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/504219b2805e4ec1994db65e0f6a85e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=848&s=95801&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/55e1f29121d5.png)
 
 @IsDateString 是 ISO 标准的日期字符串：
 
@@ -211,9 +211,9 @@ eee: string;
 ```
 也就是这种：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b35e18bb026a47089a3d7e3f4275ba80~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=550&h=148&s=20010&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ae4d72eea31.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba93bb8349dd49958630659abecab434~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=702&h=650&s=64697&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/01cc202b819d.png)
 
 还有几个字符串相关的：
 
@@ -229,7 +229,7 @@ eee: string;
 fff: string;
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2da3a04f915844538acc9475883c636d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=788&h=836&s=99112&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ce081458d9c.png)
 
 字符串可以通过 @MinLength、@MaxLength、@Length 来限制长度：
 
@@ -238,9 +238,9 @@ fff: string;
 @MaxLength(6)
 ggg: string;
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/983c5b4ec6d0484c816835525cf5778d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=892&h=746&s=87899&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9e9a3910ae9.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20a4d78a891a4e829c98817b24a019a9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=922&h=824&s=98238&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/efedf1d8cb30.png)
 
 也可以用 @Length：
 
@@ -273,9 +273,9 @@ iii: string;
 ```
 如果 hhh 传了 true，那就需要对 iii 做校验，否则不需要。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b0e21cc11f347deabcf76d552754ada~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=788&h=764&s=84550&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/da0bfd54e4c4.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9686efe0623d4289965192ce3521fa97~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=688&h=582&s=58467&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d24e715cde88.png)
 
 此外，如果这些内置的校验规则都不满足需求呢？
 
@@ -306,9 +306,9 @@ jjj: string;
 
 访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42044f93b98e4fa3aaad129cd07a64ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=832&h=668&s=70494&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e7b16b25b8ab.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0ec622e3aec4e75946a44e6601071b4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=856&h=1016&s=181442&e=png&b=1a1a1a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2da0fa4026e9.png)
 
 第一个参数传入的字段值，第二个参数包含更多信息，比如 @Validate 指定的参数在 constraints 数组里。
 
@@ -328,9 +328,9 @@ export class MyValidator implements ValidatorConstraintInterface {
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d291e4fac9143b4b1e8141cc23f8076~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=798&s=83723&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d5506d4d2309.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80db0e02573a437b85f220471afac3ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=688&h=660&s=58450&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9fb355aa9fa7.png)
 
 内容包含 11 的时候才会校验通过。
 
@@ -354,13 +354,13 @@ export class MyValidator implements ValidatorConstraintInterface {
 }
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9bff85edb9364b2ea117226a3f15bbf7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=804&s=73948&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5afb771e67f.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6bb15421b41a44ed992160382aceb3ae~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=684&s=57691&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b021fc1bb927.png)
 
 这样用起来还是不如内置装饰器简单：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/363e89978931443bbde6c756880c3c14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=646&h=262&s=33870&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45c650081e98.png)
 
 可以用我们前面学的创建自定义装饰器的方式来包装一下：
 
@@ -388,7 +388,7 @@ export function MyContains(content: string, options?: ValidationOptions) {
 jjj: string;
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c457a9d48a9d4461b12bfbdafefd1c19~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=648&h=776&s=72920&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f1369fe9edd.png)
 
 我们封装出了 @Contains，其实内置的那些装饰器我们都可以自己封装出来。
 

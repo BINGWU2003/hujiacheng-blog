@@ -19,7 +19,7 @@ series_order: 15
 
 只要涉及到排行榜，一般都是用 redis 的 zset （有序集合）来做。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b76913360af465397faa8726871cf14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=2400&s=446365&e=jpg&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b3c777f272d.jpg)
 
 而且 zset 可以用 zuion 取并集来合并。
 
@@ -63,11 +63,11 @@ series_order: 15
 
 默认是分数从小到大排序，也可以从大到小，加个 REV 就行：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c2274688df24252b6f1af2fa6e6d34d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=640&h=604&s=32033&e=png&b=111111)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f6493db57073.png)
 
 改下 RedisService 添加 zAdd、zRankingList、zScore 方法：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c27d9c5bae3b443eaa74bc8906fa381e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1226&h=876&s=166867&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5a9f5a664335.png)
 
 zRankingList 查询排行榜成员，加上 REV 是按分数从大到小排。
 
@@ -92,7 +92,7 @@ async zAdd(key: string, members: Record<string, number>) {
 
 然后我们在 analyse 微服务里引入下 RedisModule：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0802f9494be4862ac8a8306c4c74f77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1530&h=664&s=208260&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/833b4600bb40.png)
 
 顺便引入下 PrismaModule 和 CommonModule。
 
@@ -165,29 +165,29 @@ npm run start:dev analyse
 测试下：
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd3550faf431488d8fb6ea885bf540cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=984&h=258&s=25721&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a40de683a3b.png)
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8cb7cb926a543388e01349e517d6058~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1872&h=572&s=70346&e=png&b=1c1c1c)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8194556ae6dc.png)
 
 当然，现在答卷不多。
 
 我们再登录两个账号做一下试卷：
 
 
-![2024-08-27 19.32.36.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bf5e6a1dd5e403e9801f9013b085c74~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2854&h=1514&s=607904&e=gif&f=64&b=fefefe)
+![2024-08-27 19.32.36.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/332fb22f057c.gif)
 
 
-![2024-08-27 19.33.22.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d87b8a53ec04c31b928b6450bc00395~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2854&h=1514&s=765476&e=gif&f=70&b=fefefe)
+![2024-08-27 19.33.22.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/581e13b8ca02.gif)
 
 然后再调用下 ranking 接口：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a172befd240441aae28fd891b77ca73~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=296&s=27689&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7b472943cdca.png)
 
 现在只返回了 id，我们返回下详细信息。
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa8f11b640134551be475a1ac410379c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1384&h=882&s=166742&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50aa1bcc4919.png)
 
 ```javascript
 async ranking(examId: number) {
@@ -224,18 +224,18 @@ include 关联查询答题者和试卷的信息，一起返回。
 
 测试下：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48b8daacf92a42289e9d16d5c9ee234f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1876&h=1476&s=324249&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/11d6ee599a3f.png)
 
 这样就返回了排行榜的详细信息。
 
 加下前缀：
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13c969c70c0b4e739510f5fe07197fcb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1444&h=1018&s=218642&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c4e970464b7.png)
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05c36bb87a664e29a83daf3489ac3fdc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=878&h=570&s=121986&e=png&b=202020)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3cca11eff05.png)
 
 加一下 AuthGuard 做下登录鉴权：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6508036c3ab94345afe3d38d05eb1d74~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1008&h=914&s=179165&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a4ebe3247d6a.png)
 ```javascript
 {
   provide: APP_GUARD,
@@ -245,7 +245,7 @@ include 关联查询答题者和试卷的信息，一起返回。
 支持下跨域：
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c423bebf069c4488aa0bc7db8d813c98~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=946&h=428&s=86391&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d7a5a2b3e50.png)
 
 然后写下前端页面：
 
@@ -349,13 +349,13 @@ export function RankingModal(props: RankingModalProps) {
 引入下：
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0e026611cb1425d8cf1858edbd965b2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1510&h=828&s=214751&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5c1e5d476a12.png)
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ce22a2597b0453abbb395015c56f4eb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1910&h=1074&s=309593&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a3365226f9b.png)
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e072ce6121b94978932fd4c1a8760441~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1472&h=786&s=157636&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f2f902cbafcb.png)
 
 ```javascript
 const [isRankingModalOpen, setIsRankingModalOpen] = useState(false);
@@ -380,7 +380,7 @@ const [curExamId, setCurExamId] = useState<number>();
 
 测试下：
 
-![2024-08-27 20.02.19.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e29df85a6e484bf6a1d3079dd11d4301~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2756&h=1458&s=1301965&e=gif&f=46&b=fefefe)
+![2024-08-27 20.02.19.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a09f1a71ca79.gif)
 
 这样，排行榜功能就完成了。
 
@@ -389,7 +389,7 @@ const [curExamId, setCurExamId] = useState<number>();
 加个按钮：
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b80e52146bf74f339cefefc2ef2b50ba~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1726&h=1032&s=289425&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/12db4e546e5b.png)
 
 ```javascript
 <a href={"http://localhost:3003/answer/export?examId=" + item.id} download>
@@ -398,7 +398,7 @@ const [curExamId, setCurExamId] = useState<number>();
 ```
 
 
-![2024-08-27 20.10.40.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eccbe7245820486690ab2e0e7be88eb6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2756&h=1458&s=1519557&e=gif&f=65&b=fefefe)
+![2024-08-27 20.10.40.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc4e0185bc35.gif)
 
 案例代码在小册仓库：
 

@@ -14,7 +14,7 @@ series_order: 5
 ## 技术栈
 前端部分还是 React + Antd Design，脚手架用 create-vite：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0beaf880b4a4ffe8e1ef36e9270582f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1586&h=1048&s=265463&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d5f4ea116ea.png)
 
 后端部分是 Nest + Prisma + Socket.io。
 
@@ -30,7 +30,7 @@ Prisma 是 ORM 框架，Socket.io 用来做 WebSocket 通信。
 
 然后来设计下数据库表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dfdb2067179481fb8ef946ce9285386~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1354&h=728&s=92122&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bf430287bf02.png)
 
 需要这些表。
 

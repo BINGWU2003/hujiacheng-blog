@@ -13,9 +13,9 @@ series_order: 10
 
 和问卷星的类似：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c4f4d9fae8145bc97b7323aec889053~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2912&h=1502&s=1189027&e=gif&f=69&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed1b80dbfb18.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47d79b3d4d664026801ce0b4ae1a0cb7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2474&h=1464&s=285348&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ca906fad94a.png)
 
 可以选择不同的题型，然后设置题目的内容，答案、分值、答案解析等。
 
@@ -52,7 +52,7 @@ answerAnalyse 是答案解析
 
 我们加一个 /edit/:id 的路由：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3c89c728a934a378e85092be172f9f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=992&h=658&s=96223&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/28eeaf0df248.png)
 
 写下内容：
 
@@ -72,7 +72,7 @@ export function Edit() {
 
 我们按照低代码编辑器这种布局来写，比如 [amis](https://aisuda.github.io/amis-editor-demo/#/edit/0) 编辑器：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10ad5efd370e443fa8eb9f76a5b76a6f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2876&h=1428&s=352448&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e7535aca465.png)
 
 左边是物料区、中间是画布区、右边是属性编辑区。
 
@@ -164,7 +164,7 @@ index.scss
 
 看下效果：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/815d0d45d3014a91b33c3480ee967af5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2834&h=1142&s=108090&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8ad6609c02a5.png)
 
 中间部分通过就是递归渲染 json 为组件：
 
@@ -282,16 +282,16 @@ export function Edit() {
 
 我们写死了一个 json：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6d9fffe4c0334ad38378c56ac7a79361~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=964&h=1264&s=167720&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/286e82ffa96d.png)
 
 然后写了一个 renderComponents 方法来渲染它：
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16529918f9f3423d8a4422229c09ac5b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1480&h=1308&s=296039&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dcce72b35550.png)
 
 css 如下：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfd0c2663aa14426912ad8597c58820f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1028&h=790&s=103178&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c70114c5231f.png)
 
 ```css
 .component-item {
@@ -306,7 +306,7 @@ css 如下：
 
 渲染出来是这样的：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e676ce51159148ee8185e6a3756e4275~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2438&h=1494&s=180950&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/864fb998298e.png)
 
 然后我们拖拽左边的物料到画布的时候，在 json 数组加一个元素。
 
@@ -317,7 +317,7 @@ npm install react-dnd react-dnd-html5-backend
 
 在最外层加一下 DndProvider，这是 react-dnd 用来跨组件通信的：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/470518bac1144eeb8fa84d5f0fcf045d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1056&h=604&s=106937&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/56229fe206e4.png)
 
 在物料上加上 useDrag：
 
@@ -345,7 +345,7 @@ item 是传递的数据
 用一下：
 
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/924f007f892c44cabb410aaac861f440~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1212&h=712&s=168496&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9436f5d9685.png)
 
 ```javascript
 <MaterialItem name="单选题" type="单选题"/>
@@ -355,17 +355,17 @@ item 是传递的数据
 这样，就可以拖拽了：
 
 
-![2024-08-26 17.55.36.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8be5efa08cc44f7bac4f4acad92bf23a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=401188&e=gif&f=37&b=fefefe)
+![2024-08-26 17.55.36.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f507d776cf4f.gif)
 
 然后处理 drop：
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81cc07de4bfd49159a918ec862bee6c4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1904&h=1172&s=305635&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/03bab5607da9.png)
 
 accept 是可以接收的 drag 的类型，也就是这个：
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd10702a6b3f47cc82ff3c909723b82b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1400&h=662&s=119723&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/101ee8c1fa2f.png)
 
 drop 的时候显示个消息提示。
 
@@ -374,7 +374,7 @@ over 的时候加个蓝色边框
 测试下：
 
 
-![2024-08-26 18.02.46.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3a43e6b106f4b029782354b1cbb6315~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=823694&e=gif&f=34&b=fefefe)
+![2024-08-26 18.02.46.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bb594316c13a.gif)
 
 没啥问题。
 
@@ -382,7 +382,7 @@ over 的时候加个蓝色边框
 
 把写死的 json 清空，然后 drop 的时候往里 push 元素
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b711303876641e4bf2b1f4e595f548f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1124&h=1108&s=200118&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb2fbfb1f0f2.png)
 
 ```javascript
 const [{ isOver }, drop] = useDrop(() => ({
@@ -414,7 +414,7 @@ const [{ isOver }, drop] = useDrop(() => ({
 ```
 在右边展示下 json：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f87082f787d4119aa4c4849b231691a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1524&h=812&s=136371&e=png&b=202020)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d36ee042dfd1.png)
 
 ```javascript
 <pre>
@@ -424,11 +424,11 @@ const [{ isOver }, drop] = useDrop(() => ({
 </pre>
 ```
 
-![2024-08-26 22.01.21.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac5d5e5342444e0c9ab0aca54dde48a6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=507353&e=gif&f=32&b=fefefe)
+![2024-08-26 22.01.21.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f4de1dcc35d.gif)
 
 然后点击问题的时候加一个高亮框：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bcd6b8e57ae941bf91dfbc75b5b0eeaa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1778&h=1076&s=280451&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68893356f887.png)
 
 ```javascript
 const [curQuestionId, setCurQuestionId] = useState<number>();
@@ -439,13 +439,13 @@ const [curQuestionId, setCurQuestionId] = useState<number>();
 }} style={ item.id === curQuestionId ? { border : '2px solid blue' } : {}}>
 ```
 
-![2024-08-26 22.03.45.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d13d6300d3ac48d8b0148df1d3c93953~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=513942&e=gif&f=45&b=fefefe)
+![2024-08-26 22.03.45.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ee080130c76.gif)
 
 然后选中的时候在右边展示对应的编辑表单：
 
 首先把 json 拿进来作为一个 state：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e4c9ca1c061441cb7ec47d4e057fc18~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1394&h=1180&s=215540&e=png&b=202020)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/70a4add81ca4.png)
 
 ```javascript
 const [json, setJson] = useState<Array<Question>>([])
@@ -471,7 +471,7 @@ setJson((json) => [
 然后写下选中时的表单：
 
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07cdfe35e69c41b2922bce79052e4141~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1870&h=1172&s=218402&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/334825b1a60a.png)
 
 ```javascript
 {
@@ -564,14 +564,14 @@ setJson((json) => [
 当 onValuesChange 的时候，设置回 json
 
 
-![2024-08-26 22.57.40.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b2982a1e8f344bfb22d3f3799ab2e99~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=673511&e=gif&f=57&b=fefefe)
+![2024-08-26 22.57.40.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e00aa3c3de2.gif)
 
 切换选中的问题的时候，有的表单值没变。
 
 因为我们设置的是 initialValues，它只影响初始值。
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d011a6f00ff4024b23938bab0d5f5a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1500&h=1280&s=274047&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c415758c641.png)
 
 ```javascript
 const [form] = useForm();
@@ -585,18 +585,18 @@ useEffect(() => {
 试一下：
 
 
-![2024-08-26 23.01.49.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e3070942cea41e69fa5ec6b0c4e5aea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=474323&e=gif&f=39&b=fdfdfd)
+![2024-08-26 23.01.49.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e63b2b5f715b.gif)
 
 没啥问题。
 
 然后再试下编辑：
-![2024-08-26 23.02.39.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/76be7ae0c7bf41f487569daa4d971a8e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=432247&e=gif&f=70&b=fdfdfd)
+![2024-08-26 23.02.39.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ec7aa4a0881.gif)
 
 可以看到，选中的问题，会回显在表单，编辑后会同步修改对应 json。
 
 我们再加一个 antd 的 Segmented 组件来做 Tab
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/255fe3343dee427bb537b82f3abf6d99~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1742&h=1280&s=294036&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/970f7c27f923.png)
 
 ```javascript
 const [key, setKey] = useState<string>('json');
@@ -605,7 +605,7 @@ const [key, setKey] = useState<string>('json');
 <Segmented value={key} onChange={setKey} block options={['json', '属性']} />
 ```
 
-![2024-08-26 23.08.21.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57106a360f08412cbfd92b64d5f8fd89~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=452683&e=gif&f=70&b=fdfdfd)
+![2024-08-26 23.08.21.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b5421308cfa.gif)
 
 有了 tab 之后好看多了。
 

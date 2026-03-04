@@ -21,7 +21,7 @@ series_order: 6
 nest new nest-prisma-test
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/089216ef997c41be989759f60a74b76e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=846&h=666&s=266810&e=png&b=020202)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d9e55bb907a.png)
 
 进入项目，安装 prisma
 
@@ -33,9 +33,9 @@ npm install prisma --save-dev
 ```
 npx prisma init
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea10e80f6fd04d7892d98c540a50c1ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1068&h=504&s=98914&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2838042fbcda.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3209bcf5edca44bb8d55d080464cfb3d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1220&h=536&s=111764&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6451b3332636.png)
 
 改下 .env 的配置：
 
@@ -54,7 +54,7 @@ datasource db {
 
 然后创建 model：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c549d1d792aa4eb8b177c67ae9a7faee~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1406&h=920&s=183023&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/09056d4e73da.png)
 
 ```
 generator client {
@@ -91,24 +91,24 @@ model Employee {
 ```
 npx prisma migrate reset 
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb18945e33674215bf629c4c44146940~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=584&s=89806&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4123d9612454.png)
 
 然后创建新的 migration:
 
 ```
 npx prisma migrate dev --name init
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dee7c45a681f432596ed1a5e94d49477~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1134&h=498&s=77658&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/689d8a5be89e.png)
 
 这时候数据库就就有这两个表了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9dce99f9e864813855eecba63ed88a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1088&h=428&s=135687&e=png&b=eceae9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7e80871801ce.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c81ec506a8b4421bb748af4c2077f83~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1020&h=396&s=122940&e=png&b=eeebeb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/37b6e16af9ef.png)
 
 外键约束也创建好了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff8151898fa241e3acc44f4964299c6f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1822&h=358&s=112063&e=png&b=f2f0f0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88c2abf95e43.png)
 
 并且 migrate dev 还会生成 client 代码，接下来我们就可以直接来做 CRUD 了。
 
@@ -119,7 +119,7 @@ npx prisma migrate dev --name init
 ```
 nest g service prisma --flat --no-spec
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e373e6c5051744d6b466a0cc0af56f12~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=692&h=94&s=27645&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4c28c279348.png)
 
 改下 PrismaService，继承 PrismaClient，这样它就有 crud 的 api 了：
 
@@ -155,13 +155,13 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 ```
 nest g service department --flat --no-spec
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/76f386beb84444cdb5a33d6d2905e232~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=736&h=94&s=25816&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a1dc6baf4086.png)
 
 ```
 nest g service employee --flat --no-spec
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ae95fadb1c540c192b28663542c0152~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=686&h=106&s=30956&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a38c0051688.png)
 
 这俩 service 里注入 PrismaService，不就可以 CRUD 了么？
 
@@ -194,7 +194,7 @@ export class DepartmentService {
 
 输入 Prisma.Deparment 就会提示出来
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed0d441e0e0648e49f8f22a26e29c1ea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1066&h=408&s=104579&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9f444b9895ee.png)
 
 还有 EmployeeService：
 
@@ -224,7 +224,7 @@ export class EmployeeService {
 
 然后在 AppController 里注入这俩 service：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64bbe39372e04d8884c7a31b839ae9c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1112&h=1060&s=180016&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bb508da1a8da.png)
 
 声明一个 create 的路由，里面创建一个 department，再创建一个 employee。
 
@@ -278,17 +278,17 @@ npm run start:dev
 ```
 浏览器访问下 http://localhost:3000/create
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97accd6e7c8844c4a2a108dfe1ed31b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=636&h=212&s=17925&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/432c78428791.png)
 
 生成了 2 条 insert 语句：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82fe7c328ea74a11919c048fd0c18ebe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1362&h=616&s=209330&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23d89eae5915.png)
 
 在 mysql workbench 里也可以看到插入的 2 条记录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a32a07bb02346e4ab1746333f0c3f0a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=196&s=58378&e=png&b=f8f8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2dbadf01761a.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e75179a690674f8ca1cb536ec795c181~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=572&h=226&s=39386&e=png&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa9cd71df8a3.png)
 
 这样，prisma 和 nest 的集成就完成了。
 

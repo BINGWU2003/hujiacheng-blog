@@ -21,7 +21,7 @@ series_order: 28
 
 Nest 里做国际化用 [nestjs-i18n](https://www.npmjs.com/package/nestjs-i18n) 这个包：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9faf1d3a9f774c5880e13a926b01583e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2448&h=1110&s=277787&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3cbfdb66c49e.png)
 
 我们来试一下：
 
@@ -29,7 +29,7 @@ Nest 里做国际化用 [nestjs-i18n](https://www.npmjs.com/package/nestjs-i18n)
 nest new i18n-test
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd6d1eff0419492ab013d0b9fab27082~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=584&s=350868&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0fae45c95263.png)
 
 安装 nestjs-i18n：
 
@@ -87,7 +87,7 @@ i18n/zh/test.json
 
 这里的国际化资源包要在 nest-cli.json 里配置下自动复制：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e64dcfd66198407db8bdf1e2c7c3d2d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=988&h=512&s=73876&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e4e9af3ee982.png)
 
 ```json
 "assets": [
@@ -120,17 +120,17 @@ export class AppService {
 npm run start:dev
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74a20169c1f34a7284d510e93a2ecf58~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1604&h=394&s=142757&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d29d12f6f62.png)
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df0739f9673e4e6d8c378b808acb5204~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=666&h=232&s=19328&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ef74610bbd8e.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4dda52d62f24b07b08046c039055993~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=672&h=234&s=20889&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f959c67600a9.png)
 
 可以看到，文案根据语言环境做了国际化。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d0081d2a6f54b8f958d7033df709b06~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1834&h=1014&s=228999&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b0c4faeb4bc4.png)
 
 还有其他 resolver，比如根据自定义 header、cookie、accepet-language 的 header 等。
 
@@ -166,21 +166,21 @@ export class AppModule {}
 
 在 postman 里访问，添加一个 cookie：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d783876fb2e54190b628b0f53336d37d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1694&h=920&s=102721&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c2ea66f7ec9f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66391fbf262d4e2fb125000d3037ab4a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1772&h=1464&s=103106&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/617cab47ee14.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d3073ca52394728b2f36a24b4970577~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1656&h=876&s=85534&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/708098ffac6b.png)
 
 再访问就变成了中文的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61dc3d86dd2743c58014cc4d82a52602~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1042&h=654&s=68114&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/786d1b759345.png)
 
 有的同学可能问了，现在是用 I18nService 做的翻译，那不在 IoC 容器里的类，怎么翻译呢？
 
 比如 dto：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/595877fedcf24d8a82748092cf7a565b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1036&h=1114&s=159542&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51c1075e46e1.png)
 
 它并不在 IoC 容器里，没法注入 I18nService，怎么翻译这些文案呢？
 
@@ -192,7 +192,7 @@ export class AppModule {}
 nest g resource user
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57914fe2f4554ba4958f9865de31406c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1058&h=466&s=122685&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb5974961f3d.png)
 
 安装 dto 验证用的包：
 
@@ -224,20 +224,20 @@ export class CreateUserDto {
 
 校验 body 的错误需要全局启用 ValidationPipe：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73643f732d294c1d98add9d41cbae9bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=960&h=498&s=101599&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b07b54334e63.png)
 
 ```javascript
 app.useGlobalPipes(new ValidationPipe());
 ```
 访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc4d50c68b0e4299b40dffabbef88178~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=974&h=894&s=108943&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b47d38364e82.png)
 
 如果是英文网站，需要返回英文的错误信息，但是 dto 不在 IoC 容器里，不能注入 I18nService，怎么办呢？
 
 这时候可以用 nestjs-i18n 提供的 I18nValidationPipe 来替换 ValidationPipe。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afb0c3172f064f90803816c664066a9f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1334&h=640&s=136970&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d538aedbaa4c.png)
 
 ```javascript
 import { NestFactory } from '@nestjs/core';
@@ -259,19 +259,19 @@ bootstrap();
 ```
 然后把 message 改为资源的 key：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9902db4009a74318a82353ae07209fc2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1002&h=646&s=103255&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/89d9715972c2.png)
 
 访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e11cf0e3dbc642ac805386963b737ee4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1026&h=890&s=104185&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7325de04084c.png)
 
 可以看到，key 被替换成了具体的文案。
 
 把 cookie 里的 lang 改为 en：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2df78660c8a45d5b9c20b9713ae741a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1632&h=962&s=86864&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/02ef36a9dbee.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5a87d5189204fd78b954f92f08afc81~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1336&h=888&s=119979&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43ab03b8692d.png)
 
 文案也换成了英文。
 
@@ -317,11 +317,11 @@ export class CreateUserDto {
 
 再次访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32c7a1eb880249ddbc853b1bf2089f45~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1180&h=916&s=129635&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/01c426c740cd.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/76345cc215b34ea8a7665f5f89c138be~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1632&h=962&s=86864&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3ad792e33d6.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6c7049f525c4b24b4f5e3a93f2b6cd9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=840&h=892&s=102889&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/37d42fe74842.png)
 
 中文环境返回中文文案、英文环境返回英文文案，这样就实现了国际化。
 
@@ -329,11 +329,11 @@ export class CreateUserDto {
 
 文案里可以填占位符：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9348b4b337514c8b831b5f23fd5fdf3e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=916&h=274&s=52508&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a416bc4594a4.png)
 
 然后用的时候传入参数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d48b5db4e9ca4628930b4105580800a3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1230&h=750&s=141877&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e25cb6d37290.png)
 
 ```javascript
 @MinLength(6, {
@@ -344,13 +344,13 @@ export class CreateUserDto {
 ```
 试一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e4b0f2ea4694f8da9c7dfc82cae1f6c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=974&h=928&s=110196&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ebe001b99ddd.png)
 
 I18nService 的 api 同样支持这个：
 
 加一下占位符：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd70859382a24e1e94aea05153727063~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=622&h=208&s=23116&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/916e4c1418aa.png)
 
 然后用的时候传入 args：
 
@@ -374,7 +374,7 @@ export class AppService {
   }
 }
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecb83c9a4c1544bba6bff65953f9d578~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=576&s=58124&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7f3f51b2ea2.png)
 
 案例代码上传了[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/i18n-test)
 

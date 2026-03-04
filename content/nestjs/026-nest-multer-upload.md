@@ -20,7 +20,7 @@ series_order: 26
 ```
 nest new nest-multer-upload -p npm
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/882bb2b261dc498e9c86eac064e9b71d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=928&h=658&s=268268&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b19c2573cede.png)
 
 还需要安装下 multer 的 ts 类型的包：
 ```
@@ -43,21 +43,21 @@ uploadFile(@UploadedFile() file: Express.Multer.File, @Body() body) {
 
 用 npm run start:dev 把服务跑起来，一保存，就可以看到这个目录被创建了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c4eb5949e5c4db58be3a5e609a9cfec~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4eb9db4d0c75.gif)
 
 然后来写前端代码。
 
 之前我们用过这种方式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/753d11400bb24de990c88aed2747e5b7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1102&h=434&s=101648&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e74bcc587ce5.png)
 
 就是让 nest 服务支持静态文件的访问。
 
 现在我们换种方式，让 nest 服务支持跨域，再单独跑个 http-server 来提供静态服务：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/880bed6b418146429c3ffefcf9fd122d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c716bd5af2c.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79133c8d30e24ac697a70f77a89beade~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c459d0a80a2.png)
 
 在根目录创建 index.html，前端代码和之前差不多：
 
@@ -94,11 +94,11 @@ uploadFile(@UploadedFile() file: Express.Multer.File, @Body() body) {
 
 浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e926c1cac43e4e7582582f3df856bc4b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68bfd2ec841a.gif)
 
 服务端就打印了 file 对象，并且文件也保存到了 uploads 目录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f7c34f46db274df6bc550055de2135ae~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f71d6051f707.png)
 
 其他字段通过 @Body 装饰器获取。
 
@@ -137,7 +137,7 @@ async function formData2() {
 
 这样就可以上传多文件了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94658887fadf4555ad96831b807e7161~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/069c2ef0e095.png)
 
 那如果有多个文件的字段呢？
 
@@ -176,11 +176,11 @@ async function formData3() {
 
 这里应该用两个 file input 来分别上传 aaa 和 bbb 对应的文件，我这里为了测试方便就简化了下。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/205af2332049409c99314f874019dcca~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3f59fe6f6dc5.gif)
 
 后端收到了上传的 aaa、bbb 的文件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a613787305044330a21da8819748e3a1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/da37b23c9ecc.png)
 
 那如果并不知道有哪些字段是 file 呢？
 
@@ -216,7 +216,7 @@ async function formData4() {
 
 同样识别出了所有 file 字段：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecb670f0f7c74247ae5d28ed67ba3b22~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5649f705127.png)
 
 这就是 Nest 上传文件的方式。
 
@@ -246,42 +246,42 @@ export { storage };
 
 把我们之前写的这个 storage 拿过来，在 controller 里用一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a9c49812e6347ea85448ef02c47ecf6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f22c1c214ba4.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b18c4423b6f944588a6ed526493d98d0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/df347932533d.png)
 为什么 Nest 上传文件的方式和直接使用 multer 这么像呢？
 
 因为它就是对 multer 做了一层简单的封装呀。
 
 比如在 multer 里我们是通过 single 方法来处理单个 file 的字段：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70f7d2696cf74b92bc7717cb97e56b54~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b1eee3b14116.png)
 
 在 FileInterceptor 里也是一样：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ec1738c231b404f987188d0a889d8d7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5eae0573fa22.png)
 
 在 multer 里我们是通过 array 方法来处理多个 file 的字段：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4c8d3a72bf5409b9063e63a4bab4b82~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a7a62c950aa.png)
 
 在 FilesInterceptor 里也一样：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cf97274ab374920ae7ad7cef44c3782~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1c199458a953.png)
 
 另外两个装饰器也是同理：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f718fcfe8b1a40c983afcf6819374eb9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/117cef7bf4ee.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88bfd8c8b8f54580b58c424d663465eb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9f1fd0b6ebd3.png)
 
 而 UploadedFile、UploadedFiles 这些装饰器，只是从 request 中取出处理完的 file、files 等属性作为参数传入 handler：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99c9bc9118334a67b02ec3f988e6ea3d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d798aa79489.png)
 
 了解了这些装饰器的原理之后，回头再来看这些文件上传用的装饰器，是不是就很清晰了呢：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13e71610bb544aa3bfa3660c1e89f588~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e8911c066e66.png)
 
 此外，我们还要对上传的文件做一些限制，比如文件大小、类型等，很明显，这部分可以放在 pipe 里做：
 
@@ -309,11 +309,11 @@ export class FileSizeValidationPipe implements PipeTransform {
 
 把它加到 UploadedFile 的参数里：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4192a44fd2bd4116ba72c6f5b84ca935~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ae04c7515fb2.png)
 
 然后访问下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/503b8d783e364a1d86f4e54dcae7a74a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/54a59bd02c75.png)
 
 这样就可以实现文件的校验了。
 
@@ -345,15 +345,15 @@ uploadFile3(@UploadedFile(new ParseFilePipe({
 
 我们来试试：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3399d79b81e413d8afbeab48e1e9b58~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8bb5373cc912.png)
 
 可以看到，返回的也是 400 响应，并且 message 说明了具体的错误信息。
 
 而且这个错误信息可以自己修改：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb21c5bd18524ad682bb1963447a1213~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ef19c3784da3.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3c9e71974a24148872514e620c68491~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c524a9022b33.png)
 
 我们也可以自己实现这样的 validator，只要继承 FileValidator 就可以：
 
@@ -379,11 +379,11 @@ export class MyFileValidator extends FileValidator{
 
 然后在 controller 用一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe54b13c46c644648d512d1d7a695d51~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/67570c353944.png)
 
 在浏览器上传个文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f92f91e62e20429f8385ecfa94f46cbe~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e6e00bad6f00.png)
 
 可以看到我们自定义的 FileValidator 生效了。
 

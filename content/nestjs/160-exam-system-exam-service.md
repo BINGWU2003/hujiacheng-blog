@@ -53,18 +53,18 @@ model Exam {
 ```
 除了基本字段外，还要加一个多对一的关联：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9611195e28ac456b9325d54996a8f25e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1238&h=918&s=207560&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/12d00bb389e2.png)
 
 生成这个表：
 
 ```
 npx prisma migrate dev --name exam
 ```
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61804e7ff52245a3b456b9ef034eabf8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1212&h=474&s=80260&e=png&b=191919)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/82107ac38150.png)
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/abcb3e46457e4522a11f84237076dd0b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1754&h=754&s=239791&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/105ace5ba906.png)
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0698df3f8e3f40e793860cb72cd179f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1258&h=638&s=263028&e=png&b=eeebeb)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7cadd162e375.png)
 
 然后实现下 exam 的几个接口：
 
@@ -89,7 +89,7 @@ async add(@Body() dto: ExamAddDto, @UserInfo('userId') userId: number) {
 
 加一下全局的 Guard：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2308246a331a4248bcd72496b1d3f02e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=664&h=556&s=68857&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/631a0e203c84.png)
 ```javascript
 {
   provide: APP_Guard,
@@ -111,7 +111,7 @@ export class ExamAddDto {
 还有  service：
 
 引入 PrismaModule：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9611cdda96df4b86befbfc95c32ccb55~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=846&h=576&s=114918&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c3e961ef7d62.png)
 
 注入 PrismaService，实现关联插入：
 ```javascript
@@ -147,7 +147,7 @@ export class ExamService {
 ```
 然后在 main.ts 加一下 ValidationPipe：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03f64557faca4c6a9beb31f1257309ee~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1192&h=748&s=162394&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8b381f053369.png)
 
 ```javascript
 app.useGlobalPipes(new ValidationPipe({ transform: true }));
@@ -159,23 +159,23 @@ npm run start:dev exam
 ```
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d583d90d8fb4086bf10637b79ea4ee6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1236&h=948&s=166512&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2fa4103af61.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0663825464604e60b4a4d1b41a229287~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1114&h=960&s=85763&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/55e19f7fe0cd.png)
 
 它会提示你找不到 JwtService：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e239e4792e44fab88fcc927cddab4dc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1390&h=402&s=114183&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/465850dbf02a.png)
 
 我们之前在 UserModule 用的时候是引入了 JwtModule 所以才能找到：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/673ae08a799e476da40ec7976c55a2c4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1330&h=932&s=215341&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/412588148a7b.png)
 
 但每个微服务都引入 JwtService 明显不好。
 
 在 CommonModule 里引入就好了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cd6992635e441eda76565560c11d2e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1412&h=922&s=234810&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c352c5214fe2.png)
 
 ```javascript
 JwtModule.registerAsync({
@@ -192,18 +192,18 @@ JwtModule.registerAsync({
 ```
 然后在 UserModule、ExamModule 里引入 CommonModule，自然也就引入了 JwtModule：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6eb02a9aa0c4e71b969a67e54add965~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1008&h=842&s=168140&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fff7b1a0ce0d.png)
 
 再跑下：
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ece999762724e2489d69dd0908cb57c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=860&h=926&s=112566&e=png&b=fcfcfc)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd3063421942.png)
 
 带上 token 访问接口。
 
 可以看到创建成功了。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/217ee022bbba4e328a71b575026ecf8b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1532&h=304&s=131024&e=png&b=e9e7e6)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cf75a8b148f3.png)
 
 然后我们再实现下 list 接口：
 
@@ -233,10 +233,10 @@ async list(userId: number) {
 测试下：
 
 先创建一个：
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0073614a29604af48cba992633887c48~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=974&h=940&s=117421&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2df9eea047f9.png)
 
 查询下：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/917bdd378af446c7a77d1f930de0608a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=936&h=1148&s=154926&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/71200560a979.png)
 
 没啥问题。
 
@@ -268,11 +268,11 @@ async delete(userId: number, id: number) {
 
 试下效果：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/750df06bb4934de59e7899601a65fad6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=964&h=804&s=104501&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51321a2c237f.png)
 
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5ad508bfa47400d96ddec320039b2e0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=908&h=1154&s=153645&e=png&b=fdfdfd)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88083a99c05b.png)
 
 当然，这个 list 接口也得改下：
 
@@ -298,9 +298,9 @@ async list(userId: number, bin: string) {
 }
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2386e3373fcf40b4adba9a7a440aee45~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=950&h=1232&s=158817&e=png&b=fdfdfd)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb49e72c1bf6.png)
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4ffe918169448cab540030a34efe9dc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=970&h=800&s=101260&e=png&b=fcfcfc)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b56c2fc3e435.png)
 
 
 接下里实现保存考试内容的功能。
@@ -354,7 +354,7 @@ async save(dto: ExamSaveDto) {
 ```
 
 测试下：
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/891938d96f9543908833f674d70b5987~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=872&h=888&s=110694&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/87e12bcc876f.png)
 
 保存成功。
 
@@ -385,7 +385,7 @@ async publish(userId: number, id: number) {
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b077bd82b7f4c948a792180a174cf52~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=922&h=900&s=110821&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20091984a3d6.png)
 
 这样，考试微服务的接口就完成了。
 

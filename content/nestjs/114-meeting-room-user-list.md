@@ -11,7 +11,7 @@ series_order: 6
 
 用户管理模块我们实现了注册、登录鉴权、信息修改接口，还剩下两个接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c29fc9fbb5f44ba880884daac9bc4eae~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/da05658d8f17.png)
 
 这节来实现下。
 
@@ -19,11 +19,11 @@ series_order: 6
 
 成功的响应是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a403f4f303943c08267d4b667013202~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad8136df019d.png)
 
 但是失败的响应是这样：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/977a5d130c37442ea9354f55e8b54f41~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b39ed8e0290.png)
 
 并不统一。
 
@@ -31,13 +31,13 @@ series_order: 6
 
 这里就需要自定义 Exception Filter 了。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d717b3f94ec4a4894c3efc72feb9831~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ebdc516a116.png)
 
 在 Guard、handler、interceptor 等处理逻辑里 throw http 异常，都会被 ExceptionFilter 处理成相应的响应。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3714fcd616094d378a67299a3785fd42~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f4566815c29b.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e575d999150948a8ae81a67e59a1452d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81b095309728.png)
 
 如果想修改异常响应的格式，就要自定义了。
 
@@ -47,7 +47,7 @@ series_order: 6
 nest g filter unlogin --flat
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d60d7355149842248850c0f7315d8134~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/406db269bf2d.png)
 
 @Catch 的参数可以指定具体 catch 的异常类型：
 
@@ -80,21 +80,21 @@ export class UnloginFilter implements ExceptionFilter {
 
 在 main.ts 引入下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ecf325a1f004d14a977ec01f0f393d1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/28082c2db40c.png)
 
 然后把 LoginGuard 里的异常改成 UnLoginException
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10f23f6d370644cd8120b3829a9f79f5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/11af3e65faf2.png)
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b3d6e825cea407da29ecb9839f8feaf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8428f5748624.png)
 
 现在当你不带 token 访问 /aaa 的时候，返回的就是自己定义的格式了。
 
 搜索下之前代码里抛的异常：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b8083cfa2b1438da8b7a60b6f80e55a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/418f89005653.png)
 
 还有不少。
 
@@ -106,7 +106,7 @@ export class UnloginFilter implements ExceptionFilter {
 nest g filter custom-exception --flat
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/655690d2f52342cb949ec52a4cefc185~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bb19f654e0e9.png)
 
 ```javascript
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
@@ -130,19 +130,19 @@ export class CustomExceptionFilter implements ExceptionFilter {
 
 然后在 main.ts 里启用：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5b5781a21e742a8b09789ffd9c43ca3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e83efdbf397.png)
 
 这样，所有的代码都不用修改，返回的响应就已经变了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59e937253ef94a76b343a4e4f17b3703~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1af508253e96.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1aea21c7b9d244fd96069b2c4f81b2a6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa18259daeee.png)
 
 所以，如果你只是想修改默认的响应格式，直接定义个 catch HttpException 的 filter 就好了。
 
 但这样其实还有个问题：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b21b538ba5c498db1c787784957df54~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=806&h=816&s=73953&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/21896f805543.png)
 
 对于 ValidationPipe 报的错，返回的信息不准。
 
@@ -169,19 +169,19 @@ export class CustomExceptionFilter implements ExceptionFilter {
 ```
 然后在 exception filter 打个断点，点击调试启动：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80bce23dbebb4118bfce50b3c58cb55d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1674&h=808&s=248671&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9904a12100aa.png)
 
 在 postman 里再次请求这个接口，代码会在断点处断住：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c241f28fb9c4a2ba20a2513bae58fda~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1642&h=888&s=305911&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/483b5aa4996f.png)
 
 可以看到，这时候 message 并不是具体的错误，具体的错误在 response.message 里：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b996b6d56d0c485da8857c79425485f6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1316&h=638&s=211009&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d32b2a004621.png)
 
 所以我们可以这样改：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65309602f7494642966e2f3f217ece45~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1152&h=676&s=168225&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb04649d8c2f.png)
 
 ```javascript
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
@@ -209,17 +209,17 @@ export class CustomExceptionFilter implements ExceptionFilter {
 
 再试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd43c3dd18834db4b601b8a5e297f2a5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=910&h=768&s=81793&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4cdd0e82dbb.png)
 
 这样，错误显示就对了。
 
 然后我们实现冻结用户的接口，冻结的用户不能预定会议室。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/771d852f50324bb9b9bb0e1605fdec5e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/027983c32d4b.png)
 
 这个接口非常简单，就是修改一个字段：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f948a99531c84bd7b49d48b91b54b218~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43bc1048dec2.png)
 
 ```javascript
 @Get('freeze')
@@ -248,9 +248,9 @@ async freezeUserById(id: number) {
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58286ebb98d9411781aa5b69bd57012c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eefa3886a017.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06ccdfe4350d468fb998b5162640b331~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce124d693c13.png)
 
 确实冻结了。
 
@@ -273,7 +273,7 @@ async list(@Query('pageNo', ParseIntPipe) pageNo: number, @Query('pageSize', Par
 ```sql
 select * from users
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02a5362b32c546048dba2b8cc49d6ed5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa41c83b013f.png)
 
 然后每 2 条记录一页
 
@@ -283,14 +283,14 @@ select * from users
 select * from users limit 0,2
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0aeddefe7e64f00af8c44a734d78e99~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f764ad58235b.png)
 
 查询第二页：
 
 ```sql
 select * from users limit 2,2
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9ef5acae2de4098bd11d96d34c53a78~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a34782cd649b.png)
 
 也就是说，只要计算出当前页码跳过多少条记录，取多少条记录就好了。
 
@@ -317,7 +317,7 @@ async findUsersByPage(pageNo: number, pageSize: number) {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/166d7bca4f5a4c9b8fa8e2db1857add3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac66ee4f266e.png)
 
 没传 pageNo 的时候会返回 400 的错误。
 
@@ -341,9 +341,9 @@ async list(
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1484c3c7f33b41b5b43ab3edb7693799~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2678cd8ebcf0.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a15afc208a3947cd97a4e521e67abb45~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3718efbca3c2.png)
 
 现在的提示信息就友好多了。
 
@@ -375,21 +375,21 @@ async list(
 
 可以使用 DefaultValuePipe：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a28ef1855f03451db9ccdb1a12d72347~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b4cf5d77bb3.png)
 
 没有传 pageNo 的时候设置为 1，没有传 pageSize 的时候设置为 2。
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e7a49cc5e914214acb7e2f6b7d5a6a2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7601e01c6260.png)
 
 现在传入 pageNo 和 pageSize 就可以查询出对应的数据，还有总条数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37b3d00e3058437ca6b0e3b127b1d871~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a7dcf537548.png)
 
 服务端打印了两条 sql：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45c63b6ee2834fdeb9df50a00efba663~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/57823ede1be3.png)
 
 一条是分页查询，指定了 limit 2 offset 2，这个和 limit 2, 2 是一样的
 
@@ -417,13 +417,13 @@ async findUsersByPage(pageNo: number, pageSize: number) {
 ```
 这样返回的数据就只包含 select 的字段了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e345a7f045614351a1abb54d325e80b7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/58d823afa82e.png)
 
 当然，如果你需要对返回的数据再做一些变换，这时候可以封装个 vo 对象。
 
 用户列表的需求除了分页外，还需要支持根据 username、nickName、email 的搜索：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/771d852f50324bb9b9bb0e1605fdec5e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/027983c32d4b.png)
 
 添加几个参数：
 
@@ -476,11 +476,11 @@ async findUsers(username: string, nickName: string, email: string, pageNo: numbe
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/472118f2b46244e897eaa703b5260c5c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/995de8aef0c9.png)
 
 当我传 nickName 包含“里”的时候，服务端查询到数据只有一条。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/645e9612eac44e40861b4dd21bba6a5b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/36a8a11a71cd.png)
 
 传入 nickName 包含 “光” 的时候，返回两条数据。
 

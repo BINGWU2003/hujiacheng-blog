@@ -11,7 +11,7 @@ series_order: 11
 
 上节我们实现了试卷编辑器：
 
-![2024-08-26 23.08.21.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57106a360f08412cbfd92b64d5f8fd89~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=452683&e=gif&f=70&b=fdfdfd)
+![2024-08-26 23.08.21.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b5421308cfa.gif)
 
 但没有和对应 id 的试卷关联。
 
@@ -41,7 +41,7 @@ async find(id: number) {
 ```
 试一下：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5782365d0c046c3bdcd46e3c3cac622~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=852&h=778&s=97040&e=png&b=fcfcfc)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05497e5abde0.png)
 
 在 interfaces/index.tsx 加一下接口：
 
@@ -52,7 +52,7 @@ export async function examFind(id: number) {
 ```
 调用下：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f5fcf83becc498b89d13a7100efc927~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1538&h=1160&s=220078&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d44f4c14eaac.png)
 
 ```javascript
 async function query() {
@@ -79,7 +79,7 @@ useEffect(() => {
 
 调用 save 接口更新下内容：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b1c759cdbc34a1d8eeb8b20e67a5e15~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1456&h=1038&s=209616&e=png&b=fdfdfd)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f21e1119237.png)
 ```javascript
 {
     "id": 2,
@@ -89,7 +89,7 @@ useEffect(() => {
 然后刷新页面：
 
 
-![2024-08-27 07.46.37.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a57a6264c1f242c09354a5433555b677~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=139435&e=gif&f=22&b=fefefe)
+![2024-08-27 07.46.37.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b0c0432f9399.gif)
 
 这样，回显就完成了。
 
@@ -105,7 +105,7 @@ export async function examSave(data: { id: number, content: string}) {
 
 然后在页面加一个保存按钮，点击的时候调用 save：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fb176c6509f4884b9b4d56fdc47da31~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1582&h=1174&s=249211&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d35465c03665.png)
 
 ```javascript
 <div>
@@ -135,7 +135,7 @@ async function saveExam() {
 ```
 测试下：
 
-![2024-08-27 07.56.35.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/544e0f479249416ba01a2bff3fa499ab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=593020&e=gif&f=70&b=fdfdfd)
+![2024-08-27 07.56.35.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9a2331e2a615.gif)
 
 保存成功。
 
@@ -198,7 +198,7 @@ export function PreviewModal(props: PreviewModalProps) {
 调用下：
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b0eb675737848d086b1a40be7a9423f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1736&h=932&s=232168&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7724ada58f7.png)
 
 ```javascript
 const [isPreviewModalOpen, setPreviewModalOpen] = useState(false);
@@ -215,7 +215,7 @@ const [isPreviewModalOpen, setPreviewModalOpen] = useState(false);
 ```
 然后写下样式：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e0e1cf4703947efb1aff7ecdf5e0062~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=914&h=944&s=116936&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/66e88e95660e.png)
 ```scss
 .preview {
     .component-item {
@@ -229,7 +229,7 @@ const [isPreviewModalOpen, setPreviewModalOpen] = useState(false);
 看下效果：
 
 
-![2024-08-27 08.13.16.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdf120598cd341aa83ae7823b0dd9d02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=2013293&e=gif&f=70&b=fdfdfd)
+![2024-08-27 08.13.16.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6bef69051a2f.gif)
 
 没啥问题。
 

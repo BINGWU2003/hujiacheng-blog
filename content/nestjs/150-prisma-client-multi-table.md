@@ -19,7 +19,7 @@ cd prisma-client-api2
 npm init -y
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2d719a533be44b8968b41c74b03946d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=890&h=702&s=91178&e=png&b=000000)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2133d2d825b4.webp)
 
 进入项目，执行 init 命令：
 
@@ -27,15 +27,15 @@ npm init -y
 npx prisma init
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29216dde7e8e40be94a8a27f85f0c4af~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1010&h=624&s=105602&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd3ff34e3865.webp)
 
 生成了 .env 和 schema 文件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51cd28df37d6483abc67cffc76b7cc3e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=512&h=192&s=18392&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51f59c562f1c.webp)
 
 然后改下 .env 文件的数据库连接信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9260844466e7496fa11bdf18a5da4e14~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1026&h=348&s=134798&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/82d4f6e76f4f.webp)
 
 ```ini
 DATABASE_URL="mysql://root:guang@localhost:3306/prisma_test"
@@ -43,7 +43,7 @@ DATABASE_URL="mysql://root:guang@localhost:3306/prisma_test"
 
 改一下 datasource 的 provider 为 mysql，并且添加 model
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f083c8dc5c741679379620c15723342~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1358&h=956&s=184756&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4681d6fee70.webp)
 
 ```prisma
 generator client {
@@ -79,7 +79,7 @@ model Employee {
 npx prisma migrate reset
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e525d0d9692940caac47a3a05eac11f7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1072&h=622&s=88219&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30e57195fef5.webp)
 
 然后用 migrate dev 创建新的迁移：
 
@@ -87,17 +87,17 @@ npx prisma migrate reset
 npx prisma migrate dev --name aaa
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9a0b116589243d2af8cf1c55ea02d1b~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1188&h=560&s=87234&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c62c6902b3f.webp)
 
 生成了 client 代码，还有 sql 文件。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a129c832d88b4cd1ae85015353b95a20~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=2034&h=1060&s=291405&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9fac284c4d85.webp)
 
 数据库中也多了这 2 个表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55197603cc2d40a089abacdd197abea1~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1070&h=484&s=156945&e=png&b=f0eded)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7249585595b4.webp)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f087fe832374ad8b88c5f9e684e350c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1012&h=406&s=114606&e=png&b=f0eded)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea8f073ea825.webp)
 
 然后来写下 client 的 crud 代码。
 
@@ -190,7 +190,7 @@ test1();
 
 插入关联 model 的数据的时候，也是用 create 指定：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/634ccb2291f44010a91f42fad5191a15~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=922&h=880&s=93789&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/142fd42e882d.webp)
 
 测试下：
 
@@ -198,19 +198,19 @@ test1();
 npx ts-node ./src/index.ts
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99422760137c4c939fd32afd811a17b8~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1374&h=242&s=81019&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dc0e029616ad.webp)
 
 在 mysql workbench 里看下结果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e20e8a26e5254d6aadcaea6853bcd75e~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1306&h=452&s=146375&e=png&b=f0eded)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e498f0da28f.webp)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/393d9cb0043f4d2eb89d4e90687e6887~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1074&h=454&s=144846&e=png&b=efeceb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ef3c10350354.webp)
 
 确实，数据都被正确插入了。
 
 当然，你也可以用这种写法：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6fde3edfc2b49e3b2194a0d2ece5e6a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=904&h=868&s=93803&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/110401d4e867.webp)
 
 ```javascript
 async function test2() {
@@ -241,13 +241,13 @@ test2();
 
 跑一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86cba5416ddc402c9d29b8f0d01ceb4a~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=912&h=210&s=55131&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/97a8ff87ee5d.webp)
 
 效果一样：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/394a883a6ee04d4499305daa12653dac~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=796&h=204&s=75130&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d17daf2b7545.webp)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a4e6050a5af47b3aaafd7820f7959ca~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=580&h=306&s=71258&e=png&b=f8f8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9501d9c66e72.webp)
 
 那如何关联查询呢？
 
@@ -301,7 +301,7 @@ include 还可以指定 where 等查询的参数，进一步过滤。
 
 可以看到，都能正确查出关联数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/483173bf0da443ada07efb5a0dc36b61~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1164&h=934&s=202146&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8469cc1e4afd.webp)
 
 再就是关联更新：
 
@@ -333,23 +333,23 @@ test4();
 
 跑一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef0fdb1edee04269a19ffe5d9bab87ce~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1078&h=442&s=97332&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/317c002455e5.webp)
 
 在 mysql workbench 里可以看到，id 为 1 的 department 更新了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f714834fc2ee442b8daee35721af79bd~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=824&h=224&s=69443&e=png&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8a1cb1d65596.webp)
 
 关联插入了一条 employee 的记录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b95da0f1b5624d1a84b72e659dbd33d4~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=566&h=334&s=79102&e=png&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/629fc528a8bc.webp)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8fe049ad64a4c53ae8ad7e66705aee9~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=582&h=312&s=86589&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a1d81740ee0.webp)
 
 更新 department 的时候，除了可以插入 empolyee 的数据，也可以和别的 empolyee 建立关联。
 
 比如 id 为 4 的 empolyee：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8cbfe2b5b54b4bd48b4aae7306894b6c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=566&h=348&s=87349&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5df0819b418.webp)
 
 现在他关联的是 id 为 2 的 department。
 
@@ -377,15 +377,15 @@ async function test5() {
 test5();
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45b36288047e45b185047c5913776413~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=848&h=770&s=89854&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63881b4f6d35.webp)
 
 跑一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/502561f1da854860b6baf9a8159191d7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=828&h=442&s=88252&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3a31b85d420a.webp)
 
 刷新可以看到，id 为 4 的 employee 关联的 department 就变了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d001d81bf504470792dd59b534139231~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=570&h=314&s=85581&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85459c60b20a.webp)
 
 如果是某个 id 的数据存在就 connect，不存在就 create 呢？
 
@@ -420,19 +420,19 @@ test6();
 
 第一次跑，执行的是 insert：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d7ca69a88d64e40bb52bf841560fd2c~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=890&h=484&s=99574&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/026b4faca8ba.webp)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/624fbc54470b4f1fb349cdfc8c13aee0~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=552&h=342&s=95419&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/83ff0deb2d57.webp)
 
 第二次跑，就是 update 了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d52d7347cdc4d0280cb3a54f30561ba~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1222&h=496&s=112662&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fbf5f7534eb0.webp)
 
 也就是说，update 的时候可以通过 create、connect、connectOrCreate 来插入新的关联 model 的记录或者关联已有的记录。
 
 当然，create 的时候也可以这样：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c53b43c1124444939e8ed8bcf99ef7b7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=658&h=386&s=54689&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88ea1c106e2b.webp)
 
 效果一样，就不一个个测试了。
 
@@ -453,9 +453,9 @@ async function test7() {
 test7();
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/767766da6f174af2a443da2fdb9a75c7~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=892&h=148&s=37877&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50d5dfa8d7f0.webp)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f916a94bfa2745648c0b6c3ba2f94e7d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=706&h=378&s=100166&e=gif&f=18&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3f355bddc07.webp)
 
 这就是多个 model 关联时的 CRUD。
 
@@ -471,7 +471,7 @@ async function test8() {
 test8();
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c7d176c1f8444d0975bc83e700e67a3~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=708&h=502&s=68097&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee31cb758381.webp)
 
 这样，当上面的 api 都不能满足需求的时候，你就可以直接执行 sql。
 

@@ -20,7 +20,7 @@ npm install --save @nestjs/config
 ```
 在 AppModule 引入下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9106db7891c94ca0a43f5f302f9854c7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/16e09e978404.png)
 
 ```javascript
 ConfigModule.forRoot({
@@ -32,7 +32,7 @@ ConfigModule.forRoot({
 
 然后在 src 下添加一个 .env 文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/007d776534584ae181983bc542bbb25a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a3904023a36.png)
 
 ```
 redis_server_host=localhost
@@ -40,14 +40,14 @@ redis_server_port=3306
 ```
 然后在 RedisModule 里注入 ConfigService 来读取配置：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f54c64397f9b4efc96953e3fad44e978~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5caa86130336.png)
 
 跑一下试试：
 ```
 npm run start:dev
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc91656372824748b71505f141b3e3e3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d2957b16ccd.png)
 
 正确读取到了 .env 的配置。
 
@@ -57,7 +57,7 @@ npm run start:dev
 
 我们在 nest-cli.json 里加一下 assets 的配置：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f3feeac265945508f5caea96d1be3c0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/524f3dff7dd4.png)
 
 asssets 是指定 build 时复制的文件，watchAssets 是在 assets 变动之后自动重新复制。
 
@@ -65,21 +65,21 @@ asssets 是指定 build 时复制的文件，watchAssets 是在 assets 变动之
 
 你会发现 .env 确实复制过去了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12a9899ac8e84b5d9aa0364e45b62d8c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9993385e953b.png)
 
 然后我们把 .env 移动到根目录，再删掉 dist，重新跑 npm run build。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95925c41d4f6433dbeb55800f2456cb5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cc7d61e8bed3.png)
 
 并没有自动复制 .env 过去。
 
 如果你就是想把 .env 放在根目录，那可以手动加一下复制逻辑：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e25cbd787194adf9e3e2dfed196bf44~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/26275776bacb.png)
 
 这样再跑 npm run build，就会把 .env 复制过去了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f339065634d344d8aa947f75e47d8077~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/feee48c3c8a4.png)
 
 为了用到 nest cli 的复制 assets 的功能，我们还是把它放在 src 下。
 
@@ -109,13 +109,13 @@ nest_server_port=3000
 ```
 然后把代码里的这些地方都改成读配置的方式：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/534dfecd140f4fbfb550acecb4f560d9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b1a419ce9bbd.png)
 
 ```javascript
 const configService = app.get(ConfigService);
 await app.listen(configService.get('nest_server_port'));
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2d241733d464901be18a0d1de586f28~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cfa19f60d0c8.png)
 
 ```javascript
 constructor(private configService: ConfigService) {
@@ -130,7 +130,7 @@ constructor(private configService: ConfigService) {
   });
 }
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/885d3dc1fda7480586926232dff72c0c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d33777169ea.png)
 ```javascript
 {
   provide: 'REDIS_CLIENT',
@@ -147,7 +147,7 @@ constructor(private configService: ConfigService) {
   },
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9eabeb67bfb348afa19c2ad251cd24d6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f754343ced19.png)
 
 ```javascript
 TypeOrmModule.forRootAsync({
@@ -176,15 +176,15 @@ TypeOrmModule.forRootAsync({
 ```
 然后测试下现在的功能是否正常：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81e19c2e8a7d490fb25e5360860f9ccd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e09129408ee.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a2479c170344129be0c9fdd7d51ce65~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b2e10637281.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b065ca55db1f4320a410b2934edfec6d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/736c2c4e614a.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8c39a9649fe4d05ba8f2bd3d6f177fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/99f2b437872d.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b045925effaf48808fc7067e1bf43977~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5029d90a0be.png)
 
 没啥问题。
 
@@ -196,9 +196,9 @@ TypeOrmModule.forRootAsync({
 
 在 UserService 注入 Role 和 Permission 的 Repository：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/742a066ef9a44e4a8cc1a2df55f029bb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d2dcc698094b.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6e22d0922ff4848885cefbff600798b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8af3ae5bc224.png)
 
 写个初始化数据的方法：
 ```javascript
@@ -257,29 +257,29 @@ async initData() {
 ```
 浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e7bf6f7ba7448f490ebb9502bdce8c6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/56f90ad9892d.png)
 
 服务端打印了包裹在事务里的 insert 语句：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23d930b1904346aab99f483bb9d2e487~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/60cbbfcc417c.png)
 
 在 mysql workbench 里看下：
 
 users 表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1df6e65fd8148d39b7898522a6d47b1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fe5cde90c04.png)
 
 roles 表：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66eecfbd84a946038efe9c25398febf7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cff7d52a0692.png)
 
 permissions 表：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf1d9095a5454205a39a197be7ff067f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9a5aab0851a1.png)
 
 user_roles 表：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac69fb57d9ad436f9f172d5eef9b51ac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b82e79eb9c45.png)
 
 role_permissions 表：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/099da22171b64bd99b7e092494bc4d87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/872be6d9d88f.png)
 
 都插入成功了。
 
@@ -289,19 +289,19 @@ role_permissions 表：
 
 在 mysql workbench 里这样导出数据：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/054b34873cee48948eed51c9a7657611~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c7f903dc979a.png)
 
 你可以修改生成的 sql 文件位置：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f34792324d834946bf42e10ea508ab65~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1592&h=336&s=92490&e=png&b=f1f1f1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/54d89b9a2a8f.png)
 
 然后我们来实现登录：
 
 后台管理的登录和用户端的登录是分开的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e6f4216cf9f481aa1ccfaf07c0116d9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b48a02b281f.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d93a6b34ccfb45f69daca28f8554d5f1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/edf70dc66558.png)
 
 但实现起来差别不大，我们一起来实现下。
 
@@ -340,11 +340,11 @@ export class LoginUserDto {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e44a0ffbcd40413f82add369d2349022~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e84b10aa04b7.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ff1357a6f5f40d496ce18c8fd872672~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/072785d5ae7f.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44d2b0b1cc364ecca55e47c211d3b3fe~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1008d831cdd7.png)
 
 然后在 UserService 实现 login 方法：
 
@@ -438,7 +438,7 @@ export class LoginUserVo {
 
 在 UserService 的 login 方法里封装返回的数据：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4be22882d08542019f01263de01aadf4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a4313b9bbc37.png)
 
 permissions 是所有 roles 的 permissions 的合并，要去下重。
 
@@ -487,11 +487,11 @@ async adminLogin(@Body() loginUser: LoginUserDto) {
 
 /user/login
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/854c2f62a0c145668b85ec2af5fe4c9d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0735b65830fa.png)
 
 /user/admin/login
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fc9b5bbd4944a1ca76f9ccd3696a2d4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8efe06ac2d7.png)
 
 然后引入 jwt 模块：
 
@@ -501,7 +501,7 @@ npm install --save @nestjs/jwt
 
 在 AppModule 里引入：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a1ef7c4da314fb6b1db6a35f3eb688f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/adb08a762f6f.png)
 ```javascript
 JwtModule.registerAsync({
   global: true,
@@ -518,7 +518,7 @@ JwtModule.registerAsync({
 ```
 这里的密钥放到 .env 里配置：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c888db5cc9247d1974b0209e3b67307~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb937bc10f8e.png)
 
 ```
 # jwt 配置
@@ -663,19 +663,19 @@ async adminRefresh(@Query('refreshToken') refreshToken: string) {
 
 POST /user/login
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a159ff6e41043d18b7bc0fbc6428488~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5471ac49cc4.png)
 
 GET /user/refresh
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1181cacaf8c94d90bf5f08ee3682f74e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e83fa9dfabb.png)
 
 POST /user/admin/login
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbc23e11743140f98d593522ec0e1a10~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f7f9d83202e.png)
 
 GET /user/admin/refresh
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dacf025c8e3b48c3bb971cc2314b90b4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f49554226bb0.png)
 
 都没啥问题。
 
@@ -683,14 +683,14 @@ GET /user/admin/refresh
 
 然后我们加上 LoginGuard 和 PermissionGuard 来做鉴权：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a363d08394dc4a5ab4a0d7d17aafc0c2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fdc230dd73fa.png)
 
 ```
 nest g guard login --flat --no-spec
 nest g guard permission --flat --no-spec
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c33f90df18542cfa660bfeb757f4ecc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ef557a5b6f5.png)
 
 LoginGuard 的实现代码如下：
 
@@ -774,7 +774,7 @@ export class LoginGuard implements CanActivate {
 
 然后全局启用这个 Guard，在 AppModule 里添加这个 provider：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19288ab861fe4f5db81bc4707a3d40c1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/84815f23c421.png)
 
 ```javascript
 {
@@ -798,9 +798,9 @@ bbb() {
 ```
 访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4ce5b1a9fa34fde98ea0e601a3d5529~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/56dfe4c7b55b.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6866d98a227a446dbfca8579a47d1923~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81ed2c448349.png)
 
 然后在 aaa 加上 require-login 的 matadata
 
@@ -813,19 +813,19 @@ aaaa() {
 ```
 会提示用户未登录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/417db2362bed417696ebc720dc3386a1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bbdc0025c9dc.png)
 
 而 bbb 还是可以直接访问的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf99617dd41541678117162c635cd980~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d76a349a9e63.png)
 
 在 postman 里登录下，拿到 access_token：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b490f6a5e3244358bb050f44643c4e06~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/efce1b830b0a.png)
 
 添加到 authorization 的 header 里，就可以访问了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5835e537a98432ba2e5df63a14e6748~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b88313da42a.png)
 
 然后我们继续实现 PermissionGuard：
 
@@ -882,7 +882,7 @@ export class PermissionGuard implements CanActivate {
 
 同样是全局启用这个 PermissionGuard
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/769f59165f9243dc800639ab510691cd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f43150568c52.png)
 
 ```javascript
 {
@@ -904,27 +904,27 @@ aaaa() {
 
 访问 /user/admin/login 登录 zhangsan 账号，拿到 accessToken
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b7dec279171416a9409196b11887407~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cca0161f2d80.png)
 
 带上 accessToken，是可以访问 aaa 接口的，因为 zhangsan 有这个权限
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d42f56d76c904c938fb615e9f4d951c8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20434cf4770d.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f256e3d8030540628cfbf1b3c1faa05d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4fb746d3a846.png)
 
 访问 /user/login 登录 lisi 账号，拿到 accessToken
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c32f552f9d7e4d85b8f39ed777747178~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e0a18f9b69ed.png)
 
 带上 accessToken，就不能访问 aaa 接口的，因为 lisi 没有这个权限
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf4691eb4b674480a8b7abcef5a6719f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9276095bb4cb.png)
 
 这样，接口鉴权就完成了。
 
 最后我们把这两个 @SetMetadata 封装成自定义装饰器
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1fddd3e3c32b4ad7ac9d52bdcfc6aeec~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e83f065b92e3.png)
 
 新建 src/custom.decorator.ts
 
@@ -937,7 +937,7 @@ export const  RequirePermission = (...permissions: string[]) => SetMetadata('req
 ```
 然后给接口添加鉴权就可以这样写了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a51ade8ea195498fb8b6c31eb880c703~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ae3ddf9c8344.png)
 
 此外还可以创建个自定义参数装饰器：
 
@@ -967,15 +967,15 @@ UserInfo 装饰器是用来取 user 信息传入 handler 的。
 
 我们在 aaa 方法里测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a30bd723075742dea8fe863ff5f7b3a5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/894437613a8b.png)
 
 拿到 zhangsan 的 accessToken 来访问下 aaa 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/210187049ea742f28431c7d2e0555488~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa7ae7631b51.png)
 
 可以看到，服务端从 request 取出了 user 的值传入了 handler：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/acaac249b1cd48b9865025fb975b2d31~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cc54939cea65.png)
 
 而这个 request.user 是在 LoginGuard 里设置的。
 

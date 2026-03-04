@@ -17,61 +17,61 @@ series_order: 30
 
 ## 普通用户
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/906d4fbf82004b8d98db97b4fcf85086~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe6b3ef4922f.png)
 
 进入 backend 和 frontend_user 项目，跑起来。
 
 ```
 npm run start:dev
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f4784bdb1a04eb6b1e7a508959031a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2152&h=1072&s=638868&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f1b6012dde8.png)
 
 ```
 npm run start
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60145470bf694af5975acc50b4e53ba1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1406&h=600&s=102634&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b650fa0cdf1.png)
 
 ### 注册
 
 首先填入信息，发送验证码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3856408b127642dc9dde22efbcbeb623~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1748&h=1566&s=166573&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9515d23c2590.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51a11cd922054046815562efc65a6234~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=712&h=408&s=70522&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f62c8cb2b941.png)
 
 用户名要求唯一：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/426e63a68f1b4745b0db79206d22db23~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2114&h=1712&s=334833&e=gif&f=39&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/71ec151933c7.gif)
 
 注册成功后我们登录下：
 
 ### 登录
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc1d16b98fed43279d623faa81d4a58c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2414&h=1728&s=330704&e=gif&f=28&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/301a5f5713e6.gif)
 
 刚才注册的账号可以登录。
 
 然后还可以 google 账号直接登录，不需要注册：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23d67cf68fba4bcdadfbd2b9532c2b52~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2422&h=1578&s=865875&e=gif&f=46&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20fd54c10202.gif)
 
 ### 修改密码
 
 填入用户名、邮箱，点击发送验证码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3d5948d209041c9a2f53da9bf7b540f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2156&h=1426&s=155954&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/54ca2baeeb71.png)
 
 （其实当时邮箱应该添加唯一约束，也就是能唯一确定用户，这样就可以不需要填用户名了）
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7330d6219b84ec59404421ab1bb8049~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=726&h=434&s=72339&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0347c8ef9a46.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ba6b0617e3d42c0a6fb121e42b93e77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2096&h=1356&s=324450&e=gif&f=36&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3adffa598a9b.gif)
 
 修改成功。
 
 再登录下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aab66274abe341008e9770f1b74a3c5b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2422&h=1444&s=303842&e=gif&f=15&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dbb9965abecf.gif)
 
 没问题。
 
@@ -79,17 +79,17 @@ npm run start
 
 继续看当时分析的普通用户的需求：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9596890a69e44ce7956ad0667e000468~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/285c71b22fd2.png)
 
 登录后可以修改个人信息。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff5a8d86b0df474486c008efb3a2c627~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2672&h=1520&s=192718&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e83f6cd9a322.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e581fdc9ed8343ac938addb9947687e9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=776&h=452&s=74530&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4d522745a3a9.png)
 
 修改下头像：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8d4719687274f708ca79518992f95a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1598&s=1185259&e=gif&f=34&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0899190d6c60.gif)
 
 没问题。
 
@@ -97,23 +97,23 @@ npm run start
 
 可以查看会议室列表，根据名称、容纳人数、设备来搜索会议室：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/278ea29cacf748bc8615a574c55db54d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2776&h=1410&s=467128&e=gif&f=45&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0213e574085d.gif)
 
 ### 提交预定申请
 
 选择好会议室之后可以提交预定申请：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43208b02c0fe415aa5590a2ad6fd8a79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1398&s=885508&e=gif&f=50&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/07de0be73715.gif)
 
 填入预定时间、备注之后，可以提交预定申请：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89bf7881f64c4981a7ea1ec274b6ee55~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2452&h=1596&s=536237&e=gif&f=32&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/640ac84daedd.gif)
 
 然后在预定历史里就可以看到这次预定。
 
 当然，你可以可以取消预定：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/884b4e8a2029458b9546b0e28a471535~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2788&h=1434&s=295111&e=gif&f=26&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4c00d747f67b.gif)
 
 这样该预定记录就会回到已解除状态。
 
@@ -125,7 +125,7 @@ npm run start
 
 我们来测试下各种管理功能：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4d405db23da46e2982f7b4404c2125a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/963758183888.png)
 
 ### 用户管理
 
@@ -136,11 +136,11 @@ npm run start
 ```
 然后登录下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8ece3c186db472389767e346add0c66~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2736&h=1596&s=305212&e=gif&f=19&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f0ba983c5468.gif)
 
 可以按照用户名、昵称、邮箱来搜索用户：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b819698f58dc4e3b91134b5b4c449a68~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3028&h=1916&s=2783178&e=gif&f=50&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ef857e3bfdb.gif)
 
 （这个冻结功能目前没啥用，可以去掉）
 
@@ -148,49 +148,49 @@ npm run start
 
 可以按照名称、人数、设备来搜索会议室：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/014e8e6bee9b44af8194db4261882ad0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3042&h=1480&s=404314&e=gif&f=50&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/46c4abdf2a96.gif)
 
 可以添加会议室：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d7778c6d157477289d1c9b177afb13e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2624&h=1484&s=639180&e=gif&f=43&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/94181445f506.gif)
 
 之后在用户端这边也可以看到这个会议室了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11a005e5108043e293901d6c0fa64f30~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2924&h=1330&s=266377&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/94d5c4461b4c.png)
 
 当然，也可以更新信息和删除：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/257a71e1cc7c42728c158aaddc86c21c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3046&h=1596&s=1125394&e=gif&f=37&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a1403c85217.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b48a63f968d6457db958c9c6af3a7ea2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3346&h=1610&s=448554&e=gif&f=22&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5a5fc01cc1d.gif)
 
 ### 预定管理
 
 预定管理可以按照预定人、会议室名称、预定时间、位置等来搜索预定申请：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6eccc9d9a9b54cf0ab4c7a3583e0eb54~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3452&h=1774&s=616005&e=gif&f=50&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80e6336f3502.gif)
 
 比如我们在用户端申请一个：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69432a2207724c71969627aa211fbfc1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2872&h=1652&s=707361&e=gif&f=32&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45aacf3e3224.gif)
 
 这时候管理端就可以看到这个申请了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00d6b603020f46e3bea4af0d35a8a80d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3366&h=1284&s=243753&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b0a6d1cee92f.png)
 
 点击通过，然后在用户端就可以看到审批通过了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e69192427c674ecbb689a1144ff5ddf2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3386&h=1318&s=685815&e=gif&f=43&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f0379faf992.gif)
 
 这时候该会议室该时间段就不能再被预定：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5435ed8d3204422aa9f39f12b43b25f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2820&h=1592&s=275530&e=gif&f=20&b=7f7f7f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/55c642d1f551.gif)
 
 ### 统计
 
 这个模块就是可以查看哪些会议室在过去一段时间内被预定的频率高，哪些用户使用会议室的频率高：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca82f204bc81408b97094b2e4993f5c0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2724&h=1808&s=1662036&e=gif&f=50&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e90a6f04fd71.gif)
 
 ## 总结
 

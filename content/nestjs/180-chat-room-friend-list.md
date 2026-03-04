@@ -13,15 +13,15 @@ series_order: 9
 
 好友关系就是用户和用户的多对多关联，保存在好友关系表里。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a4e318ae46e498cb7301bdb5667d681~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1032&h=532&s=80790&e=png&b=fdf9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a71c45337822.png)
 
 聊天室有专门的表，加入群聊就是往用户-聊天室的中间表插入一条记录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c429cf87b63e497d8711b44099229c78~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=996&h=518&s=77973&e=png&b=fdf9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4d7dc8c495c8.png)
 
 我们先来实现好友关系的保存：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c483f7ce49e4f77b26c4c891615563b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1442&h=924&s=219659&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3ee91e2c978.png)
 
 ```javascript
 model User {
@@ -63,29 +63,29 @@ inverseFriends 是 user 是哪些人的好友。
 ```
 npx prisma migrate dev --name friendship
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0400fe0e15854f65bfa81b917bdfc470~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1206&h=584&s=91798&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/194ce7a7cf16.png)
 
 可以看到，生成的 sql 是对的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71ed9dc64c224c9ea25bde9598dbcae5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2312&h=682&s=226924&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7283ef6f99a5.png)
 
 一个中间表，两个字段 userId、friendId 都是外键，引用 user 表的 id。
 
 现在好友关系表里还没有数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a08f4dae6f8440db94cd3dc237edfd4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=862&h=380&s=95369&e=png&b=eae7e6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd78084baca7.png)
 
 我们先注册几个用户：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d269a396950644edb802949a617a1b3c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=818&h=238&s=87167&e=png&b=f9f8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a34c5ab2a568.png)
 
 自己注册的时候可以先把验证码这段注释掉：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eff28ae7c7064d9aa4d0f4af02412325~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1342&h=774&s=161586&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5e025c5447e.png)
 
 然后手动在 friendship 表里加入几条好友关系：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f156d64c976435f898f03fbdbbbf8ef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1776&h=720&s=306648&e=png&b=f0eeee)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8d7acbfad54.png)
 
 在 UserController 添加一个路由
 
@@ -148,23 +148,23 @@ async getFriendship(userId: number) {
 
 试一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5eff5e5ea16d455681b20a4b120b356d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=944&h=902&s=99893&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/993540dd333b.png)
 
 这就是好友列表的功能：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70925674a40d4b91b10c343e10f43a44~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=832&h=430&s=64383&e=png&b=fdf8f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9ed35f482c1.png)
 
 而添加和删除好友就是在这个好友关系表里新增、删除数据。
 
 但是并不是直接添加好友，而是需要先发一个申请，对方通过后才添加这条好友关系：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7769b308c2144b8b94f4379f749069d7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=610&h=204&s=24347&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ee2e500c24f.png)
 
 创建下这个好友申请表：
 
 好友申请表 friend_request：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e766ea2f2603413cb09c884a50566671~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=786&h=738&s=127265&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/476ca733474e.png)
 
 生成这个表：
 
@@ -173,7 +173,7 @@ npx prisma migrate dev --name friend_request
 ```
 看下生成的 sql：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d15b1ff2fb643ba8061908ff73255f4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1668&h=646&s=197442&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/310cebc36bde.png)
 
 没啥问题。
 
@@ -182,7 +182,7 @@ npx prisma migrate dev --name friend_request
 ```
 nest g resource friendship --no-spec
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f865c5d7de4f4d279efa71a0e6c6a7bc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=850&h=270&s=68011&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77d131320f94.png)
 
 添加一个 /friendship/add 路由：
 
@@ -252,15 +252,15 @@ export class FriendshipService {
 
 我们先注册一个新的用户：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96d9f3006351439cbed9116a1fef6ec4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=932&s=121199&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c46d9b91f958.png)
 
 然后让 guang 向 xiaoqiang 发送好友申请：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5aebe32053e94aa58d652ad4614caebc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=870&h=862&s=106093&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51f910ebd1d6.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e038f1adf0934219aede6ee4928e9362~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1698&h=728&s=387724&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4f5586ac11b2.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfa8987beef44b318b750686a8fb2f62~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1578&h=362&s=146974&e=png&b=f0eeed)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/adb244ad42da.png)
 
 好友请求创建成功。
 
@@ -304,7 +304,7 @@ async list(userId: number) {
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20b224a799564085bd30f02812a7bd9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=914&h=818&s=94688&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f8b0d83b85a.png)
 
 这样就查询出了当前登录用户的所有好友申请。
 
@@ -380,19 +380,19 @@ async reject(friendId: number, userId: number) {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4034e011834e4b24873efc770cfd3306~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=852&h=534&s=54374&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f40c082d3364.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecc103f7254f4a97a35bd4a00e8de049~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1304&h=590&s=215558&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a615653f7626.png)
 
 再查询下好友请求列表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e1f8614cf274a7295a21529e879c47f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=916&h=792&s=94266&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/593bed32a2ba.png)
 
 可以看到，好友状态修改了。
 
 然后查询下好友列表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e01bfa3cbc24b14a108e1623da42440~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1084&h=1116&s=134731&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d74266045ae4.png)
 
 guang 的好友列表多了一个叫小强的好友。
 
@@ -400,7 +400,7 @@ guang 的好友列表多了一个叫小强的好友。
 
 不过这个好友列表接口不应该放在 user 模块，我们把它转移到 friendship 模块：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2862ada712f74d89bb298bf39c3d70f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=992&h=472&s=122075&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a220b429536.png)
 
 ```javascript
 @Get('list')
@@ -410,11 +410,11 @@ async friendship(@UserInfo('userId') userId: number) {
 ```
 把之前 userService 的方法移到这里来：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13fa3f596444415baf4cd9c56347b6b6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1296&h=680&s=124034&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd287945b1fe.png)
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67d48667edb442b6a871bfca10c43ef2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=824&h=1076&s=119009&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3556df5351c9.png)
 
 最后再来实现删除好友的功能：
 
@@ -441,9 +441,9 @@ async remove(friendId: number, userId: number) {
 ```
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9eb1e39f4184d528f61e72f9ca9e598~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=518&s=53091&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/658fdf95845a.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ea34a4645184bd4a1f137c06f8c5fe3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=804&h=892&s=94911&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85708843ea7c.png)
 
 代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/chat-room-backend)。
 

@@ -16,7 +16,7 @@ series_order: 14
 ```
 nest new google-login
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f67384306a1148a89212ba8e5b0a984a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=858&h=568&s=353032&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04f7de4c3c2f.png)
 
 进入项目，安装 passport 的包：
 
@@ -27,7 +27,7 @@ npm install --save passport @nestjs/passport
 
 这个可以去 [passport 的网站](https://www.passportjs.org/packages/)搜索：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2912fbdf8bf645579f2b51fdfab70107~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2376&h=1446&s=283080&e=png&b=131313)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5385f9be7b3.png)
 
 
 找下载量最多的那个。
@@ -45,43 +45,43 @@ npm install --save-dev @types/passport-google-oauth20
 
 点击左上角的按钮，然后点击 new project：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/210641057bd44f828df63751785986ec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2506&h=1700&s=800910&e=gif&f=23&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ac528941686.gif)
 
 填入项目名后点击 create：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2bf674dbee8948ac8716cb01e442d6dc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1546&h=930&s=115955&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c213d05fa03c.png)
 
 点击左上角的按钮切换到你刚刚创建的 project：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6225765a7e94a448d9e3dc8a8510818~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2114&h=1120&s=175954&e=png&b=e0e0e0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5aca2d3e0d30.png)
 
 进入 api & service 页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3865c448e8fe4ffbb2a90118a2b56cbd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1982&h=1436&s=172304&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a01eeb7506f.png)
 
 点击 OAuth consent screen，然后勾选 external，点击 create：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd675dd9c1094ceda5d93e1de9ec4051~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1634&h=1124&s=216029&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa59c1bc7ba5.png)
 
 输入三个必填信息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c3e26198f0f43f983e5d4a4180dda21~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1526&h=888&s=203343&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c0c2e46c19d0.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8e0c32cadf4440285a984586a3a35a6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1444&h=1366&s=286594&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/698ee4b2d154.png)
 
 点击 save and continue。
 
 然后点击 Credentials 创建凭证：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7172b64f410347c0a24ebf61a1e7ea1f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1982&h=950&s=200182&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9690b3db323f.png)
 
 输入应用类型、name、填入授权的域名、回调的 url，点击 create：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd52dfd2e7224fba92e6b5da86d03a54~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1338&h=1626&s=206530&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f6c6cc6d74a9.png)
 
 这样 client id 和 client secret 就生成好了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d957e6036feb401f9cc180572dd53517~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1388&h=1216&s=156829&e=png&b=f0f0f0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3137b9fe52a8.png)
 
 接下来写代码：
 
@@ -89,7 +89,7 @@ npm install --save-dev @types/passport-google-oauth20
 nest g module auth
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4742b06a2dd743c192a61779f4987319~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=810&h=124&s=35816&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3d518ffe8d3f.png)
 
 生成 auth 模块，然后创建 auth/google.strategy.ts
 
@@ -139,7 +139,7 @@ export class AuthModule {}
 
 之后在 AppController 添加两个路由：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ac9d39f3bd34ba39572bf8a976afb7b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1080&h=1002&s=176135&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0fc0bd6f7bfa.png)
 
 ```javascript
 import { Controller, Get, Req, UseGuards } from '@nestjs/common';
@@ -181,19 +181,19 @@ export class AppController {
 npm run start:dev
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0fb757f301124cb5bb86eae1a3007d78~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1596&h=450&s=180282&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4f234d39080.png)
 测试下：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54e890bfdbdb434599c742ffa459fa4c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2612&h=1736&s=814485&e=gif&f=34&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7f93a06ebc92.gif)
 
 可以看到，google 的用户信息拿到了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3da71bfe66da4eed8dcefa62abe087ea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1288&h=492&s=111102&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23415ab863dc.png)
 
 这里没有 github 返回的那种有 id，但这里返回了 email，同样可以唯一标识用户。
 
 你可以试下 [medium.com](https://medium.com/) 的三方登录：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/452f486d7935427c9a5ce7e25def8445~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2552&h=1482&s=806348&e=gif&f=38&b=f3bd3e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d826489e3346.gif)
 
 用 google 账号登录之后，会让你完善一些信息，然后 create count。
 
@@ -203,7 +203,7 @@ npm run start:dev
 
 或者 [hub.docker.com](https://hub.docker.com/signup) 的三方登录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6ce241a87494a328cf2444abde81781~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1672&h=1468&s=168105&e=gif&f=19&b=fcfefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/501186b39b5c.gif)
 
 也是在 github 账号登录后，让你填一些其余信息，完成注册。
 
@@ -218,7 +218,7 @@ npm install --save @nestjs/typeorm typeorm mysql2
 ```
 AppModule 里引入 TypeOrmModule：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f7db7c2005342e8b013ab9d9e5e6f64~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=968&h=1036&s=198273&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76bd3813694d.png)
 
 ```javascript
 import { Module } from '@nestjs/common';
@@ -256,9 +256,9 @@ export class AppModule {}
 
 在 mysql workbench 创建这个 database：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f1bcfa1fc19426f84405c150745cf05~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1856&h=1300&s=337021&e=png&b=e7e7e7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d128498bdede.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41d287ad8618459d97dac43ca796bc2d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=394&h=252&s=50757&e=png&b=cecdcc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4abcacc9a8d2.png)
 
 添加 src/user.entity.ts
 
@@ -319,7 +319,7 @@ registerType 用来标识哪种注册方式，正常注册是 1，google 账号�
 
 在 entities 里引入：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3341f7af04044e82b2fddf378dae3764~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=882&s=167229&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a1e6306da10.png)
 
 跑一下试试：
 
@@ -327,21 +327,21 @@ registerType 用来标识哪种注册方式，正常注册是 1，google 账号�
 npm run start:dev
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17e9cf1c9bb64b24a284e31aae3ad137~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/79c4a1bbfefc.png)
 
 这部分和我们单独跑 typeorm 没啥区别：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96316f78b76c4e52b7866e61f26ebea4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/19c1fec5c80f.png)
 
 然后是增删改查，我们可以注入 EntityManager：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d13629e0c2d24afbae695fb75e8580f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2206&h=824&s=339649&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f63d1688a6b3.png)
 
 自动创建了对应的表。
 
 在 mysql workbench 里也可以看到：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3004cda60b1949bd9e46c85f8e585867~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1138&h=690&s=266076&e=png&b=e8e7e7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8d3ca9a48c3.png)
 
 然后在 AppService 里注入 EntityManager 来操作 user 表：
 
@@ -419,23 +419,23 @@ async googleAuthRedirect(@Req() req) {
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77f9e162fadf4c94b5e3d517be92b7f6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2330&h=1398&s=144441&e=gif&f=30&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f3d4f8036523.gif)
 
 因为前面登录过 google 账号并授权了，短时间内不需要再次授权，所以这里直接触发了注册并登录了。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e01546f398984de5b36439419e12c811~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1692&h=512&s=183485&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1683e83e95dd.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ef4739eec79426fa3c0296ca4d16da9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1486&h=692&s=327631&e=png&b=f1f0f0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c191b0ad6cb.png)
 
 当你用这个 google 账号登录，就会直接登录，不需要再注册了。
 
 当然，网站登录后一般都会重定向到首页，那这时候怎么返回 jwt 的token 呢？
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5bbff9cd49fd437f8a53da4e9878d990~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2470&h=1668&s=346352&e=gif&f=37&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/222c35eebfc6.gif)
 
 看下 https://hub.docker.com 怎么做的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6366bb960bc415898b20c07c252dd87~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2034&h=1034&s=328113&e=png&b=faf8fd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d523a8a0a209.png)
 
 可以看到，它并不是直接返回 jwt 的 token，而是重定向回首页，在 cookie 里携带 token。
 
@@ -459,4 +459,4 @@ async googleAuthRedirect(@Req() req) {
 
 现在，你可以在你的应用中加上 docker.com 这种三方账号登录了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fddf163690c4a25886d4beda26556fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccbcefeec87b.png)

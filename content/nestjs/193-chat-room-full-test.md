@@ -21,28 +21,28 @@ series_order: 22
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f9ee14487ff42ee950f33685437d7bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1686&h=836&s=490465&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/562b86424874.png)
 
 然后把 frontend 项目跑起来：
 
 ```
 npm run dev
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41c801d3680843f2b01e25e0b90cdcf7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=812&h=266&s=36576&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a15cb3af396.png)
 
 ### 注册
 
 首先填入信息，发送验证码：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4335c1df91145a9a55259530ba7d37b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2304&h=1296&s=182874&e=gif&f=26&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/55da6bf6e44c.gif)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f5eb7bfca784bb6b38e13a03d33bfa8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=570&h=256&s=35098&e=png&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1c69bb2b6395.png)
 
 注册成功后我们登录下：
 
 ### 登录
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0e432b394d847a5b026460f6bd26e63~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2798&h=1338&s=356128&e=gif&f=38&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/452ae5eef4f2.gif)
 
 刚才注册的账号可以登录。
 
@@ -52,47 +52,47 @@ npm run dev
 
 填入用户名、邮箱，点击发送验证码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/351758aadd204147840279978610ff91~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1794&h=1012&s=105155&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fce22c1fef6.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69f3395567df40b3a6169bf93525ab2b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=540&h=244&s=36429&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c7d0e3a5e83a.png)
 
 修改成功，再登录下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b4f658d130741d69e823f4afad00233~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2798&h=1338&s=305931&e=gif&f=25&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e53ea3771f22.gif)
 
 ### 修改个人信息
 
 登录后可以修改个人信息：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f11838f6a9e9482eb0df95e8d7564b30~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2798&h=1338&s=2242945&e=gif&f=70&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ceeafaf6bf8.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e852d20e0b3498f9302944c1437584a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=530&h=270&s=35050&e=png&b=f8f8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4c980d6ac826.png)
 
 修改完之后，右上角头像就变了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68fe0a30a7804dcb86eb76a437cdb2db~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2328&h=1086&s=133016&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ccd0d9312f9.png)
 
 ### 添加好友
 
 现在没有好友，我们添加一个：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77704b001bce4080a2e7091108408004~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2304&h=1268&s=689379&e=gif&f=42&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/36d4f83f3ea3.gif)
 
 输入添加好友的 username，填写添加理由，就会发送好友请求。
 
 在通知列表可以看到所有好友请求的状态：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7a947548b9046f9857cade55ec979a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2304&h=1268&s=157868&e=gif&f=28&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4d036db83f45.gif)
 
 登录 guang 的账号，通过下好友请求：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4212e6f746f4bf6bb09712d976402e1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2304&h=1268&s=543441&e=gif&f=51&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a68a6e6c431a.gif)
 
 通过后就可以在好友列表里看到这个好友。
 
 回到 catcat 的账号：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9bb4b04ee2924f7bb3147e20a84ef15d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2304&h=1268&s=316388&e=gif&f=39&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23c0e0671334.gif)
 
 可以看到好友请求变成了通过状态，好友列表里也可以看到这个好友了。
 
@@ -100,43 +100,43 @@ npm run dev
 
 点击好友列表里的聊天按钮，可以和对应好友聊天：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05cf676ffe3c4a83ae0ae02d01096b0e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2388&h=1412&s=988650&e=gif&f=61&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76f703c0c219.gif)
 
 可以发送表情、图片、文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8d8837395bd4198af05780236f71593~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2388&h=1412&s=4260731&e=gif&f=58&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/afd04f017d3d.gif)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a562cd10d33845b4b076aac8dfc54768~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2388&h=1412&s=3119762&e=gif&f=61&b=fdfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b19e706f218a.gif)
 
 文件点击就可以下载。
 
 双方是实时通信的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9ee1737fa154a7bbbd8c51fa1070ddc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2860&h=1452&s=1360204&e=gif&f=50&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/791bbb51678b.gif)
 
 ## 群聊
 
 除了和好友聊天，还可以创建群聊：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff7af56cf89e4cada4848bd5135e8e91~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2860&h=1452&s=1226454&e=gif&f=53&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9310ea689277.gif)
 
 创建后成员只有当前用户。
 
 可以添加成员：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ce3dad7834b464789f1085666d55f31~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2860&h=1452&s=1651484&e=gif&f=70&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/378f3e34dff6.gif)
 
 然后进入群聊：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f5ccee49f654143aaa34381f9a6e3ef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2860&h=1452&s=1004541&e=gif&f=41&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a85401e7f1a5.gif)
 
 qiang 和 guang 也会收到消息，因为都在这个群聊里：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0cd2eb7f9c6459fa1b7d54e2a773d99~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2216&h=1394&s=165412&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c0ca614cded3.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01e8bdd1e983495b83f9edbbe7b0adb8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2196&h=1346&s=133825&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/52c10fd073c4.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40be1387af334848a7681caeba494d95~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2822&h=1324&s=145998&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3fdbc5fff5d0.png)
 
 可以一起聊天。
 
@@ -144,11 +144,11 @@ qiang 和 guang 也会收到消息，因为都在这个群聊里：
 
 聊天记录可以双击收藏：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c7958668ebd4f00a8b7841290539ef5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2860&h=1452&s=1197203&e=gif&f=68&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a4966ea974b.gif)
 
 收藏可以删除：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1ead05507854305ba8f1ae8c0f86047~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2860&h=1452&s=955419&e=gif&f=40&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c016ca5ac783.gif)
 
 这就是聊天室的全部功能了。
 

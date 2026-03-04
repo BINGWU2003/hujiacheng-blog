@@ -21,7 +21,7 @@ nest new logger-test -p npm
 
 Nest 会打印这些日志：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/749f82a9fc894ac6859f9827b7845c34~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8beb6dafd81.png)
 
 它也同样提供了打印这种日志的 api。
 
@@ -53,29 +53,29 @@ export class AppController {
 
 浏览器访问下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f669d2514084ef7894f35bfe92e9439~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dfa5645b79e6.png)
 
 会打印这样的日志：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c24ac2a4e1540fa88fdb51e8b11123d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9a0b4094ee71.png)
 
 这里的 verbose、debug、log、warn、error 就是日志级别，而 \[] 中的是 context，也就是当前所在的上下文，最后是日志的内容。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ead7a4c67254e3aa20ffe4bd84f1266~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e3a74554a874.png)
 
 这个日志是受 Nest 控制的，可以在创建应用的时候指定是否开启：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17ec845196684061a38da9f7daa4e2a6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63a4a1f625f2.png)
 
 设置 logger 为 false 之后就没有日志了。
 
 你也可以自己决定输出什么级别的日志：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aaea63a9c9e04a52854e6a58a5b0bd92~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c5d4d4a9d40.png)
 
 此外，你还可以自定义日志打印的方式，定义一个实现 LoggerService 接口的类：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ee54307de014b418c708cd3bf0013e5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/607e6ce0a4ca.gif)
 
 只要实现 log、warn、error 3 个方法就好了：
 
@@ -99,15 +99,15 @@ export class MyLogger implements LoggerService {
 
 在创建应用时指定这个 logger：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac42f8d90a4f4192b95823d5e5d9c18f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5c747cc49f62.png)
 
 然后现在项目启动就是这样了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7079be45489d46c4a3306e4444c77460~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78afa344a9d7.png)
 
 刷新页面打印的日志是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31f90826822f4a70be7c1c477f8c9a69~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/753bfb5889f7.png)
 
 确实还挺丑的。。
 
@@ -127,15 +127,15 @@ export class MyLogger2 extends ConsoleLogger{
 
 因为 ConsoleLogger 实现了 LoggerService 接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5a89634bcb6430dab1b772e1787d4d0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/934e1ec24f94.png)
 
 这样你没重写的方法就是原来的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f46ab655eca441b8bd02bbab812ff86~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/59afe2478c30.png)
 
 这就是创建应用时 logger 的 3 种取值：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8720102246e465a8b0dcfcc22ac2028~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f0fffae3b5a8.png)
 
 但这样有个问题，没法注入依赖，因为 Logger 是在容器外面，手动 new 的对象。
 
@@ -143,7 +143,7 @@ export class MyLogger2 extends ConsoleLogger{
 
 这时候可以这样：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3142d31e9ba74b2ba22691b302ed6c87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53f36865b2a7.png)
 
 bufferLogs 就是先不打印日志，把它放到 buffer 缓冲区，直到用 useLogger 指定了 Logger 并且应用初始化完毕。
 
@@ -169,13 +169,13 @@ export class MyLogger3 extends ConsoleLogger{
 
 添加 @Injectable() 装饰器，代表这是一个 provider，并且要在 Module 里引入：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/060b4c8ba5d94b02a072f6cb4d138f47~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c66e904e3c6.png)
 
 通过 @Inject 注入 AppService，并在 log 的时候调用。
 
 现在的日志是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f10ef3733c2c40649386dc2c89b7adba~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/76f2ed2a5ab8.png)
 
 很明显，logger 里成功注入了 appService 的依赖。
 
@@ -185,7 +185,7 @@ export class MyLogger3 extends ConsoleLogger{
 
 把这个 Module 设置为全局模块：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/637c9632df204d3fa73be21165d5f3f6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5f6ae98f265.png)
 
 这样在任何地方都可以注入这个 logger 对象了。
 
@@ -195,17 +195,17 @@ export class MyLogger3 extends ConsoleLogger{
 nest g resource aaa 
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4611d105de248558d7c2505d9e80066~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cba9c4e144a9.png)
 
 在这个模块里可以直接注入 MyLogger，不用 imports 那个 Module。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0044702b569b4409a84bd4332d329cbc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/61a12bfe9a76.png)
 
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d298f6fe65d5497d9be34c896d01a95b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c37b31d6c94.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef03de64216c400c872a9e737d25e668~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c989a86cc9cd.png)
 
 可以看到，成功注入了 MyLogger。
 
@@ -235,14 +235,14 @@ export class Logger2Module{
 ```
 把传入的 options 作为 provider，在 Logger 里注入：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8a3106dfb784d0ab969682dab783ae2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c93860b5907.png)
 
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64739b1d8eb84b85b541eb12e6c60422~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0e55fc63704f.png)
 
 每次 imports 的时候传入不同的配置：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/efbe72168bec42788f75c7bbc53fcd01~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fb0e137df79c.png)
 
 在 AppService 里注入下：
 
@@ -266,7 +266,7 @@ export class AppService {
 ```
 浏览器访问 http://localhost:3000 就可以看到 MyLogger 打印的传入的 option：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ffe39b3413d4d07b4d770a0cf5678eb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/09ab87b44f18.png)
 
 具体是用全局模块还是动态模块，可以根据情况来选择。
 

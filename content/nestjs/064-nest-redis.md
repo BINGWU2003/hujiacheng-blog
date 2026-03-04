@@ -17,13 +17,13 @@ series_order: 3
 
 redis 有很多的 [node 客户端的包](https://redis.io/resources/clients/#nodejs)：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ee372edb494479a868020cda99a4a0b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/11f159b3e29a.png)
 
 最流行的就是 redis 和 ioredis 这两个。
 
 我们创建个项目来试一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b60006cd719b4652abf5b8c75f13d52a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/624a89fc1a2b.png)
 
 我们先试一下 redis，它是官方提供的 npm 包：
 
@@ -56,15 +56,15 @@ await client.disconnect();
 
 因为用到了 es module、顶层 await，这些的启用需要在 package.json 里添加 type: module
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bbf7b44d9a5d417aa6b35f67e0fdcca8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e361b6b310de.png)
 
 然后 node 执行下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82bc3c74c1214f708d29eb861cdb881a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad0619d49acb.png)
 
 用 RedisInsight 看下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/097ecb127c7a46d6afa2bc8b67850921~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a91b6d5bd1f.png)
 
 确实现在是有这些 key。
 
@@ -78,11 +78,11 @@ await client.hSet('guangguang1', '333', 'value333');
 
 执行以后是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08e56096e39749e8be32c52a3e5ba1e7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b45ba637d5af.png)
 
 所有的 redis 命令都有对应的方法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7078ce4313954be0824981edd72b8e01~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7053fa452d1d.png)
 
 和我们在命令行客户端里操作一样。
 
@@ -106,11 +106,11 @@ console.log(res);
 
 结果如下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ecadf44c9e3494a9980d62a03151649~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/824e0e5043e3.png)
 
 其他命令也是这样执行：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c5f633c97a8483bbd947e639c71a81d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b96d7d0cf6a0.png)
 
 这些 node 包用起来还是很简单的，没啥学习成本。
 
@@ -122,7 +122,7 @@ console.log(res);
 
     nest new nest-redis -p npm
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52d74f217d9a40da8aa0537345234e52~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3bb89ba0d89.png)
 
 当然，要先安装用到的 redis 的包。
 
@@ -130,7 +130,7 @@ console.log(res);
 
 然后在 AppModule 添加一个自定义的 provider：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/204f0b6bb67a46eaa74cc27c0a30e64c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a196891c8e93.png)
 
 ```javascript
 import { Module } from '@nestjs/common';
@@ -186,7 +186,7 @@ export class AppService {
 
 因为 service 里加了 async、await，那 controller 里也得加一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1a51c317eca405d82defe4d626aece4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15b3dcaa0bc2.png)
 
 这样就能在 nest 里操作 redis 了。
 
@@ -196,7 +196,7 @@ export class AppService {
 
 可以看到控制台打印了 redis 命令的执行结果：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d51073000fef4d49a3b47f332d4a4676~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dff73be5058e.png)
 
 这就是在 Nest 里操作 redis 的方式。
 

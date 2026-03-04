@@ -45,7 +45,7 @@ WebSocket 的项目实战，最容易想到的就是即时通讯（Instant Messa
 
 忘记密码的话，可以通过邮箱来重置密码
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65a6f64f54224c76aa29b7a447b08548~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1646&h=1156&s=65457&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/13a9c7f1fe2a.png)
 
 ## 修改信息
 
@@ -57,7 +57,7 @@ WebSocket 的项目实战，最容易想到的就是即时通讯（Instant Messa
 
 可以添加好友，查看好友列表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01a2ea9773a8415a92b1232f392f86aa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1686&h=1060&s=80966&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63d64a6ecf85.png)
 
 右键可以删除好友。
 
@@ -65,7 +65,7 @@ WebSocket 的项目实战，最容易想到的就是即时通讯（Instant Messa
 
 可以添加群聊，查看群聊列表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c35c57240074b20b9209536ee4e1e82~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1430&h=964&s=66083&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/33d85d73bf58.png)
 
 右键可以退出群聊。
 
@@ -73,7 +73,7 @@ WebSocket 的项目实战，最容易想到的就是即时通讯（Instant Messa
 
 点击添加好友时，会有一个弹窗，输入 username 和理由就可以发送好友请求：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9f3bdf981204287b11b055ee0c9b031~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1612&h=1096&s=74743&e=png&b=d2d2d2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/13117466ec1d.png)
 
 ## 通知
 

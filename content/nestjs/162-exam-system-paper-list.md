@@ -11,7 +11,7 @@ series_order: 8
 
 这节继续来写修改密码页面，还有试卷列表页面：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b84459485a4df49649711ec205c642~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2866&h=1300&s=351571&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64cce92c0a81.png)
 
 首先是修改密码的页面 src/pages/UpdatePassword：
 
@@ -132,7 +132,7 @@ css 部分如下：
 ```
 跑起来是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/997914d803d54a30b6584b7518942d93~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1952&h=1040&s=94003&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e0e75b6ca12.png)
 
 然后再调用下后端接口。
 
@@ -196,31 +196,31 @@ const onFinish = async (values: UpdatePassword) => {
 测试下：
 
 
-![2024-08-26 11.05.14.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16783f2949784fe1a2e72d97bdf8073a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2338&h=1116&s=153414&e=gif&f=25&b=fefefe)
+![2024-08-26 11.05.14.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a308778105b.gif)
 
 填入邮箱，点击发送验证码。
 
 提示发送成功。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a5165e19bf942b788629ce73e017717~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=578&h=258&s=37752&e=png&b=f7f7f7)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b5ff41a6cc3.png)
 
 邮箱里也收到了这个验证码。
 
 然后填入新密码，点击修改密码按钮：
 
 
-![2024-08-26 11.06.48.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1395b932393c46948eb7dcb089f26c49~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2338&h=1116&s=353592&e=gif&f=31&b=fefefe)
+![2024-08-26 11.06.48.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8ef49d215b18.gif)
 提示修改成功，然后会跳到登录页面。
 
 在登录页面用新密码登录，提示登录成功。
 
-![2024-08-26 11.08.11.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc4683c71d6745909aee51627a6dc9ff~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2338&h=1116&s=243589&e=gif&f=27&b=fefefe)
+![2024-08-26 11.08.11.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/389dd12c5f57.gif)
 
 这样，修改密码功能的前后端就都完成了。
 
 然后来写试卷列表页面。
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c885d0d10954691bc3d8ccf27772fa2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1542&h=628&s=180828&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35be5efcf965.png)
 
 添加一个 ExamList 组件
 
@@ -232,11 +232,11 @@ export function ExamList() {
 }
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/567cf140886d4f298382b02ba299448f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=752&h=246&s=19834&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ea7610e0bb7.png)
 
 看下问卷星的列表页面：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b84459485a4df49649711ec205c642~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2866&h=1300&s=351571&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64cce92c0a81.png)
 
 修改 pages/ExamList/index.tsx
 
@@ -317,7 +317,7 @@ npm install --save-dev sass
 
 看下效果：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ff08546123743a7b0edb26fb5c41247~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1068&h=1022&s=75514&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9545f595628c.png)
 
 然后在 interfaces/index.tsx 调用 /exam/list 接口：
 
@@ -392,12 +392,12 @@ examServiceInstance.interceptors.response.use(
 
 在后端 exam 微服务开启跨域：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7bccdeced484d65a4cb9b055a07b6e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1604&h=746&s=192640&e=png&b=1d1d1d)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/17903f533bf1.png)
 
 然后在 ExamList 页面调用下：
 
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84f4cf5701934fe9b8bf4c4af54fa6f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1286&h=1232&s=244511&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa456de017c7.png)
 
 ```javascript
 import { Button, message } from "antd";
@@ -460,7 +460,7 @@ export function ExamList() {
 ```
 测试下：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/608b7bb683bc43bfa784e843613f29cf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1148&h=1052&s=77773&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6fc0e0c37693.png)
 
 这样，试卷列表就展示出来了。
 

@@ -13,23 +13,23 @@ series_order: 13
 
 在问卷星里，编辑完试卷后，点击发布后，会生成链接和二维码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07a38196a7ce497fb94d912443f2f59e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2302&h=1074&s=301412&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0cd776b29284.png)
 
 打开链接就可以答题了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32f8b6710a62464c92b036ae331eaa06~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2184&h=1500&s=252196&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3174263375b.png)
 
 答完点提交会立刻判卷，给出分数，还可以查看正确答案和解析：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9e55fee4f6c4dde8f9b28f6659d6b9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1410&h=1446&s=139802&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b92f412ed6e.png)
 
 这节我们来实现这部分功能。
 
 首先给编辑按钮加上跳转编辑器的链接：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a889138074044652a95d87d733b559a9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2876&h=1040&s=113123&e=png&b=ffffff)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8b36e94ab2fc.png)
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb86797b2c7d448795ed099e61550979~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1852&h=902&s=249519&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eba8eafbc53c.png)
 
 ```javascript
 <Link to={`/edit/${item.id}`}>编辑</Link>
@@ -37,17 +37,17 @@ series_order: 13
 试下效果：
 
 
-![2024-08-27 10.03.31.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0db8925fded54107835d4669c3c594dc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=1916721&e=gif&f=58&b=fbfbfb)
+![2024-08-27 10.03.31.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9e7e97600deb.gif)
 
 跳转成功，id 也是对的。
 
 我们编辑下，点击保存：
 
-![2024-08-27 15.12.05.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cdeb63cef344ff783afda46cce3acc3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1432&s=536145&e=gif&f=67&b=fdfdfd)
+![2024-08-27 15.12.05.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/56431661570c.gif)
 
 加个返回按钮：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36ab3a0a3383442cb660caecdd85240a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=894&s=213973&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d6416bf49017.png)
 
 ```javascript
 <Button type="default">
@@ -55,14 +55,14 @@ series_order: 13
 </Button>
 ```
 
-![2024-08-27 15.15.13.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fcf17fbdd454e28985e7d6bc7ac3bc7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2878&h=1418&s=488971&e=gif&f=35&b=fefefe)
+![2024-08-27 15.15.13.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e51fea796b23.gif)
 
 编辑完，点击保存，然后返回列表页就好了。
 
 然后生成考试链接：
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ec7fe9ffdd9418c85ee31b87cead0d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1932&h=754&s=231435&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/72ff4663ab27.png)
 
 用 Popover 加个考试连接按钮。
 
@@ -74,7 +74,7 @@ series_order: 13
 </Popover>
 ```
 
-![2024-08-27 15.20.05.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a01ddf5de71f4fccae9a6a4287f3fe48~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2878&h=1418&s=183636&e=gif&f=33&b=fefefe)
+![2024-08-27 15.20.05.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5e5011a311b.gif)
 
 复制这个链接打开就是试卷。
 
@@ -82,7 +82,7 @@ series_order: 13
 
 加一下：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e47d6c8133348baa7cc4123fe2d0f46~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=962&h=892&s=121032&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f522d91ce67a.png)
 
 ```javascript
 {
@@ -110,7 +110,7 @@ export function Exam() {
 
 这个页面要做的事情就是拿到 json，根据 json 渲染表单：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32f8b6710a62464c92b036ae331eaa06~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2184&h=1500&s=252196&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3174263375b.png)
 
 然后点击提交的时候保存答卷。
 
@@ -206,7 +206,7 @@ index.scss
 看下效果：
 
 
-![2024-08-27 15.33.21.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da4139eb9d414f9f8c5b9fc78704b597~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2878&h=1418&s=437161&e=gif&f=43&b=fefefe)
+![2024-08-27 15.33.21.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd62ef53f500.gif)
 
 然后做下点击提交按钮的处理。
 
@@ -249,17 +249,17 @@ export async function answerAdd(data: { examId: number, content: string}) {
 
 然后在页面调用下：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3c75bee351e4b66a6831c11f0b1dffa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1754&h=1398&s=282786&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f4f26b11483a.png)
 
 加一个 state 来存储  answer 数组，拿到 json 的时候初始化 answers 数组。
 
 然后表单 onChange 的时候修改 answers 数组元素。
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16ca603cc86045cabe7a8958127e5c68~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1782&h=1330&s=273276&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/102647da3756.png)
 点击提交的时候，打印下：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad5d532085804aeb88b2f415ff62196d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1308&h=416&s=86965&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/40dceb48840d.png)
 
 
 ```javascript
@@ -354,11 +354,11 @@ export function Exam() {
 
 试下效果：
 
-![2024-08-27 16.01.23.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d3ff01222aa4462bcbc7cfecbffaf97~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2878&h=1418&s=451316&e=gif&f=51&b=fefefe)
+![2024-08-27 16.01.23.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8abf0ac360f8.gif)
 
 接下来只要调用下新建答卷的接口就好了。
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c416c677f6842489669644e70e8fa5c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1500&h=1364&s=282746&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/31cc60354de5.png)
 
 ```javascript
 const addAnswer = useCallback(async function () {
@@ -384,13 +384,13 @@ const addAnswer = useCallback(async function () {
 }, [answers]);
 ```
 测试下：
-![2024-08-27 16.14.41.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c037466feb51404a931835e83c90adf6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2832&h=1150&s=224897&e=gif&f=35&b=fefefe)
+![2024-08-27 16.14.41.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c89b9e45208.gif)
 
 提交成功，跳转的链接也是对的。
 
 看下返回的响应：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14a3ae28dca349cab210a01e5e591042~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1896&h=1272&s=286799&e=png&b=fefefe)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa12b9102815.png)
 
 保存的答案也是对的。
 

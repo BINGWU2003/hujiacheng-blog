@@ -11,11 +11,11 @@ series_order: 6
 
 这节我们来写图书新增、修改、删除、详情功能：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80c04fea60084de4bd8f04b232665906~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1782&h=1254&s=377019&e=png&b=d9d9d9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78b8dd9d854b.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/671952dbe4754a3d8c3508868bae7088~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=1138&s=341236&e=png&b=d9d9d9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/89f42b711c86.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/527656a1307840189305aabb8439a457~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1510&h=1070&s=321915&e=png&b=d8d8d8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cfea6e59caaa.png)
 
 我们创建一个新的组件：
 
@@ -102,7 +102,7 @@ export function CreateBookModal(props: CreateBookModalProps) {
 
 在 BookManage/index.tsx 调用下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/233636705c7d47efbd5e0477fd316d3a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1942&h=1284&s=326138&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78e5a43ebd27.png)
 
 ```javascript
 const [isCreateBookModalOpen, setCraeteBookModalOpen] = useState(false);
@@ -113,11 +113,11 @@ const [isCreateBookModalOpen, setCraeteBookModalOpen] = useState(false);
 }}></CreateBookModal>
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a4a9aea90274eaeb5e68a7870fe6808~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2424&h=1258&s=4084004&e=gif&f=36&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a7362933527b.gif)
 
 接下来在 interfaces/index.ts 里添加 /book/create 接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac0aa4f4e307480ab6f39ed7d09dff2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1244&h=788&s=143812&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bad7519d7628.png)
 
 ```javascript
 export async function create(book: CreateBook) {
@@ -131,7 +131,7 @@ export async function create(book: CreateBook) {
 ```
 然后在 CreateBookModal 组件调用下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/abf43aa648ca42d1a491a5f58c066b89~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1436&h=1132&s=245734&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d14b1e397362.png)
 
 ```javascript
 const handleOk = async function() {
@@ -154,7 +154,7 @@ const handleOk = async function() {
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12b956161b25427b828d97c586667ead~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2424&h=1258&s=2199176&e=gif&f=50&b=7f7f7f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5af873505c76.gif)
 
 添加成功，刷新页面就可以看到新的图书了。
 
@@ -162,11 +162,11 @@ const handleOk = async function() {
 
 我们在 handleClose 的回调里调用下 setState 触发刷新：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30738c5a6f7e4ec2b24159e495e18592~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1488&h=528&s=157274&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9437b8dfc45b.png)
 
 这样创建成功就会自动刷新列表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd93d9f99a5942b0ba166055be56760c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=2105054&e=gif&f=29&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c0708079c925.gif)
 
 然后我们来做一下文件上传：
 
@@ -224,17 +224,17 @@ export function CoverUpload(props: CoverUploadProps) {
 
 我们在 CreateBookModal 里用一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89e21f5174e94488ab3ae95a9459631a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1440&h=788&s=144872&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac62f9cb08db.png)
 
 试下效果：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9de732fc82e7454aa6ed8d460f9956b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=10004624&e=gif&f=70&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a514de80075.gif)
 
 封面上传成功。
 
 在服务器 uploads 目录下也可以看到这个文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0bc51f88ff944b389a058068a3a421d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2314&h=1090&s=1350221&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/179e2a89d699.png)
 
 这样，新增图书功能就完成了。
 
@@ -324,9 +324,9 @@ export function UpdateBookModal(props: UpdateBookModalProps) {
 
 在页面里引入下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7afd5804f644f18c2bfed3fa3851e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1680&h=836&s=267723&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5c04f8791ab8.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7deefe6496a14315b08f99219412b0b3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1354&h=708&s=120949&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/13c7ee8cb464.png)
 
 就是声明一个 isUpdateModalOpen 的 state 来控制弹窗的显示隐藏。
 
@@ -352,20 +352,20 @@ const [updateId, setUpdateId] = useState(0);
 ```
 
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d2329b402654674a36bd8f4138d80a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=7897388&e=gif&f=47&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a58eedc11457.gif)
 
 然后在弹窗里根据 id 请求下数据：
 
 在 interfaces/index.ts 里加一下接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/556ad83352334fbd8f0c177811907a07~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1068&h=426&s=84518&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a48e72075ccb.png)
 
 ```javascript
 export async function detail(id: number) {
     return await axiosInstance.get(`/book/${id}`);
 }
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5877bac6f834e86a324548416e55bd7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1328&h=1370&s=285749&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bcaaaba9c978.png)
 ```javascript
 async function query() {
     if(!props.id) {
@@ -394,13 +394,13 @@ useEffect(() => {
 
 试一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a3647787d5d4cb7a53ae978c92d53e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=9672547&e=gif&f=66&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4ae9bf53a301.gif)
 
 然后点击更新按钮时候调用下更新接口：
 
 改下 interfaces/index.ts
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c8e3fcb7acb543d1b24e086d86c6cad1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1106&h=612&s=129625&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2428b9029612.png)
 
 ```javascript
 export async function update(book: UpdateBook) {
@@ -415,7 +415,7 @@ export async function update(book: UpdateBook) {
 ```
 组件里调用下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d03fc8e1db7c471b9c4980e7556db8d8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1354&h=1188&s=235537&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/436b32aeec4b.png)
 
 ```javascript
 const handleOk = async function() {
@@ -437,21 +437,21 @@ const handleOk = async function() {
 ```
 试下效果：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5303c3ed726a449989d514d910a5694b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=3394543&e=gif&f=60&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e52b3de9279b.gif)
 
 更新成功。
 
 但是我们要手动刷新下页面，因为 name 没变，没触发重新请求：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/285aa08c081444cbb0fc73d94856afd3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1126&h=954&s=233082&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4fb8343c5b41.png)
 
 改一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/674c743561a74271914d3f0e3d741d8f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1336&h=1252&s=311537&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7664acb5012a.png)
 
 加一个随机数的状态，当这个状态变了就重新请求。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b819975f57304f7197ef2a53a447469b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=3390302&e=gif&f=41&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25b6197b2d25.gif)
 
 这样就好了。
 
@@ -461,7 +461,7 @@ const handleOk = async function() {
 
 再来实现下删除：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73d245a458e74d1085eb365f66dfe3a6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1540&h=1274&s=286587&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e659b9d714c.png)
 
 点击按钮按钮的有个二次确认的弹窗，确认后执行删除逻辑：
 
@@ -478,7 +478,7 @@ const handleOk = async function() {
 ```
 在 interfaces/index.ts 加一下删除接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93dfb234ab9c4870a7df2a2abfd757e9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1260&h=706&s=142650&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/82d8be5be1bf.png)
 
 ```javascript
 export async function deleteBook(id: number) {
@@ -487,7 +487,7 @@ export async function deleteBook(id: number) {
 ```
 在组件里调用下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af8ce9ce05724102882b09d00340e7aa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=706&s=167050&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/57dcc627ee73.png)
 
 ```javascript
 async function handleDelete(id: number) {
@@ -501,7 +501,7 @@ async function handleDelete(id: number) {
 }
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7f2be67c4f3425995497cadad11c8e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2600&h=1528&s=1808541&e=gif&f=63&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/571b7cc60f45.gif)
 
 删除功能完成。
 

@@ -13,7 +13,7 @@ series_order: 3
 
 微信我们可以在不同的群聊里聊天：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78cbd671d30a44b493f1a22db475bd8a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1856&h=990&s=850849&e=gif&f=43&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b6112f0294dd.gif)
 
 如何实现这种功能呢？
 
@@ -30,7 +30,7 @@ socket.join('room666')
 serveer.to("room666").emit("新成员加入了群聊")
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d03109a9ec564ea2b9e5d272177fd954~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1116&h=652&s=46037&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dbc4c1354e90.png)
 
 这样就实现了群聊功能。
 
@@ -40,7 +40,7 @@ serveer.to("room666").emit("新成员加入了群聊")
 nest new group-chat-room
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a38bb4f1a794b37a96bf10b8f6eef67~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=928&h=686&s=165382&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4f6c7a80cc48.png)
 
 进入项目，安装 websocket 的包：
 ```
@@ -51,13 +51,13 @@ npm i --save @nestjs/websockets @nestjs/platform-socket.io socket.io
 ```
 nest g resource chatroom
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b18987ef24a54aa5afd4c4aab283fe32~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=934&h=474&s=117958&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5a71ecdb4ca.png)
 
 注意，选择生成 WebSockets 类型的代码。
 
 这样，基于 websocket 的 crud 代码就生成了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dac03b2dffcc4a268b907255fe039d19~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1334&h=1122&s=300426&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb25cee0e983.png)
 
 这些我们上节写过。
 
@@ -79,7 +79,7 @@ bootstrap();
 
 创建 pages/index.html
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e13557d0dc1493eaad999b4db1b120f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1916&h=796&s=240370&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7b266c158477.png)
 
 ```html
 <html>
@@ -110,13 +110,13 @@ bootstrap();
 npm run start:dev
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc04833e63b140d680fd6fe8d08cb6e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1936&h=512&s=243151&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/234d9d619b03.png)
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bfb531bba221417dbe04ee68446e476c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1052&h=694&s=60891&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5bfc8820b8e.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa24591ddcc24477a58710e6ea42c3f3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=904&h=410&s=77022&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1dd9a35efd02.png)
 
 打印了返回的消息。
 
@@ -152,11 +152,11 @@ export class ChatroomGateway {
 
 之前我们都是这样取消息：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04b029daad2f4cc69293547155b04335~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=494&h=122&s=32664&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ac343e0b600.png)
 
 这两种是等价写法：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6164cd253d0144168db2937de8c714e6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1044&h=430&s=105891&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa308da39874.png)
 
 然后我们在客户端也加入 room 功能：
 
@@ -196,19 +196,19 @@ export class ChatroomGateway {
 测试下：
 
 打开页面，进入 aaa 房间，发送了一条消息：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b2fa67c8c6f470da1a228e4c516e99f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2330&h=1190&s=391234&e=gif&f=33&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d5ea9130b994.gif)
 
 再打开一个页面，进入 aaa 房间：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a36abc648794055abf56bb79f3555f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2330&h=1190&s=345205&e=gif&f=30&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/11f9c62ab73b.gif)
 
 这时候之前那个房间就有 2 条消息了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad962768273b4329addecc1ac6ac7c20~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1046&h=518&s=76599&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dfc3ef2778e2.png)
 
 再打开一个页面，进入 bbb 房间，这时候之前的 aaa 房间并没有收到消息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ce2856443d94522b05ab45a17aec725~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2330&h=1190&s=332133&e=gif&f=46&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c0d3dd13dba.gif)
 
 这样，群聊房间功能就实现了。
 
@@ -216,7 +216,7 @@ export class ChatroomGateway {
 
 首先 payload 都传入 room 和 nickName。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1dd912e7b1a409eb56ff2781656c6ef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1664&h=1028&s=277622&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fbf9cc366dbc.png)
 ```javascript
 import { MessageBody,SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
@@ -304,21 +304,21 @@ export class ChatroomGateway {
 
 打开一个页面发消息：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce82af4dff494d04a83d7b240c88028b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2330&h=1190&s=535450&e=gif&f=68&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db687ca50d51.gif)
 
 再打开一个页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f013372d705049edaa8491c710beb7ee~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2330&h=1190&s=499130&e=gif&f=70&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dbe8b17db9d0.gif)
 
 可以看到，另一个页面也收到消息了，因为这俩在一个房间。
 
 我们进入其他房间发消息试试：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92661f053938417bb5e3e4e3af905a03~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2330&h=1190&s=353709&e=gif&f=70&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/934b6d597dc7.gif)
 
 这时候另外两个页面就没收到消息了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70802698f41d4d85a2784aa8f1f5ba4a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=748&h=370&s=41575&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8eb5df479ee9.png)
 
 因为在不同房间。
 

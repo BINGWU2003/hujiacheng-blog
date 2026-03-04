@@ -23,31 +23,31 @@ series_order: 23
 
 首先，我们在 mysql workbench 里把现有的数据导出。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e56a30913b5c4473a1b72ee5fef63baf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2380&h=1552&s=706376&e=png&b=efefef)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e87df20dc5f.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6bf81835324b423382e9462b4442e35a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1320&h=410&s=95087&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dfd737c4b0ba.png)
 
 这样每个表一个 sql 文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10b96991542d4f09b9fa840527e10741~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1634&h=1238&s=336861&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5330e6d42c3.png)
 
 我们选择第二个选项，重新导出下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12e9028bd0d7487f8d387f56d9d8bb6d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2310&h=1306&s=569281&e=png&b=f4f4f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/915de686ee5b.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ee8a79bc857419486069ebcd07cec9c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=524&h=230&s=33002&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9eea8579e60c.png)
 
 这样就都集中到一个 sql 文件里了。
 
 打开这个生成的 sql 文件看下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97d058106e04433d82fe4e50b20bf882~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1504&h=1374&s=400388&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/42a62748543f.png)
 
 包含了所有的表的 create table 和 insert into 语句。
 
 然后我们在项目的 package.json 里加一下 migration 的 npm scripts：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3577825c002c405196fabcd352e36917~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1444&h=474&s=146892&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4c02c53ecca7.png)
 
 ```javascript
 "typeorm": "ts-node ./node_modules/typeorm/cli",
@@ -96,7 +96,7 @@ export default new DataSource({
 ```
 synchronize 指定为 false，顺便把 AppModule 里的 synchronize 也改为 false。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4e8190a321d4bb9ac795492fd8b9cea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1202&h=960&s=229619&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35e33feb401b.png)
 
 我们创建个单独的 .env-migration 文件：
 
@@ -109,7 +109,7 @@ mysql_server_database=meeting_room_booking_system
 ```
 因为 .env 里配置的 host 是容器名，那个只对 docker compose 内部生效：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e47c570535684751886e34ec572eb9af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=586&s=110081&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c71e0ca94511.png)
 
 而 migration 的时候我们是需要真实的 host 的地址的，所以单独搞一个 .env 文件来配置。
 
@@ -121,19 +121,19 @@ npm run migration:generate src/migrations/init
 
 如果遇到找不到 entity 的错误，把绝对路径改为相对路径就好了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a1ad17e16f04aa7a56881ad462a36fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1350&h=506&s=109416&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa4a2ad89630.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9ed05e0d988413ca37f94ea380277bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1386&h=550&s=101392&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c43609f4852.png)
 
 这时候没什么更改：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7d8ba70248c4caaa1d42da7115c3667~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1752&h=674&s=128513&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fc5e6e2ec5a1.png)
 
 因为 entity 和数据库表是同步的。
 
 我们把数据表给删掉：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51acba9a9bb9488da606f1524c12e20e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=820&h=750&s=359624&e=png&b=e1e0df)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c46936c9fa55.png)
 
 再跑下：
 
@@ -142,11 +142,11 @@ npm run migration:generate src/migrations/init
 ```
 这时候就成功生成了迁移代码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe3a118a7c334433ba32af2306d1d7e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2238&h=720&s=269870&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/adcd8a3e613f.png)
 
 里面包含的自然就是所有表的 create table 语句：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a87129b74bdb40ab87cab01d95ea014b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2580&h=1634&s=1060650&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dc27e4fa73ee.png)
 
 跑下这个迁移：
 
@@ -155,15 +155,15 @@ npm run migration:run
 ```
 可以看到，所有 create table 语句都执行了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c708ad23b3e54308914bf724d76b62d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1532&h=1020&s=438514&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c9ffe83da1a.png)
 
 数据库里也有了这些表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5007a6116d4948a1aeb798dd37713597~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1594&h=758&s=330779&e=png&b=efeeee)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/da0d0138de75.png)
 
 并且在 migrations 表里记录了这个 migration 的执行记录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2ffb52198cd4d77b3a5cf668fee06d9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1224&h=612&s=186441&e=png&b=ececeb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5776a6654398.png)
 
 表创建好了，还要做初始化数据。
 
@@ -175,11 +175,11 @@ npm run migration:run
 npm run migration:create src/migrations/data
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbfdaa0cbb6442e2a8757e9e42578bfb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2208&h=334&s=90545&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b7958ebc561.png)
 
 这次我们自己来填 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fd3768a92d7f4a4696f7ff4f4707aa87~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1630&h=554&s=156401&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b44ca0d510d.png)
 
 之前导出的 sql 文件现在就有用了。
 
@@ -217,19 +217,19 @@ npm run migration:run
 ```
 这一步有可能报错：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d443c1881cd544c48c1d6c14bd6c85a3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1282&h=626&s=186127&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/076346e7c2b1.png)
 
 也就是列的顺序对不上。
 
 因为 sql 文件里的顺序是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/856dcdf2a0854606a0085541f494dd5f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1800&h=1202&s=403211&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/495b875d301b.png)
 
 第 6、7 列是 userId、roomId，和 insert into 语句对应。
 
 而现在第 6 列是 createTime：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3feabbe5c434e8db6d5dd05db567d6d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1504&h=576&s=245604&e=png&b=eae9e9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b50f87d8e4b7.png)
 
 所以就报了上面的错误。
 
@@ -237,21 +237,21 @@ npm run migration:run
 
 右键表，选择复制 insert into 语句：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12a4d698ab4a4014a72d02ac539e1988~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1038&h=478&s=208797&e=png&b=e6e5e4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/224ca0cf66c5.png)
 
 在输入框粘贴下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/921b308a5114434f9a46108b631b833e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1160&h=638&s=236786&e=png&b=fdfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7e5e21bb2c67.png)
 
 把列名这部分复制出来，调整成正确的顺序然后放到 insert into 的 sql 里：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c221be9eb8fe41a98090fe9447eb3a52~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2238&h=420&s=210560&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e50b6b3cd815.png)
 
 只有这一个有问题的 insert 语句指定下列名就行，别的 insert 语句不用改。
 
 然后你还可能遇到外键约束的问题：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad3cf19beb8143e98b232ed62f013b47~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2634&h=474&s=221236&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/60ce5e04bf25.png)
 
 就是你插入了一条 booking 记录，里面的 userId 在 user 表里没关联的 user。
 
@@ -285,19 +285,19 @@ export class Data1718869390167 implements MigrationInterface {
 npm run migration:run
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e759af437e8a448ab78c21e9a9e525b1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1936&h=1100&s=451765&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/02eb4e1b2f0f.png)
 
 执行成功了！
 
 在数据库看下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ccd4932ed3c64b06a8d2a3f0e2861d29~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2154&h=944&s=728533&e=png&b=f2f1f1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8bbe8331a40c.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4bbafbcf642f4cd6abcdf85237ffaf3c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1888&h=730&s=477354&e=png&b=f2f1f1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53c961276a2c.png)
 
 数据都插入成功了，并且 migrations 表也记录了这次的执行记录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/480cbef86ac544639540d185a99e87b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1268&h=656&s=217009&e=png&b=efeeee)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d7138037d26.png)
 
 这样之后，生产环境就有表、也有数据了，之后就可以正常跑 Nest 应用了。
 

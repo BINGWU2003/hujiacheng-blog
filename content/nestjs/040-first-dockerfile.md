@@ -66,7 +66,7 @@ CMD 指定容器跑起来之后执行的命令，这里就是执行 http-server 
 
 把这个文件保存为 Dockerfile，然后在同级添加一个 index.html
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bb70bf7afb14bb7af6ca6cdf1b72b29~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/566af2b9ffbc.png)
 
 然后通过 docker build 就可以根据这个 dockerfile 来生成镜像。
 
@@ -74,7 +74,7 @@ CMD 指定容器跑起来之后执行的命令，这里就是执行 http-server 
 
 aaa 是镜像名，ccc 是镜像的标签
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78b75cad62c14aa5bde5455b81fe817c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e114afb99602.png)
 
 FROM 是继承一个基础镜像，看输出也可以看出来，前面都是 node 镜像的内容，会一层层下载下来。
 
@@ -82,41 +82,41 @@ FROM 是继承一个基础镜像，看输出也可以看出来，前面都是 no
 
 这时你在 desktop 的 images 列表里就可以看到这个镜像了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29f516c1f3874802b3822e2b61d071d7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/008ca3cd92d3.png)
 
 然后执行 docker run 把这个镜像跑起来，用 desktop 我们就直接点击 run 按钮了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78eaea612f654aae896f8760a0b860de~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/faaec905c539.png)
 
 会让你输入这些内容：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e791bc3f1bbb4dc8bf8698c556618cb7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/57b5a2bdfb65.png)
 
 是不是上节用 nginx 镜像的感觉回来了？这次是我们自己 build 的镜像。
 
 指定容器名、映射的端口、点击 run：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91c03c09b625413bbb3afde49c073572~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f5e90d1ad773.png)
 
 然后可以看到容器内的日志，服务启动成功了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ab0a16d25054400a07f53ac683d1c30~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6e4efacc543a.png)
 
 当然，容器内打印的是 8080 端口，但在容器外要用映射的 8888 端口访问：
 
 访问 <http://localhost:8888> 就可以看到我们在 html 写的内容了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90d4381f765f4980be3bc24f523fc96d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4c3e111ece58.png)
 
 在容器内页打印了一条访问日志：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2874fd653694bf1a3ca88edf058cce5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce65a52e4a48.png)
 
 至此，我们写的第一个 dockerfile 和 build 出的第一个镜像就跑成功了！
 
 我们在 files 里看看 /app 下是啥内容：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3301630ab724feabdde84a9cc1fcc21~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/72b094e4099e.png)
 
 双击 index.html，可以看到这就是我们 build 镜像的时候 COPY 进去的文件。
 
@@ -126,7 +126,7 @@ FROM 是继承一个基础镜像，看输出也可以看出来，前面都是 no
 
 这样改下 Dockerfile：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/694c7d53c1f64ef4972cb1beda771ba8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d47433624df.png)
 
 然后重新 build 出一个镜像来：
 
@@ -134,29 +134,29 @@ FROM 是继承一个基础镜像，看输出也可以看出来，前面都是 no
 
 因为现在不是默认的 Dockerfile 了，需要用 -f 指定下 dockefile 的文件名。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b16cdc1821fe4f1e8d0f2d3827832c52~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a1026bc7e37d.png)
 
 构建完之后再 run 一下这个新镜像：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd9d4f456c7c4554a7cedf33a0ee15a7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/339fc7054b4c.png)
 
 这次我把我的桌面目录作为数据卷挂载到 /app 目录了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10602e44e26f4e019c26276ac59947ca~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/123a0f5b4617.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/432ed7adea09434a9055134b95899c5e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f43b0528c3c7.png)
 
 容器跑起来后可以看到确实挂载上去了，也标识为了 mount：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd2ca0036d214d5c991da9d67ea08cd8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/996c989a8bb0.png)
 
 浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/464690f71f7e46b79b300ba16416a725~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/68c0cb0d79ea.png)
 
 在 inspect 这里也可以看到挂载的目录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f681b0ce058d48e4b9c0e374bdb03d18~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ce90157c41a.png)
 
 有同学说，就算不在 dockerfile 里指定 VOLUME，我还是可以 docker run 的时候通过 -v 挂载数据卷呀。
 
@@ -166,17 +166,17 @@ FROM 是继承一个基础镜像，看输出也可以看出来，前面都是 no
 
 比如我直接点击 run，不设置参数：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45e670e6bf204940a427ad320fb1b404~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d75563a591a4.png)
 
 docker 会随机给他生成一个名字。
 
 还会随机生成一个目录作为数据卷挂载上去：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e5e60a80cab49a595ae9aa7cc083881~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/01a2580e5692.png)
 
 inspect 可以看到这时候的路径是一个临时的目录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42c87675dbf64458a343c3f349eb736a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0070e477048f.png)
 
 这样就算你删了容器，数据也可以在这里找回。
 
@@ -186,7 +186,7 @@ inspect 可以看到这时候的路径是一个临时的目录：
 
 在镜像详情可以看到 mysql 的 dockerfile，确实声明了 volume
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f8305a1fec941b58a29d40fe46ae6c0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b9648c25889.png)
 
 这样就能保证数据不丢失。
 

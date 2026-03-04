@@ -23,17 +23,17 @@ create schema 或者 create database 都可以，一个意思。
 
 utf8 最多存 3 个字节的字符，而 utf8mb4 最多 4 个字符，可以存储一些 emoji 等特殊字符。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22a3ca51398d46cb8b30356ecd92d45e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/08f3c12d5206.png)
 
 刷新后就可以看到这个数据库了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b90e820fb3f94f52b7e24cd3b56e4f0f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/17852f13c49e.png)
 
 然后我们创建个 nest 项目：
 
     nest new login-and-register -p npm
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9dd4f0be61742b28d442924882d2a92~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25be0b73106a.png)
 
 安装 typeorm 相关的包：
 
@@ -76,11 +76,11 @@ export class AppModule {}
 
     nest g resource user
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f25a7036e4c49cbbaba230d3d359cf3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c42e2d82a884.png)
 
 引入 User 的 entity：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1124e12a05242dfaaf91c77b7718779~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c74d65f9b0e1.png)
 
 然后给 User 添加一些属性：
 
@@ -138,23 +138,23 @@ createTime 是创建时间，updateTime 是更新时间。
 
 npm run start:dev 就是 nest start --watch：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fbae5dbf8d44233a691330c917f8770~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db88105cb982.png)
 
 可以看到打印了 create table 的建表 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e401ac99761848019e1d2b481fd8031c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe8c9b1f7a1b.png)
 
 用 mysql workbench 可以看到生成的表是对的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dd79d09772cc4750a01bafea98fe7352~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d72f27161420.png)
 
 然后我们在 UserModule 引入 TypeOrm.forFeature 动态模块，传入 User 的 entity。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d5bb9e2d5144c3c87ce7954a253b0cd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cbac1da6b27.png)
 
 这样模块内就可以注入 User 对应的 Repository 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fddd883cc1f9460197b25f9b053949f6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/df0aea7cf81a.png)
 
 然后就可以实现 User 的增删改查。
 
@@ -184,7 +184,7 @@ export class UserController {
 
 然后添加两个 dto：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2d3e8414d784352a51fb74825ae10c8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4c403b87c18.png)
 
 ```javascript
 export class LoginDto {
@@ -202,21 +202,21 @@ export class RegisterDto {
 
 在 handler 里使用这两个 dto 来接收参数：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a466ad45b744b26b04e5a2f6f40dc98~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c5018dcd6a5.png)
 
 我们先在 postman 里测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f0a6a04db664af59868cff08184bebd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eddfc292773d.png)
 
 post 请求 /user/login 接口，body 传入用户信息。
 
 服务端打印了收到的 user：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd8f7273f275459bb38d598d6d2f6171~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5783ef78be84.png)
 
 然后 post 请求 /user/register：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17a4c7ea658a45aea6094c14b1e3d65a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f20f8c2d53c4.png)
 
 也是一样的。
 
@@ -288,23 +288,23 @@ export class UserService {
 
 password 需要加密，这里使用 node 内置的 crypto 包来实现。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb9f79abb69a4741a91b305a76cf8417~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2806b1c8dd94.png)
 
 我们测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf8806fa194d477c9631bba3c797c568~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/32c610c3ad21.png)
 
 服务返回了注册成功，并且打印了 insert 的 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/be54c8b944334883a7b23e9a1051192d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c583aaf3913.png)
 
 可以看到，数据库 user 表插入了这个用户的信息，并且指定了 createTime 和 udpateTime。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2bc7ecdccb7741fa82025ae9428c4e4d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04cb0ff8b041.png)
 
 然后我们再次调用：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b770d0c28b9647ea8c9bf68f1efa0787~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9008129bdd0.png)
 
 会提示用户已经存在。
 
@@ -350,18 +350,18 @@ async login(user: LoginDto) {
 
 用户名、密码正确：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8e459bcd190434cad2561abe2d58110~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fee749b4d9c4.png)
 
 用户名不存在：
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d99407ad2754704988883072602a360~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ae3513dc1ee.png)
 
 用户名存在但密码错误：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6076835d50bb4820b452ae3aeef5aabf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b8254e5e945.png)
 
 可以看到，服务端打印了 3 条 select 的 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff6de1d221044b0dadeb92d95c9b1a20~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea64bee3a6ff.png)
 
 登录成功之后我们要把用户信息放在 jwt 或者 session 中一份，这样后面再请求就知道已经登录了。
 
@@ -373,13 +373,13 @@ npm install @nestjs/jwt
 
 在 AppModule 里引入 JwtModule：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d256e8eb46a1489eaba895961d9a8fed~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd6125fdee0e.png)
 
 global:true 声明为全局模块，这样就不用每个模块都引入它了，指定加密密钥，token 过期时间。
 
 在 UserController 里注入 JwtService：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adf4d0525c1e420bb13af65f35ea06e0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27b704e27af0.png)
 
 然后在登录成功后，把 user 信息放到 jwt 通过 header 里返回。
 
@@ -402,13 +402,13 @@ async login(@Body() user: LoginDto,  @Res({passthrough: true}) res: Response) {
     }
 }
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1373793c3a844089a4f9ac57e1ab50fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/36f365f8b8d9.png)
 
 再次访问：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b0dc8c99c154c07861cf809b8229456~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccfa251842ca.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8348a1774d043b584413e0b7a2a185b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9fa1ce260c3.png)
 
 登录成功之后返回了 jwt 的 token。
 
@@ -430,9 +430,9 @@ bbb() {
 
 现在不需要登录就可以访问：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46bbf461981f44549152546a5f586b39~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee31d4f9d714.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d57dab4f66a644e3a35d40f6f623aa06~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8a1e69cb085.png)
 
 我们可以加个 Guard 来限制访问：
 
@@ -496,24 +496,24 @@ bbb() {
 }
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46e3831b35064794bc019e939cb6dfc8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a4424f01ce58.png)
 
 我们先登录一下，拿到 token：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f169358e6aca45c08493399af0a437dd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25ff432871c5.png)
 
 然后请求 /aaa 的时候通过 authorization 的 header 带上 token：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97d82ed2502b4ddbb77c7a5930e3098d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cbfec11caa8c.png)
 
 访问成功。
 
 如果不带 token，就失败了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9af28df874ef4c038d51c259b4113c82~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8fd84d7dd1b7.png)
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28b919ac0a224a248d0ed3ef20018306~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62be3a4ca16b.png)
 
 这样我们就实现了登录注册的流程。
 
@@ -527,7 +527,7 @@ npm install class-validator class-transformer
 
 然后给 /user/login 和 /user/register 接口添加 ValidationPipe：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba3cff47a0364352b1ff071dac011492~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f0a0ca99883.png)
 
 在 dto 里声明参数的约束：
 
@@ -567,21 +567,21 @@ export class LoginDto{
 我们测试下：
 
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd83d85eac984b9e94008c320ed1f632~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/344ba62ac68f.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bea937994404abe84ef86f0ee774973~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f12b86324148.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16242a279c924280afc1c45ca01d390b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0eb973a11814.png)
 
 ValidationPipe 生效了。
 
 这样，我们就实现了登录、注册和鉴权的完整功能。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f65a172a4cce440aa9b5cad5fa9979d2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/493c65c86c64.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43cb79b2d63046e6856417489832c81f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e48918fff178.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b4ef812d409492d90ab8c9ac72ccefd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6002649e0928.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/login-and-register)。
 

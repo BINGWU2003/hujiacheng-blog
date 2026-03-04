@@ -13,7 +13,7 @@ series_order: 20
 
 这个接口有 2 个 query 参数，返回值是一个对象，所以这样写：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5624c518ca6a4ab2abbe6aa2caa349f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1496&h=1146&s=279944&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ff32c0f24a0.png)
 
 ```javascript
 @ApiBearerAuth()
@@ -54,13 +54,13 @@ export class UserBookignCount {
 
 可以看到这个接口的文档：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc291426918c4c8c9fc36fa457e2a349~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1192&h=1446&s=141310&e=png&b=eef4fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/94deed3f1c9b.png)
 
 没啥问题。
 
 然后添加另一个接口的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df8f0a9c36eb492c99a5457c1b0e53ca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1404&h=704&s=135804&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85d4a264ea7a.png)
 
 ```javascript
 @ApiBearerAuth()
@@ -97,27 +97,27 @@ export class MeetingRoomUsedCount {
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee2de6a6bd654fd8a2b7f355d1f433aa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1230&h=1432&s=143834&e=png&b=eef4fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/63ff6f155c24.png)
 
 然后再加个 @ApiTags 把这俩接口文档分成一组：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14cbe2e9d58a4f99a56279dffe060f3f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1136&h=928&s=212482&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb7857e59cb4.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ea48596bdec438d83099408c4647e8d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=790&h=344&s=38018&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ab6f1ef05669.png)
 
 这样，swagger 文档就完成了。
 
 然后来写前端代码：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b4da8015f294391b3954d09bce2ee10~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1050&h=672&s=60291&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b1c30944e917.png)
 
 统计的路由我们已经写过了，只要填内容就行。
 
 原型图是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0df7c49dbb84b33a6589816a68e619a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15dfd9187d64.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e83c09ddcd54e2a997f083784154baa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/09dc026f395d.png)
 
 加个 antd 的 Form，然后再用 echarts 的图表展示下数据就好了。
 
@@ -186,7 +186,7 @@ css：
 
 点击查询，会打印 form 的值：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c43ed1fdde14491784d46ba90330a6eb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1670&h=746&s=163197&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd3213ec232e.png)
 
 然后安装 echarts：
 
@@ -196,9 +196,9 @@ npm install echarts --save
 
 然后通过 useRef 拿到 dom 元素，再初始化下 echarts 的柱状图：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d21c7978d25046baa7923415b0b10a84~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1352&h=1234&s=216224&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f7172ff8df8.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f55153338166427cad63c4a81f518484~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1058&h=386&s=56361&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27de60eb47e0.png)
 
 ```javascript
 import { Button, DatePicker, Form, Select } from "antd";
@@ -272,7 +272,7 @@ export function Statistics() {
 ```
 这样 echarts 就成功引入了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/283d9d2235a94a5e925053b53dc1a572~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1876&h=1428&s=141212&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3f3c9ffed940.png)
 
 然后我们加一下接口：
 
@@ -299,11 +299,11 @@ export async function userBookingCount(startTime: string, endTime: string) {
 ```
 我们加一个 state 来存储返回的数据，然后点击查询的时候请求接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca37c9b8cc0b4030bccb8cea6c8f53f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1366&h=1216&s=297927&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9971d5aa8b90.png)
 
 当数据变化的时候，渲染图表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c393f117d93430aadb585638d2877c7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=998&h=1140&s=134857&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15957f046ef9.png)
 
 ```javascript
 import { Button, DatePicker, Form, Select, message } from "antd";
@@ -406,25 +406,25 @@ export function Statistics() {
 ```
 这样，点击查询的时候就会根据返回的数据渲染柱形图：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b118a65729a4d8485ad331c93015f21~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1890&h=1464&s=139440&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7911f1bb7cfa.png)
 
 然后我们再加上饼图的部分：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa5d56c3366d44c6ade673537d80cf02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=742&h=416&s=57784&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fb83bbe7c483.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29d3c56e45464a88a11d5ef6149fda49~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1038&h=1114&s=141511&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0060e2102835.png)
 
 这样，统计的图表就完成了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a162af31ba9846b98043d89106ef1d9a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2102&h=1458&s=598705&e=gif&f=44&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e05d53b61ad.gif)
 
 我们在下面再加一个会议室使用情况的图表。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a907dbf321584b8485ab8e88c876b9f5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1048&h=192&s=42998&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/803680e926cf.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/acbd23471ffa4adfa20c94b39f594d18~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1504&h=1312&s=355658&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1230f02f33d6.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10566b4ab89b4053ad344fc4e7c53c9e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1150&h=1106&s=151394&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f154edc976fc.png)
 
 过程一摸一样。
 
@@ -581,7 +581,7 @@ export function Statistics() {
 }
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e58b11e720e04887b90311a4df5a4912~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1970&h=1438&s=1854764&e=gif&f=38&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e95209f9cb7e.gif)
 
 代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/meeting_room_booking_system_backend)。
 

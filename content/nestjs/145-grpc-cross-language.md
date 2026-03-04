@@ -19,13 +19,13 @@ series_order: 6
 
 跨语言调用服务一般会用 gRPC，它是 google 出的一种跨语言的远程方法调用的方案。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8744e0820c3b4e55bb58cbf2d4224dec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=764&h=250&s=13642&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1713554f71ca.png)
 
 其中，RPC 是 Remote Procedure Call，远程过程调用。
 
 比如 java 微服务有个方法 aaa，node 微服务想调用它，就可以通过 gRPC 来实现。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/960c5ba9f121468489a373ba8df71872~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=802&h=344&s=16534&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d060204f99df.png)
 
 这节我们就来用一下 gRPC。
 
@@ -39,7 +39,7 @@ series_order: 6
 nest new grpc-client
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/465121afc9454f7987fdba406856e69c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=828&h=674&s=255412&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/12b20787cca5.png)
 
 我们用 monorepo 的形式来放 client 和 server 的代码。
 
@@ -47,15 +47,15 @@ nest new grpc-client
 ```
 nest g app grpc-server
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93202f1629dc4df093718fbe7e14b23b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1032&h=630&s=173185&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/114965e81b95.png)
 
 这样，就有了两个 nest 的 application：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a0baac2ec35411eb79810b56e45a47b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=372&h=280&s=21852&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b221b4467693.png)
 
 改下 grpc-server 的启动端口号为 3001:
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b4e9eb098344ce4b9f9232baa9cdb76~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1090&h=520&s=117192&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d78c3c86fdc8.png)
 
 分别把两个 nest 应用跑起来：
 
@@ -65,15 +65,15 @@ npm run start:dev grpc-client
 npm run start:dev grpc-server
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd8725a610614134afcced48055da1d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=900&h=468&s=107964&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/738c0cb3646e.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/889173b7f3cc4bec81783fba5d343191~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=906&h=456&s=105741&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b2a524dd38f.png)
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e716b0a98d24a8fa3e62afc3ff4eb61~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=570&h=198&s=16375&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b778eac76fd7.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3c63728610e4df2aa29e20643bf1e57~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=502&h=178&s=15931&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1515b0bbea81.png)
 
 这就代表两个 nest 应用都跑起来了。
 
@@ -120,7 +120,7 @@ bootstrap();
 
 在 src 下创建这个对应的文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbcc2da7c11a4e119577af90d2bf6b63~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1360&h=696&s=148820&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39f982dcc273.png)
 
 ```javascript
 syntax = "proto3";
@@ -147,11 +147,11 @@ message Book {
 
 搜索 ext:proto，也就是处理 .proto 文件的插件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1bb01f9717a4d9d99cd4f3ba088714e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=742&h=256&s=33645&e=png&b=37373c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/42673ed232d1.png)
 
 安装之后就有语法高亮了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5685d36ce8794e9aa692c51d6d42262e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=792&h=672&s=84683&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/738a0f8f95c7.png)
 
 为什么要有一种 protocol buffer 的语法呢？
 
@@ -197,7 +197,7 @@ message Book {
 ```
 book.proto 只是定义了可用的方法和参数返回值的格式，我们还要在 controller 里实现对应的方法：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f4eb5d734494e2fbb8f8f925bf75afb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1130&h=846&s=198478&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be3af1927e2e.png)
 
 ```javascript
 @GrpcMethod('BookService', 'FindBook')
@@ -214,7 +214,7 @@ findBook(data: { id: number}) {
 
 在 nest-cli.json 添加 assets 配置，让 nest 在 build 的时候把 proto 也复制到 dist 目录下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86284c6f816c471eb4c0525c39b55109~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=768&h=360&s=75026&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa700935fd32.png)
 
 ```javascript
 "assets": ["**/*.proto"],
@@ -226,17 +226,17 @@ findBook(data: { id: number}) {
 ```
 npm run start:dev grpc-server
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b87cbb5bb2f412297747c7af07bb251~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1100&h=422&s=90536&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd6368e9bea1.png)
 
 这时 dist 下就有 grpc-server 的代码了： 
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f832c59003d4510aed6ba309f9323e6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=422&h=276&s=22634&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/65bd7095270c.png)
 
 然后我们在 grpc-client 里连上它：
 
 在 AppModule 里添加连接 grpc-server 的微服务的配置：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12030bd8ae8a4c6c85d26214392c64fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1092&h=928&s=177452&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/075a41b028ae.png)
 
 ```javascript
 import { Module } from '@nestjs/common';
@@ -268,11 +268,11 @@ export class AppModule {}
 
 把 book/book.proto 文件复制过来：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3dc9c2b83b6487fa8b37afc7d9ea527~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=442&h=364&s=36430&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/435846374d90.png)
 
 然后在 AppController 里实现调用远程方法的逻辑：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31a3a5b082d44a289f748f9e7a7c83e8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1160&h=1224&s=211307&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c97da5e301c3.png)
 
 注入 BOOK_PACKAGE 的 grpc 客户端对象。
 
@@ -324,15 +324,15 @@ npm run start:dev grpc-client
 ```
 浏览器访问下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2be16550f9a54a1fa884bf1c32b0d716~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=848&h=204&s=28571&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/585e6ca4340a.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/119e9a214c244c2ab5c00636c21224e1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=890&h=182&s=28557&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b11542bdb60.png)
 
 可以看到，远程方法调用成功了。
 
 这就是基于 grpc 的远程方法调用，用 java、python、go、c++ 等实现的微服务也是这样来通信。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82cd368ae0fb4321a55b01182ff5e08a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=998&h=472&s=31177&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/301ad089ce33.png)
 
 通过 protocol buffer 的语法定义通信数据的格式，比如 package、service 等。
 
@@ -340,15 +340,15 @@ npm run start:dev grpc-client
 
 比如在 java 的 srping 里，需要安装这两个依赖：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95ac4d74e3984ac7bce3ed1e5bdfe21b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1256&h=252&s=60129&e=png&b=f4f6fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc5733b4a5d0.png)
 
 然后也是定义这样的 proto 文件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f27f966938ae4fb798eef7b9a54acc60~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1168&h=1030&s=172873&e=png&b=f4f6fa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e7cf48dfe745.png)
 
 之后定义对应的 servie：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f34e2518db424f65af445e2dfda82e32~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1596&h=942&s=190072&e=png&b=f3f5f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/70a6668f6d4f.png)
 
 和 node 里差不多。
 

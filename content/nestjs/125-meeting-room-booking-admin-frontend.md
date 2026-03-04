@@ -11,11 +11,11 @@ series_order: 17
 
 这节写下预定管理模块管理端的前端部分：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/036dff2b321c429e8b584ce61ce7916f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1628&h=1126&s=174963&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/33c5dfb2c217.png)
 
 对应的路由我们前面写过了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0ab57c76c05496e89dd88b85b3bc0a7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1028&h=636&s=64854&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34f90ece91a2.png)
 
 这节来填充下内容。
 
@@ -131,17 +131,17 @@ export function BookingManage() {
 列表接口是这样的：
 
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fdc24e7926c4ff3831cb18819c6b171~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2046&h=686&s=100916&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/22fe1d5ea5ba.png)
 
 根据这个指定表格列的定义，并且添加分页的处理。
 
 其中涉及到的 User 和 Room 的类型从其他页面导入：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eac4968dc0a34abc95e01c4690118a72~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=860&h=526&s=91934&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25e6d357c418.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0e005d4ccd5420bb158a3f3d32c914d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=752&h=584&s=78976&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4140089b06d5.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2db8c1caa203456b97dadea90667da71~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=960&h=606&s=100385&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/653d6a340d24.png)
 
 这里用到 dayjs 来格式化日期，安装下：
 
@@ -347,7 +347,7 @@ export function BookingManage() {
 
 渲染出来是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7975fd6c491e495a906a8d5c111ab25d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2450&h=1108&s=174544&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c6505d1147e7.png)
 
 这里要注意的是日期和时间分别要用 DatePicker 和 TimePicker，所以分为 2 个字段。
 
@@ -407,7 +407,7 @@ apply、reject、unbind 接口比较简单，列表接口相对麻烦一些。
 
 在页面里调用下列表接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2905a09abab4077bfbb60e5245dec7d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1348&h=604&s=113612&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/245962a0fdd5.png)
 
 ```javascript
 import { Button, DatePicker, Form, Input, Popconfirm, Table, TimePicker, message } from "antd";
@@ -605,33 +605,33 @@ export function BookingManage() {
 
 没带参数的搜索没问题：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f93d610987f44426a704609874d8e6e2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2466&h=1184&s=242353&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e65677e56da.png)
 
 数据库里就这 4 条记录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99eac5103d52465f863a3ea7afa254ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1792&h=482&s=238462&e=png&b=f2f0ef)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cd5ac204a1d.png)
 
 然后带上参数搜索下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa7262447f994b508aba2b98e351113c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2428&h=878&s=175924&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/841137b85f0d.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38bd171dc44a49b1b07b704d41279a93~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2318&h=944&s=192886&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1755ceb0b192.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c0b454303ec4c259616681a49ffd4b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2120&h=868&s=157744&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a89d24d905c5.png)
 
 开始时间在 2023-9-29 的 10 点到 11 点的预定有 3 条：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2c2efb545f44a8a9ed43dd76d79b3da~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2348&h=994&s=187375&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05db3ce806e8.png)
 
 11 点到 12 点的有 1 条：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c1408c333154bea89e476ca494f087f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2364&h=836&s=170075&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90f67d23a835.png)
 
 这样，列表功能就完成了。
 
 可以再加上个按照状态过滤，这个是 antd 的功能：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fafb59aae484465c9758a75d19f282f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1358&h=906&s=140771&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1828e8565461.png)
 
 ```javascript
 {
@@ -659,13 +659,13 @@ export function BookingManage() {
 },
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c402b1fffa904b7f8afe14bf65b2608f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2300&h=1260&s=203341&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e4ce243e4e6f.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/196a7bc2137d45d285937014f65aaa27~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2190&h=872&s=147630&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cdfc0cb41e8f.png)
 
 然后加上右边的按钮：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c79f1e767abe4cda85452405837e5b95~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1380&h=1200&s=243855&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/441d45710648.png)
 
 ```javascript
 {
@@ -726,9 +726,9 @@ async function changeStatus(id: number, status: 'apply' | 'reject' | 'unbind') {
 ```
 更新完状态之后要触发列表的重新渲染，所以这里用 setNum 触发：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8447351d611745bc830cb92864da93bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1100&h=406&s=120675&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b99d083d84ea.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/462d2673706749b197e1711ef581f279~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2808&h=1382&s=1799861&e=gif&f=37&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8a7462d590db.gif)
 
 这样，预定管理的功能就完成了。
 

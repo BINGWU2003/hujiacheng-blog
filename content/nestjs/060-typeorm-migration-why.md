@@ -22,7 +22,7 @@ series_order: 16
 ```shell
 npx typeorm@latest init --name typeorm-migration --database mysql
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2bd55f80d3f94d628c951bc6fe56a356~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1268&h=160&s=61319&e=png&b=000000)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/977b07d0691f.png)
 
 改下 data-source.ts 的配置：
 
@@ -58,7 +58,7 @@ npm install --save mysql2
 ```
 在 mysql workbench 里创建这个 database：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5907f0ad5f04a89826213687a3c5693~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&h=1136&s=274049&e=png&b=e7e5e5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/889b8f284ae1.png)
 
 指定名字和字符集，点击 apply.
 
@@ -75,19 +75,19 @@ npm run start
 
 可以看到，会自动创建 Entity 对应的表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe862ae970649efb7b968a72b15e006~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1314&h=884&s=206847&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9a97d63fef5.png)
 
 在 mysql workbench 里也可以看到这个表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c7a0540ead1a40bdabcfeab85f0e23e6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1158&h=662&s=229379&e=png&b=f0eceb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35d1d8e38403.png)
 
 把插入数据的代码注释掉：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67cf55eccb264f0c9cca726db3b8678c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1242&h=814&s=170883&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4d07880890a.png)
 
 改下 Entity：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/00d955f21b824acd907ecae731d4d210~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=824&h=714&s=83490&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/844ff2e6d60c.png)
 
 重新跑下：
 
@@ -96,11 +96,11 @@ npm run start
 ```
 可以看到 TypeORM 检测到 Entity 的变更，修改了表结构：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff7b09363e5a4945bd0f64bf39897d8e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=856&h=710&s=92513&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/afc7e0986300.png)
 
 在 mysql workbench 里可以看到，之前的 age 列就没了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16cf5ea62185424881f61cc7706c60d9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1048&h=564&s=187440&e=png&b=efecea)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/faa69e83f1d0.png)
 
 数据是不是就全丢了！
 
@@ -116,9 +116,9 @@ npm run start
 
 migration 是迁移的意思，其实前面的 create table、alter table 这些都是 migration：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afe862ae970649efb7b968a72b15e006~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1314&h=884&s=206847&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9a97d63fef5.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff7b09363e5a4945bd0f64bf39897d8e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=856&h=710&s=92513&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/afc7e0986300.png)
 
 只不过之前是自动跑，而现在我们要管理起来，手动跑。
 
@@ -128,27 +128,27 @@ typeorm 提供了一个 cli，执行 migration:create 的命令：
 npx ts-node ./node_modules/typeorm/cli migration:create ./src/migration/Aaa
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bdf86b561364c459ca300464266443c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1678&h=154&s=49990&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/edb30bfdf0fb.png)
 
 生成了 “时间戳-Aaa.ts” 文件，这个就是放迁移代码的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a73b0041a8f54139a0b582e783728020~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1536&h=530&s=143425&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e34efc1f3d88.png)
 
 迁移就是 create table、alter table 这些。
 
 我们在 mysql workbench 里导出下建表 sql 语句：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52255a427e3a42da80dec8709acd8b2a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2194&h=1328&s=598835&e=png&b=efefef)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5c4548e7330.png)
 
 点击左侧的 Data Export，选中要导出的表，指定一个 sql 文件保存位置，点击 Export。
 
 可以看到，生成的 sql 里就包括了 create table 建表语句和插入数据的 insert into 语句：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9997eaf909de49a1b17b09b775449afb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1366&h=1030&s=212632&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/98c854983139.png)
 
 我们把建表 sql 拿过来：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a5662c9da5f4bde91ac9e2d7fa619ac~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1312&h=726&s=152394&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1fddf1e36f70.png)
 
 ```javascript
 import { MigrationInterface, QueryRunner } from "typeorm";
@@ -173,7 +173,7 @@ export class Aaa1708136448263 implements MigrationInterface {
 ```
 然后把 synchronize 关掉，用 migration 来手动建表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08f60a08ae094c8096a91710392aec6f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=854&h=730&s=125184&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39508684e5fe.png)
 
 ```javascript
 import "reflect-metadata"
@@ -201,17 +201,17 @@ export const AppDataSource = new DataSource({
 ```
 先在 mysql workbench 里把之前的表删掉：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94244a2e659d437eb85c356718e47ad5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=692&h=742&s=212217&e=png&b=e8e3e1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/828d21cdf2c3.png)
 
 把 index.ts 注释放开，但 age 去掉：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f93582406ad405dab7e6ecf32655be0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1144&h=734&s=171397&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3d5c03cbe280.png)
 
 然后再跑 npm run start
 
 这时候因为 synchronize 关掉了，不会自动建表，所以 报错了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f360f578c92943138f36ec33aab18802~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1006&h=596&s=146980&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a727a4723464.png)
 
 然后我们用 migration:run 来手动建表：
 
@@ -219,25 +219,25 @@ export const AppDataSource = new DataSource({
 npx ts-node ./node_modules/typeorm/cli migration:run -d ./src/data-source.ts
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc08f6916e1649078961010601d73454~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1928&h=690&s=208241&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5d2ccff1d7f.png)
 
 可以看到，执行了 migration 里的 create table 语句。
 
 这时候数据库中就有这个表了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f3f19da4a3654f048ad6c07178a305c3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1060&h=534&s=179560&e=png&b=efeceb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85d2e1cc36f3.png)
 
 并且还在 migrations 表里记录了什么时间执行了什么迁移：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf7c55b2a46644e4b1c2b9ce5b3235f1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1092&h=404&s=121847&e=png&b=eeeae9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa79aee768bf.png)
 
 这时候再跑 npm run start
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3011c37d0024400184bf4a6675601022~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1218&h=526&s=110172&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d0afddd791a0.png)
 
 这时候 insert、select 就都成功了。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/129aa88d5f1a459ebba501b860361106~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=932&h=318&s=83367&e=png&b=ede9e8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/167a4d0d186e.png)
 
 生产环境，我们不会用 synchronize 自动同步，就是用的 migration 的方式来建表。
 
@@ -249,35 +249,35 @@ npx ts-node ./node_modules/typeorm/cli migration:run -d ./src/data-source.ts
 
 把这两个表删掉：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/56fb40cc805d45caad0a2b68313debe2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=660&h=648&s=193656&e=png&b=e9e5e2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d3d671e2e998.png)
 
 把之前那个 migration 也删掉：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc1c1c870682444ca4498666c90eb13f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=450&h=146&s=19162&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a72bc7570abf.png)
 
 我们这次用 migration:generate 来生成：
 
 ```shell
 npx ts-node ./node_modules/typeorm/cli migration:generate ./src/migration/Aaa -d ./src/data-source.ts
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e122feeface4991b87fe85bb2e977a3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1914&h=314&s=114908&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9a9e1124de7.png)
 
 生成的 migration 文件如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5436f71ca2c4b9e85750614126c8943~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1734&h=576&s=141769&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f914cd6f78a6.png)
 
 用 migration:run 执行下：
 
 ```
 npx ts-node ./node_modules/typeorm/cli migration:run -d ./src/data-source.ts
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486fa477d7cf4d1cb5b74ac4e2cd3a54~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1978&h=450&s=166701&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c298f6cbbaf.png)
 
 然后再跑下 npm run start：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0df3966e223c496a81b9163ca84e8ab4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1428&h=516&s=115993&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/54182b78a08e.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/212f5cf26088447f9619889d22f7b82b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=934&h=224&s=60496&e=png&b=eeeae9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/af5aa1e9dee3.png)
 
 没啥问题。
 
@@ -287,7 +287,7 @@ npx ts-node ./node_modules/typeorm/cli migration:run -d ./src/data-source.ts
 
 我们在 User 里加一个字段：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75a626605ed44c798f596c2462004ff4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=648&h=710&s=83839&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/91d0a0101452.png)
 
 ```javascript
 @Column()
@@ -298,9 +298,9 @@ email: string
 ```
 npx ts-node ./node_modules/typeorm/cli migration:generate ./src/migration/Bbb -d ./src/data-source.ts
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e8a64bcf85a4ad69b89e7a6d48bf244~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1724&h=420&s=92573&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/91646bc79f8d.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f2de8d2405d4d0b81d6f17a28801174~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1496&h=524&s=138384&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/441b36ad6cce.png)
 
 这时候生成的 migration 就是 alter table 语句。
 
@@ -308,40 +308,40 @@ npx ts-node ./node_modules/typeorm/cli migration:generate ./src/migration/Bbb -d
 ```
 npx typeorm-ts-node-esm migration:run -d ./src/data-source.ts
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e748107f3374150b197786071cbdac6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1852&h=492&s=160565&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3f51d7012b0.png)
 
 在 migrations 表里记录了 Aaa 跑过，所以这次只会跑 Bbb 的 migration。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/772842295a18453fa138b0b9192bb323~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1046&h=240&s=76276&e=png&b=ede9e8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d607ce4e5686.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/719211ad884b4d729d6889fdefc46747~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1062&h=252&s=94275&e=png&b=ede9e8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b398537cf609.png)
 
 可以跑 migration 也同样可以撤销：
 
 ```
 npx ts-node ./node_modules/typeorm/cli migration:revert -d ./src/data-source.ts
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/60ad07e42e1a46ef840a1724eeec80d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1460&h=416&s=130222&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a2114020bae7.png)
 
 执行 migration:revert 会执行上次的 migration 的 down 方法，并且从 migrations 表里删掉执行记录。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d5203a159f34bd5beeac6810a09b440~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1244&h=514&s=132772&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ef237e9d4312.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/592003038c9742229b6e51b3609ce383~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1142&h=228&s=78542&e=png&b=efebea)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a6b1477468ff.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/440a8e23d5cf4e9ea4f7ebf413767d8f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1064&h=218&s=73362&e=png&b=eeeae9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/701e7a72bd3c.png)
 
 再次 revert，会撤销上一次的 migration，删掉 user 表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/498436cc8eeb4ea8a1d4243fe81e96f5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1492&h=422&s=129300&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27a8da61d650.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94abd68ef6164d7c95569e6c0b80ca43~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=938&h=224&s=60919&e=png&b=ece8e6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/083d39919ff6.png)
 
 所以说，每一次的 migration 都是可控的，可以手动执行、也可以撤销。生产环境我们就是用 migration 来修改表结构，而不是 synchronize
 
 此外，每次都输这么长串命令也太麻烦了，我们可以把它封装成 npm scripts：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75e981f411ef44d19bf80c2f510a3254~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1464&h=342&s=106376&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ddbb3a7620f3.png)
 
 ```javascript
  "migration:create": "npm run typeorm -- migration:create",
@@ -352,7 +352,7 @@ npx ts-node ./node_modules/typeorm/cli migration:revert -d ./src/data-source.ts
 
 这样用起来就简单多了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4adee9fa10cf4de79670ae1cdbbf2e7d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1666&h=474&s=103115&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d086c03192c3.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/typeorm-migration)。
 

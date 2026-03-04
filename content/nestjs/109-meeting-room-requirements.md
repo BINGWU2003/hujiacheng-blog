@@ -21,11 +21,11 @@ series_order: 1
 
 管理员账号密码是内置的，不需要注册。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/906d4fbf82004b8d98db97b4fcf85086~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe6b3ef4922f.png)
 
 普通用户可以查看会议室列表、搜索可用会议室、提交预订申请、取消预订、查看预订历史等。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9596890a69e44ce7956ad0667e000468~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/285c71b22fd2.png)
 
 预订成功会邮件通知，就是注册时的那个邮箱。
 
@@ -33,7 +33,7 @@ series_order: 1
 
 管理员可以查看用户列表、冻结用户、会议室列表、搜索会议室、添加/修改/删除会议室、审批预订申请、查看会议室统计信息等。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4d405db23da46e2982f7b4404c2125a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/963758183888.png)
 
 整体分为用户管理、会议室管理、预订管理、统计这 4 部分。
 
@@ -51,105 +51,105 @@ series_order: 1
 
 ### 用户端--登录
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b03c3012fd17481da7107e7e8a990507~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35404b4070e6.png)
 
 可以用用户名 + 密码登录。
 
 ### 用户端--注册
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a64b198da4c4bdc84a701b87323b74e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe97a6b3f85b.png)
 
 注册要填入用户名（唯一）、昵称、密码、邮箱，还会发送邮箱验证码。
 
 ### 用户端--修改密码
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c114411bf1274e2a9f202d5188ebf55a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/914f03c4c6b5.png)
 
 修改密码也需要邮箱验证。
 
 ### 用户端--会议室列表
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a6f760e036d49bab8ff8191b8c5a8ff~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/95e2079f87c5.png)
 
 按照分页搜索会议室信息，可以指定名字、容纳人数、位置、设备来搜索。
 
 ### 用户端--预订会议室
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aec8133e2c664fbd994723b540716370~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4b5ee12f502.png)
 
 填入开始时间、结束时间，参会人员等，就可以预定了。
 
 ### 用户端--预订历史
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d6fbf9ffe01419eaf44bf0eca5b3e6f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3fbaa56a3cab.png)
 
 可以查看预订申请的历史，审核状态等，可以撤销预订，也可以催办。
 
 ### 用户端--个人信息修改
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32f66ca20c2e4c98b95b7f9bf5e80cc2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7efef498f3ba.png)
 
 可以修改个人信息，比如头像、昵称、邮箱等，修改了邮箱需要验证码验证。
 
 **总之，用户注册账号后，可以登录系统，搜索会议室，提交预订申请，查看预订历史。也可以修改个人信息。**
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6082cea7db14f7bbbea0f268b81035b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9a8bbcc7c9e.png)
 
 接下来是后台管理部分：
 
 ### 后台管理--登录
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5832a873c53249d1b7dca93604a78024~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8825dda71b04.png)
 管理员通过用户名 + 密码登录。
 
 ### 后台管理--预订管理
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f0653717aa7840af923ba84eb9fae146~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2c54de9e479b.png)
 
 管理员可以通过、驳回、解除预订信息。解除预订就是已经通过审核的预订在这里手动解除。
 
 ### 后台管理--会议室管理
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1794ecbb9564d5fb3fe5daee2fc6f9a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca71228e6bd7.png)
 
 管理员可以对搜索会议室，查看会议室信息、删除会议室。
 
 ## 后台管理--会议室添加/修改
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3114dba5c0d49ac8b24936c8115f7da~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0531a016d87b.png)
 
 管理员可以添加修改会议室。
 
 
 ### 后台管理--用户管理
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33f73b4f9b2d47b2800069207a205831~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f3dddde5133.png)
 
 管理员可以查看用户信息、冻结用户。冻结状态的用户不能预订会议室。
 
 ### 后台管理--统计
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0df7c49dbb84b33a6589816a68e619a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15dfd9187d64.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e83c09ddcd54e2a997f083784154baa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/09dc026f395d.png)
 
 可以分别统计会议室使用频率、用户预订频率等，图表类型可以切换。
 
 ### 后台管理--信息修改
  
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d46f08ea894a4c3096bb6999e9aa49c7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a054b68624f9.png)
 
 管理员可以修改个人信息，如果改了邮箱需要验证。
 
 ### 后台管理--密码修改
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba086b9a407b469fbc79517adeb22ce1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d561c2fcd8a.png)
 
 管理员可以修改密码，不过需要邮箱验证。
 
 **管理员登录系统后，可以管理用户、管理会议室、管理预订、查看会议室的使用统计等。**
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb40691995584b6eab431ab3afc43065~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a49a38b6b97a.png)
 
 原型图链接：https://js.design/f/_Naq_y?p=C19K8IFcvq&mode=design
 

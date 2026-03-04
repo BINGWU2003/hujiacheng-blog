@@ -13,11 +13,11 @@ series_order: 23
 
 首先，provider 是可以注入的对象，它们都有 token，比如 @Injectable 装饰器声明的 class
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb316b34958c4d489557c294311618ef~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5fcf84c9d196.png)
 
 token 可以是 class 也可以是 string：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7bc462dddd914295ac4d75d4afb3b501~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ab34e7e0ac9.png)
 
 provider 可以是 useClass 指定 class，也可以 useValue 指定值，或者 useFactory 动态创建。
 
@@ -25,7 +25,7 @@ provider 之间可以相互注入，还可以注入到 controller 里。
 
 provider、controller 放在一个个 Module 里：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3063e55cbeda4f9f9658e5d67f63a4e2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/df25a7e6237f.png)
 
 module 里 exports 的 provider 在模块被 imports 之后就可以用于别的模块的注入了。
 
@@ -33,11 +33,11 @@ module 里 exports 的 provider 在模块被 imports 之后就可以用于别的
 
 Provider 可以通过 useFactory 动态创建，Module 也是，可以通过 register、forRoot、forFeature 等方法来动态创建。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/17939d8d1e994752aa491fd7e0526bbf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ddd210d9e38c.png)
 
 在 main.ts 里调用 NestFactory.create 方法，就会从 AppModule 开始递归解析 Module，实例化其中的 provider、controller，并依次调用它们的 onModuleInit 生命周期方法。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fa2b122667f4dcb8912ebf5b01c97ba~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a2e5014c171.png)
 
 之后会再递归调用每个 Module 的 provider、controller 的还有 Module 自身的 onApplicationBootstrap 生命周期方法。
 
@@ -49,7 +49,7 @@ Provider 可以通过 useFactory 动态创建，Module 也是，可以通过 reg
 
 在这个过程中，会经历很多层切面：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/24060e0f32204907887ede38c1aa018c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fb5760fee7cd.png)
 
 首先，请求会被 middleware 处理，这一层可以复用 express 的中间件生态，实现 session、static files 等功能。
 

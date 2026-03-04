@@ -25,7 +25,7 @@ mysql 是通过硬盘来存储信息的，并且还要解析并执行 sql 语句
 
 内存和硬盘的速度差距还是很大的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc9adf9ac5ec440db7f975e70f39df65~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ab7b6f3eaf27.png)
 
 所以做后端服务的时候，我们不会只用 mysql，一般会结合内存数据库来做缓存，最常用的是 redis。
 
@@ -41,11 +41,11 @@ redis 是分为服务端和客户端的，它提供了一个 redis-cli 的命令
 
 在 docker desktop 搜索框搜索 redis，点击 run，把 redis 官方镜像下载并跑起来。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bed90e72ce364a439e4f45d5e865c5db~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a47c2db836d0.png)
 
 它会让你填一些容器的信息：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b257277421a7436a8017fe0dbe7521fd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/44e63848dc9b.png)
 
 端口映射就是把主机的 6379 端口映射到容器内的 6379 端口，这样就能直接通过本机端口访问容器内的服务了。
 
@@ -53,13 +53,13 @@ redis 是分为服务端和客户端的，它提供了一个 redis-cli 的命令
 
 跑起来之后是这样的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/582d0b65347146c1acbebe5a7d62b049~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd6fd97e06b2.png)
 
 容器内打印的日志说明 redis 服务跑起来了。
 
 files 里可以看到所有的容器内的文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71fab8f1376c4d4ebbb3a3e58e99cfce~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5ecba1b4242.png)
 
 看到这个 mounted 的标志了没？
 
@@ -67,41 +67,41 @@ files 里可以看到所有的容器内的文件：
 
 我们在本地目录添加一个文件。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab7489be4ecf443c9605727b6e778ca9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9be7790fa16e.png)
 
 在容器内的 data 目录就能访问到这个文件了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4da5d4a3869b47a89bc14b70854a802c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0baf81d10d4b.png)
 
 同样，在容器内修改了 data 目录，那本机目录下也会修改。
 
 redis 服务跑起来之后，我们用 redis-cli 操作下。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5511d77862c4df0be4c870610d3013a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e330df335622.png)
 
 在 terminal 输入 redis-cli，进入交互模式：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f535910a85940d6aa855cbb89809699~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/25c67864ab6c.png)
 
 我们在这里做下 string 相关的操作：
 
 [文档](https://redis.io/docs/data-types/strings/)里的命令有这么几个：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee25f15454884d529d5c1354716ae125~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05f63dab0369.png)
 
 set、get 都挺简单：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c6666f2c01194f00ad7f45d33a7dfd47~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9d15fc0044a.gif)
 
 incr 是用于递增的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa3391bda1ff4967abecbd2a0da7e8c5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51f99428aeb0.gif)
 
 平时我们用的阅读量、点赞量等都是通过这个来计数的。
 
 当我存了几个 key 后，可以通过 keys 来查询有哪些 key:
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc2a4df46a7743fcaf63217b4e0f8cc1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c59a962037cb.png)
 
 keys 后加一个模式串来过滤，常用的是 '\*' 来查询所有 key。
 
@@ -113,41 +113,41 @@ keys 后加一个模式串来过滤，常用的是 '\*' 来查询所有 key。
 
 我用的是官方的 [RedisInsight](https://redis.com/redis-enterprise/redis-insight/#insight-form)，它号称是最好的 Redis GUI 工具：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb76c702a6274f8f9767e2d7edf595e6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/395263a5b280.png)
 
 输入操作系统信息，还有邮箱、姓名、职业、手机号等信息，就可以下载安装包了。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/819a084a320b4c53b48f6ce23917db31~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d6e7ca91a260.png)
 
 安装后就是这个东西：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0f60959a963417ea77766d14a441e43~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/08d78b2915b6.png)
 
 点击 add database：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a4f9bedead8425f9806486e48e92036~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/820fb878271b.png)
 
 连接信息用默认的就行：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fccc01b22378427583f85ed9e8ca7a41~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f0b0b69dd6c1.png)
 
 然后就可以看到新建的这个链接：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e2102f71b1d4995a2b9180c57fdb131~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81d9e7d3f72b.png)
 
 点击它就可以可视化看到所有的 key 和值：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c61e73c06a614455a1354a46c0a8f9c9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5fb38cb28638.png)
 
 同样也可以执行命令：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98feb670ed9f4014b3954009990e7be7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4c7e142db2d9.png)
 
 然后我们继续看 list 类型的数据结构：
 
 文档中有这么几个命令：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1619e89d2f334e2da2d7e8e1ed1ef76b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8e7a4803e66.png)
 
 我们试一下：
 
@@ -157,44 +157,44 @@ keys 后加一个模式串来过滤，常用的是 '\*' 来查询所有 key。
 
 输入上面的命令，点击执行：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c73596768cf74c7a9107ac963de3bd0a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4f787509f25.png)
 
 然后回到浏览页面，点击刷新，就可以看到新的 key 和它的值：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88f04cf5f768461cbd142679f4c19d7e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3dd7a2e2a40.png)
 
 这就是一个列表的结构。
 
 lpush 是 left push 的意思，执行后会从左到右添加到列表中。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f2032f702e44bb49b1b12075cc7db43~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/13de4ebc6a54.png)
 
 rpush 是 right push 的意思，执行后会从右往左添加到列表中：
 
     rpush list1 444
     rpush list1 555
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c54cb760ee8148b2a45ab8482acf1e45~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0201f298fcb7.gif)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0f11e4877dd43d3943767ed063e269e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/352ef34bf013.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5374c51a12474341b9a045ba58d91e87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d7bc6adb74b.png)
 
 lpop 和 rpop 自然是从左边和从右边删除数据。
 
     lpop list1
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e971457747f0414690a0dd19d2d63d6b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5334699f7e79.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/793c9c1ded3247d98f978de84eb03ab7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b224f8544f8c.png)
 
     rpop list1
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5daa6dd06fc45489e270efde4f9f6b1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d891e6fd5c0e.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/664ec4d6e2914c2bb17908f90190fc68~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6bf94d998f24.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/207a39a598cb4cf3bd2497abcbd38a03~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53118ec4efee.png)
 
 如果想查看 list 数据呢？
 
@@ -206,13 +206,13 @@ lpop 和 rpop 自然是从左边和从右边删除数据。
 
     lrange list1 0 -1
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba71621755334dffa10bed76254db23c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5124aba300e.png)
 
 输入一段 range，结尾下标为 -1 代表到最后。lrange list1 0 -1 就是查询 list1 的全部数据。
 
 接下来我们再来看看 set：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c733928d5b33434b89c3ba7a09cce86a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dde8022b9ff1.png)
 
 set 的特点是无序并且元素不重复。
 
@@ -225,27 +225,27 @@ set 的特点是无序并且元素不重复。
     sadd set1 222
     sadd set1 333
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a9acf78d68543b090cc42ccbb6dde07~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be2deede40cb.gif)
 
 刷新之后可以看到它只保留去重后的数据：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b4429201a94414ab1fd75ae0b399622~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/879ef6c04fcb.png)
 
 可以通过 sismember 判断是否是集合中的元素：
 
     sismember set1 111
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b659743242241488c2cd288d28080b6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/60ad27d63b34.png)
 
     sismember set1 444
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30cfd618e1d04e48850256231ea10aae~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4380cd730c1b.png)
 
 set 只能去重、判断包含，不能对元素排序。
 
 如果排序、去重的需求，比如排行榜，可以用 sorted set，也就是 zset，：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce19772e642b4919b7ff886d93e652cb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/79faf499d005.png)
 
 它每个元素是有一个分数的：
 
@@ -254,21 +254,21 @@ set 只能去重、判断包含，不能对元素排序。
     zadd zset1 3 xxx
     zadd zset1 6 yyyy
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2176bf6d7fe74830ab7d5c2bf7438c10~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/21578b40d13b.gif)
 
 会按照分数来排序：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/421cd8e02b4e4afe94aa0940308f7cc4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/14f2df0dbdd1.png)
 
 通过 zrange 命令取数据，比如取排名前三的数据：
 
     zrange zset1 0 2
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c395196654484daf8acc91efc2a767e4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47a83a7d2a11.png)
 
 接下来是 hash：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a2fd64df4f841b1a4f4df07ff06fb1c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9bee8f1aee84.png)
 
 和我们用的 map 一样，比较容易理解：
 
@@ -278,13 +278,13 @@ set 只能去重、判断包含，不能对元素排序。
     hset hash1 key4 4
     hset hash1 key5 5
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec227c5bcc1843e9a98a230c79655618~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/326fc6d12051.gif)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ad826127a444973ad8afdfb0d702163~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/69f2bd21029f.png)
 
     hget hash1 key3
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb46984a777b4570882afb133f404a14~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90a8e99d897c.png)
 
 再就是 geo 的数据结构，就是经纬度信息，根据距离计算周围的人用的。
 
@@ -294,24 +294,24 @@ set 只能去重、判断包含，不能对元素排序。
 
 用 loc 作为 key，分别添加 guangguang 和 dongdong 的经纬度
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb961a2e40804fb0ae70ed649a2b8d39~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9d905847352.png)
 
 你会发现 redis 实际使用 zset 存储的，把经纬度转化为了二维平面的坐标：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc97092460c24503970b0a5fbb19b871~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7e519cec0474.png)
 
 你可以用 geodist 计算两个坐标点的距离：
 
     geodist loc guangguang dogndong
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee479af37ee3401e8fc71ba8b24c5e3a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9d93dea695c1.png)
 
 用 georadius 搜索某个半径内的其他点，传入经纬度、半径和单位：
 
     georadius loc 15 37 100 km
     georadius loc 15 37 200 km
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d971789fad64b4c8ae0cdb7ff188d9c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/55367c0976be.png)
 
 平时我们查找周围的人、周围的 xxx 都可以通过 redis 的 geo 数据结构实现。
 
@@ -321,15 +321,15 @@ set 只能去重、判断包含，不能对元素排序。
 
     expire dogn1 30
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e93eacff53464d4996aa59dc7f1f806c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/38c8e19b3beb.png)
 
 等到了过期时间就会自动删除：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16598c625f604d8589ae55630509d220~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/41152729bdc5.gif)
 
 想查剩余过期时间使用 ttl：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c7f89da9ea8483eb0f23673fca5718f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0d2eb857dc33.png)
 
 一些有时效的数据可以设置个过期时间。
 
@@ -351,13 +351,13 @@ redis 的数据结构就先介绍到这里。
 
 最后，还记得我们跑 redis 的 docker 镜像时指定了数据卷么：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08b2f3a64ea04b228be37ab058ade0d9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/24ad1f1c44d1.png)
 
 可以看到它确实把数据保存到了宿主机，这样就不怕再跑一个容器数据会丢了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb00a12ef7d04eee9797bea00a5c070c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50453a7ce586.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/430f1805625440308a37f8e2db9cce51~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3a4fa3d8fd53.png)
 
 ## 总结
 

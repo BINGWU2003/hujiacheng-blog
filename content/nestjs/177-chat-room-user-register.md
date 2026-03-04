@@ -16,11 +16,11 @@ series_order: 6
 ```
 nest new chat-room-backend
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19e6fb2b45c744418a23b7fdc1f99df5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=944&h=700&s=286393&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d5963d2e93c8.png)
 
 在 docker desktop 里把 mysql 的容器跑起来：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f88a32bf05364377b78fa25ca8a5f49d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4436f7b5587.png)
 
 进入项目，安装 prisma
 
@@ -33,9 +33,9 @@ npm install prisma --save-dev
 npx prisma init
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea10e80f6fd04d7892d98c540a50c1ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1068&h=504&s=98914&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2838042fbcda.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92cd7c967458498ba039c9080c3b66ff~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1114&h=562&s=127603&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb087f71dfe9.png)
 
 改下 .env 的配置：
 
@@ -93,31 +93,31 @@ model User {
 
 在 mysql workbench 里创建 chat-room 的数据库：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/39c6d6cf9799493daa920d5933bd56f1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1652&h=1144&s=288195&e=png&b=e7e6e6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20ca4ace1153.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79c6744195774e0983d2939e43b334c0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=566&h=534&s=90810&e=png&b=e7e3e1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/202b7b43b2a9.png)
 
 先 migrate reset，重置下数据库：
 
 ```
 npx prisma migrate reset 
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb18945e33674215bf629c4c44146940~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=584&s=89806&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4123d9612454.png)
 
 然后创建新的 migration:
 
 ```
 npx prisma migrate dev --name user
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29dc35c3dae7474489ad14a0a24a6ffe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1140&h=568&s=89459&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c30a0190c2e6.png)
 
 这时就生成了迁移文件，包含创建 user 表的 sql 语句：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/230839d862284a0d9bd52a9bc46b855b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1506&h=676&s=214936&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/11ae6bf31de8.png)
 
 在 mysql workbench 里可以看到创建好的 user 表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0e46c77c86a410fa062d50641797b77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1548&h=594&s=282795&e=png&b=f4f2f1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6dbf2c9fa442.png)
 
 并且 migrate dev 还会生成 client 代码，接下来我们就可以直接来做 CRUD 了。
 
@@ -126,12 +126,12 @@ npx prisma migrate dev --name user
 ```
 nest g module prisma
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a9c3aef03334fbf83790ed66059ed10~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=672&h=106&s=26457&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/073c551406bb.png)
 ```
 nest g service prisma --no-spec
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f013381ca40e4585989ff508c0005fb9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=708&h=96&s=25318&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6223d59c428b.png)
 
 改下 PrismaService，继承 PrismaClient，这样它就有 crud 的 api 了：
 
@@ -165,7 +165,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 
 然后把 PrismaService 导出，并且设置 PrismaModule 为全局模块：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e66f8e8dafc04259b0f68068d64a59a1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=852&h=372&s=72894&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e7a67b5f310c.png)
 
 这样各处就都可以注入 PrismaService 用了。
 
@@ -174,11 +174,11 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 ```
 nest g resource user
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93a8bdb06dba43be8e0a9ee6f1747c05~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=268&s=66149&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/186afa977a54.png)
 
 在 UserService 里注入 PrismaService 来做 crud：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0016ca216a514e1982ef2b355da3accd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=972&h=702&s=126856&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/59addffffe47.png)
 
 ```javascript
 import { Inject, Injectable } from '@nestjs/common';
@@ -203,7 +203,7 @@ export class UserService {
 ```
 写代码的时候你会发现，参数的类型 prisma 都给你生成好了，直接用就行：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1834efcc33ae466f81465725f602300b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=914&h=504&s=115981&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce6a03c519e6.png)
 
 user 模块有这些接口：
 
@@ -235,7 +235,7 @@ export class UserController {
 ```
 dto 是封装 body 里的请求参数的，根据界面上要填的信息，创建 dto：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6301c45c4c304b759b404b92ac28f988~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1656&h=1184&s=61724&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c97fa0140804.png)
 
 创建 user/dto/register-user.dto.ts
 
@@ -259,11 +259,11 @@ export class RegisterUserDto{
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01e91a3b37bd40bbbdd41b3c1f86624f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1572&h=468&s=187058&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f0ea1660b531.png)
 
 在 postman 里调用下试试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93db2c95a64642f4b3934c03149f4c48~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1158&h=880&s=119652&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d5a2c188de9f.png)
 ```javascript
 {
     "username": "guang",
@@ -275,25 +275,25 @@ npm run start:dev
 ```
 报错了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cfef6be9eab4d568330bdf4474b2d37~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=930&h=524&s=76584&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8d5cdb51d1c.png)
 
 数据库中没有 captcha 的字段。
 
 我们要在调用 service 之前删掉它：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f95402e58cf643f4bb81efe78e5fecdb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1014&h=692&s=150785&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dfcb3b348e0f.png)
 
 再试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b445de70f9949f88a108c1029487ad6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=770&h=800&s=86510&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/75b45c1fd76d.png)
 
 服务端打印了 insert 的 sql 语句：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f14b7fa3769a493592cd40196a3821d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1684&h=566&s=220284&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4af914e5a085.png)
 
 数据库里也可以看到这条记录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca160547d3e5478080f02f66b2f7f151~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1654&h=342&s=144369&e=png&b=f1efee)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2b30171c19fc.png)
 
 然后加一下 ValidationPipe，来对请求体做校验。
 
@@ -305,7 +305,7 @@ npm install --save class-validator class-transformer
 
 全局启用 ValidationPipe：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d3f39712c6f469ba987c119d271b92b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/211aea91ae8d.png)
 
 ```javascript
 app.useGlobalPipes(new ValidationPipe());
@@ -352,7 +352,7 @@ export class RegisterUserDto {
 ```
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/891bf47824664ca6a602718f0dde4a31~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=964&h=938&s=119657&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5353e5a69ea3.png)
 
 没啥问题。
 
@@ -360,7 +360,7 @@ export class RegisterUserDto {
 
 注册的逻辑是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90fca11ff8154b31bf76cc2cea3d908a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca3bd5f802c9.png)
 
 我们需要先封装个 redis 模块。
 
@@ -368,7 +368,7 @@ export class RegisterUserDto {
 nest g module redis
 nest g service redis --no-spec
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/872494934b3f4ecb890aab20b2be45d3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=654&h=202&s=50827&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/298343ceeee1.png)
 
 安装 redis 的包：
 
@@ -377,7 +377,7 @@ npm install --save redis
 ```
 确保 redis 的 docker 容器是启动的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35e7584c6b664f13b8521c1a3db3c342~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/743e328bf3d1.png)
 
 添加连接 redis 的 provider
 
@@ -445,7 +445,7 @@ export class RedisService {
 
 然后继续实现 register 方法。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90fca11ff8154b31bf76cc2cea3d908a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca3bd5f802c9.png)
 
 ```javascript
 import { HttpException, HttpStatus, Inject, Injectable, Logger } from '@nestjs/common';
@@ -542,26 +542,26 @@ export class UserController {
 ```
 然后在 postman 里测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb80249d69514fa7a280f0cf4365173f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=802&s=94949&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/872acb916fe1.png)
 
 因为还没实现发送邮箱验证码的逻辑，这里我们手动在 redis 添加一个 key：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/470ded5fb7b74eee8a12d33cf1870e0d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2576&h=1110&s=201778&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aac42e4039a8.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc40a67e2e964c9083b6d7315b90113a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1618&h=558&s=82300&e=png&b=171717)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80a29ad88927.png)
 
 测试下：
 
 带上错误的验证码，返回验证码不正确；
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81f436f31602425a9f510697cb975e4a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=766&s=99412&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d52e325ff758.png)
 带上正确的验证码，注册成功：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46328bce605f4d1093453865336b67dd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=908&h=856&s=119308&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2333e52ac1a0.png)
 这时可以在数据库里看到这条记录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d2d00e97ce643ebabf11e32e2523739~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=258&s=96335&e=png&b=f4f4f4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/120969d4f84c.png)
 
 然后我们来实现发送邮箱验证码的功能。
 
@@ -570,7 +570,7 @@ export class UserController {
 ```
 nest g resource email --no-spec
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/659eefe03f764e3d89faf41ed204b971~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ec207011e93.png)
 
 安装发送邮件用的包：
 
@@ -619,7 +619,7 @@ export class EmailService {
 
 把 EmailModule 声明为全局的，并且导出 EmailService
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df3ef7c1c9104c2aa069be22cf04bfd1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/33baa295a799.png)
 
 然后在 UserController 里添加一个 get 接口：
 
@@ -647,21 +647,21 @@ async captcha(@Query('address') address: string) {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bfcaa8df33c441f918169ad6a3db8af~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04be26441e4e.png)
 
 邮件发送成功：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8898d7dcefa8436c9d451212daeaebc7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2ec33a3148a.png)
 
 redis 里也保存了邮箱地址对应的验证码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d502a0e687994163b2b5b832bf920d87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/860a7c6933cf.png)
 
 通过邮件发送验证码之后，保存到 redis，注册的时候取出邮箱地址对应的验证码来校验。
 
 这样，整个注册的流程就完成了。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d91b2715c99c4e699f00087a3fa9ca89~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/414a519fadc7.png)
 
 代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/chat-room-backend)。
 

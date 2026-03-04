@@ -19,7 +19,7 @@ series_order: 21
 
 我们先加一个收藏表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fa3173ff55a42ba9c43b4aaa0e0b8c3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178&h=596&s=158518&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cb3690106428.png)
 
 ```javascript
 model Favorite {
@@ -39,11 +39,11 @@ model Favorite {
 ```
 npx prisma migrate dev --name favorite
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b87aebcca4849318b7ea634c5d61e37~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1220&h=494&s=82177&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5819b7dec180.png)
 
 sql 没啥问题：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec2625640bc94b8e903a9334a1aa94af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1660&h=704&s=196184&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4ec692082d56.png)
 
 然后创建一个模块：
 
@@ -51,7 +51,7 @@ sql 没啥问题：
 nest g resource favorite
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/161860e5b1bf464fac2db9e124c983c7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=906&h=284&s=72137&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50905918cf0b.png)
 
 在 FavorateController 添加三个路由：
 
@@ -144,21 +144,21 @@ list 方法把关联的 chatHistory 查出来。
 
 添加两条收藏：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db8107a269314ff484d42db1786eb725~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=946&h=738&s=89228&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/529a0f94ba2e.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07ba965c1bda4894a78fc45c7eb2e6b6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=726&s=86982&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea82cfabf14c.png)
 
 查看下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/679ab4552f7e4198a1038d0f5b33b356~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=938&h=1244&s=177231&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e511958e1b8a.png)
 
 删除一条：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc7e9f830dec4496b958380f023e1195~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=924&h=604&s=59888&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e9bd9f50cd3b.png)
 
 查看下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a223b33b5e145999adc4a0735b6aec5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1090&h=1126&s=147935&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/94e65f6d6e82.png)
 
 这样，接口就都完成了。
 
@@ -277,13 +277,13 @@ export function Collection() {
 ```
 就是请求列表接口，用 table 展示。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46de95547b124d61b5db7c6775f49f8b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2266&h=762&s=95198&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a9a30fbd27b.png)
 
 我们实现下收藏功能。
 
 简化下交互，双击聊天记录触发收藏：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1c2b314338941e4a0d291da8156e9eb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1608&h=1012&s=244763&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/635e8e3b9e4e.png)
 ```javascript
 onDoubleClick={() => {
     addToFavorite(item.id)
@@ -304,15 +304,15 @@ async function addToFavorite(chatHistoryId: number) {
 ```
 我们收藏几条消息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb6348427ee444c6b7853b317223b2a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2276&h=1446&s=1269244&e=gif&f=56&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8bd2f12e56b8.gif)
 
 提示收藏成功，之后在收藏页面就可以看到了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/deb584dd7a994c5e9f35e2946fe3aa8f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2352&h=1502&s=627938&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dca5fbd108fc.png)
 
 然后再做下删除：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5993ff30e8d44e5af7cce7c52197470~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1376&h=1230&s=227894&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/408ec62701b0.png)
 
 ```javascript
 <Popconfirm
@@ -342,7 +342,7 @@ async function delFavorite(id: number) {
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc2b5c177b48402493a35ee71ce43a5a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2276&h=1446&s=1768679&e=gif&f=42&b=fcfafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ca22e520a54.gif)
 
 没啥问题。
 

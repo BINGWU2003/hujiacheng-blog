@@ -17,7 +17,7 @@ series_order: 2
 nest new book-management-system-backend
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bd1792587824301947de064aa919e7d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1074&h=700&s=181846&e=png&b=020202)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ffe38cec439e.png)
 
 进入项目，把服务跑起来：
 
@@ -25,11 +25,11 @@ nest new book-management-system-backend
 npm run start:dev
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11dff33e73bc4d388c812bfcb89945e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=456&s=143315&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8bc936b38cc.png)
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10660cc15027466589b296a32deee0c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=694&h=232&s=20312&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe6d843a78ca.png)
 
 服务跑起来了。
 
@@ -41,13 +41,13 @@ npm run start:dev
 nest g resource user --no-spec
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/485cfd6e267f42528e220df76bcf3e67~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=954&h=420&s=106195&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c83c1143a12.png)
 
 --no-spec 是不生成单测代码。
 
 可以看到，src 下多了 user 模块的代码，并自动在 AppModule 里引入了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/603d7d137c6b49d89ef65968f30e71d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1388&h=898&s=193884&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e61bdb6bd306.png)
 
 然后我们在 UserConstructor 添加注册接口：
 
@@ -81,9 +81,9 @@ export class RegisterUserDto {
 
 然后在 postman 里调用下这个接口：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51674e2a14fc4e548d41ccd53938276b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=904&h=622&s=61397&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1e648bf00750.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a019fa661b25466595110fae711b42ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1024&h=626&s=144054&e=png)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dfc1a8e746cb.png)
 
 可以看到，服务端接收到了请求体的参数，并且返回了响应。
 
@@ -91,7 +91,7 @@ export class RegisterUserDto {
 
 在 main.ts 里全局启用 ValidationPipe：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f318af530d1b4df48b4d5922c96560af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1086&h=582&s=122458&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c8cfeca29c9.png)
 
 ```javascript
 app.useGlobalPipes(new ValidationPipe());
@@ -117,19 +117,19 @@ export class RegisterUserDto {
 ```
 试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf37ce10fe9f4ccfb3c11976127281bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=846&h=792&s=81541&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/32b01466106b.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7388834757c400bb865cfec05007804~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=790&h=778&s=79473&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b2dea3afa99.png)
 
 校验生效了。
 
 现在接收到的参数是普通对象：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf667b6b1f3d4f71bdfb761e4564e173~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1866&h=558&s=218541&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/915e101e4a4d.png)
 
 在 ValidationPipe 指定 transform: true 之后，就会转为 dto 的实例了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67509d210a9c4656b1b0fa7e885c823c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1490&h=988&s=284424&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ff0d90b227a.png)
 
 然后我们来实现下具体的注册逻辑。
 
@@ -141,15 +141,15 @@ export class RegisterUserDto {
 nest g module db
 nest g service db
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/621dcf29ebbb4ea0b5f60192bfe0aed0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1038&h=344&s=82364&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7549316a8850.png)
 
 这里没指定 --no-spec 也没生成单测文件是因为我在 nest-cli.json 里配了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2abd9b5cd83e47c6806d7abc52a059cb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1086&h=494&s=81190&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/74c3dfebd4b0.png)
 
 我们希望 DbModule 用的时候可以传入 json 文件的存储路径：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/761ec65ff976461297e574e166537a58~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1092&h=700&s=134849&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bf2043e60c11.png)
 
 在 UserModule 里用的时候，path 是 users.json，在 BookModule 用的时候，path 是 books.json
 
@@ -237,7 +237,7 @@ DbModule 封装好了，接下来就可以继续写注册逻辑了：
 
 在 UserController 里调用下 UserService 的 register 方法：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/342df15ec625490293f3d9974257e2c9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1254&h=644&s=155566&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f4a0d06c4a6e.png)
 
 ```javascript
 @Post('register')
@@ -296,27 +296,27 @@ export class User {
 
 在 postman 里调用下试试：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a30078e04d748faa02feda93c02b491~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=924&h=720&s=74457&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e539d70fa3f0.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e776b540a69848b4afe846f377ab0fde~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1548&h=942&s=155381&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0e133d5887c9.png)
 
 注册成功，创建了 users.json 文件，并写入了数据。
 
 再注册一个：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/04bce96f91ba4309a2e7cfb10b3f40db~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=810&h=696&s=72321&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/942e06ebfc85.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79ebfd3ab6d0433fa353eca0dca5059c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2384&h=892&s=171529&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e53e4e11c8d2.png)
 
 也没问题。
 
 再次注册同样的 username 会返回 400
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54caf37ed9914c39894beb0102a8f362~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=874&h=732&s=82009&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ec1b4db0b5ed.png)
 
 注册完成了，然后再实现下登录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a977d8820d6477787c5f942a07427bc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1236&h=872&s=224903&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3a097601cde7.png)
 
 ```javascript
 @Post('login')
@@ -340,7 +340,7 @@ export class LoginUserDto {
 ```
 和注册的校验规则一样。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89bfc413439d469b95b7848434f481ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1652&h=850&s=177162&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd687492a5f4.png)
 
 ```javascript
 async login(loginUserDto: LoginUserDto) {
@@ -362,19 +362,19 @@ async login(loginUserDto: LoginUserDto) {
 测试下：
 
 当不满足校验规则时：
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e83ae2115ab4f938958664bce7af8c7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=870&h=836&s=88280&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/66b7e246ecb7.png)
 
 当用户不存在时：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5fc3eb9db7c4a0cba4bb01f3a848132~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=860&h=736&s=77978&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b808295647f3.png)
 
 当密码不正确时：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/15d1d3fedac246a58d4ceb4504059fdc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=824&h=722&s=79003&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00fd67f25c80.png)
 
 登录成功时：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d619e7b1609a47a3b042c534ba790074~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=792&h=724&s=71927&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/304bbc05c3a7.png)
 
 这样，我们登录注册就都完成了。
 

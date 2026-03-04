@@ -17,13 +17,13 @@ dockerfile 是在哪里 build 的，在命令行工具里，还是在 docker 守
 
 我没启动 docker daemon 的时候是不能 build 的，启动之后才可以：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f773825af9c04a6c92c9a19cf50abc7e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e9dbcc4cf1e.png)
 
 命令行工具会和 docker daemon 交互来实现各种功能。
 
 比如 docker build 的时候，会把 dockerfile 和它的构建上下文（也就是所在目录）打包发送给 docker daemon 来构建镜像。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95d05e0df6a147818d3523030da497a9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b92492016261.png)
 
 比如我们会执行这样的命令：
 ```shell
@@ -60,7 +60,7 @@ eslint、prettier 的配置文件在构建镜像的时候也用不到
 
 此外，还有注释的语法：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6785ea39c73d43318b84f89433d44223~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b86845fce26e.png)
 
 这就是 dockerfile 的全部语法，没多少东西。
 
@@ -76,7 +76,7 @@ eslint、prettier 的配置文件在构建镜像的时候也用不到
 
 也就是这样：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75e15787ea384e26a1ea1c19eb7cd2b7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e60d50b77792.png)
 
 新建个项目：
 ```shell
@@ -127,15 +127,15 @@ docker build -t nest:first .
 ```
 镜像名为 nest、标签为 first，构建上下文是当前目录
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41fdc3a13cef43299ecff52842df0c3a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1407c12d1770.png)
 
 然后就可以在 docker desktop 里看到你构建出来的镜像了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9eff013188ba492bbbc6c150eaa96bd6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5187f08570db.png)
 
 如果你 build 的时候报这个错误：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e976e14995544199ad21a300a1e833c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7a7ed00af46d.png)
 
 那需要加一行：
 
@@ -143,19 +143,19 @@ docker build -t nest:first .
 
 原因如下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1183b1a92605424eabb781e52c0b28e1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cfc9c5cfc86.png)
 
 点击 run 把它跑起来：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbcc91f51a7b4c1ea59acc180612a48e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/078ea434d956.png)
 
 容器跑成功了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c874381b5db464f9f8ede830622bf8b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6ed85e0e9f39.png)
 
 浏览器访问下也没啥问题：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de236086bf0c453d81d4310277c4730d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a9ca81a0018e.png)
 
 这样我们就用 docker 把我们的 nest 应用跑起来了！
 
@@ -165,7 +165,7 @@ docker build -t nest:first .
 
 明显，src 等目录就不再需要了，构建的时候需要这些，但运行的时候只需要 dist 目录就可以了。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/433c253702a942ceac37a1a635720d0d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d1c48fb02874.png)
 
 把这些文件包含在内，会让镜像体积变大。
 
@@ -224,30 +224,30 @@ CMD ["node", "/app/main.js"]
 ```
 docker build -t nest:second .
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20e72d75bbbe4c25a92550af8754ea08~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/01bcfc61f2ae.png)
 
 把之前的容器停掉，把这个跑起来：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/154f9b89aba247f5bdf4fc53189e3b69~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/def76de7dc35.png)
 
 这次用 3003 端口来跑：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/219ddae5f2f74fc89eead1f94dae381c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ba6158882318.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2edb14b6b5a14db0a853e1d3fa1779a5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b7afbfc52b2d.png)
 
 浏览器访问下：
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/485940af45b1484283a04d1e4067cc21~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/92766e4f84bf.png)
 
 nest 服务跑成功了。
 
 这时候 app 下就是有 dist 的文件、生产阶段的 node\_modules、package.json 这些文件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdbedb6e21ce4f22a5f2797890f81bae~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dede415e0c8d.png)
 
 对比下镜像体积，明显看出有减小，少的就是 src、test、构建阶段的 node\_modules 这些文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a92e698c2ad547febb914e84d86640de~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/50256e742693.png)
 
 这就是多阶段构建（multi-stage build）的魅力。
 
@@ -293,15 +293,15 @@ node:18-alpine3.14 就是用 alpine 的 linux 的 3.14 版本，用 node 的 18.
 docker build -t nest:ccc .
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/730cb68366fe4a72a8a87b3ee4aa5bab~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e86bfea0d25c.png)
 
 可以看到现在镜像体积只有 277M 了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31c423df1b5148f08f6c3653991280b9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77b91af1fdce.png)
 
 一般情况下，我们都会用多阶段构建 + alpine 基础镜像。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/786525d5a5fa49e492bb70a6fc22af5d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/30abbb63229e.png)
 
 alpine 是一种高山植物，就是很少的养分就能存活，很贴合体积小的含义。
 

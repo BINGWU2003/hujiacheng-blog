@@ -15,27 +15,27 @@ post 请求的数据是通过 @Body 装饰器来取，并且要有一个 dto cla
 
 （dto 是 data transfer object，数据传输对象，用于封装请求体的数据）
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89880e17ce6c458dbbdd098a4cca78b3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f0cd4005fe5.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc0b0df7fa5b468f87ea5f36d3329886~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/58f8a1e6e9a1.png)
 
 我们用 postman 来发个 post 请求。
 
 (postman 在这里下载： <https://www.postman.com/downloads>)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/745b9d9702b54dde8d84ef37df47bd84~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/387fc03587ac.png)
 
 content-type 指定为 json。
 
 点击 send，就可以看到服务端接收到了数据，并且把它转为了 dto 类的对象：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cb9b7d08313499a93ccefb04e6b4b17~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00856ee712ab.png)
 
 但如果我们 age 传一个浮点数，服务端也能正常接收：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f33b184c864e47a19257a94d41fe9b8f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6b5069aae3bf.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bda66123b6494113ac2e12272e5f78f2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d8c3aa6d7d7.png)
 
 因为它也是 number。
 
@@ -53,27 +53,27 @@ npm install class-validator class-transformer
 ```
 然后在 @Body 里添加这个 pipe：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/85882d3e4a6e424e91c032bfbfc115c5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2af37710a960.png)
 
 在 dto 这里，用 class-validator 包的 @IsInt 装饰器标记一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d36bfb83ca2a4257b6f506aa3b735988~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de4f0f0665e4.png)
 
 再次请求，你就会发现它检查出了参数里的错误：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dfb8e96a92eb454d8240f878e6ee3637~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/587aec0eaa55.png)
 
 那它是怎么实现的呢？
 
 [class-validator](https://www.npmjs.com/package/class-validator) 包提供了基于装饰器声明的规则对对象做校验的功能：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e7b7376b04c458f9e92c863cef3456a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/31f469d376c6.png)
 
 而 [class-transformer](https://www.npmjs.com/package/class-transformer) 则是把一个普通对象转换为某个 class 的实例对象的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/578fadf837754284a4952e45e322fd21~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cdfebae34dc4.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b61c5f50c45b42eb87c7e9ad79704d64~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1735590e7cc4.png)
 
 这两者一结合，那 ValidationPipe 是怎么实现的不就想明白了么：
 
@@ -104,7 +104,7 @@ export class MyValidationPipe implements PipeTransform<any> {
 
 pipe 里拿到的 metatype 就是这部分：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2d114db874a4949be4012eee67a21a0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/36bd8750a916.png)
 
 如果没有声明这部分，那就没法转换和验证，直接返回 value。
 
@@ -114,13 +114,13 @@ pipe 里拿到的 metatype 就是这部分：
 
 我们来用下看：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e74db89b6afa4d0ebdf966c630fa62b7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d6ee5ba0d76.png)
 
 替换为我们自己实现的 MyValidationPipe。
 
 再次请求下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd4ec80f4d8744e89d0e3b81967575bd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/17a4969b6405.png)
 
 确实检查出了错误。
 
@@ -128,49 +128,49 @@ pipe 里拿到的 metatype 就是这部分：
 
 pipe 里也是可以注入依赖的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fc1687121fc474caf84258dc728cb59~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8076093434d3.png)
 
 比如，我们指定 @Inject 注入 token 为 validation\_options 的对象。
 
 因为标记了 @Optional，没找到对应的 provider 也不会报错：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e22faba38c894ef395105bf900e70a1e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c025f77a67e.png)
 
 但当我们在 module 里添加了这个 provider：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10128118e6a443649ceab27b41a18338~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/179150b4c305.png)
 
 就可以正常注入了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66ae19e0796f4ece8745eb08634c2687~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90c3de8cd215.png)
 
 当然，这种方式就不能用 new 的方式了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e48818e0378a4a32a831e4b677ad1c2e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a71333058f8.png)
 
 直接指定 class，让 Nest 去创建对象放到 ioc 容器里。
 
 如果是全局的 pipe，要通过这种方式来创建才能注入依赖：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d0bc8f8372d40edb3d86f5458e97686~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/de5d62d4fafc.png)
 
 这就和我们之前创建全局 interceptor 一样。
 
 同理，其余的 filter、guard 也可以通过这种方式声明为全局生效的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b0073fb99ec44b1a56554eb7144d6dc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1414c1c760d7.png)
 
 现在我们就可以把 handler 里的 ValidationPipe 去掉了
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8f4e2c0a00084bc79776572aefd228ef~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d11635ff72e.png)
 
 再次访问，它依然是生效的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/017851a4b31e42db8aeab3de9b20bd93~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a07ca1c2d972.png)
 
 当然，这里我们没有注入什么依赖，所以这种方式也可以：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ad509bf38ac42489e2702ef3ac99c29~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/40873fd8b13c.png)
 
 会用 ValidationPipe 之后，我们回过头来再看看 class-validator 都支持哪些验证方式：
 
@@ -203,11 +203,11 @@ export class Ppp {
 
 然后添加一个 post 的 handler：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c48c65e0e869479b911c520d72f90368~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/529f59f237c9.png)
 
 在 postman 里发送 post 请求。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e82040862e514a42aed15255ee438ec3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6744864bcd8d.png)
 ```json
 {
     "title": "aaaaaaaaaaaaaaa",
@@ -222,15 +222,15 @@ export class Ppp {
 
 当参数不正确，ValidationPipe 就会返回 class-validator 的报错：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/958ecb1dc38c4b4692bf9a6cc421b9bd~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2936d85c9b0.png)
 
 这个错误消息也是可以定制的：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e667a3fbc62485ab382767e5abea4b0~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3be40cd99e8.png)
 
 添加一个 options 对象，传入 message 函数，打印下它的参数：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/932df50b7d144cb58b2862c07f33c41a~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/64350204441e.png)
 
 可以拿到对象、属性名、属性值、class 名等各种信息，然后你可以返回自定义的 message：
 ```typescript
@@ -243,7 +243,7 @@ title: string;
 ```
 再次访问，返回的就是自定义的错误消息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70705e328fb44fa8a4611a53d07a838d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78d691c50d6d.png)
 
 更多的装饰器可以看 [class-validator 文档](https://www.npmjs.com/package/class-validator)。
 

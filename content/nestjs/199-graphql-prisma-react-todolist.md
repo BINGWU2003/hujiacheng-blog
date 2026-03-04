@@ -18,12 +18,12 @@ series_order: 5
 其实也可以用 GraphQL 的方式来写接口：
 
 查询：
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2588954ae0a410f9874f5f7704b9abd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1122&h=998&s=105312&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9c147c040895.png)
 
 新增：
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e86ac6868ec481dbbd0ddb2d018fad1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1492&h=916&s=116440&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d044548544ba.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1dace67d38542c897f4eda0fe1c1248~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1466&h=1126&s=130142&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5c0da6afdd36.png)
 
 增删改查都在一个接口里搞定，并且想要什么数据由前端自己取。
 
@@ -37,7 +37,7 @@ npm install -g @nestjs/cli
 nest new graphql-todolist
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ddefb3f395445ae82a2e4a97e69df00~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=920&h=696&s=165174&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ddfeee0855d.png)
 
 创建个项目，然后我们首先来实现 restful 接口的增删改查。
 
@@ -45,15 +45,15 @@ nest new graphql-todolist
 
 从 docker 官网下载 docker desktop，这个是 docker 的桌面端：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d7da48155df448698ae5fc57072fe0b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2380&h=1336&s=459767&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/525136bc8fb0.png)
 
 跑起来后，搜索 mysql 镜像（这步需要科学上网），点击 run：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/659eaef5c4b8445a8c7224981515c1fa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2368&h=1460&s=326395&e=png&b=7a7a7b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9d1cc0a9a1f.png)
 
 输入容器名、端口映射、以及挂载的数据卷，还要指定一个环境变量：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/33961dc3a8cd4d9c805c2ff096a1caf9~tplv-k3u1fbpfcp-watermark.image#?w=1332&h=1428&s=187941&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9281a95f1759.png)
 
 端口映射就是把宿主机的 3306 端口映射到容器里的 3306 端口，这样就可以在宿主机访问了。
 
@@ -61,21 +61,21 @@ nest new graphql-todolist
 
 而 MYSQL_ROOT_PASSWORD 的密码则是 mysql 连接时候的密码。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d7db618f4e4b4ca3b0b44752450d4322~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2232&h=1326&s=496885&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/83e1341810c7.png)
 
 跑起来后，我们用 GUI 客户端连上，这里我们用的是 mysql workbench，这是 mysql 官方提供的免费客户端：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1311f9991e248de8a9cdd92c9b72a15~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=270&h=270&s=40789&e=png&b=9b5801)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a084ce06fd2a.png)
 
 连接上之后，点击创建 database：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef0a84137c6249d191c5c798fdfd0cb1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1626&h=1126&s=271190&e=png&b=e8e7e7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e6e86093be7.png)
 
 指定名字、字符集为 utf8mb4，然后点击右下角的 apply。
 
 创建成功之后在左侧就可以看到这个 database 了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35b4be97f4e54bb89e6c035125c02f26~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=402&h=256&s=34981&e=png&b=e9e4e0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7628927c0d51.png)
 
 现在还没有表。
 
@@ -93,11 +93,11 @@ npm install prisma --save-dev
 npx prisma init
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea10e80f6fd04d7892d98c540a50c1ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1068&h=504&s=98914&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2838042fbcda.png)
 
 生成了 schema 文件（用来定义 model 的），和 .env 文件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e79653f4b614e369ada66ad4de9834c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1312&h=650&s=152818&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9853b168fa9d.png)
 
 改下 .env 的配置：
 
@@ -116,7 +116,7 @@ datasource db {
 
 然后创建 model：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19da9ee8915e4c61b00679fdec070dfa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=900&h=812&s=140024&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0f5c89d41b97.png)
 
 ```javascript
 generator client {
@@ -144,7 +144,7 @@ id 自增，content 是长度为 50 的字符串，还有创建时间 createTime
 npx prisma migrate dev --name init
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8b384eade2143f0b2c4007f102fd5d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1170&h=758&s=112355&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/455e8205b834.png)
 
 它会生成 sql 文件，里面是这次执行的 sql。
 
@@ -152,11 +152,11 @@ npx prisma migrate dev --name init
 
 可以看到，这次执行的 sql 就是 create table 建表语句：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fbc8c88d3cf4062b6d35f95505394ab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1640&h=546&s=159515&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f3178bf6ca23.png)
 
 这时候数据库就就有这个表了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58a4409e705848c4bea095f147873ee2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1220&h=578&s=197490&e=png&b=efeceb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd9354d7307e.png)
 
 接下来我们就可以在代码里做 CRUD 了。
 
@@ -166,7 +166,7 @@ npx prisma migrate dev --name init
 nest g service prisma --flat --no-spec
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e7a681aae61456e8218f380407c9256~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=688&h=116&s=27036&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d5cfdeee6717.png)
 
 改下生成的 PrismaService，继承 PrismaClient，这样它就有 crud 的 api 了：
 
@@ -263,7 +263,7 @@ export class AppService {
 
 @Inject 注入 PrismaService，用它来做 CRUD，where 是条件、data 是数据，select 是回显的字段：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c05586639ac4733aee363e473f78130~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=792&h=822&s=101449&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9eafdba727c7.png)
 
 然后创建用到的两个 dto 的 class
 
@@ -326,7 +326,7 @@ export class AppController {
 
 添加增删改查 4 个路由，post 请求用 @Body() 注入请求体，@Query 拿路径中的参数：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a7a9e08018742beba2229a63b2c00d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=864&h=892&s=145372&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/21745214874a.png)
 
 把服务跑起来试一下：
 
@@ -334,41 +334,41 @@ export class AppController {
 npm run start:dev
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b670df1756294db6b0d1baf09e5c1e78~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1570&h=442&s=185512&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e3e39d0a63a4.png)
 
 首先是 list，现在没有数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9680c6b5b43b4d279310f0ee88c0dfec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=736&h=554&s=48051&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39424a76cbbd.png)
 
 然后添加一个：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe31162b5c2d4ccea681ec599aa7e2fb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=794&h=694&s=80224&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51fe735103c2.png)
 
 服务端打印了 insert into 的 sql：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4e4d97ae7af64aab8f56cf011fbd2db1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1666&h=682&s=253503&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/91060cda9a37.png)
 
 数据库也有了这条记录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/febf6f78e21845bcb2bac919484a2bf6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1220&h=280&s=91778&e=png&b=eeebea)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aba41fc9ce72.png)
 
 再加一个：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a7130f3261c496b8a67dcb6b42cba76~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=782&h=686&s=80284&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7535529c46db.png)
 
 然后查一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13458e32cc534f0b9d5c4f45e36fdaf2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=862&h=926&s=98197&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/24d58200945c.png)
 
 接下来试下修改、删除：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f7d77eeec2c4518a45440f7f2fbe3b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=796&h=716&s=83610&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a9c54648bdca.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dfbb627e042b4a9e8412161e3692bf1f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=854&h=744&s=84022&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7bb42ba30c80.png)
 
 再查一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/362069aec65347ac8e0ca8de6feab628~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=668&s=72279&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b4ce289aaef1.png)
 
 没啥问题。
 
@@ -407,7 +407,7 @@ export class AppModule {}
 
 typePaths 就是 schema 文件的路径：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c02915bbc3348c385f86ce55f6fd77d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=896&h=700&s=149084&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/929e5fdfc65a.png)
 
 添加一个 todolist.graphql
 
@@ -448,7 +448,7 @@ type Mutation {
 nest g resolver todolist --no-spec --flat
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/89294a98b4074c79839466b8803601ab~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=758&h=108&s=28623&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2970e62fb180.png)
 
 ```javascript
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
@@ -523,7 +523,7 @@ export class TodolistResolver {
 
 浏览器访问 http://localhost:3000/graphql 就是 playground，可以在这里查询：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b26f480948140e19e792158026fff87~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1778&h=760&s=96872&e=png&b=111d28)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0121bb9d3b69.png)
 
 左边输入查询语法，右边是执行后返回的结果。
 
@@ -531,7 +531,7 @@ export class TodolistResolver {
 
 我们换一个：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71ad14aa08db4ae49e099373c7dac15c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1248&h=854&s=216674&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/021d715ec654.png)
 
 ```javascript
 import { Module } from "@nestjs/common";
@@ -558,31 +558,31 @@ import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin
 export class AppModule {}
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09909742073143be930078ca2202d60a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2192&h=1306&s=306316&e=gif&f=54&b=f0f4f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/720bf577964a.gif)
 
 试一下新增：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ddb7225a23e49a088bafe220ad0c86d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1462&h=964&s=118088&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5757199eb2fa.png)
 
 查询：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2b5401d77d04640a2103212419645bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1680&h=654&s=76243&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/155014a75ef6.png)
 
 修改：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77814374325d4b42bb047a567a71aef2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1510&h=832&s=115324&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ddaabc97a65.png)
 
 单个查询：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5064d3764964429ba9ab78f2fa860869~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1508&h=726&s=98504&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ed877e4fd63.png)
 
 删除：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0827524acd884a10af8470290c8a78d9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1462&h=718&s=92889&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bbc9486f0c5c.png)
 
 查询：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8e44f460079c4dfdb238828f1c137a0e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1554&h=574&s=60793&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/acb94bc9a76b.png)
 
 基于 GraphQL 的增删改查都成功了！
 
@@ -592,7 +592,7 @@ export class AppModule {}
 npx create-vite
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01c8020be18747eb96547d34446fdae6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=922&h=406&s=53515&e=png&b=000000)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5808622721d.png)
 
 进入项目，安装 @apollo/client
 
@@ -673,19 +673,19 @@ export default function App() {
 npm run dev
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d61f8579b9f94b629ba9697073e90f2f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=702&h=268&s=35508&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/242249f5e362.png)
 
 这里涉及到的跨域，现在后端服务里开启下跨域支持：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94650717fdcf4663b6d167acffebf8de~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=884&h=416&s=78079&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9ffa5d49be5.png)
 
 可以看到，返回了查询结果：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6d289ca239df4f5e8070e926797dcb32~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2150&h=1482&s=270322&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78b9cb2a1a8e.png)
 
 然后加一下新增：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e2c3bb5c2b04f678ef4d61b3be6db37~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=924&h=1148&s=180817&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/29bb6a4f21bf.png)
 
 用 useMutation 的 hook，指定 refetchQueries 也就是修改完之后重新获取数据。
 
@@ -758,11 +758,11 @@ export default function App() {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6dc96154f7e048998abb6c92fd4dd7ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1108&h=634&s=71495&e=gif&f=32&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/354aa3c8a83a.gif)
 
 数据库里也可能看到新增的数据：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a16ac5169606455b87273b4f88e1080d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1432&h=386&s=213553&e=png&b=efeceb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bcef7bd6dcad.png)
 
 这样，我们就能在 react 项目里用 graphql 做 CRUD 了。
 

@@ -20,7 +20,7 @@ mkdir prisma-client-api
 cd prisma-client-api
 npm init -y
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8927d892bc04c8f95ac37a8fa63ab68~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=870&h=700&s=88483&e=png&b=000000)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f1e2765ad1fc.png)
 
 进入项目，执行 init 命令：
 
@@ -28,15 +28,15 @@ npm init -y
 npx prisma init
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29216dde7e8e40be94a8a27f85f0c4af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1010&h=624&s=105602&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2277c46ac249.png)
 
 生成了 .env 和 schema 文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e97117aa3ef49aabf9227ec19601c79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=484&h=276&s=27131&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4adfcef8f11.png)
 
 然后改下 .env 文件的数据库连接信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9260844466e7496fa11bdf18a5da4e14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1026&h=348&s=134798&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f66a57a27cd1.png)
 
 ```
 DATABASE_URL="mysql://root:guang@localhost:3306/prisma_test"
@@ -44,7 +44,7 @@ DATABASE_URL="mysql://root:guang@localhost:3306/prisma_test"
 
 改一下 datasource 的 provider 为 mysql，并且添加一个 model
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3627436dc9b44b1980c166c9aab0b952~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=820&h=554&s=75992&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34a22c6a1eef.png)
 
 ```prisma
 generator client {
@@ -65,7 +65,7 @@ model Aaa {
 
 然后再添加一个 generator，生成 docs，并且修改下生成代码的位置：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aea5f82f5ced4488bd21ef081c19d1c5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=926&h=744&s=108104&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a9d63254076d.png)
 
 ```
 generator docs {
@@ -84,7 +84,7 @@ npm install --save-dev prisma-docs-generator
 npx prisma migrate reset
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e525d0d9692940caac47a3a05eac11f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1072&h=622&s=88219&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9d789b344a7.png)
 
 之后用 migrate dev 创建新的迁移：
 
@@ -92,13 +92,13 @@ npx prisma migrate reset
 npx prisma migrate dev --name aaa
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d18cf9ff25e54fe6817d96222111560b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=996&h=524&s=82026&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d0c8cfac2050.png)
 
 可以看到，生成了 client 代码、docs 文档，还有 sql 文件。
 
 数据库中也多了这个表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2258e881e16492fa0fdf673288e9ce4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1082&h=576&s=178048&e=png&b=eeebea)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bf2b3e2e541d.png)
 
 然后我们写下初始化数据的代码：
 
@@ -186,13 +186,13 @@ main();
 ```
 npx prisma db seed
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/686017ea7d974af1a6099bd45090b1f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1356&h=276&s=58495&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1575837a8f0b.png)
 
 打印了插入数据的 sql。
 
 去 mysql workbench 里看下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69e797612cdd4212a1870bfcecaca825~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=970&h=510&s=160843&e=png&b=eeeae8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8903fcd82769.png)
 
 插入成功了。
 
@@ -228,11 +228,11 @@ npx http-server ./generated/docs
 ```
 跑一个静态服务：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/155c61bbec674cb7b3b517a2c94d6263~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=760&h=494&s=84095&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/13df5c92f390.png)
 
 访问 http://localhost:8080 可以看到 Aaa 的字段和方法，一共 9 个方法：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/448cbf3c64ea4bbba5af4c24124e4df4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1518&h=1112&s=169522&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3baad037fd13.png)
 
 我们依次试一下：
 
@@ -272,7 +272,7 @@ test1();
 ```
 所以，这里的 id、email 都可以：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af97ee8cd6824c95a5d0499111c25b4b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=726&h=220&s=31608&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5beaa220207d.png)
 
 跑一下试试：
 
@@ -280,11 +280,11 @@ test1();
 npx ts-node ./src/index.ts
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c17ddadffce045acb1d4f36d59812191~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1128&h=222&s=62804&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e77be6c1f798.png)
 
 但是如果指定 name 就不行了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecd8795097a44959ad84f2ffab871bb0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=562&h=242&s=27950&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7aade99aa862.png)
 
 因为通过 name 来查并不能保证记录唯一。
 
@@ -314,7 +314,7 @@ async function test1() {
 
 比如我通过 select 指定返回 id、email：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c1252b339db4a27a55025ddae309849~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=880&h=218&s=56218&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d31a80e9a4b9.png)
 
 那结果里就只包含这两个字段。
 
@@ -350,7 +350,7 @@ async function test2() {
 test2();
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87f289e0f283403e992e1c3feb48f517~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1190&h=686&s=105718&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15b5ea197fe6.png)
 
 再换成 findUniqueOrThrow 试试：
 
@@ -380,7 +380,7 @@ test2();
 
 如果没找到会抛异常：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9eec40cb4e445bebf8b878abc741d66~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1038&h=748&s=128181&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fde77f3a7737.png)
 
 ## findMany
 
@@ -422,7 +422,7 @@ test3();
 ```
 npx ts-node ./src/index.ts
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f77efa5cabd4110ac425ce293950368~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=880&h=310&s=60018&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/223b94f8f3e6.png)
 
 然后再加个分页，取从第 2 条开始的 3 条。
 
@@ -445,7 +445,7 @@ async function test3() {
 ```
 下标是从 0 开始的，所以是这三条：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7f029c71fc64398a24adcd2cfc3937c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=824&h=272&s=49555&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a705d2903cdb.png)
 
 当然，你可以再加上 select 指定返回的字段：
 
@@ -471,7 +471,7 @@ async function test3() {
 }
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/619979abd71149e9a279a21ce941ccdd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=996&h=246&s=47141&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/89a7fb23e797.png)
 
 你会发现熟练 sql 之后，这些 api 用起来都很自然，过一遍就会了。
 
@@ -502,11 +502,11 @@ async  function test4() {
 test4();
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a3d3aa449a440dfbc5946c0aafd6af2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=714&h=146&s=34628&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/800a29443549.png)
 
 此外，where 条件这里可以指定的更细致：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/239d3681eed74917b35e7d0cf38f3926~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=726&h=650&s=59985&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/28fc857d015d.png)
 
 contains 是包含，endsWith 是以什么结尾
 
@@ -537,11 +537,11 @@ test5();
 ```
 它同样也可以通过 select 指定插入之后再查询出来的字段。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c63f821b7a9845e385f3bb4b74c8ccb7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=706&h=224&s=53669&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bec7d5deff09.png)
 
 createMany 我们用过，这里就不测了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c94f7b2748f9498787cd63dd828c6025~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=688&h=980&s=92858&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/92e7a753dd3f.png)
 
 ## update
 
@@ -568,7 +568,7 @@ test6();
 ```
 npx ts-node ./src/index.ts
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b559edb67e0247a78566066a68a39d19~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=792&h=302&s=66957&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b513c02830a0.png)
 
 可以看到，打印了 3 条 sql：
 
@@ -578,7 +578,7 @@ updateMany 自然是更新多条记录。
 
 比如你想更新所有邮箱包含 xx.com 的记录为 666@xx.com
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d5f1d297acf42f28f220bff549b3442~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=680&h=490&s=51454&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e9ca0fd2206.png)
 
 用 update 会报错，它只是用来更新单条记录的，需要指定 id 或者有唯一索引的列。
 
@@ -600,11 +600,11 @@ async function test7() {
 test7();
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2ae34da887644228b96e35065eed5b4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=766&h=182&s=35654&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc673f04d561.png)
 
 在 mysql workbench 里可以看到，确实改了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b450063af6f443cbbe3148db3cab91c0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=558&h=362&s=91564&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b688b3d28c20.png)
 
 ## upsert
 
@@ -630,15 +630,15 @@ test8();
 ```
 第一次跑执行的是 insert：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f322a5842c748c6a325970c04f0163e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=884&h=298&s=67052&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/876bdad9662a.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a1c34df17d94668988ed26cdf77c744~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=606&h=376&s=101801&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4bc64b213fe1.png)
 
 第二次跑就是 update 了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/570a0212a0284695b4941bb4a4d298be~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=832&h=306&s=67081&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5cd30d21900d.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b69089861bf14b349c213a15fa6e3bca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=542&h=300&s=76891&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45626289f8ef.png)
 
 ## delete
 
@@ -662,11 +662,11 @@ async function test9() {
 test9();
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f00108df717445488fe1cdc11245e0f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1310&h=242&s=72029&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/323ee4128947.png)
 
 可以看到有两条 delete 语句。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a15026f6da7d4dabb5f9127292d03cee~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=736&h=418&s=103698&e=gif&f=17&b=f8f8f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e39dfde89e71.gif)
 
 可以看到 3 条记录都被删除了。
 
@@ -695,7 +695,7 @@ async function test10() {
 test10();
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57fb1afa9463410eb26ed5daa5b05406~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=730&h=254&s=42719&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a835e103d2dc.png)
 
 把 findMany 改为 count 就是这样了：
 
@@ -718,7 +718,7 @@ async function test10() {
 test10();
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa3e688b042c4f6ea6c5ef3bd8e12e5e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=720&h=144&s=27187&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/130501bcbf6b.png)
 
 ## aggregate 
 
@@ -731,7 +731,7 @@ aggregate 是统计相关的。
 
 改一下 model：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2661d3c4f5444433972546f4f499e7f4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=814&h=510&s=70599&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47df1be97eb6.png)
 
 ```
 model Aaa {
@@ -748,11 +748,11 @@ model Aaa {
 npx prisma migrate dev --name bbb
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc6ee6e6538f43b8b850f06d452b21c2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1134&h=524&s=87138&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e5045f8732ef.png)
 
 对应的 sql 如下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d282df2c9837454d825e4d8f6d6fc642~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1598&h=372&s=85466&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5814ea80e336.png)
 
 然后我们用代码改一下：
 
@@ -778,11 +778,11 @@ async function test11() {
 }
 test11();
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96087511c92d41aa86ef7457be55fb44~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1140&h=522&s=124326&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d08b7e093e5.png)
 
 在 mysql workbench 里刷新下，可以看到确实改了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4ff325c8e714542a3e24cac64bde57e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=668&h=302&s=78342&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2f6c3dac7149.png)
 
 接下来就可以测试 aggregate 方法了：
 
@@ -814,7 +814,7 @@ test12();
 
 跑一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ba51d2dc388d4765b132bdc9baacc2d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=872&h=272&s=42847&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a48174cc3975.png)
 
 可以看到返回的最大值、最小值、计数、平均值，都是对的。
 
@@ -849,11 +849,11 @@ test13();
 就是按照 email 分组，过滤出平均年龄大于 2 的分组，计算年龄总和返回。
 
 结果如下：
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9859da852ff044d1bca8e1b2d44b7b12~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=994&h=216&s=48182&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d667c28db9d.png)
 
 因为 age 大于 2 的就 2 条，然后算平均值、计数，就是上面的结果了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cf5f033140f44cd8132804fa0044d04~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=702&h=254&s=61142&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/82009e3b79c9.png)
 
 这样，我们就把所有 Prisma Client 的 api 过了一遍。
 

@@ -15,29 +15,29 @@ series_order: 4
 
 一个作者可以写多篇文章，而每篇文章只属于一个作者。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/652efb6bbd7d4af1945b0fe912bd2d91~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c05fcff5739c.png)
 
 一个订单有多个商品，而商品只属于一个订单。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37e82479d7ae4e7c88c4df4cf040c2d5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0bd29b03ecf5.png)
 
 一个部门有多个员工，员工只属于一个部门。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f79387f8934e468ca0406b7aca4ebfb6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8133dd222ae.png)
 
 多对多的关系也是随处可见：
 
 一篇文章可以有多个标签，一个标签可以多篇文章都有。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81b2e6cef1fc4480b98a760bd61ad21a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4590e4f6f065.png)
 
 一个学生可以选修多门课程，一门课程可以被多个学生选修。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a409a01fd32a431c9b378f4ebc7a12f6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/60445eeb9ab4.png)
 
 一个用户可以有多个角色，一个角色可能多个用户都有。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a70416ef1fbb49c393791a640417a217~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/19819071a034.png)
 
 那在数据库里如何建模这种关系呢？
 
@@ -47,17 +47,17 @@ series_order: 4
 
 我们会有一个部门表和一个员工表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9f5d802c0ba43edb12f9f42b2b1a164~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8bd338b3bab.png)
 
 在员工表添加外键 department\_id 来表明这种多对一关系：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64756ca65ed24454a697dd63ad464665~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b63d76f9f0e.png)
 
 其实和一对一关系的数据表设计是一样的。
 
 我们添加这两个表。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb781961d67349df83a62d1ea9d537fd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a1fa447d5175.png)
 
 分别指定 id 是 INT，约束为 primary key、not null、 auto increment 。
 
@@ -67,11 +67,11 @@ name 是 VARCHAR(45)，约束为 not null。
 
 建表 sql 如下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d800b3a5b52e4cd08021bb382ff7f046~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/22dc22e9f029.png)
 
 同样的方式创建 employee 表：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c81a5a5fa9d444eb9879cc253ce96182~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/28565c7ff75c.png)
 
 添加 id、name、department\_id 这 3 列。
 
@@ -81,11 +81,11 @@ name 是 VARCHAR(45)，约束为 not null。
 
 因为部门没了员工不一定也没了，可能还会分配到别的部门。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11d37ef48b084490829dd6b95661f2a7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8b615b06b26e.png)
 
 点击 apply 就创建成功了。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbcaab19008040de896a2b34ae6a6224~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c80a21a6c84.png)
 
 sql 的最后这段，就是创建了一个外键约束，department\_id 引用了 department 表的 id，设置级联删除和更新方式为 SET NULL。
 
@@ -106,11 +106,11 @@ INSERT INTO `department` (`id`, `name`)
         (10, '研发部');
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/160dc8d459a94f399d806fc20b11b43f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/85702350b767.png)
 
 查询下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fc0b543e81744379997379aff4be053~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ab64d9ca03e8.png)
 
 插入成功了。
 
@@ -131,11 +131,11 @@ INSERT INTO `employee` (`id`, `name`, `department_id`)
         (10, '王十二', 10);
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb0f9cdf5da544c6be870a1567f2810b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/203ef5d5b03c.png)
 
 查询下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b747f3ce1a3d43f3932cec8252f4c9b8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1bbf89df70c1.png)
 
 同样插入成功了。
 
@@ -149,7 +149,7 @@ select * from department
 
 可以看到，正确查找出了销售部的 3 个员工：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08df65c6051e47d09a61c0e7da966d0a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f68d03e20455.png)
 
 JOIN ON 默认是 INNER JOIN。
 
@@ -162,7 +162,7 @@ select * from department
 
 from 后的是左表，可以看到两个还没有员工的部门也显示在了结果里：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a24843da482240e18cdadd6eebde39b5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8085635c2321.png)
 
 然后是 RIGHT JOIN：
 
@@ -173,17 +173,17 @@ select * from department
 
 因为所有的员工都是有部门的，所以和 inner join 结果一样：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a840b3551493482eb34c1a1adc6040ec~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eff41c04aa8a.png)
 
 然后把 id 为 5 的部门删掉：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11531d9ed451400899f99b1b7c495492~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ec54845a083b.png)
 
 点击 apply。
 
 再查看下员工表，可以看到销售部下的 3 个员工的部门被设置为 null 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4779de3dd6346e3ad5919064df95aff~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/686128193e79.png)
 
 这就是 set null 的级联删除处理。
 
@@ -195,17 +195,17 @@ select * from department
 
 比如文章和标签：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81b2e6cef1fc4480b98a760bd61ad21a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4590e4f6f065.png)
 
 之前一对多关系是通过在多的一方添加外键来引用一的一方的 id。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64756ca65ed24454a697dd63ad464665~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b63d76f9f0e.png)
 
 但是现在是多对多了，每一方都是多的一方。这时候是不是双方都要添加外键呢？
 
 一般我们是这样设计：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d79e2c5f5ec48a8952acbfb8803f986~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/efd807349b0e.png)
 
 文章一个表、标签一个表，这两个表都不保存外键，然后添加一个中间表来保存双方的外键。
 
@@ -228,11 +228,11 @@ CREATE TABLE `article` (
 
 执行这个建表 sql：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22b23ebf6220425cb8eb7be14c176f01~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/24676f19ffbf.png)
 
 查询下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9cc1e45c079457eb7c4a5f9ec8554e8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8002891c544.png)
 
 插入几条数据：
 
@@ -246,11 +246,11 @@ INSERT INTO `article` (`title`, `content`)
             ('文章5', '这是文章5的内容。');
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b69641eec4e4028aed5c1f585d5ebe2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ae65851d85c3.png)
 
 再查询下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b7cee2d3ec6468f9a26c9f2a221ba56~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/479e5a87f28b.png)
 
 然后创建标签表：
 
@@ -262,7 +262,7 @@ CREATE TABLE `tag` (
 );
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f51bd0fb499a4bd6b740baf668e9618e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a9bc3a3d5be6.png)
 
 插入几条数据：
 
@@ -276,11 +276,11 @@ INSERT INTO `tag` (`name`)
             ('标签5');
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1415d1e4d20541588967e5beb89fe42d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f52091c30160.png)
 
 然后查询下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc0895d5da88408abae571f7cbb5deef~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f11df2e1e928.png)
 
 可以看到，建表和插入数据都成功了。
 
@@ -288,7 +288,7 @@ INSERT INTO `tag` (`name`)
 
 中间表还是通过可视化的方式创建吧：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb5af2a291d1476a9d815b39908dc5f8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/89372a0d7cc2.png)
 
 点击创建表，添加 article\_id、tag\_id 这俩列，设置为 NOT NULL。
 
@@ -296,9 +296,9 @@ INSERT INTO `tag` (`name`)
 
 添加 article\_id 和 tag\_id 的外键引用：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81aeca81fd1d44cc80178450616839bb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a1dc70356774.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e1d10b9202a4764b680db4d98078322~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/248cf5b08511.png)
 
 **中间表的级联方式要设置为 CASCADE，这个是固定的。**
 
@@ -306,7 +306,7 @@ INSERT INTO `tag` (`name`)
 
 点击 apply，可以看到生成的 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20a4b0321e3d46bf834e7640c07e902f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f439330f65ce.png)
 
 primary key (article\_id, tag\_id) 是指定复合主键。
 
@@ -328,13 +328,13 @@ INSERT INTO `article_tag` (`article_id`, `tag_id`)
 
 点击左上角按钮，新建一条 sql：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d69206f94ff465c96e407f1544e0b51~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27c4e9f793a5.png)
 
 输入 sql 后点击执行。
 
 然后就可以看到插入的数据了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e02887aed3c5417d8e02521eeed104ff~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/646995492c5c.png)
 
 那现在有了 article、tag、article\_tag 3 个表了，怎么关联查询呢？
 
@@ -349,7 +349,7 @@ SELECT * FROM article a
 
 这样查询出的就是 id 为 1 的 article 的所有标签：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b8f66b2740d4ea7b004e0e73cb45cd5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f433c5e2ea2.png)
 
 当然，一般我们会指定返回的列：
 
@@ -361,7 +361,7 @@ SELECT t.name AS 标签名, a.title AS 文章标题
     WHERE a.id = 1
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/352ba7df50d249c08ce9154938f82ff2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8db19e648bd7.png)
 
 此外，我们把文章1 删除试试：
 
@@ -371,17 +371,17 @@ SELECT t.name AS 标签名, a.title AS 文章标题
 delete from article where id = 1;
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65a24abf73374414a5c469b1b775f30f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa8cf86ff7d5.png)
 
 然后再执行下面的查询：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8fd4ce5aba3d4949a6d8800f06e8df8a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/509dd49166d1.png)
 
 可以看到关系也被级联删除了，这就是 CASCADE 的作用。
 
 当然，删除的只是关系，并不影响 id=1 的标签：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49ef9619df3d440da167f387d08b43be~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e450bda80758.png)
 
 这就是多对多数据的表设计、关联查询和级联方式。
 

@@ -25,29 +25,29 @@ series_order: 31
 
 你对它的理解就更加深入和立体了。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/080475eab006461794554db0da691475~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1260&h=552&s=79396&e=png&b=fffefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2119d2627447.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1f4d04150e14d818bf23369d3dd1d5b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1914&h=1082&s=257547&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8530eba3983d.png)
 
 为了聚焦在 Nest 和后端技术，前端部分我们尽量简化，界面都是用 antd 写的，没什么复杂的样式：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2474fbdccbbd40c48254266f3cd14b54~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1864&h=1240&s=91501&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/91920cd39452.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d625ca5e66bc438a9f5699f715938406~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2678&h=1084&s=204666&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/251bcd6a6e71.png)
 
 交互上也都比较单调，基本都是表格、表单。
 
 实际上，预定会议室的功能一般都是和日历结合，比如 Google Calendar：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2da05e49edf421b9cda3f1c646d6dc3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3232&h=1530&s=274756&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2dc84c2025e6.png)
 
 可以直观的查看哪些时间段是没有被预定的，然后预定。
 
 而不是选择一个时间段预定，如果已经预订了提示该时间段已被预定：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d7afc278aa348d288cdf9e1c22025b3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2496&h=1436&s=268575&e=png&b=8b8b8b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f26cc0672d98.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6106641ee4e443eca6d7e76a89f65fd5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1866&h=1204&s=423594&e=gif&f=33&b=808080)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cc558b263a66.gif)
 
 这样体验不好。
 
@@ -59,9 +59,9 @@ series_order: 31
 
 首先我们做了需求分析，分析了下有哪些功能，并画了原型图。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ca4a5d9c863400c865e63ea387da05b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=844&h=1064&s=103414&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c55f3cb43414.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11f5232980ba423ab930f2bb8ddd25a9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1136&h=796&s=79128&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/69d7d95779e1.png)
 
 分了用户管理、会议室管理、预定管理、统计这 4 个模块。
 
@@ -71,15 +71,15 @@ series_order: 31
 
 然后我们设计了下技术方案，做了技术选型：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1f4d04150e14d818bf23369d3dd1d5b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1914&h=1082&s=257547&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8530eba3983d.png)
 
 数据库设计：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/698725b25d9843af8e5f41691830054e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c02cea08596a.png)
 
 分析了下接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3918eb101fdb479a871691c6435c49da~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1268&h=1264&s=163199&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9173773f229e.png)
 
 接下来进入开发：
 
@@ -91,25 +91,25 @@ series_order: 31
 
 我们首先创建后端项目，引入 typeorm 和 redis，实现了用户注册。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21e1d00eb54a49579b56d7a656f76c7b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1864&h=860&s=241406&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/580a610a620b.png)
 
 基于 @nestjs/config 包的  ConfigModule 把配置抽离到了 .env 文件里。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc8f204227164dee95bd12e0d466be66~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=834&h=908&s=170863&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cdef2c7eeb56.png)
 
 之后实现了登录和双 token 的无感刷新。
 
 加上了登录和权限的 Guard 来做鉴权，通过 @RequireLogin、@RequirePermission 的自定义装饰器在 handler 上声明，只有声明的才会做鉴权。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8533ee6237ad4ae2a2499ee59e994d61~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=836&h=552&s=395269&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c748d61b702.png)
 
 然后添加了 interceptor 对响应格式做转换，改成 {code、message、data} 的格式。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7f799fd9e4e43ee927d044bedab9d3f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1008&h=776&s=300220&e=png&b=fcfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7778a15b6c22.png)
 
 并且还用 interceptor 实现了接口访问的日志记录。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5caa7061249c438e9eefee186435d830~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1602&h=324&s=781417&e=png&b=1f1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/08131af735ee.png)
 
 然后实现了修改信息、修改密码的接口。
 
@@ -119,13 +119,13 @@ series_order: 31
 
 通过自定义 exception filter，catch 了 HTTPException，返回了自定义格式的响应，统一了响应格式。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a99a1af2267747158ab3609c91c18f51~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1292&h=1370&s=402564&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a758c0a0d8c6.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2767f1bd2ecc4ca29f17c5d2b2a8e9be~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1034&h=532&s=181276&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e99ff008aac.png)
 
 加上了 swaggger 接口文档。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95bddf2cce584b6980e8c985dc45f49c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=902&h=1324&s=295483&e=png&b=e9f6f8)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/42ffdbd3d8c2.png)
 
 至此，用户管理模块的后端代码就完成了。
 
@@ -143,9 +143,9 @@ series_order: 31
 
 之后加上了 docker-compose.yml 和 Nest 应用的 Dockerfile，部署到了阿里云。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/44d41c3fca864d89a6b2eced0c94c576~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1138&h=1114&s=172122&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f40aa7881d1b.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d07c9044a7154b129eb788b7f8098be7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1656&h=1828&s=361155&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9bc15faa962.png)
 
 我们买了一台阿里云服务器，在服务器上安装 git 来下载项目代码，然后安装 docker compose，在项目目录下执行 docker compose up 把服务跑起来就行了。
 
@@ -153,11 +153,11 @@ series_order: 31
 
 然后又加上了 nginx 部署了前端项目，用它来做静态资源托管和 nest 服务的反向代理。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb0b0df3c87441aaa908ca4a2bbf2060~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1124&h=978&s=145636&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3d8fa04d380.png)
 
 通过 Dockerfile 的多阶段构建，第一个阶段 npm run build 出产物，第二个阶段把产物和 nginx 配置文件复制过去跑 nginx 服务。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c88dd70b17b453c96430e08fbab3244~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=1006&s=145693&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e295afcc23e3.png)
 
 之后用 docker build 构建出镜像，把它上传到阿里云镜像仓库。
 
@@ -171,11 +171,11 @@ series_order: 31
 
 我们加上了 migration 的 npm scripts，然后创建了几个 migration。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34b35e5d2d534697a62b264b565de3aa~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1428&h=422&s=138828&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90243da49797.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9254232544eb450a8004841a47188a30~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2164&h=1126&s=696301&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/14e8ca695288.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1caab975882f4b2488d25333ba6dad25~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1776&h=616&s=254407&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d96487318cc.png)
 
 在服务器上执行 migration:run 就会创建数据库表并插入初始化数据。
 
@@ -185,7 +185,7 @@ series_order: 31
 
 这样，文件就都保存在了 minio 服务里，可以更方便的管理。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93d94a76a34d468398a0f44fe63aebef~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2348&h=1254&s=795092&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/730b9a2ef4e7.png)
 
 然后又实现了 google 登录，基于 passport 的 passport-google-oauth20 的策略来实现的。
 
@@ -195,11 +195,11 @@ series_order: 31
 
 前端代码再处理下 cookie，同步登录状态就好了。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf8d1399919f49b7a31df9f5f5be9fd1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2714&h=1700&s=676775&e=gif&f=34&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51a27974bcd8.gif)
 
 然后集成了 winston 日志框架，日志会在 console、file 打印，并且还可以发送到别的日志服务。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2c9513cec264d7d8002e3cf4ab523a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1780&s=847097&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2be35811a8a6.png)
 
 最后我们对代码做了一些优化。
 

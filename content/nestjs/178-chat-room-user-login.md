@@ -42,19 +42,19 @@ export class LoginUserDto {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b24211f1dc84b8b80699d05abb5013f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=780&h=606&s=60614&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5b6a57681ee9.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fee7ed2f80814623b78a45b973ecb9f0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1568&h=264&s=113148&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9677b87e2c21.png)
 
 服务端打印了接收的参数。
 
 ValidationPipe 开启 transform: true
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b27d79513164b6497e484e28b85292d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1048&h=494&s=106626&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b9257a88e040.png)
 
 再次访问：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74e036e705b74823bdef96e1c74f88e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1356&h=516&s=240977&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/98a28acb8703.png)
 
 这样会把参数转为 dto 的实例。
 
@@ -97,14 +97,14 @@ async userLogin(@Body() loginUser: LoginUserDto) {
 
 当用户名不存在时：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e75b99c5841450db90a50e17790a3bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=680&s=73156&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e3091817945c.png)
 
 当密码错误时：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ccaf4fc395b645428bea4b927f8ddbb7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=688&s=73551&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b5f8de994372.png)
 
 登录成功：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ae3e33504ab41fa91478436d1c39c0c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=906&h=870&s=107768&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/66c3496a67bf.png)
 
 登录成功之后我们要返回 jwt。
 
@@ -116,7 +116,7 @@ npm install --save @nestjs/jwt
 
 在 AppModule 里引入：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff44c5de2e364cde872011db0739c421~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=864&h=812&s=118991&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/44a4bff30d3e.png)
 
 ```javascript
 JwtModule.registerAsync({
@@ -158,7 +158,7 @@ token 过期时间是 7 天。
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bea368563f4e4e3fbcea407642d195b4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1158&h=1000&s=160704&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/89eae3936962.png)
 
 我们这里就不用双 token 的方式来刷新了，而是用单 token 无限续期来做。
 
@@ -173,7 +173,7 @@ token 过期时间是 7 天。
 ```
 nest g guard auth --flat --no-spec
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7066e503b224403bb7a33c95ec62e909~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=690&h=100&s=18813&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4958ece2e6bc.png)
 
 AuthGuard 的实现代码如下：
 
@@ -249,7 +249,7 @@ export class AuthGuard implements CanActivate {
 
 然后全局启用这个 Guard，在 AppModule 里添加这个 provider：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1e90ebd2b3641ed946449a394c87ca7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=624&h=502&s=65328&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39fbe1d641fa.png)
 
 ```javascript
 {
@@ -273,9 +273,9 @@ bbb() {
 ```
 访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4ce5b1a9fa34fde98ea0e601a3d5529~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/56dfe4c7b55b.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6866d98a227a446dbfca8579a47d1923~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81ed2c448349.png)
 
 然后在 aaa 加上 require-login 的 matadata
 
@@ -288,19 +288,19 @@ aaa() {
 ```
 会提示用户未登录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/417db2362bed417696ebc720dc3386a1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bbdc0025c9dc.png)
 
 而 bbb 还是可以直接访问的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf99617dd41541678117162c635cd980~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d76a349a9e63.png)
 
 登录下，拿到 token：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb4c1ac7681c4ed5ae3955a1b44f28ac~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1312&h=1006&s=173424&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/17f370f2550f.png)
 
 添加到 authorization 的 header 里，就可以访问了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5835e537a98432ba2e5df63a14e6748~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b88313da42a.png)
 
 我们把这个 @SetMetadata 封装成自定义装饰器
 
@@ -313,7 +313,7 @@ export const  RequireLogin = () => SetMetadata('require-login', true);
 ```
 然后就可以通过在 controller 或者 handler 上的 @RequiredLogin 来声明接口需要登录了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5f442f3e6d14ea1925ad1f78671a261~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=876&h=708&s=119350&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/40c9999f8622.png)
 
 再实现个自定义参数装饰器来取 request.user
 
@@ -347,13 +347,13 @@ aaa(@UserInfo() userInfo, @UserInfo('username') username) {
 }
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbb90090025c4aa6a83b3390895200af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=918&h=656&s=226322&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/57ce4b7f13ef.png)
 
 这样，就完成了登录和鉴权。
 
 还有 token 自动续期没有做，这个就是访问接口之后，在 header 或者 body 里额外返回新 token。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cfbc7fb0caa443b2aea19965983f55ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1296&h=1082&s=220201&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6bdaae3d4b4b.png)
 
 ```javascript
 import { CanActivate, ExecutionContext, Inject, Injectable, UnauthorizedException } from '@nestjs/common';
@@ -430,7 +430,7 @@ export class AuthGuard implements CanActivate {
 
 再访问下 aaa 接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/acf7003b3b7f45e4998a60cf3d485c79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1450&h=884&s=139847&e=png&b=fbfbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8624bef1ca0e.png)
 
 可以看到返回了新 token。
 

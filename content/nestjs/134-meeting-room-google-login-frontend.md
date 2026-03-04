@@ -13,13 +13,13 @@ series_order: 26
 
 类似 https://login.docker.com/u/login 
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3fddf163690c4a25886d4beda26556fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccbcefeec87b.png)
 
 在登录框下加个 google 账号登录的按钮。
 
 改下 Login.tsx
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/302b79cb7f95478698ef6181c471bd14~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1424&h=1104&s=193700&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a6616bb2e09c.png)
 
 ```javascript
 <Form.Item
@@ -36,13 +36,13 @@ series_order: 26
 
 试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b3c94eb04b04110b582aa98f62363bb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2734&h=1712&s=662929&e=gif&f=42&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34b970b90898.gif)
 
 跳转没问题。
 
 再看下 cookie：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3987e6983ebb4ab3b94e1ceb0f7f4e7f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1740&h=752&s=172668&e=png&b=f8f6fc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/963d614f668f.png)
 
 也没问题。
 
@@ -52,7 +52,7 @@ series_order: 26
 
 看下之前的登录流程：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee3f4e7c9ff44cb5acc911dff6acbdca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=3038&h=1412&s=777220&e=gif&f=28&b=fbf8fc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8e6c7b3c0ad.gif)
 
 登录后再 localStorage 里保存了 access_token、refresh_token、user_info 这三个信息，这就是保存了登录状态了。
 
@@ -66,7 +66,7 @@ npm i --save-dev @types/js-cookie
 ```
 然后在 Index 组件里写下逻辑：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7846fad7def24d8c9552792a81631332~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1188&h=1036&s=247203&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8afdff02fd2c.png)
 
 ```javascript
 useEffect(() => {
@@ -90,19 +90,19 @@ useEffect(() => {
 
 再试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf8d1399919f49b7a31df9f5f5be9fd1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2714&h=1700&s=676775&e=gif&f=34&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/51a27974bcd8.gif)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/667ae1eed1e34989a1e58ea5ba6fae79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2722&h=1386&s=153951&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4853e8b1557.png)
 
 登录成功！
 
 短时间内再次登录不需要再次授权：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/048d0bfaf4a34381ac063d91ca4a10ed~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2744&h=1672&s=345026&e=gif&f=27&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e60a4a0a064.gif)
 
 你用 [dockerhub](https://hub.docker.com/u/login) 也是这样：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96b458a937574ef0a402e39fbd7baa08~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2786&h=1718&s=429905&e=gif&f=37&b=f9f9fb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e7e2c6ef274.gif)
 
 这样，Google 账号登录的前端代码就完成了。
 

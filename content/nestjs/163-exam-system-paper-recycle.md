@@ -95,9 +95,9 @@ Modal 内是一个表单，点击创建会调用 examAdd 接口。
 
 在 ExamList/index.tsx 里调用下：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f8cfd92ab0f4b809d60037975ddd865~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1480&h=936&s=189476&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cdf62d9e405a.png)
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4c8ceb8299d4b3981341a9c9eeed761~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1382&h=980&s=201369&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f1b6725d557.png)
 ```javascript
 import { Button, message } from "antd";
 import "./index.scss";
@@ -167,13 +167,13 @@ export function ExamList() {
 ```
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dddd6c6fb2a9414fb50d4051d447b746~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=738220&e=gif&f=56&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fbc5d6034af7.gif)
 
 没啥问题。
 
 然后实现发布状态的修改：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b077bee4bac04e5da13860f9c804ea2d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1910&h=962&s=260497&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ef9454c8554.png)
 
 之前我们只实现了 publish 接口，没实现 unpublish 接口。
 
@@ -189,7 +189,7 @@ async unpublish(@UserInfo('userId') userId: number, @Param('id') id: string) {
 }
 ```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78691716bdb94af698b5c40a3238ebf0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=872&h=498&s=77476&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/753f7bcc2e84.png)
 
 ```javascript
 async unpublish(userId: number, id: number) {
@@ -206,9 +206,9 @@ async unpublish(userId: number, id: number) {
 ```
 试下效果：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e85df7b6a0b24686b179ac0facead0bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=826&h=828&s=100202&e=png&b=fcfcfc)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e92dda4f846.png)
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e740636b87b1449abea2f60673c3a072~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=940&h=844&s=104554&e=png&b=fdfdfd)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1eaef413fcf1.png)
 
 在前端代码的 interfaces/index.tsx 调用下：
 
@@ -223,10 +223,10 @@ export async function examUnpublish(id: number) {
 ```
 然后在 ExamList/index.tsx 组件里用一下：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ed76e9e3c6f4e09badce32dae9ca349~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1830&h=452&s=135814&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/663e1b38be4a.png)
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ca565e9b31124964b55f846bf42fb7ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1626&h=892&s=217099&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca06637baf38.png)
 ```javascript
 async function changePublishState(id: number, publish: boolean) {
     try {
@@ -243,7 +243,7 @@ async function changePublishState(id: number, publish: boolean) {
 
 试一下：
 
-![2024-08-26 13.08.07.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8eba0c73ae7e4fbfa4bf50155cce05d4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=418174&e=gif&f=45&b=fefefe)
+![2024-08-26 13.08.07.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/571c64cacccb.gif)
 
 没啥问题。
 
@@ -259,10 +259,10 @@ export async function examDelete(id: number) {
 点击删除按钮的时候调用下：
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6070b71d1ae64035adcfbbfd94620144~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1598&h=1006&s=238582&e=png&b=202020)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/732082a5efc1.png)
 
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e21c7ab2cf34da1bef3cc6702a7d34d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1448&h=896&s=181847&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac47305a1815.png)
 
 ```javascript
 async function deleteExam(id: number) {
@@ -280,13 +280,13 @@ async function deleteExam(id: number) {
 试一下：
 
 
-![2024-08-26 13.13.16.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf64583764fb4facad7fedc9f89ccce9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=146417&e=gif&f=19&b=fefefe)
+![2024-08-26 13.13.16.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0160a2be5473.gif)
 
 这时候其实已经删除了，只不过我们用的逻辑删除。
 
 在列表过滤下：
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d434c94f1e964725a372aed04f97c824~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1248&h=684&s=137128&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/851ddaf3ff9a.png)
 
 ```javascript
 list?.filter(item => {
@@ -294,11 +294,11 @@ list?.filter(item => {
 })
 ```
 
-![2024-08-26 13.15.31.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/977eb41ceb804095b1bf716126904626~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=131479&e=gif&f=22&b=fefefe)
+![2024-08-26 13.15.31.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa693bc38c53.gif)
 
 然后支持下回收站的显示：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7fef5dd38cd4b4d83d30c65d137ff21~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1690&h=1042&s=238931&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/514fa4fe88a9.png)
 
 加一个状态表示是否在回收站，点击按钮切换状态。
 
@@ -319,13 +319,13 @@ list?.filter(item => {
 })
 ```
 
-![2024-08-26 13.20.59.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed58dc12824c4659a4896dbaa39f0dac~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=209203&e=gif&f=26&b=fefefe)
+![2024-08-26 13.20.59.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ec9750d6d052.gif)
 
 这样，回收站功能就完成了。
 
 我们再给删除加个二次确认弹窗：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54beaea155264773a55316ae6e0bb9d5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1782&h=880&s=229345&e=png&b=1f1f1f)
+![image.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/08c872cb4d98.png)
 
 ```javascript
 <Popconfirm
@@ -339,25 +339,25 @@ list?.filter(item => {
 </Popconfirm>
 ```
 
-![2024-08-26 13.23.32.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce294aff5c644fd7b2c5a3bd5519de4c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=218905&e=gif&f=24&b=fefefe)
+![2024-08-26 13.23.32.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00e4b3bbd2f5.gif)
 
 整体测试下：
 
 创建两个考试：
 
 
-![2024-08-26 13.24.19.gif](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e92987120ba846898e0a38be1cbb1838~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=606417&e=gif&f=47&b=fdfdfd)
+![2024-08-26 13.24.19.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/69342d126741.gif)
 
-![2024-08-26 13.24.52.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e78795fb87a41d88b2dcd2c838e85a4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=442545&e=gif&f=44&b=fefefe)
+![2024-08-26 13.24.52.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e6cb0f5d9561.gif)
 
 删除其中一个，然后进回收站看一下：
 
-![2024-08-26 13.25.29.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4bf0c7292db54b839234f836b3f7835c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=875854&e=gif&f=44&b=fefefe)
+![2024-08-26 13.25.29.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/516b200150b7.gif)
 
 再试下发布功能：
 
 
-![2024-08-26 13.26.01.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8d23d550e30f40559d1ebe408cb930bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2454&h=1420&s=351297&e=gif&f=32&b=fefefe)
+![2024-08-26 13.26.01.gif](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3ecd74e686e.gif)
 
 没啥问题。
 

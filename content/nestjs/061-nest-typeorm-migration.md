@@ -27,7 +27,7 @@ series_order: 17
 nest new nest-typeorm-migration
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fe3098bfae9541d38b90caa884a8d5ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=992&h=570&s=397551&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9cbbd945c75.png)
 
 创建个 nest 项目。
 
@@ -38,7 +38,7 @@ npm install --save @nestjs/typeorm typeorm mysql2
 ```
 在 AppModule 引入下下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9e6f146e99f475787aa7238d29e0571~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=974&h=1070&s=190551&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0badabfd73fa.png)
 
 ```javascript
 TypeOrmModule.forRoot({
@@ -64,7 +64,7 @@ TypeOrmModule.forRoot({
 nest g resource article
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6657a8b436b34f0b9e6d836e6cb65131~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1062&h=470&s=125251&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0590e3f962a6.png)
 
 改下 article.entity.ts
 
@@ -95,13 +95,13 @@ export class Article {
 ```
 引入下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18e4d49db9cb4ef0978364cbaf7cf302~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1216&h=1182&s=238361&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/33dd0f0a7158.png)
 
 然后在 mysql workbench 创建这个 database：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8b4f92220cf4bad828736c5d074ce34~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1980&h=1342&s=414230&e=png&b=e7e7e7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d8db54110a04.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0a6dc4661a86497dba1d1ef412cf7881~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=448&h=456&s=79983&e=png&b=e2e2e1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb3dcbcd5211.png)
 
 把服务跑起来：
 
@@ -109,17 +109,17 @@ export class Article {
 npm run dev
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9150c2b4f16f4a81b666df743b11f182~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1878&h=926&s=402558&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/16f2537b424b.png)
 
 可以看到，自动创建了 ariticle 的表。
 
 这就是 syncronize 设为 true 的效果。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2395d65c0d6a4d4cbcf7760fa47c2862~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=606&h=594&s=82613&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/380f39f9b940.png)
 
 然后我们添加一些数据：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b324f2e661e464abaa0a469c14d67d4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1246&h=1128&s=292239&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/422c4d4efd92.png)
 
 ```javascript
 @InjectEntityManager()
@@ -140,7 +140,7 @@ async initData() {
 ```
 在 ArticleService 添加 initData 方法，然后在 ArticleController 里调用下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f8129f04a8f42d7a485e8a23ec298d4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=924&h=566&s=127943&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cef57907e3b7.png)
 
 ```javascript
 @Get('init-data')
@@ -151,17 +151,17 @@ async initData() {
 ```
 然后浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7461ae5335724873b33c6c95366fc06b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=832&h=262&s=23513&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a67a43b506f1.png)
 
 可以看到，数据插入成功了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8dd876ef94fc4ace8baf28cdd9b49e37~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1486&h=720&s=305428&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/597a871b0d03.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9bf4ac934e4f4dac9c1bd5fad777c255~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1414&h=554&s=228418&e=png&b=ebeaea)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8bd1822b382d.png)
 
 然后在查询接口里查一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96c1f2ee996e4015b931dd7f5d0c3550~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=858&h=338&s=62772&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/111519050517.png)
 
 ```javascript
 async findAll() {
@@ -170,7 +170,7 @@ async findAll() {
 ```
 访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09a40f58cacc4c888ef76f167afe76f6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1822&h=710&s=161831&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/edab3d0be369.png)
 
 没啥问题。
 
@@ -208,7 +208,7 @@ export default new DataSource({
 
 然后添加几个 npm scripts：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86f2c78adf474002ae645bea3ac95021~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1464&h=342&s=106376&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/429b97aae7f7.png)
 
 ```javascript
 "typeorm": "ts-node ./node_modules/typeorm/cli",
@@ -219,17 +219,17 @@ export default new DataSource({
 ```
 我们先在数据库里导出现有数据：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4c90e3958ff4960a7958767f7ecea3a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2360&h=1452&s=646265&e=png&b=f1f1f1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1df5591d60ca.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7dfcd19e62a0446dbfa0f14cc2010885~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1342&h=352&s=72573&e=png&b=f3f2f2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/beb485fe0e3b.png)
 
 第一个选项是每个表一个 sql 文件，你也可以选择第二个选项，全部导出一个 sql 文件里：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58ffa827843d4dd8baecd306b44b64e5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1290&h=354&s=87805&e=png&b=f2f2f2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fb91b204332.png)
 
 打开看下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/226b04db427341589d25875916047715~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2390&h=1118&s=313161&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd7989f4b871.png)
 
 包含了 create table 和 insert 语句。
 
@@ -239,7 +239,7 @@ export default new DataSource({
 
 在 mysql workbench 里删掉这两张表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ccddd46105d741a486d52ab7f005de6a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=752&h=700&s=251469&e=png&b=e5e5e4)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34846abf1e33.png)
 
 然后执行 migration:generate 命令：
 
@@ -247,11 +247,11 @@ export default new DataSource({
 npm run migration:generate src/migrations/init
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fefd1397fb394d05b529e4e8e6547462~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1808&h=490&s=144061&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/10a8d110f154.png)
 
 它会对比 entity 和数据表的差异，生成迁移 sql：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a937d5f5f8e42999237f6b4186dc356~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2034&h=746&s=229016&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e7dd6088c14.png)
 
 可以看到，生成的 migration 类里包含了 create table 的 sql。
 
@@ -260,26 +260,26 @@ npm run migration:generate src/migrations/init
 ```
 npm run migration:run
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/411940df2637468e9de3f607b620456b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2006&h=730&s=228776&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/403fe41ecebb.png)
 
 可以看到，执行了两条 create table 语句。
 
 在数据库里看下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d15e188cc220412e95e4d284d364fe16~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1452&h=744&s=320986&e=png&b=f1f0f0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a644705d9719.png)
 
 migrations 表里记录了执行过的 migration，已经执行过的不会再执行。
 
 article 表就是我们需要在生产环境创建的表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d32339f2c7674599844b77bc56edcc75~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1336&h=718&s=272807&e=png&b=f2f1f1)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d0840b43df1f.png)
 
 然后我们再创建个 migration 来初始化数据：
 
 ```
 npm run migration:create src/migrations/data
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a81e862a05a04aada377109a5548e610~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1776&h=294&s=71108&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/befe342e5952.png)
 
 **migration:generate 只会根据表结构变动生成迁移 sql，而数据的插入的 sql 需要我们自己添加。**
 
@@ -287,15 +287,15 @@ npm run migration:create src/migrations/data
 
 不过我们都是通过 migration 来管理。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66868fba13144e93bd90152d490410f0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1686&h=656&s=177722&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a0128d0a04fb.png)
 
 在生成的迁移 class 里填入 insert into 的 sql 即可。
 
 把刚才导出的那个 sql 里的 insert into 语句复制过来。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/538f21c528e7428fb5bb6db99124cf72~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2130&h=774&s=237033&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0150cd951100.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd2a102085354654a59743091758c91b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1900&h=590&s=191106&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/22bdef9e3c40.png)
 
 ```javascript
 public async up(queryRunner: QueryRunner): Promise<void> {
@@ -306,7 +306,7 @@ public async up(queryRunner: QueryRunner): Promise<void> {
 
 然后跑一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a1d3c691db2405793625408a70111b5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2010&h=756&s=261860&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0f2df5a9d3a8.png)
 
 可以看到，在 article 表插入了两条记录。
 
@@ -316,9 +316,9 @@ public async up(queryRunner: QueryRunner): Promise<void> {
 
 因为 migrations 表里记录过了呀，记录过的就不会再执行。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45a4dc171158445c89b2db48ad391506~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1756&h=486&s=249297&e=png&b=f3f3f3)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd9693a5d864.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c1dae8743c84a308249542219096864~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1096&h=440&s=153994&e=png&b=efeeee)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed1a503fd4a0.png)
 
 这样怎么在生产环境 create table、insert into 数据我们就都知道了。
 
@@ -330,7 +330,7 @@ public async up(queryRunner: QueryRunner): Promise<void> {
 
 Article 实体加一个 tags字段：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c23c98c7e0b84cab9a9c86f8cd838a0a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=942&h=876&s=113528&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f07ebb54a750.png)
 
 ```javascript
 @Column({
@@ -342,11 +342,11 @@ tags: string;
 ```
 npm run migration:generate src/migrations/add-tag-column
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d30595abc454c2fa95ef07b5c65ff1e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1546&h=522&s=105119&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f4e54aa6ed36.png)
 
 生成了 alter table 的 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a6c8806bb6a456abba167f68717f2ee~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2078&h=660&s=243274&e=png&b=1e1e1e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a0e3748a1ab5.png)
 
 然后执行下这个 migration：
 
@@ -354,15 +354,15 @@ npm run migration:generate src/migrations/add-tag-column
 npm run migraion:run
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/533826ed53244db795a1e2c5a69b1b53~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1750&h=710&s=195175&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa253be28306.png)
 
 一条 alter table 的 sql，一条 insert 的 sql。
 
 可以看到，article 表多了 tags 列，migrations 表也插入了一条执行记录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4be8f95af2ee44ee892b6606d0aeea1d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1832&h=326&s=161379&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/428b2ff7eb41.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d482df48fa4e4e06a2180ef8b8d3cc02~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1106&h=404&s=148370&e=png&b=edecec)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3e74ee83b6ee.png)
 
 这样，如何在生产环境通过 migration 创建表、修改表、初始化数据我们就都清楚了。
 
@@ -380,11 +380,11 @@ mysql_server_database=nest-migration-test
 ```
 首先，AppModule 里的这些数据库配置都可以从 .env 里读取：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ccad731e18204de6ab48b84952681933~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1084&h=1156&s=234531&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/df9024f0b87d.png)
 
 用到 ConfigModule，这个是下节的内容，这里就不展开了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f357c1f6d19a478d8e42dc807424e5a1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1102&h=1002&s=200211&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b96a890d55c2.png)
 
 我们来看下在 data-source.ts 里怎么读取 .env 文件：
 
@@ -428,7 +428,7 @@ export default new DataSource({
 ```
 npm run migration:run
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b84a64efc7ff4abd81383c43df74085a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1490&h=782&s=226727&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3d5a9288b220.png)
 
 可以看到，.env 的配置读取成功了。
 

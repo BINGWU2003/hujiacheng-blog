@@ -25,7 +25,7 @@ npm install --save nest-winston winston
 
 然后在 AppModule 引入下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0327052062f145bf8130ddb7948e9b9e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1456&h=1476&s=314227&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/14a34eff92c1.png)
 
 ```javascript
 WinstonModule.forRootAsync({
@@ -49,7 +49,7 @@ WinstonModule.forRootAsync({
 
 然后把 winston 的 logger 设置为 Nest 的默认 Logger：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c809803b16143cf8b66274316195e0d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1502&h=1588&s=394996&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3419eaa7f816.png)
 
 ```javascript
 app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
@@ -62,15 +62,15 @@ npm run start:dev
 ```
 可以看到，除了 console 之外， log 文件中也输出了一份：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6f328d76fa414d9b9cb0ec743628afa3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2920&h=1822&s=1191563&e=png&b=1a1a1a)、
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/03f26d5d1c49.png)、
 
 两个 transport 都生效了。
 
 页面刷新下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da01aa842bd24fb9b964ae0924d577bf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2960&h=1308&s=154581&e=gif&f=11&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cd667000e9e3.gif)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b3fa3004bf4449fdbe93b9dc82236126~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2986&h=1836&s=950110&e=png&b=1a1a1a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/418beb195d39.png)
 
 你会发现 typeorm 的日志并没有输出到文件。
 
@@ -132,11 +132,11 @@ export class CustomTypeOrmLogger implements Logger {
 
 然后我们在 TypeOrmModule 用一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbb312ba456c480ebbaa686f1edc6368~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1926&h=1640&s=431170&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a88939db3cb.png)
 
 试下效果：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2212b64daaf49a9b09efd73e3e4f03b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2628&h=1756&s=1011190&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ce8734d1882.png)
 
 现在 console 和 file 里就有 typeorm 的日志了。
 
@@ -151,7 +151,7 @@ npm install --save winston-daily-rotate-file
 ```
 用一下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f6288774f514697a6cd6af13fe317b2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1264&h=1312&s=276804&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b37c8cfedebb.png)
 
 ```javascript
 new winston.transports.DailyRotateFile({
@@ -166,14 +166,14 @@ new winston.transports.DailyRotateFile({
 
 试试看：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/911ce21ea859459c80e3535c9bad8e68~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2932&h=1816&s=1175400&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78c3b6d43940.png)
 
 多刷新几次页面：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5664e386f20b4795aed056aa528563d1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2436&h=1820&s=730143&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f279dd68b07.png)
 
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1738eebc818a4fefbb8ae6da326ad803~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=934&h=646&s=72906&e=gif&f=18&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/98e4fb673b97.gif)
 
 可以看到，产生了几个文件，每个都是 10k 左右。
 
@@ -181,11 +181,11 @@ new winston.transports.DailyRotateFile({
 
 我们改下本地时间：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ad5b5426a924140a681d7e7c37c8b04~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1152&h=842&s=179376&e=png&b=d8d8d7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/125a9f95c200.png)
 
 然后刷新页面，可以看到，日志被记录在了新的文件里：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0e0b93e6f95847d485bb652ed068e58e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2364&h=1766&s=509646&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39fba7c36c55.png)
 
 也就是说，日志会按照日期为维度来分割，并且超过了一定 maxSize 也会分割。
 
@@ -193,7 +193,7 @@ new winston.transports.DailyRotateFile({
 
 把 winston 的配置也抽到 .env 里：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e684de22c0e431b99abfb52f77de4a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1088&h=780&s=150798&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1fe79b22c97e.png)
 
 ```javascript
 winston_log_level=debug
@@ -204,7 +204,7 @@ winston_log_max_size=1M
 ```
 然后在 WinstonModule 里读取：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1bb8da0c5c6a40ea9a2e1447ac84cc42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1414&h=1208&s=289611&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fba6634e57f7.png)
 
 ```javascript
 WinstonModule.forRootAsync({
@@ -231,7 +231,7 @@ WinstonModule.forRootAsync({
 ```
 跑下试试：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/25ed8c902d2c4ef2b71f2dfcfd8d6768~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2840&h=1780&s=929093&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/41248cc52ff6.png)
 
 没啥问题。
 
@@ -241,7 +241,7 @@ WinstonModule.forRootAsync({
 
 假设我们有了这样的日志服务，那可以加一个 Http 的 transport 来上传日志。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/394661fccbf74edabe594090753d4cc5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1328&h=1300&s=308857&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6de6ee77c48b.png)
 
 ```javascript
 new winston.transports.Http({
@@ -256,15 +256,15 @@ new winston.transports.Http({
 nest new log-server
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3746653cc8a4eb5b7b2e698569b2cc5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=902&h=574&s=349154&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45d448754fbb.png)
 
 改下端口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0a6a33f5bde4ab78d085a14a15d086c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1086&h=428&s=88168&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ce38c7164e0.png)
 
 加个 /log 的路由：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c018a87f547b4182b7445212f674b7b8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1244&h=812&s=150085&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00d2beec673d.png)
 
 把服务跑起来：
 
@@ -272,19 +272,19 @@ nest new log-server
 npm run start:dev
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a37f6b90d58540b397a1dd0206fa49e2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1848&h=468&s=160367&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/56b53d54bbe0.png)
 
 页面上触发下查询：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d9cb2e734d84a13af12cf31a25fb1c6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2786&h=1338&s=360409&e=gif&f=17&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/92ab17b6c417.gif)
 
 可以看到所有的日志都接收到了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/abc096995d6244e697dd039dcf879fc8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2512&h=1588&s=6856326&e=gif&f=25&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0d163b4eb4e1.gif)
 
 同时在 console、file、日志服务三个地方保存了日志，这就是 winston 的魅力。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d7da906a3464437bed6e8cf6cde7727~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2888&h=1798&s=1040269&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dcae00d3ce96.png)
 
 案例代码上传了[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/meeting_room_booking_system_backend)
 

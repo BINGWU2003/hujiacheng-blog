@@ -13,13 +13,13 @@ series_order: 1
 
 用户量可能很大，采集的数据可能比较多，这时候服务端的并发压力会比较大，要是直接存入数据库，那数据库服务很可能会崩掉。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5ecdcb680cd4014a13e85c2c9b60b00~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9489f2a1be3d.png)
 
 那就用现在的数据库，如何保证面对大量并发请求的时候，服务不崩呢？
 
 答案就是消息队列，比如常用的 RabbitMQ：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bbbb2b6a4a8343faaefe616d7106596f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f187da21acb.png)
 
 第一个 web 服务接收请求，把消息存入 RabbitMQ，然后另一个 web 服务从 MQ 中取出消息存入数据库。
 
@@ -31,7 +31,7 @@ series_order: 1
 
 比如 10w 的消息进来，每次只从中取出 1000 来消费：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e28327a1056a465ca536e4936352fad2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/472d23e12663.png)
 
 并发量被控制住了，自然就崩不了了，从 MQ 中取出慢慢处理就好了。
 
@@ -39,7 +39,7 @@ series_order: 1
 
 而且完全可以加几个 web 服务来同时消费 MQ 中的消息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/704ce4c856b14477b876c748f6ac05f5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/889ffc1f5d79.png)
 
 知道了 RabbitMQ 能干啥，那我们就来用一下试试吧！
 
@@ -47,13 +47,13 @@ series_order: 1
 
 搜索 rabbitmq 的镜像，选择 3.11-management 的版本：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f243a0274dab460e93fca9449bd6eae8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/594280b4eb26.png)
 
 这个版本是有 web 管理界面的。
 
 点击 run：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c676b36fe21145a3bd903519638ee17c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8ffa24e35950.png)
 
 映射容器内的 5672、15672 这俩端口到本地的端口。
 
@@ -61,17 +61,17 @@ series_order: 1
 
 等 rabbitmq 跑起来之后：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c9bcc0b2bb64207bd019c51880f6669~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0bee07774006.png)
 
 就可以在浏览器访问 http://localhost:15672 了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ad9966bc5d54e158ec64a1072108c63~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d61d58877a5.png)
 
 这就是它的 web 管理界面。
 
 输入 guest、guest 进入管理页面：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/473961bfb209489e843f6b3ae9c6db0c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/84d18654853d.png)
 
 可以看到 connection、channel、exchange、queue 的分别的管理页面。
 
@@ -88,7 +88,7 @@ cd rabbitmq-test
 
 npm init -y
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1429cd094f614fd7a553457ba79896da~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=802&h=660&s=130464&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8fd074fd39b7.png)
 
 安装用到的包：
 
@@ -117,13 +117,13 @@ node ./src/producer.js
 ```
  （这里要用 es module 语法并且支持顶层 await 需要在 packege.json 里设置 type 为 module）
  
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fdfa52e57d014dd6b6513a74485c251d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=674&h=454&s=62197&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/39708cbf2b5e.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/887379f89b7b463dbc5d422874e37dd0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ab45599fc637.png)
 
 之后就可以在管理界面看到这个队列了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a80df3dbbbe2437790c034618ac7a0c3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f6ba10993811.png)
 
 然后我们再写一个消费端 src/consumer.js：
 
@@ -146,7 +146,7 @@ assertQueue 是如果没有就创建队列，有的话就直接返回。
 node src/consumer.js
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ddba08a7bd54fb9bf321201b3b8886d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ac958f75f2b.png)
 
 这样，我们就完成了第一次 RabbitMQ 的通信，两个服务之间也是这样通信的。
 
@@ -156,7 +156,7 @@ rabbitmq 使用确实挺简单。
 
 那怎么控制并发数呢？
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc4fb3fe4c97488491dfc4dc8e7b7518~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/832e87026f3f.png)
 
 我们改一下 src/producer.js：
 
@@ -216,13 +216,13 @@ setInterval(() => {
 ```
 node ./src/producer.js
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cb548997f7b4d96ad512958498d1ba9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd9e84057edc.gif)
 
 消息消费端：
 ```
 node ./src/consumer.js
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34b9eaae95154945bec2c4facf9e2878~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c1f91884a5af.gif)
 
 可以看到生产者是每 0.5s 往队列里放一条消息。
 
@@ -234,7 +234,7 @@ node ./src/consumer.js
 
 大概了解了 rabbitmq 之后，我们来看看它的整体架构图：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a89ebbdbe9054f698d926b10a1476e0b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1c0dcb37654d.png)
 
 Producer 和 Consumer 分别是生产者和消费者。
 
@@ -328,13 +328,13 @@ node src/direct-consumer2.js
 ```
 就可以看到队列 queue1 和 queue2 分别接收到了对应的消息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bda9d30c18004d9db0f96e146725f2f6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0148c810b681.png)
 
 这就是通过 direct 交换机发送消息的过程。
 
 在管理页面上也可以看到这个交换机的信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3258c8cf6c824ffcbe2e7a67f1436fce~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d77f79b21bf.png)
 
 包括 exchange 下的两个 queue 以及各自的 routing key。
 
@@ -410,17 +410,17 @@ node src/topic-consumer1.js
 node src/topic-consumer2.js
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69749640c4944b69a3a35c8ab507dee6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c9cd90d6e93a.png)
 
 可以看到，两个消费者分别收到了不同 routing key 对应的消息。
 
 当然，在管理界面这里也是可以发消息的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc3ba57519b544e2b634fb9587147d72~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6069a0853de3.png)
 
 消费者端同样可以收到：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e84f01e1f3d4f0592b698411b203845~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d9ba56a3626.png)
 
 这就是 topic 类型的交换机，可以根据模糊匹配 routing key 来发消息到不同队列。
 
@@ -491,7 +491,7 @@ node src/fanout-consumer1.js
 node src/fanout-consumer2.js
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5dbb1165aa5f441eaf7056f6dc39b762~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ab5d9d0e7a8c.png)
 
 这就是 fanout 类型交换机的特点，广播消息到所有绑定到它的 queue。
 
@@ -576,7 +576,7 @@ node src/headers-consumer1.js
 node src/headers-consumer2.js
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/73fd42e8ba24443198296501984c1d76~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f122ccabc1e8.png)
 
 很容易理解，只是从匹配 routing key 变成了匹配 header。
 

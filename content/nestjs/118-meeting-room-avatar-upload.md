@@ -11,7 +11,7 @@ series_order: 10
 
 上节我们实现了用户信息的修改：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5df16c92cf374852ad591081f178d3a0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f8651b018d4.png)
 
 但是头像是直接填的路径，这里应该做成图片的展示，以及图片的上传。
 
@@ -36,21 +36,21 @@ npm install @types/multer
 ```
 在 postman 里测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c5535eb022a4874a3a9d1307be98bcb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/629bd09fbda3.png)
 
 选择 form-data 类型，然后添加 file 字段，选择一个文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8888eda3c5f64d628b8ed40a0bf9792f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d799fe54191b.png)
 
 返回了服务端保存路径，并且打印了文件信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43eb068644aa4b3aa04084a55ba402db~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb88561026f3.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86545f1efc5e47dc8dbee5141909de92~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e83f8e9cfa83.png)
 
 我们限制下只能上传图片：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e3982c612db4432a3b258df289b25e2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4898e1c593e1.png)
 
 ```javascript
 import * as path from 'path';
@@ -77,17 +77,17 @@ callback 的第一个参数是 error，第二个参数是是否接收文件。
 
 然后我们上传一个非图片文件试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0332f1eb9211425d94f78858a7354da2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f634158b0f77.png)
 
 返回了错误信息。
 
 上传图片是正常的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d17889cafa914f54bfe63cf6ef51af5a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fc458775dfd6.png)
 
 然后限制下图片大小，最大 3M:
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ef1ff5f40f64038b578eda8f1fa919e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/60ce434f084f.png)
 
 ```javascript
 limits: {
@@ -96,7 +96,7 @@ limits: {
 ```
 当你上传超过 3M 的图片时，会提示错误：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/380ffe4dc0d3457783e491c345cbf6fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9bf2b7ece522.png)
 
 然后我们改下保存的文件名，这需要自定义 storage。
 
@@ -128,19 +128,19 @@ export { storage };
 
 指定 storage：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/94f76955ccbf489bb08b956b92d4099a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1d3fba95b81e.png)
 
 然后测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/700b94fd0877437bb5f4efa31909e9dd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bf0925604622.png)
 
 这样路径就能看出来是什么文件了。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01a3717e55134216b78f876000106c9f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8bc3e7fce205.png)
 
 我们把这个目录设置为静态文件目录，这样能直接访问上传的图片。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b7716506af9f4739a0a35984c561472a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7cf3e360f09e.png)
 
 在 main.ts 里添加 uploads 目录为静态目录：
 
@@ -153,9 +153,9 @@ app.useStaticAssets('uploads', {
 
 然后我们把路径复制，在浏览器访问下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/147e219987f94e4c994d564f2a9c3f3a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7e6a1ef4a58f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7463c2dc1729452ea90b1aa1e4bfcccc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e421d8b65617.png)
 
 这样就可以访问到上传的文件了。
 
@@ -184,7 +184,7 @@ export function HeadPicUpload(props: HeadPicUploadProps) {
 ```
 在上传头像的地方引入下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8272e7c2fc754d329d77373d38364249~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b60a3847f4c1.png)
 
 为什么是 value 和 onChange 两个参数呢？
 
@@ -192,40 +192,40 @@ export function HeadPicUpload(props: HeadPicUploadProps) {
 
 现在渲染出来的是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/56a0a3a955734d82a9361a3313f729f4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80e83a5deadb.png)
 
 我们在 postman 里上传个图片，比如这个：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9c242a826a444619535b8cfb8614c3d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/552c889ec1a8.png)
 
 拿到它的路径：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a1bf760e5a84746bb7a5d47b4de9e97~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9f2d251f74cc.png)
 
 然后手动去数据库里改一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b5dd0a198d2446a8aaffc3baaad8e57~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2ae19222aa5.png)
 
 点击 apply。
 
 刷新下页面，可以看到确实变了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0cd941956f6455a95978cfb0d78241e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/065384eeb5ef.png)
 
 然后把它改成图片：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/108e51eccfbf4c7aa6acc901b2efb115~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db642fd93d35.png)
 
 ```javascript
 <img src={'http://localhost:3005/' + props.value} alt="头像" width="100" height="100"/>
 ```
 
 头像就显示出来了：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b6829ffd78434cfa8eb8cd2acc128eb5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d3ed2b26afdc.png)
 
 然后我们把后面的上传按钮改为 antd 的拖拽上传组件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/49ad6db7b8694b6cafae27daaa78620e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5516a9c2f946.png)
 
 ```javascript
 import { InboxOutlined } from "@ant-design/icons";
@@ -269,51 +269,51 @@ export function HeadPicUpload(props: HeadPicUploadProps) {
 ```
 测试下，提示上传成功：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e21936ea6b5e433fa5b1b74436c4861e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1b8d26830ab9.gif)
 
 控制台打印了文件路径：
 
-![i](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/192498e410e24ce1a8f3fe1c4f7644b1~tplv-k3u1fbpfcp-watermark.image?)
+![i](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c33fcccbbb4.png)
 
 服务端也确实有了这个文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5e2f4ca504549bdac0b8c100c7484ff~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/21b6a92eda14.png)
 
 我们浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ec77983568eb4b919bd849312ded7841~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/341d95dd795e.png)
 
 能够正常访问。
 
 接下来就通过 onChange 回调传给 Form 就好了。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34ba8ebd1b9642e0b01880b5b8cf552e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/29a68c6c01f7.png)
 
 这样表单的值就会改，触发重新渲染，就可以看到新的头像：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bcfca0ff2ed244af8e87050526af89e2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c964d03f62b9.gif)
 
 不过现在还没更新到数据库。
 
 点击发送验证码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43a08cc00eca4e66997aa43111f07701~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fff86fb01c1e.png)
 
 填入验证码，点击修改：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aee31ed40a7d43ddbbf99b2bd254a071~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f98626b76f58.png)
 
 提示更新成功。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0450d9a3cf24a57acb3ce2454392887~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0cc37271c717.png)
 
 数据库里确实更新了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18a48ee2c16c44849e09d048dbb159f5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3eb4483ba785.png)
 
 刷新下页面，可以看到依然是这个头像：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/16ce3e93ca4b4c44a79d5bb43a710073~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d621d77ddeb9.png)
 
 代表修改成功了。
 

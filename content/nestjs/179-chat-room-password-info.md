@@ -11,11 +11,11 @@ series_order: 8
 
 这节继续实现下修改密码、修改个人信息的接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd56833980dd4e45a093ebea017683e6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=518&h=330&s=30417&e=png&b=fcf4f2)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ffb13cf8ba14.png)
 
 对应这两个页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bf0e8640ca28418eba8f415f1a038649~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1646&h=1156&s=65457&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6d5ad58eab7f.png)
 
 ![](<https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26ce08e936b34f138187ce4a2c520ced~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1208&h=844&s=41235&e=png&b=ffffff>)
 
@@ -56,13 +56,13 @@ async findUserDetailById(userId: number) {
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75e27bd30ff546c39017b9a3aa2ffed6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1088&h=892&s=145377&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d920d9189e21.png)
 
 登录，拿到 token。
 
 然后带上 token 访问 /user/info
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/881dbd2f4f824cb599d6ffa1d5a3875b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=792&h=732&s=85220&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/df747ec67335.png)
 
 成功拿到了 user 的信息。
 
@@ -114,9 +114,9 @@ export class UpdateUserPasswordDto {
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ded95499bc3d4c6481c2cdc3de43f876~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=836&h=704&s=83447&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d5b4ec936fd4.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/211e03f64683498bb7d5741c7b405ec4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=980&h=468&s=142295&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a7fb5fc458b5.png)
 
 然后实现下具体的更新密码的逻辑：
 
@@ -167,27 +167,27 @@ async updatePassword(passwordDto: UpdateUserPasswordDto) {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a80776d64ef4614b3eaaba3d4470660~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=874&h=764&s=97521&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8b80015d9ac5.png)
 
 在 redis 里手动添加 update_password_captcha_邮箱 的 key，值为 111111
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3449c7e70ee64646afeb803cc9e3860b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1200&h=1000&s=68668&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9019ebd4c52.png)
 
 半小时过期。
 
 注意，我们现在连的是 db2
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77b21ac4a41942d7851b9ff12036fefb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2342&h=612&s=127940&e=png&b=161616)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c1bd3fb39b44.png)
 
 然后再试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/faf723c22f56498ba44cd683b2afdf80~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=942&h=664&s=87847&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80105c95daa6.png)
 
 修改成功。
 
 我们为了开发方便没对密码做加密，可以直观看出来密码修改成功了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/158e62b273d248388cd9177f8799a375~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=954&h=256&s=91061&e=png&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ecb738bb93bd.png)
 
 然后再加上发送邮箱验证码的接口：
 ```javascript
@@ -211,9 +211,9 @@ async updatePasswordCaptcha(@Query('address') address: string) {
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82d674d96baf41a28c674eb28de283ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=654&h=126&s=21347&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9cf210e6add5.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2351e83ed1f403c938ea352d9108d3b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=540&h=240&s=33693&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2057debf16c.png)
 
 然后再来写下修改个人信息的接口：
 
@@ -325,23 +325,23 @@ async updateCaptcha(@Query('address') address: string) {
 
 首先拿到验证码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bcf858912bf34002abd48d291acc1cc1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1424&h=228&s=37595&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ff3998ce07a.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3386b528a3143858ad7b018766528a1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=554&h=250&s=39085&e=png&b=f5f5f5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/454b9004962e.png)
 
 登录账号拿到 token：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/628aba4bf7c84c82bd7621aa44d4a889~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1204&h=774&s=119501&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/196073964364.png)
 
 带上 token 访问 /user/update 接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e640c57ae37e43cfaaef726b43086838~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=800&h=652&s=79214&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/640de104e30f.png)
 
 更改成功。
 
 查询下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14fa71af8b6647cfb3a5b3b4f6173b65~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=894&h=728&s=98816&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ac8a1db6b80.png)
 
 确实修改了。
 

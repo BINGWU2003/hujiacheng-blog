@@ -11,7 +11,7 @@ series_order: 13
 
 上节实现了用户信息的更改，但是是直接修改的文件路径：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5016d6e1d29242fb94cd0fb5c7ab0a94~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=154700&e=gif&f=24&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f05543e56001.gif)
 
 这节我们来实现下头像上传。
 
@@ -19,7 +19,7 @@ series_order: 13
 
 把 minio 的 docker 镜像跑起来：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c640ee80146c4aa98566d6e2255eacdf~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1902&h=1270&s=276230&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1c4432e49351.png)
 
 指定本地的某个目录，映射到容器里的 /bitnami/minio/data 目录。
 
@@ -27,41 +27,41 @@ series_order: 13
 
 然后指定登录的用户名、密码 MINIO_ROOT_USER、MINIO_ROOT_PASSWORD
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/722525092cc04f9198b72db794a495f1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1974&h=1314&s=425821&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/93d50e72c644.png)
 
 跑起来之后，访问下 http://localhost:9001
 
 输入用户名密码后点击登录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f42653e487b24cc48d1983c282889207~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2724&h=1522&s=1376090&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f2e5cf83bd9c.png)
 
 创建个 bucket：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/195924cb6be8494a91e5077c47b37625~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=944&s=448196&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/02bdd4bca5fc.png)
 
 设置下可以公开访问：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f5d7ca2f3804e32a542164ae9915a29~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2744&h=1026&s=515042&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a86d39147308.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2dd5637964347d9a6acde13154f1505~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2226&h=950&s=136592&e=png&b=c9c9c9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b006a99a354b.png)
 
 然后上传个文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75dc665bd585411eaaf78d335cc984e4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2762&h=1022&s=533335&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5604e96c5254.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3aadc777dd7243fdb1b30a0258902651~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2682&h=982&s=510958&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7bc0573ba282.png)
 
 浏览器访问下这个路径：
 
 http://localhost:9000/chat-room/dong.png
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9202823cfcd644c6b9fd485a4a19c448~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2268&h=1146&s=372741&e=png&b=0e0e0e)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff4cacd249e9.png)
 
 这样，文件就上传到了 OSS 里的 bucket，并且能够访问了。
 
 然后我们直接前端直传 minio 就好了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4a4d64a83884b6c8670c4ed09ccd716~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=842&h=514&s=38047&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/371b09ce855b.png)
 
 上传完之后把 url 给服务端保存到数据库就行。
 
@@ -78,7 +78,7 @@ npm install --save minio
 ```
 nest g module minio
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5c25cdd12e045f7b81c28cff6bf1e34~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=654&h=108&s=24294&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96806cc6bd2f.png)
 
 ```javascript
 import { Global, Module } from '@nestjs/common';
@@ -109,9 +109,9 @@ export class MinioModule {}
 
 用到 accessKey 和 secretKey 在这里创建：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e91672fc9d7d46919e25c034a17eb4b1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2186&h=928&s=452155&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/95543df5a66f.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c36ea8451ad74c4cb1f545afa75c8f63~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2146&h=1144&s=639753&e=png&b=d5d5d5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b143993ac96.png)
 
 然后创建 MinioController
 
@@ -119,7 +119,7 @@ export class MinioModule {}
 nest g controller minio --no-spec
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1483bcc83cc04a30b5af1ecc3ce67c6f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=700&h=106&s=29350&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90ab3fbb0a87.png)
 
 注入 Minio Client：
 
@@ -150,7 +150,7 @@ expires 是生成的临时签名的过期时间，我们指定 3600 秒，也就
 
 调用下这个接口试试：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1c2e1e4c0dc24e1ebb7268a8eb38df53~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1268&h=730&s=130822&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd3982676392.png)
 
 可以看到，返回了 xxx.png 的预签名的 url，这样前端不需要 accessKey 也可以用这个 url 来上传文件到 minio 了。
 
@@ -208,7 +208,7 @@ export function HeadPicUpload(props: HeadPicUploadProps) {
 
 在上传头像的地方引入下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8272e7c2fc754d329d77373d38364249~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b60a3847f4c1.png)
 
 为什么是 value 和 onChange 两个参数呢？
 
@@ -216,11 +216,11 @@ export function HeadPicUpload(props: HeadPicUploadProps) {
 
 渲染出来是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae0552181e8c46fc83f2395a54db5a93~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2188&h=1152&s=128278&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/023b4df38f39.png)
 
 不过现在 action 的路径不对，我们改一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2570245e006f4dd9914b5a8b03a8d330~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1142&h=848&s=176550&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fe735b40616c.png)
 
 ```javascript
 action: async (file) => {
@@ -258,22 +258,22 @@ export async function presignedUrl(fileName: string) {
 
 试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5fc92663efa24e72a9143fcfdba87896~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=2096435&e=gif&f=36&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/758447409e3a.gif)
 
 提示上传成功。
 
 在 minio 管理界面也可以看到这个文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cda5c5e5faff4f40b1ccf4ccc948a03c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=1221714&e=gif&f=26&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/338daf668a08.gif)
 
 
 输入验证码，点击修改，会提示更新成功：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c3ba387c65544a5ac020adc3a142a2c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=172806&e=gif&f=18&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5b6039e39ebc.gif)
 
 去数据库里看下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f66bc59d88f4c31803d61585450eb69~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1196&h=370&s=162715&e=png&b=f6f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/58204b02da2c.png)
 
 确实改过来了。
 
@@ -281,11 +281,11 @@ export async function presignedUrl(fileName: string) {
 
 然后我们改下右上角按钮，改成显示用户头像：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19306c347aa648069e60e2a90fd595e1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1752&h=1220&s=142224&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/43387845e091.png)
 
 首先，用户信息更新完后，同步修改下 localStorage 里的 userInfo
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f8d1f31d1982491ead37883f5b97e104~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1542&h=918&s=217239&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ead2365808c.png)
 
 ```javascript
 const userInfo = localStorage.getItem('userInfo');
@@ -299,13 +299,13 @@ if(userInfo) {
 ```
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de8f9f3da98a4d84b37847526cc9ae27~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2412&h=1224&s=419615&e=gif&f=32&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4babe80eca43.gif)
 
 可以看到，点击修改后，localStorage 里的数据也同步更新了。
 
 然后右上角的按钮也可以从 localStorage 里取最新的 headPic：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32cbdf9adebf4eb7a035de5456c952ca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1718&h=1166&s=237871&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/992f0d693a6d.png)
 
 ```javascript
 import { UserOutlined } from "@ant-design/icons";
@@ -349,7 +349,7 @@ useState 创建一个状态来保存 headPic。
 
 渲染的时候如果 headPic 有值就渲染 img，否则渲染默认的 icon。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52a44348b1c845bdb4037b3fd286d4ae~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1856&h=998&s=77085&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/692de343dadb.png)
 
 这样，头像就正确显示了。
 

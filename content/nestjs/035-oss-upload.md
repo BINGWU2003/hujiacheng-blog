@@ -17,37 +17,37 @@ series_order: 2
 
 我们本地文件存储是目录-文件的组织方式：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c42affeadb6d4d7885ba4223fe8b6b49~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=954&h=656&s=50009&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c528490063ea.png)
 
 而 OSS 服务的存储结构是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/883911af24c14b3ca1ca330c965c7f9a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1060&h=508&s=37017&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d083b2c5837.png)
 
 一个桶里放一些文件。
 
 阿里云 OSS 的控制台也提到了对象存储没有目录层级结构：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1f74c4bc490e4bf684ba8eaac8cc1bf6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1718&h=616&s=115001&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/097fa65c9c76.png)
 
 但下面明明是支持目录的呀：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/524c8d5b0e73481bb65bf5f6107ba273~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1556&h=626&s=109683&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3754aa68a75e.png)
 
 这其实只是模拟实现的。
 
 Object 会存储 id、文件内容、元数据三部分信息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20e190a20da341198e36f7e45060d1b1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=742&h=356&s=19427&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/457aee016b22.png)
 
 阿里云 OSS 只是用元信息部分模拟实现了目录。
 
 就像打了个 tag 一样，并不是说文件存储在这个 tag 下，只是你可以用这个 tag 来检索文件。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5c7eb8c524c431faef737ff8da4547a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1130&h=214&s=54679&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7699f5c2dcc1.png)
 
 除了对象存储 OSS，阿里云也提供了文件存储和块存储的方式：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/379e9dde7dcf42a5821fc0e1a56bb0df~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1954&h=972&s=141741&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/83dee0914263.png)
 
 块存储就是把整块磁盘给你用，你需要自己格式化，存储容量有限。
 
@@ -59,13 +59,13 @@ Object 会存储 id、文件内容、元数据三部分信息：
 
 我们买个[阿里云的 OSS 服务](https://www.aliyun.com/product/oss)来试试看：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed1886a29f4f4b73b79dce222248c8e3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2136&h=1376&s=268874&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2ced5c03788a.png)
 
 我买了 40G 的 OSS 国内通用资源包，花了 5 块钱。
 
 然后我们创建个 Bucket（桶）：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01cbf6715b734310b31d6a0c46541f48~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1676&h=1336&s=283874&e=png&b=fefcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f4cfc806c354.png)
 
 在北京创建了一个 Bucket，文件就会存储在那里的服务器上。
 
@@ -73,50 +73,50 @@ Object 会存储 id、文件内容、元数据三部分信息：
 
 不然私有的方式，你访问每个文件都要带上一些身份信息：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af5578d3c2b54a4dad990925895bbd75~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1252&h=756&s=210593&e=png&b=fcfcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a6d51a9869e.png)
 
 有的同学说，不是静态文件要在全国各地都能访问到么？存在北京的服务器会不会访问速度慢？
 
 这是 CDN 的活：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3ab0dead050e4bf6a95649cb1fbe9f28~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1222&h=1152&s=332121&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/70800c3aa006.png)
 
 接入 CDN 后，访问该域名会走到云服务的 DNS，然后返回一台最近的缓存服务器的地址，这台服务器会从源站拿文件来缓存，之后就不再访问源站。
 
 这里的源站就可以是 OSS 服务。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/771a695efc8e4eec9cd4b7dcf94fd77c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=508&h=353&s=41323&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47b2947eab89.png)
 
 创建 Bucket 之后，我们上传个文件试试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c4b60227dcaf43b4af792c1a57c3a1b5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1790&h=1120&s=2063115&e=gif&f=57&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/66c38c6cb305.gif)
 
 上传完之后在文件列表就可以看到这个文件了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c238bdc367a4e7da769111eb8da549b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1838&h=1006&s=991862&e=png&b=8c8c8c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/42d5a06a5ed7.png)
 
 点开可以看到文件详情，用这个 URL 就可以访问：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1847f935bb84d88bb5c0e972d0d8317~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1430&h=886&s=1013545&e=png&b=d2ddf0)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/efb7e9e5e979.png)
 
 当然，生产环境下我们不会直接用 OSS 的 URL 访问，而是会开启 CDN，用网站域名访问，最终回源到 OSS 服务：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14f0a1f4a50b4e3aa42b8430e14724f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1560&h=502&s=107054&e=png&b=fafafa)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b218c4185ca6.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69d6c8bf283d49edb00484603c3af90b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1564&h=386&s=130373&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce02ba369fc2.png)
 
 在控制台里上传很简单，那如果想在代码里上传呢？
 
 官方文档里有示例代码，我们试试看：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c11b37e8e564a79a5201e278d934531~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1844&h=1418&s=446776&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4df63c58b3f.png)
 
 ```
 mkdir oss-test
 cd oss-test
 npm init -y
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed8f43e33e044abba31b1d41eca7cdeb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=836&h=632&s=114551&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa79253ae7a2.png)
 
 安装用到的包：
 
@@ -149,36 +149,36 @@ put();
 ```
 region 在概览里可以看到：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e4a6ba711944197982eb2b59f7bd1bd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1684&h=954&s=225030&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/79f7befb7cbc.png)
 
 这里的 accessKeyId 和 acessKeySecret 是什么呢？
 
 本来我们身份认证都是通过用户名密码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a7d6a85fd1b41bebe0e89c6a97d2cea~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=742&h=284&s=17801&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ef5de43a285.png)
 
 但这样不够安全，所以我们创建了 accessKey 用来代表身份，用它来做身份认证，就算泄漏了，也不影响别的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/83d2b960c3464d3bbadc964c269773cd~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=798&h=514&s=33672&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ad9cd3815b8f.png)
 
 我们创建个 accesKey：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c2dfa90ffc41454f93a47ff06529f370~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=626&h=796&s=64559&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a47d63cc1668.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa9d11035ea3457ea12b499c38524878~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&h=546&s=122069&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/06c66550456b.png)
 
 创建完成后，拿到 accesKeyId 和 accessKeySecret 后运行代码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46888772fc6a4cdd80281d51a1e687b4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1094&h=830&s=154401&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dfe8e4beb2dd.png)
 
 这里的 mao.png 是这样的：
 
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f74bb88195a476ab386719f243b9f8b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1018&h=710&s=379430&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4f022159b1fe.png)
 
 在控制台可以看到上传成功了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63cb0a38082d42c7ab1547700c7c7e79~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2018&h=1134&s=536715&e=png&b=8b8a8a)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/edea4d9392b9.png)
 
 这就是 OSS 用 api 上传文件的用法。
 
@@ -186,41 +186,41 @@ region 在概览里可以看到：
 
 打开 accessKey 管理页面的时候就提示了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7be95451e63343ffa32be751c673048d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1018&h=382&s=97125&e=png&b=fef4ef)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be106fedd04e.png)
 
 让我们不要直接用 accessKey，而是创建一个子用户再创建 accessKey。
 
 那我们就创建个子用户：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8cd8632816e44fd902810a432999eb5~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1338&h=634&s=124468&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eee99e4148a8.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7fd4a9e8f3364f2ea9a0df89b94e807d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=970&h=664&s=71789&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c2132ebb305.png)
 
 然后用这个 accessKey 的 id 和 secret 就好了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3904e4e4a73f4a25a6dfc72157c3f2b6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1928&h=738&s=135573&e=png&b=fffaf9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6ff4b795acad.png)
 
 但你直接换上它还不行：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69a7a7dc3fe249beadd65d83f41b08a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1342&h=1276&s=271590&e=png&b=1c1c1c)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/260e2a70cb47.png)
 
 会提示你 403，没有权限。
 
 需要你授权下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6de63b48653b489c87e11e3c302912a8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=628&h=784&s=66326&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a76e4f9e7bf4.png)
 
 新增一个授权：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b94c98a61f4555b15f6d605f24892e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1130&h=798&s=102716&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9e93a5ca92a3.png)
 
 把 OSS 的管理和读取权限给这个子用户：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b35e139980c148dba0c33b5893e0c17c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1656&h=1352&s=552424&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca7a61dee34f.png)
 
 然后再试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30acc180379f43b1bae31bd4d2af210b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1094&h=1060&s=198897&e=png&b=1b1b1b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f655175fe8d4.png)
 
 这时候就上传成功了。
 
@@ -228,17 +228,17 @@ region 在概览里可以看到：
 
 如果我们直接用用户名密码验证呢：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e45fb9b6fd394448a7643ad7e2223551~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=766&h=214&s=16602&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4646fff11e1e.png)
 
 那万一泄漏了不就完蛋了么？
 
 但是如果创建个 accessKey 用它来做身份认证：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e52b9bfec8543378e3714044608f002~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=872&h=542&s=35006&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f84744c0bef6.png)
 
 就算泄漏了我也可以禁用啊：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d77ecadb1e14bd881fbec0e32c1ac00~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1770&h=416&s=74111&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e193b1b5e6ce.png)
 
 再进一步，直接用这个 accessKey 它是有所有权限的。
 
@@ -246,7 +246,7 @@ region 在概览里可以看到：
 
 当然就更安全。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc0239504615408d9d0f1fcbb272b168~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178&h=542&s=49523&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e1f21812a57e.png)
 
 所以说，阿里云这套 accessKey 和 RAM 子用户的身份认证方式，还是很不错的。
 
@@ -258,11 +258,11 @@ region 在概览里可以看到：
 
 [阿里云的大文件分片上传](https://help.aliyun.com/zh/oss/user-guide/multipart-upload)也是这样实现的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/896de2622dbf4b5a8f110388f91fee51~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2028&h=1046&s=285258&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27cb39b89b01.png)
 
 具体怎么用直接看文档就好了，这里我们就不试了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cf86dfa4a904cfb9268562d6c5069a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1682&h=1120&s=284602&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a9dc1adfa1b.png)
 
 有了 OSS 服务之后，我们上传文件还需要经过应用服务器么？
 
@@ -270,7 +270,7 @@ region 在概览里可以看到：
 
 如果经过应用服务器，那就要客户端上传文件之后，我们在服务里接受文件，上传 OSS：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b363bfe995714131b0f25dea6ad18822~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1302&h=302&s=29501&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce54ef4f30a0.png)
 
 这样当然是可以的，还能保护 accessKey 不被人窃取。
 
@@ -278,7 +278,7 @@ region 在概览里可以看到：
 
 那如果不经过呢？
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4a4d64a83884b6c8670c4ed09ccd716~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=842&h=514&s=38047&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/371b09ce855b.png)
 
 在客户端用 accessKey 把文件传到 OSS，之后把 URL 传给应用服务器就好了。
 
@@ -290,7 +290,7 @@ region 在概览里可以看到：
 
 有。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4b44d3c76ae4c1ca38230fd09f5770e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1778&h=936&s=296704&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb9840eb6943.png)
 
 [阿里云的文档](https://help.aliyun.com/zh/oss/user-guide/authorized-third-party-upload)里也提到了这个问题。
 
@@ -337,11 +337,11 @@ main();
 ```
 上传 OSS 的地址，用的临时 signature 和 policy 都有了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c18ffbe373b74b1da1f08eb0e333efc3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1232&h=252&s=64402&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8227ef0fbd30.png)
 
 这些代码不用记，文档里都有：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74c442a1f2de4861b78fe59fea1c77c3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1774&h=1150&s=360253&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dd81b8ef3a1f.png)
 
 这样就能在网页里用这些来上传文件到 OSS 了：
 
@@ -414,26 +414,26 @@ main();
 npx http-server .
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df383c8936814fcf93f8fa388534d143~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=710&h=582&s=93425&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3dc05125a812.png)
 
 这时候你上传文件的时候会提示跨域错误：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f4c1a25c88c0455ca25463753fd737ec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1562&h=884&s=159518&e=png&b=fefcfc)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1819cbf5c1b5.png)
 
 我们在控制台开启下跨域：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3b099abe3794369bafd9a412f8afc26~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1942&h=1340&s=273036&e=png&b=8b8b8b)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/15105835f569.png)
 
 然后再试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7b0fa91fc6654687b2bd80c841f50477~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1790&h=1120&s=1037999&e=gif&f=40&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fbf4591a6a0b.gif)
 
 上传成功了！
 
 
 控制台文件列表也可以看到这个文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/663aaf15d52046ca9f1b438a254d43ad~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1878&h=1094&s=352599&e=png&b=f8f6f6)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dec1b9575431.png)
 
 这就是完美的 OSS 上传方案。
 

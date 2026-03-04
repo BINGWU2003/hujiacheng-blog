@@ -21,7 +21,7 @@ series_order: 12
 
 简单看下策略模式的介绍：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a61d415919c94c6287c2a2f92a215859~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1484&h=1814&s=352175&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd636c783c51.png)
 
 其实它就是实现了一个接口的多个类，这些类可以相互替换。
 
@@ -38,9 +38,9 @@ series_order: 12
 
 比如身份认证库 passport 的两种策略：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5bb06800a4f4d3f8b082dcc6e88e230~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1120&h=546&s=105492&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/753f820d4e02.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98742b56090242089178eda25ab90cf4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1062&h=560&s=100048&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f835078e71a8.png)
 
 可以看到，不管是用户名密码的身份认证，还是 jwt 的身份认证，都会从 request 的 body 或者 header 中取出一些信息来，然后认证通过之后返回 user 的信息，passport 会设置到 request.user 上。
 
@@ -52,7 +52,7 @@ series_order: 12
 nest new nest-passport
 ```
 
-![2.3.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/895567963a604e14a2e77ab6810e8539~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=934&h=586&s=365351&e=png&b=fefefe)
+![2.3.png](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/14e65f902eff.png)
 进入项目，安装 passport：
 
 ```
@@ -73,7 +73,7 @@ nest g module auth
 nest g service auth --no-spec
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dff2212906444ef8453cff548f080c7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1162&h=186&s=54890&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f479fbdb8b7.png)
 添加用户名密码认证的策略：
 
 ```javascript
@@ -98,7 +98,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 在 AuthModule 引入下：
 
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09d8b29792d84e329598aeec6149b2af~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=892&h=374&s=74826&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/44865d2fdbb0.png)
 
 这个 LocalStrategy 的逻辑就像前面分析的：
 
@@ -167,11 +167,11 @@ export class UserService {
 ```
 在 UserModule 里导出 UserService：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95ae3305ca0b4d03b7201d9a3c87513b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=830&h=368&s=65366&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80c6ad32b5b8.png)
 
 然后在 AuthModule 里引入下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f4e72bd571545be84096b2e5a961fdc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=436&s=93319&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a9913026c3f2.png)
 
 这样，passport 的流程就完成了，它会从 request 中取出 body 的 username 和 password 交给我们的 validate 方法去认证，认证完会返回 user 信息，放到 request.user 上。
 
@@ -211,15 +211,15 @@ export class AppController {
 ```
 npm run start:dev
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/758a0a51f4b84e218e6693203cbdbb25~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1592&h=436&s=184646&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/78c29d0dfb01.png)
 
 postman 里测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c94aec9bdd6147169b1b25c25248ae98~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=920&h=836&s=101583&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a4a6b8e2dd5d.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b859cdc48f9f4481a9abec213df2b561~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=914&h=796&s=100824&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/977fb725b187.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80858ddf870c44488d35e5997c13b540~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=912&h=798&s=93187&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f648bc977f04.png)
 
 这样，基于 passport 的登录就完成了。
 
@@ -243,7 +243,7 @@ npm install --save @nestjs/jwt
 
 在 AppModule 里引入下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/22e2c21fd8854c4abe2a592aff039ee9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=980&h=772&s=145432&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2647b172e722.png)
 
 ```javascript
 JwtModule.register({
@@ -252,7 +252,7 @@ JwtModule.register({
 ```
 然后在 AppController 里 login 接口返回 jwt 的 token：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66040af35eed436db182e2b720312a0f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1246&h=1440&s=253523&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f19130bedfc4.png)
 
 这里需要扩展下 express 的 request.user 的类型。
 
@@ -307,7 +307,7 @@ export class AppController {
 试一下：
 
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c62988bb8eef4f37a7a76f8c2f47f715~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1534&h=824&s=154588&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2d42611cfe2a.png)
 
 这样，登录之后返回 jwt 就完成了。
 
@@ -343,7 +343,7 @@ npm install --save-dev @types/passport-jwt
 ```
 在 AuthModule 引入下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c6f592bd6cd41dfb9e64a7738d659f8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=934&h=462&s=107470&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5882f80931cc.png)
 
 在 AppController 里添加一个新的需要登录认证的接口：
 
@@ -357,13 +357,13 @@ list(@Req() req: Request) {
 ```
 首先不带 token 访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d5a9d8c7b2b4078adc2153ecbbb9382~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=998&h=824&s=82528&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2699fc36151.png)
 
 然后通过 Authorization 的 header 带上 Bearer xxx 的 token 访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/582a3a55c09c42dc95e1ea7ab11daa90~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1186&h=866&s=101767&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/997582f9d59f.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db21c92d5d29476e810d21e2892b81e9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1012&h=538&s=173360&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a3b561bf4841.png)
 
 可以看到，jwt 的认证生效了。
 
@@ -389,7 +389,7 @@ list(@Req() req: Request) {
 nest g decorator is-public --flat --no-spec
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/85ed3cabe56c48edb0672ab350cfd32c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1342&h=148&s=38054&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c718f3186bbb.png)
 它的实现就是给被装饰对象添加一个 metadata：
 
 ```javascript
@@ -447,7 +447,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
 然后在 AppModule 里注册为全局 Guard：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/010386453de4464ea7ffe2d332201881~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=958&h=1050&s=191342&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff73454a48c8.png)
 
 ```javascript
 {
@@ -457,9 +457,9 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 ```
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6614fe16949347d6a06f26408f61f7f4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=940&h=694&s=73035&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/19e64cbe6c8b.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9852fff2ee944128485716bc6faa5c7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=930&h=754&s=87469&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88ceaa0477db.png)
 
 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98e582bbbe2546bda930701ebed27719~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=928&h=686&s=73037&e=png&b=fdfdfd)
 

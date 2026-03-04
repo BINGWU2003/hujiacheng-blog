@@ -13,13 +13,13 @@ series_order: 8
 
 先写下用户端页面，涉及到到登录、注册、修改密码、修改个人信息这 4 个：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae52c0b82b7342b1a20c94f118726f99~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccc87e6af8d9.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486e8f1ad6f845c8b255bb0e78fa5e64~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/617987fee403.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b7366af920b41c890686f5a10c21d7b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/77a25c7f1273.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/403f30e8cf80493c8af4ab50054aba3c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee2848c6d9bb.png)
 
 先新建个 react 项目：
 
@@ -28,7 +28,7 @@ npx create-react-app --template=typescript meeting_room_booking_system_frontend_
 ser
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/afa9e9f98ab34e1780a0beff4d2fd14d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f7baada116e9.png)
 
 进入项目目录，把开发服务跑起来：
 
@@ -37,7 +37,7 @@ npm run start
 ```
 浏览器访问 http://localhost:3000 可以看到这个界面：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e578f28f353c488c8426699af3896f48~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f8637bae16b1.png)
 
 就说明 react 项目成功跑起来了。
 
@@ -117,7 +117,7 @@ root.render(<RouterProvider router={router}/>);
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef9fde0a39ef4892827c3fbb8ad85555~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dbcd42a874db.gif)
 
 都没问题。
 
@@ -125,7 +125,7 @@ root.render(<RouterProvider router={router}/>);
 
 把 src 目录下其余文件去掉：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/20e73f7432c44e23bde08e1de692533f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/159afe304ab4.png)
 
 然后添加这 3 个组件还有 ErrorPage 组件：
 
@@ -201,21 +201,21 @@ root.render(<RouterProvider router={router}/>);
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/566f87e45935491bac7da83f494fb250~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/26a3b21ac5bc.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66f93212bf484e58b3adb614e41ce4fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3058568481bc.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3b3ac0466f1495e883f91f99b141ca2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45e0ed7345c1.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37434753149940ffbed148dd367f763f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/90a8349d2501.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35fea399993642eb9824c70e5d909654~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8b5648fe20a.png)
 
 都没啥问题。
 
 然后来写 Login 页面，也就是这个：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae52c0b82b7342b1a20c94f118726f99~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ccc87e6af8d9.png)
 
 引入 Ant Design 组件库：
 
@@ -232,7 +232,7 @@ export function Login() {
 }
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9c984c744ec49a1a24e5b9c8bab3b94~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81bfa82ea91b.png)
 
 没啥问题，说明 antd 引入成功了。
 
@@ -314,7 +314,7 @@ export function Login() {
 
 下面两个 Form.Item 是 label 0 份，wrapper 24 份。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/449f9e2e63a74ffd8ea6983d8240ea8d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/598701e45448.png)
 
 colon 为 false 是去掉 label 后的冒号
 
@@ -336,11 +336,11 @@ colon 为 false 是去掉 label 后的冒号
 ```
 访问 /login，可以看到现在的登录页面：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6397c6d6b8e45c491de9434302fce01~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6bcba912ceb4.png)
 
 输入用户名、密码，点击登录：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7251c8782c5642d2b4d3fcaaa5c53a43~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/428864cad57c.png)
 
 控制台打印了拿到的表单值。
 
@@ -353,7 +353,7 @@ npm install --save axios
 
 跑之前先把端口配置改为 3005，因为前端开发服务用了 3000 端口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/54feea3a1664459eb93155ef0d3a49ff~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6085f93e16f3.png)
 
 然后在后端项目执行：
 
@@ -366,11 +366,11 @@ npm run start:dev
 
 访问 http://localhost:3005/api-doc
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59581cf955ee4284855fe5e4dff6b3d4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/73ca34ef1373.png)
 
 在 postman 里测试下登录接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cb9838a802664241a9d690f784274a18~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81897b08bcbe.png)
 
 然后在点击登录按钮之后，用 axios 调用它：
 
@@ -411,25 +411,25 @@ const onFinish = async (values: LoginUser) => {
 
 登录下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d14a2d9028e84756b745e2a6d25c682d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/425a9e556b48.gif)
 
 提示跨域错误：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d41e5b3717884fae9b8e75e16e7e1ec5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/74862483d852.png)
 
 我们在服务端开启下跨域支持：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29f85d1f9974449785fb7f6e211774e8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8fa6c00b9de2.png)
 
 再试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bacfabc97e3b448fb07c630bc4a0fda4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1648&h=854&s=185505&e=gif&f=25&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d423c8bfd03.gif)
 
 因为这个时候接口返回 400
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/34f1a52fbeaf46488f8d36efa127ade7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=670&h=318&s=58584&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4e5eb32a6c1.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eb3534c9da434332b5203eff817e40f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=702&h=184&s=32332&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d705e6313eac.png)
 
 axios 对于 400 多、500 多的请求，都会抛出错误。
 
@@ -450,7 +450,7 @@ axiosInstance.interceptors.response.use(
 
 再次调用，就能正常处理了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b2db92139744eb19e7215ff7fbc25db~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1136&h=732&s=60739&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/359e5f510608.png)
 
 如果你把返回的值改为 Promise.reject
 
@@ -466,21 +466,21 @@ axiosInstance.interceptors.response.use(
 ```
 就又恢复原样了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bacfabc97e3b448fb07c630bc4a0fda4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1648&h=854&s=185505&e=gif&f=25&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d423c8bfd03.gif)
 
 因为 axios 默认就是这样处理的，400 多和 500 多的请求，会返回 reject。
 
 把它改回来，然后测试下正常的请求：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07657faafb6f44c0bacdc6c39d5cb3fd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7c20aa9a1830.png)
 
 提示登录成功，并且返回了用户信息和 token。
 
 再输入错误的用户名、密码试试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/70a733d0d7644a6c94254db1cc4c0671~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d3f3e2e098bb.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd8a7f4598cd433c88cb5c30d600e351~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b2f4af794a14.png)
 
 会返回 400 和具体的错误。
 
@@ -509,23 +509,23 @@ const onFinish = async (values: LoginUser) => {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d814a38bbe7c427597d8f2af9b64093b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/afb7dd65f1e2.png)
 
 登录成功之后，在 Application > Local Storage 里就可以看到这三个值
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ff8d2f65c0ad4ff596bdef0725e70243~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cfea5833d3cc.png)
 
 用户不存在或者密码错误的时候，也提示了对应的错误：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/914d0258a4c84fa9975ccc8cc570a4d1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f72e0b9bed9d.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f959b098c4224a628c5b7632535fb23e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cffef960b5e.png)
 
 这样，登录的前后端功能就都完成了。
 
 然后来写下注册：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/486e8f1ad6f845c8b255bb0e78fa5e64~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/617987fee403.png)
 
 实现下 Register 页面组件：
 
@@ -671,37 +671,37 @@ export function Register() {
 
 浏览器访问下 http://localhost:3000
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21956a0a22d440cdbadfdfc7f54f8881~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/28eea864173e.png)
 
 填入信息，点击注册，控制台会打印表单值：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/21469f096b8540a7aec77b5298209cb0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9bd5bd1d9092.png)
 
 然后来调用下注册接口和发送验证码的接口。
 
 在 swagger 文档看下这俩接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b5413a4466a46199cc957211859ed0d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f44e6494c830.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae1846aa13f249988dbeff81cc24c419~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e7dc95ff12fd.png)
 
 同样，我们先在 postman 里调用下：
 
 调用发送验证码接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b663fd1d230e49bfa218be3489d68b1c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e6559f96fddb.png)
 
 邮箱收到了对应的邮件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b8f0584882b04cbe89ef19ecbbe1e1c1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2a2945a449f1.png)
 
 然后调用注册接口：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3a5583723017465e86892b65f1906613~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5a56b53183b.png)
 
 注册成功，数据库也多了一条记录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc36081ebb5448a6a660c222cbd3eabb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0ee12ab4091e.png)
 
 我们在页面是实现这个流程：
 
@@ -722,11 +722,11 @@ export async function register(registerUser: RegisterUser) {
 ```
 先调用发送验证码接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/470ee645b6534b8aac4a68009d75a28d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b0d09aaf1789.png)
 
 绑定点击事件。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e3d67fc5d86c49c88f72cf756fff55fe~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d2c23ff70abb.png)
 
 使用 useForm 来拿到 form 的 api
 
@@ -749,9 +749,9 @@ async function sendCaptcha() {
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e17e40366e7b423c952de75c145f3efa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4edfdbf42217.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5550c07ea3a14910bd444dc50300008d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/be67b5293f2a.png)
 
 没啥问题。
 
@@ -795,25 +795,25 @@ const onFinish = async (values: RegisterUser) => {
 
 填入信息，点击发送验证码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64da43af93d040a3b4eee6fe331ac064~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/418b858b10cc.png)
 
 去邮箱里看一下验证码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6792e07396264f8aa0150546ef12deb8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aff3dfcf3242.png)
 
 填入验证码，点击注册：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d8b50cd770842bd9654beb12d9d25b6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/20bcc06fee5d.png)
 
 注册成功，数据库里也看到了这条记录：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/329a515636d44ccf9aba75362c857d63~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9034f92c568b.png)
 
 这样，注册的前后端流程就走完了。
 
 然后我们给它加上跳转逻辑：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87a63bf3c80f4d648c36b70624fbbffa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e05e1c1054d2.png)
 
 把 onFinish 移到组件内，使用 useCallback 包裹。
 
@@ -838,11 +838,11 @@ const navigate = useNavigate();
         }
     }, []);
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37b0c6402fb644e2b1d36f832b92590c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd7cf33d137e.gif)
 
 登录也要加上导航，登录成功后导航到首页：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c952cc4b1e8d435fb0c2a99da24a3281~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ec5190f8e16.png)
 ```javascript
 const navigate = useNavigate();
 
@@ -867,21 +867,21 @@ const onFinish = useCallback(async (values: LoginUser) => {
 ```
 还有这几个链接也要改成 router 的 Link：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df23c2541a37403db5c1091fcb0421fc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8cd6a3af141.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0522f7516dd9474694026f3ac1f96d23~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a69cf749dd1e.png)
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7603271639064606a217c1d629313766~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3cd11448368e.gif)
 
 最后，我们再来重构下代码：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3bbd6c44ba5545ddb614f82d6a30c4ee~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a3885ad1006.png)
 
 现在的代码都是平级放的，我们分几个目录：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7b018751e0040509b237c960c29a809~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cde5239117b9.png)
 
 添加 page 目录和 interface 目录，把对应的文件移动过去，然后修改下引用它的路径。
 

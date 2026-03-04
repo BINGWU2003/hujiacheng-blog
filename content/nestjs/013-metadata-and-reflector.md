@@ -19,29 +19,29 @@ series_order: 13
 
 比如 Reflect.get 是获取对象属性值
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5a7ba0e6dc94d0fb842cafc25ac4dd2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/942a082b5434.png)
 
 Reflect.set 是设置对象属性值
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/69c386cd587d4b958212a5ee1ee09a96~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d9a71b8c29c.png)
 
 Reflect.has 是判断对象属性是否存在
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/783e8067a805459d9ec0d56292f529a4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/481b9fd34566.png)
 
 Reflect.apply 是调用某个方法，传入对象和参数
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7708d7a8c01a4fb6ae10b51b98442921~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c047597b5471.png)
 
 Reflect.construct 是用构造器创建对象实例，传入构造器参数
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed7bde270882465cb9ffdc624bbb4e61~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8f736cc69288.png)
 
 这些 api 在 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)里可以查到，因为它们都已经是 es 标准了，也被很多浏览器实现了。
 
 但是实现 Nest 用到的 api 还没有进入标准，还在草案阶段，也就是 [metadata 的 api](https://rbuckton.github.io/reflect-metadata/)：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a9cf799a18794e0a903170b6bf76fa21~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23f3acdd8986.png)
 
 它有这些 api：
 
@@ -122,7 +122,7 @@ let paramTypes = Reflect.getMetadata("design:paramtypes", obj, "add");
 
 我们再看下 nest 的源码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2bb578b9b624bf993aaedc250ec053d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/184594c7d821.png)
 
 上面就是 @Module 装饰器的实现，里面就调用了 Reflect.defineMetadata 来给这个类添加了一些元数据。
 
@@ -142,15 +142,15 @@ let paramTypes = Reflect.getMetadata("design:paramtypes", obj, "add");
 
 后面创建 IOC 容器的时候就会取出这些元数据来处理：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12e7eca6e54e4fa1867b16b83237135a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/71a5483f8d74.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/32ea9f7aa5374ce681053a4dcae06723~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/763eb807799e.png)
 
 而且 @Controller 和 @Injectable 的装饰器也是这样实现的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd7235bd63374965a7d55c5866471983~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/83b8f73b5e9f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c82a1514a28749668ec631b7e565e466~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea19e421c7e2.png)
 
 Nest 的实现原理就是通过装饰器给 class 或者对象添加元数据，然后初始化的时候取出这些元数据，进行依赖的分析，然后创建对应的实例对象就可以了。
 
@@ -198,13 +198,13 @@ export class CatsController {
 
 按理说我们只添加了一个元数据，生成的代码也确实是这样的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c525cd38ea542bab80ef31a15719265~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a66e087b1a1e.png)
 
 但是呢，ts 有一个编译选项叫做 emitDecoratorMetadata，开启它就会自动添加一些元数据。
 
 开启之后再试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d14d5736bef144a9a6830c7626b15b9f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/10b0d4656980.png)
 
 你会看到多了三个元数据：
 
@@ -220,27 +220,27 @@ design:returntype 是 String，也很容易理解，就是返回值的类型
 
 所以，nest 源码里你会看到这样的代码：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af6a8ad0ce814857881fbf2a7c503e7c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/351dd2026e66.png)
 
 就是获取构造器的参数类型的。这个常量就是我们上面说的那个：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3c6b32199ab1443794f56bdac63a2a5b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c507a94c8d8.png)
 
 这也是为什么 nest 会用 ts 来写，因为它很依赖这个 emitDecoratorMetadata 的编译选项。
 
 你用 cli 生成的代码模版里也都默认开启了这个编译选项：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a984d979388a42bbb77bcef2b3c4dc26~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e3dfa6b612b3.png)
 
 这就是 nest 的核心实现原理：**通过装饰器给 class 或者对象添加 metadata，并且开启 ts 的 emitDecoratorMetadata 来自动添加类型相关的 metadata，然后运行的时候通过这些元数据来实现依赖的扫描，对象的创建等等功能。**
 
 Nest 的装饰器都是依赖 reflect-metadata 实现的，而且还提供了一个 @SetMetadata 的装饰器让我们可以给 class、method 添加一些 metadata：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ea48d21da6943bfad91b6d81562cafa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea1b43eafee4.png)
 
 这个装饰器的底层实现自然是 Reflect.defineMetadata：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0da98c74bf4242fba7e65512d2992a8c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/10cd0ceeb5e0.png)
 
 Nest 为什么暴露这样一个底层的 metadata api 出来呢？
 
@@ -255,45 +255,45 @@ Nest 为什么暴露这样一个底层的 metadata api 出来呢？
     nest g interceptor aaa --flat --no-spec
     nest g guard aaa --flat --no-spec
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0806331a696341bbacccc66a182fb9c7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d6a63d5bb6be.png)
 
 在路由级别应用：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9adde1c019d54639976f3dfdbd98f72a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5ce5ebf7c315.png)
 
 加个打印语句：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c704ae3bc02047b382cd030fc726b182~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3699e47dd19f.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d3db5800377466693337238e4c17ba2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bc2b2a06748e.png)
 
 然后 nest start --watch 把服务跑起来。
 
 浏览器访问：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8f1ac70d54c45e28dc0d9057599357d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/26638cc75bd1.png)
 
 可以看到 guard 和 interceptor 成功执行了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86989a513c4b499bbad8ccd87835e13d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fd981fb3f23f.png)
 
 然后我们用 @SetMetadata 在 controller 上加个 metadata：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e61d10f799764322bb0127432b43604d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9d60a4089909.png)
 
 在 guard 和 interceptor 就就可以这样取出来：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cef2879ad7db444289320fa0f1aa05cb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b6bc24bb5d3.png)
 
 通过 ExecutationContext 取到目标 handler，然后注入 reflector，通过 reflector.get 取出 handler 上的 metadata。
 
 interceptor 里也是这样，这里换种属性注入方式：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b407535dd6614d9b994f910b1b1d8634~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/52c2e44ab45d.png)
 
 刷新下页面，就可以看到已经拿到了 metadata：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10dc4b40265c433bb20e0fd4a1f862e6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8779fd083e51.png)
 
 拿到 metadata 有什么用呢？
 
@@ -303,43 +303,43 @@ interceptor 里也是这样，这里换种属性注入方式：
 
 除了能拿到 handler 上的装饰器，也可以拿到 class 上的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12538621a1a74dbd88c0bb20a8ef3e87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/098523c55536.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad6a4834d0974b31b6528a3942ed0535~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5b5bde9fc791.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9d46cbf4ac5848c4b303ea0648f30fb2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/062cd6e03864.png)
 
 reflector 还有 3 个方法：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c2d3d5f95af42f285627e55f1cc4f70~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd8a1534864b.png)
 
 这 4 个方法有啥区别呢？
 
 看下[它们的源码](https://github.com/nestjs/nest/blob/5bba7e9d264319490f142ca5e8099c559fa7e7e3/packages/core/services/reflector.service.ts#L11-L97)就知道了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/85d6f8b0a5504b9eaf7099bf6912d8d9~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d1126d4e84df.png)
 
 get 的实现就是 Reflect.getMetadata。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc0456df139b40998bb735047684b332~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c43de7980cb4.png)
 
 getAll 是返回一个 metadata 的数组。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/136db1840afc4b44b9f38c555cb0db02~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3d9ab2d4bf6e.png)
 
 getAllAndMerge，会把它们合并为一个对象或者数组。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7081c65ccd744f83ac28df0a43eae4ed~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b93331574be4.png)
 
 getAllAndOverride 会返回第一个非空的 metadata。
 
 我们试一下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/af05ff6a849642e799db7124c8425ab0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d7bad32c2b8d.png)
 
 可以看到它们结果的区别：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4af40c29df31495eb94d6636f3f1dece~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d681d0d49c4.png)
 
 案例代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/metadata-and-reflector)。
 

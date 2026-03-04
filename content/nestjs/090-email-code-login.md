@@ -28,9 +28,9 @@ npx create-react-app email-login-frontend
 npm run start
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88aa773d3926406ca695f6dc618b54b3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/625bd05df63a.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/93940e5dc88140b49f78509ee42fd3bb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/00bf49cf6988.png)
 
 安装 antd：
 
@@ -97,11 +97,11 @@ export default App;
 ```
 在 App.js 输入上面的代码，就可以看到登录页面：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91a6fe6fdd9e4726bec4a810c8bf1b0b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac25255907d3.png)
 
 比较丑，但功能是没问题的：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae30f9ceac9f43ff825698da60e92ee1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05ba72f1e077.gif)
 
 然后我们再来写下后端代码。
 
@@ -110,11 +110,11 @@ export default App;
 ```
 nest new email-login-backend -p npm
 ```
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/981c34fcbcbe4e82961db5ba42d29ec3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9fc0afe252c1.png)
 
 在 main.ts 启用跨域，并且修改下端口号（因为前端项目开发服务也用这个端口号）：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/550ec1d9925f4eda89b37495209f18bf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c85f5ac6744f.png)
 
 然后跑起来：
 
@@ -123,7 +123,7 @@ npm run start:dev
 ```
 浏览器访问可以看到 hello world 代表 nest 服务跑成功了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a1e897d2b38464eabbd142c8a98fcf7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/92a32ed7fb63.png)
 
 然后在前端项目里访问下。
 
@@ -151,7 +151,7 @@ const sendEmailCode = async () => {
 ```
 试一下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/83d7ee3fa99644e3beeaffba0dd6fbb0~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7832fb83d541.gif)
 
 接口调通了。
 
@@ -162,7 +162,7 @@ const sendEmailCode = async () => {
 ```
 nest g resource user
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcfe8c5a8e264f52a7a49c97b57bc0fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0d3785eb95f1.png)
 
 安装 typeorm 的依赖：
 ```
@@ -206,13 +206,13 @@ export class AppModule {}
 
 然后我们在 mysql workbench 创建个新的 database：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28bd7114029240ae8657533e388395aa~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/83fab932a282.png)
 
 输入 database 或者叫 schema 的名字，指定字符集为 utf8mb4。
 
 点击 apply 可以看到生成的 sql：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8cd3c3564bfa438da1d4b0ce81161760~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d7cb7890c0e2.png)
 
 改下 User 的 entity：
 
@@ -248,23 +248,23 @@ user 表有 id、username、password、email 这 4 个字段。
 
 在 TypeOrm 的 entities 注册下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/393f8780ac7e4ac291dec5c3cd43627b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a99a67e0fc8f.png)
 
 保存，nest 服务会自动重新跑：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a880e338e7a541db8f3a41f4ea5b954a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e716811f45f.png)
 
 可以看到 user 表被创建了。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/804f5a86f16e49d18db738158bd57e56~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4cc52855accd.png)
 
 这次我们手动插入下数据：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7dca8fd38a894ebcb7b18ca399557aa4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/aa098776ede7.png)
 
 输入内容后，点击 apply，可以看到生成的 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da6028f5b2c34665baad01ecad4a1cff~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9ea5669d1d27.png)
 
 你直接执行这个 sql 来插入数据也行：
 
@@ -283,9 +283,9 @@ INSERT INTO `email_login_test`.`user`
 ```
 nest g resource email
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2af9a89494b42a082a52fb3d7440861~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ba622f29b9ac.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09ecb98c8ceb454badbebf13f32d0342~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/07fadabd660b.png)
 
 然后我们安装 nodemailer 包来发邮件：
 
@@ -358,17 +358,17 @@ export class EmailController {
 ```
 我们调用下试试：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5174540adbae451088b8da895a44fcef~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0496b10a67e6.png)
 
 发送成功，邮箱里确实也收到了这封邮件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18d36bc45599467e838eb8a14fbfb4df~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3c8165972fd1.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd651142d7684f9e9ed0b6170650f8d7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9cb338effbfc.png)
 
 回过头来看一下，我们现在是把邮箱相关信息直接写在代码里了。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b734d8eb5e9845498f3ff59afdc85f5f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/47c7c966f871.png)
 
 实际上这些应该从配置读取。
 
@@ -379,7 +379,7 @@ npm install --save @nestjs/config
 ```
 在 AppModule 里引入，并且把它声明为全局的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b327e1b0c78949b2b3122be5a5175beb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/129a1daf61b6.png)
 
 ```javascript
 ConfigModule.forRoot({
@@ -389,11 +389,11 @@ ConfigModule.forRoot({
 ```
 在 src 下添加这个 .env 文件：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a615f96bac4e4fd1beb3da98b40cad39~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e43797aad48.png)
 
 然后在 EmailService 里注入 ConfigService，从中读取配置：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4a515a1017e24f78ad568933da5d2769~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/acd2b42d62d4.png)
 
 ```javascript
 import { Injectable } from '@nestjs/common';
@@ -434,15 +434,15 @@ export class EmailService {
 ```
 再调用下接口，这时依然是正常的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bec76944d0ba4dbb8bf8809c4209f6a8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c4218255bd6.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c9f91ba5de6c4f41bc9645d7e2302f2c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/02d76931bb08.png)
 
 说明配置正确读取出来了。
 
 不过用了 .env 配置文件之后有个问题：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5faae4d10684ad4bd63faf3ad9d2c88~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c5d0efc9c8b.png)
 
 dist 目录下没有这个文件。
 
@@ -450,7 +450,7 @@ dist 目录下没有这个文件。
 
 改下 nest-cli.json
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/973dbe96fc8d4c4e9ffa7c0aca02a297~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f83cb21068f5.png)
 
 添加 assets 为 \*.env 这样就会在编译的时候把 src 下的 .env 文件复制到 dist 下。
 
@@ -461,21 +461,21 @@ dist 目录下没有这个文件。
 ```
 npm run start:dev
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/651b83bc997c43158431cea2d46a99e4~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a609f87412e.png)
 
 这时就可以在 dist 下看到这个文件了。
 
 但现在你改了 src 下的 .env 之后，dist 下的 .env 不会跟着改，需要重新跑服务才可以。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8818c524278c439498cb70c9d27f2db2~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/16078ebef565.gif)
 
 这时候可以加一个 watchAssets：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5520e0a32f7743558906f98b840d2a02~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/284767dc40ce.png)
 
 然后再重新跑下服务。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ccb94ef5dc64a1886caed415b94fbb1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a79e3bd3f1c.gif)
 
 这时候改了 src 下的 .env 就会立刻复制了。
 
@@ -485,20 +485,20 @@ npm run start:dev
 
 首先，验证码要随机，我们通过 Math.random 来生成：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b3234306c764761afb10ea468099dd3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ed22fdb0b27c.png)
 
 ```javascript
 const code = Math.random().toString().slice(2,8);
 ````
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/03d986ff400e4478a00b866c267ac16c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7d84e041aaee.png)
 
 然后在前端项目里调用下看看：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/01c2e6cfbc8a45e0a9bb15653a339404~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/07155862b8b6.png)
 
 通过 useForm 创建 form 实例，然后就可以通过 form.getFieldsValue 拿到表单值了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c050d23f47b4728a7f1e44c01e27cac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2db93dbdb331.png)
 
 ```javascript
 import React from 'react';
@@ -595,23 +595,23 @@ const App = () => {
 
 我们来试试看：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/66fd29142b524e6698f4298209694301~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4a79ecedd0bf.png)
 
 点击发送验证码，这个邮箱收到了一封验证码的邮件：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10bea665108a4d38b153ebc3d39356cc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e125e9b0d2ad.png)
 
 然后我们来实现下登录。
 
 登录就是根据用户填的信息去数据库匹配，如果匹配到了就查询出该用户的信息，放入 session 或者 jwt 里。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8de0ff950b3944d1ac5cc320ef528c56~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4e38ece0b593.png)
 
 验证用户身份的信息，可以是用户名 + 密码，也可以是邮箱 + 验证码。
     
 用邮箱验证码验证用户身份的流程是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/856aacfe0a304d0eb849cf292b81a16f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4401751dc56b.png)
 
 用户填入邮箱地址，点击发送验证码，后端会生成验证码，发送邮件。并且还要把这个验证码存入 redis，以用户邮箱地址为 key。
 
@@ -627,7 +627,7 @@ const App = () => {
 nest g resource redis  --no-spec
 ```
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92716a577dff4a308481a2297fdb1bd6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/188202ceab3c.png)
 
 安装 redis 的包：
 ```
@@ -694,7 +694,7 @@ export class RedisService {
 
 然后修改下发送邮箱验证码的逻辑：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/11942bb0152b4abbb16953c6d6579a8d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/34639f004604.png)
 
 注入 RedisService，并且发送验证码之前把它存入 redis，key 为 captcha_邮箱地址。
 
@@ -732,21 +732,21 @@ export class EmailController {
 
 我们试试看：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/701c92673e374b3287a407e37d5eef51~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7fcd73cc6db9.png)
 
 输入邮箱地址，点击发送验证码。
 
 邮箱收到了这个验证码：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a1b3061a9ed4488a3915caafd644be5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c878a494cd6.png)
 
 redis 里也保存了一份：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cc3a3877c6e4eb1b3b442442d98caf5~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5f64c8a223d9.png)
 
 接下来只要填入这个验证码，点击登录就可以了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c1a52cc8be748629322adb54b291ce7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5de9a573200c.png)
 
 我们再来实现下登录接口：
 
@@ -761,7 +761,7 @@ login(@Body() loginUserDto: LoginUserDto) {
 ```
 定义这个 LoginUserDto：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/faad6cdc9c67494a8b2584b81399e55e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/45d45de65a92.png)
 
 然后需要对它做校验，我们引入 class-validator 和 class-transformer：
 
@@ -770,7 +770,7 @@ npm install --save class-validator class-transformer
 ```
 在 main.ts 里全局启用 ValidationPipe：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b797d034382649fc8505a2504c9ac166~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/becc34c10825.png)
 
 然后给 LoginUserDto 添加一些约束：
 
@@ -789,9 +789,9 @@ export class LoginUserDto {
 ```
 在 postman 里测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8cef8edd17dd42f3946c597740fc7e1f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5a74d066a448.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b666dcfd95ec4522beff55a92a3aeecf~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a39093ee4a9c.png)
 
 没啥问题。
 
@@ -860,23 +860,23 @@ const login = async (values) => {
 我们整体试一下：
 
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2db70633a78a4559ba569b403ab964c6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a90b8ce45ff9.png)
 
 输入邮箱，点击发送验证码。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50ba4ca2f10040ac9c5edde348eacb72~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f03283625bb8.png)
 
 收到了验证码邮件，并且 redis 里也存了这个 key：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7dac6c02c59a4f05b51255999eff0f00~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6a201f8b7d4c.png)
 
 带上这个验证码请求：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c28e7a52c94147cdb820da49828ebf8a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5d61bae81381.png)
 
 可以看到服务端通过了校验，并且从数据库中查询出了用户信息：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c6b8b3734c442f39c6ca1061e0bc587~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff8d0680f5e3.png)
 
 接下来只要返回对应的 jwt token 就好了。
 
@@ -894,7 +894,7 @@ const login = async (values) => {
 
 流程可以看这张图：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce964be279c24780b6f5e1b90ddbbbfd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0cc9d6087c85.png)
 
 综合用到了 mysql、redis、typeorm、nodemailer 等技术。
 

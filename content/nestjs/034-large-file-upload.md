@@ -11,11 +11,11 @@ series_order: 1
 
 文件上传是常见需求，只要指定 content-type 为 multipart/form-data，内容就会以这种格式被传递到服务端：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f2e069a81ba4d75a7c92f010adfe644~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1440&h=836&s=405486&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ef677fa897f6.png)
 
 服务端再按照 multipart/form-data 的格式提取数据，就能拿到其中的文件。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e06f7d7e18b04eb5812223cc20025027~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=460&h=604&s=24207&e=png&b=fefbfb)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a2546535c729.png)
 
 但当文件很大的时候，事情就变得不一样了。
 
@@ -31,21 +31,21 @@ series_order: 1
 
 这就是大文件分片上传的方案。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8b1015bdc6349238bb7a18b1b2c6095~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=606&h=844&s=53296&e=png&b=fefaf9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6ac7ac8c318c.png)
 
 那如何拆分和合并呢？
 
 浏览器里 Blob 有 slice 方法，可以截取某个范围的数据，而 File 就是一种 Blob：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5a75a0f31cca4bf98954655488a1b8b0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1522&h=686&s=93393&e=png&b=f9f9f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d6e238f92e2f.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b339e52f61984a4dba01e75a5dcc370f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1524&h=244&s=63895&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c04a2c214bcd.png)
 
 所以可以在 input 里选择了 file 之后，通过 slice 对 File 分片。
 
 那合并呢？
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e2bce0816bb4e54ac46f363c600aab8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1958&h=1200&s=271917&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/db544a4e780f.png)
 
 fs 的 createWriteStream 方法支持指定 start，也就是从什么位置开始写入。
 
@@ -60,11 +60,11 @@ npm install -g @nestjs/cli
 
 nest new large-file-sharding-upload
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/50562833c5cb4297998e3803536ab369~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1020&h=688&s=176132&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/076f0e297f1f.png)
 
 在 AppController 添加一个路由：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fad550c256f04e8bbca80d126271cbfe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1318&h=856&s=192796&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6c2fd415f605.png)
 
 ```javascript
 @Post('upload')
@@ -88,7 +88,7 @@ npm install -D @types/multer
 
 首先在 main.ts 里开启跨域支持：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80387470962c48f0a0385c50da74dff4~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=878&h=402&s=77339&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9802b1542eff.png)
 
 然后添加一个 index.html：
 
@@ -134,19 +134,19 @@ input 指定 multiple，可以选择多个文件。
 npx http-server .
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/963cad3215e74adda04408c2e8b18e89~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=760&h=614&s=94942&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/690c9a529ee3.png)
 
 浏览器访问下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4ad8f16478246868e4c5d6a5fb12f0c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=700&h=410&s=26857&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/81940d26ca65.png)
 
 选择几个文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/480c15d09dc044659723b175cb8d4fd0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1572&h=1020&s=1136212&e=gif&f=42&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fa0e26d52f40.gif)
 
 这时候，Nest 服务端就接收到了上传的文件和其他字段：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2171fb3efe294ae384b5ba54ce40e051~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1730&h=1232&s=361371&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c5a4dc4cbeac.png)
 
 当然，我们并不是想上传多个文件，而是一个大文件的多个分片。
 
@@ -200,17 +200,17 @@ npx http-server .
 
 这里我们测试用的图片是 80k：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68fbe48d17cc428497d0483a1405a79e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=846&h=564&s=204232&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee7385a6d989.png)
 
 所以每 20k 一个分片，一共是 4 个分片。
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43d077a6f685449b9cf5087d3629c3ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1606&h=1102&s=1031020&e=gif&f=31&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b02216522f26.gif)
 
 服务端接收到了这 4 个分片:
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/096df6ae3eeb4508bc83867423fb33a0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1306&h=1346&s=315887&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1151a2b83124.png)
 
 然后我们把它们移动到单独的目录：
 
@@ -236,15 +236,15 @@ uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>, @Body() body: { 
 
 用正则匹配出文件名：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/09835fc0320b4edd9985e61a19ef5b94~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=530&h=100&s=18743&e=png&b=fefdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/03ca0a1199a4.png)
 
 在 uploads 下创建 chunks_文件名 的目录，把文件复制过去，然后删掉原始文件。
 
 测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43d077a6f685449b9cf5087d3629c3ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1606&h=1102&s=1031020&e=gif&f=31&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b02216522f26.gif)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a69d360cd314fa6becb5ad96488f266~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1512&h=1198&s=276105&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ea930566dcca.png)
 
 分片文件移动成功了。
 
@@ -252,11 +252,11 @@ uploadFiles(@UploadedFiles() files: Array<Express.Multer.File>, @Body() body: { 
 
 我们可以在上传文件的时候给文件名加一个随机的字符串。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dcd76b0568f54cf09d779b819fbd220c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1044&h=900&s=176091&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bd5b837f81b4.png)
 
 这样就不会冲突了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d0870734f674c8990672228814432e7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=486&h=416&s=40728&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/867d0e3f2a12.png)
 
 接下来，就是在全部分片上传完之后，发送合并分片的请求。
 
@@ -285,23 +285,23 @@ merge(@Query('name') name: string) {
 
 浏览器访问下这个接口：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3105597f454d4cf1baff08949c6016ce~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=804&h=220&s=19364&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1f2167a61fd7.png)
 
 可以看到，合并成功了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ebc3c0c4a2143cf9a37676f40937415~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1816&h=1050&s=450395&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1a145b354382.png)
 
 再测试一个：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/847eb844a2204e08888d084cdb18bff8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=284&s=23027&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0a174c1a65ed.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bd9e36416e4f4b86ba54303de9936964~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1838&h=1054&s=487249&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/5e0a53457341.png)
 
 也没啥问题。
 
 然后我们在合并完成之后把 chunks 目录删掉。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/741d40da15414716b4cb07f15390e025~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=814&h=786&s=122018&e=png&b=202020)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ec0b3c9a0bc8.png)
 
 ```javascript
 @Get('merge')
@@ -333,7 +333,7 @@ merge(@Query('name') name: string) {
 ```
 然后在前端代码里，当分片全部上传完之后，调用 merge 接口：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5da3ccb6b0bc4b40bc724560618895ca~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1176&h=918&s=200174&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/07a7137b1132.png)
 
 ```javascript
 const tasks = [];
@@ -349,7 +349,7 @@ axios.get('http://localhost:3000/merge?name=' + randomStr + '_' + file.name);
 ```
 连起来测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/faeb926af8e34efeb7001d020fd6d447~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1802&h=1172&s=2346315&e=gif&f=70&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/edbf49f47afb.gif)
 
 因为文件比较小，开启 network 的 slow 3g 网速来测。
 
@@ -357,13 +357,13 @@ axios.get('http://localhost:3000/merge?name=' + randomStr + '_' + file.name);
 
 当然，你还可以加一个进度条，这个用 axios 很容易实现：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d535852ecbb24d72bbbf68fec7980269~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1166&h=648&s=114159&e=png&b=f7f7f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/60f01e5d3af4.png)
 
 至此，大文件分片上传就完成了。
 
 [阿里云的大文件分片上传](https://help.aliyun.com/zh/oss/user-guide/multipart-upload)也是这样实现的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/896de2622dbf4b5a8f110388f91fee51~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2028&h=1046&s=285258&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/27cb39b89b01.png)
 
 案例代码上传里 github：https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/large-file-sharding-upload
 

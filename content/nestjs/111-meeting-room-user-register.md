@@ -18,11 +18,11 @@ series_order: 3
 ```
 nest new meeting_room_booking_system_backend
 ```
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dca0adc9f3e74e35a69440442e9474ce~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b3429318e7ac.png)
 
 在 docker desktop 里把 mysql 的容器跑起来：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f88a32bf05364377b78fa25ca8a5f49d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c4436f7b5587.png)
 
 详细过程可以看 [mysql 的第一篇](https://juejin.cn/book/7226988578700525605/section/7228944127025479738)。
 
@@ -70,21 +70,21 @@ export class AppModule {}
 CREATE DATABASE meeting_room_booking_system DEFAULT CHARACTER SET utf8mb4;
 ```
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a76cd0d46244b40bb4860e9183f64da~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4bbba5a62c1e.png)
 
 刷新可以看到这个 database
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96c85b2a150b4d1a99673ce30a3ca33c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/791f1cab7464.png)
 
 用户模块涉及到这些表：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5155677421f4b0cbd3afeba49200f03~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/c8ef1a4fba8d.png)
 
 我们创建下它们的 entity：
 
 先在 nest-cli.json 里添加 generateOptions，设置 spec 为 false
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10f482ea683e4e8ca88e7c0cd76e148e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/bb721c50cc75.png)
 
 这样生成代码的时候不会生成测试代码，和 nest g xxx --no-spec 效果一样
 
@@ -94,7 +94,7 @@ CREATE DATABASE meeting_room_booking_system DEFAULT CHARACTER SET utf8mb4;
 nest g resource user
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2bb13dd8246a437c9f489f75523d65dd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8506045ab2a6.png)
 
 确实没有生成测试代码。
 
@@ -280,7 +280,7 @@ export class Permission {
 
 在 entities 里引入下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4fa0945e90c7471b871e7d9bdf738404~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ff25eea2d5d6.png)
 
 然后把项目跑起来：
 
@@ -289,13 +289,13 @@ npm run start:dev
 ```
 正好是 5 条建表 sql：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bc10ab387cb84819a04b3a455098177c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/58027b602835.png)
 
 我们去数据库看下：
 
 users 表没啥问题：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae391c596d304bbca8a59d0c1b9899ad~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/9b9f7398f90e.png)
 
 要注意的是 mysql 里没有 boolean 类型，使用 TINYINT 实现的，用 1、0 存储 true、false。
 
@@ -303,21 +303,21 @@ typeorm 会自动把它映射成 true、false。
 
 然后是 roles 表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/154e793e28794359b1f9457f9e55c50e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/610a764f9076.png)
 
 permissions 表：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1e5c9ed1b8974ac181b51a0270b948ed~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1ccaeb295eb2.png)
 
 还有两个中间表：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b4b2f150c544913ae59d4682a39fc82~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/dc43e3772d38.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/682e3851f5c64e4f8611c24c4f5f198e~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/607e224d828e.png)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c140a7f5a9c54f87a4536609b15a4073~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96fc590d954c.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84e5991695374e52b3d055f15e1c828b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ac5a3954eab8.png)
 
 没啥问题，外键也都是对的。
 
@@ -352,7 +352,7 @@ register(@Body() registerUser: RegisterUserDto) {
 ```
 dto 是封装 body 里的请求参数的，根据界面上要填的信息，创建 RegisterUserDto：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/099301a7951e4b27b1d20e46c1eecd7c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cbc5614a2f49.png)
 
 ```javascript
 export class RegisterUserDto {
@@ -372,7 +372,7 @@ export class RegisterUserDto {
 
 在 postman 里调用下试试：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/636b2472f517431aa4f7c0110620ba5f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/382a693ffbed.png)
 ```javascript
 {
     "username": "guang",
@@ -384,7 +384,7 @@ export class RegisterUserDto {
 ```
 服务端也接收到了 body 里的数据，并创建了对应的 dto 对象：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1a38f3360364ddbb2b884bb44af12fb~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/31cc69be1fd9.png)
 
 然后加一下 ValidationPipe，来对请求体做校验。
 
@@ -396,7 +396,7 @@ npm install --save class-validator class-transformer
 
 全局启用 ValidationPipe：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d3f39712c6f469ba987c119d271b92b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/211aea91ae8d.png)
 
 然后加一下校验规则：
 
@@ -439,9 +439,9 @@ export class RegisterUserDto {
 ```
 测试下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fb954318be2a442b90515d8b943385e1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49eab104073a.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e12c35e3721f486ba001d8b580f930e3~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/adbfb5fa2aff.png)
 
 没啥问题。
 
@@ -474,11 +474,11 @@ export class UserService {
     
 这里注入 Repository 需要在 UserModule 里引入下 TypeOrm.forFeature
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/766df7c2d54345f2b3423b6463f66f27~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/65eca545c468.png)
 
 注册的逻辑是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90fca11ff8154b31bf76cc2cea3d908a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca3bd5f802c9.png)
 
 我们需要先封装个 redis 模块。
 
@@ -487,7 +487,7 @@ nest g module redis
 nest g service redis
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ab411fe9be34d3fab2e52c9e4dbec08~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/646244a7cf48.png)
 
 安装 redis 的包：
 
@@ -496,7 +496,7 @@ npm install --save redis
 ```
 确保 redis 的 docker 容器是启动的：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/35e7584c6b664f13b8521c1a3db3c342~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/743e328bf3d1.png)
 
 添加连接 redis 的 provider
 
@@ -534,7 +534,7 @@ database 指定为 1，因为我们之前都是用的默认的 0
 
 redis 的 database 就是一个命名空间的概念：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/883238ac1aee4223bd114c87e6539551~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b1423306cfdf.png)
 
 把存储的 key-value 的数据放到不同命名空间下，避免冲突。
 
@@ -568,7 +568,7 @@ export class RedisService {
 
 然后回过头来继续实现 register 方法。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90fca11ff8154b31bf76cc2cea3d908a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca3bd5f802c9.png)
 
 ```javascript
 @Inject(RedisService)
@@ -631,27 +631,27 @@ async register(@Body() registerUser: RegisterUserDto) {
 
 然后 postman 里测试下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1c150a682894387b7db7e86c9ed0555~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4c6023c4a4f9.png)
 
 因为还没实现发送邮箱验证码的逻辑，这里我们手动在 redis 添加一个 key：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1372a1d3c0641dabbe1c442f6c0075a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/49103c953dc4.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/595e2e90f5054069afdc95bda2ef376f~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7ddc48184c6f.png)
 
 测试下：
 
 带上错误的验证码，返回验证码不正确；
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b8a22cf35184fabbd877f0a14857b0d~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7cbf53234708.png)
 
 带上正确的验证码，返回注册成功：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/053d568e56594e30ab723649af608661~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8c2fa26a42f6.png)
 
 这时可以在数据库里看到这条记录：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80c739ee88504e5c9b8ab7a8b8878410~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/56dec807011f.png)
 
 这就代表注册成功了。
 
@@ -662,7 +662,7 @@ async register(@Body() registerUser: RegisterUserDto) {
 ```
 nest g resource email
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/659eefe03f764e3d89faf41ed204b971~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3ec207011e93.png)
 
 安装发送邮件用的包：
 
@@ -711,17 +711,17 @@ export class EmailService {
 
 或者你也可以买专门发邮件的服务。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef3904620e3b4dc9bd3158a419111341~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4560dac855ee.png)
 
 比如阿里云的[邮件推送服务](https://help.aliyun.com/document_detail/29421.html)：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/08e7ce2df5404eff993ab05e180ef4de~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/308b3d6a18c1.png)
 
 线上要买这种邮件推送服务来发邮件的，但这里我们还是用 nodemailer 自己发邮件。
 
 把 EmailModule 声明为全局的，并且导出 EmailService
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df3ef7c1c9104c2aa069be22cf04bfd1~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/33baa295a799.png)
 
 然后在 UserController 里添加一个 get 接口：
 
@@ -749,19 +749,19 @@ async captcha(@Query('address') address: string) {
 
 测试下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bfcaa8df33c441f918169ad6a3db8af~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/04be26441e4e.png)
 
 邮件发送成功：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8898d7dcefa8436c9d451212daeaebc7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/e2ec33a3148a.png)
 
 redis 里也保存了邮箱地址对应的验证码：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d502a0e687994163b2b5b832bf920d87~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/860a7c6933cf.png)
 
 这样整个注册的流程就完成了。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d91b2715c99c4e699f00087a3fa9ca89~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/414a519fadc7.png)
 
 代码在[小册仓库](https://github.com/QuarkGluonPlasma/nestjs-course-code/tree/main/meeting_room_booking_system_backend)。
 

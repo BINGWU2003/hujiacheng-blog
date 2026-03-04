@@ -19,7 +19,7 @@ series_order: 19
 
 用了 OSS 服务之后，可以通过服务器中转的方式上传文件：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b363bfe995714131b0f25dea6ad18822~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1302&h=302&s=29501&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ce54ef4f30a0.png)
 
 也就是前端把文件上传应用服务器，服务器上传阿里云或者 minio。
 
@@ -27,7 +27,7 @@ series_order: 19
 
 一般都是前端直传 OSS 服务，然后把文件 url 给应用服务器：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4a4d64a83884b6c8670c4ed09ccd716~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=842&h=514&s=38047&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/371b09ce855b.png)
 
 但这样直接把 accessKey 暴露给前端也不安全。
 
@@ -41,11 +41,11 @@ series_order: 19
 
 搜索下 minio：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1451e7ef59b7432892ccefa417b67500~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1998&h=1274&s=258702&e=png&b=f2f3f7)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f331d231afc1.png)
 
 填入一些信息：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87eb9a405bae4470834b2bb29899053d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1518&h=1470&s=230560&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d89807ae6070.png)
 
 name 是容器名。
 
@@ -59,31 +59,31 @@ volume 是挂载本地目录到容器内的目录
 
 点击 run，跑起来之后可以看到数据目录被标记为 mounted，端口也映射成功了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c94439277d9149869b9d343214538fe0~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1342&h=1022&s=107797&e=png&b=f8f8f9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b84d73a56446.png)
 
 访问下 http://localhost:9001
 
 我们创建个 bucket：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d485eaf6eaa14d3aa225ea84d3463be7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1520&h=1016&s=94712&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/05016f81e9e3.png)
 
 设置下可以公开访问：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dc0f1990162d401dafa60444b84f38a2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2258&h=966&s=483874&e=png&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/92783e045cfd.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/76ffdce9aa904d4fac72b01abdf36392~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1750&h=766&s=172612&e=png&b=e9e9e9)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9153b5bdc56.png)
 
 然后上传个文件：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a691b9dbe8648cfb2851e12e7560a53~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2144&h=810&s=435665&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ca95afa9e11b.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/069e73d1a9f34c2e82ebfcade9e0a40b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1762&h=906&s=124414&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b75188ec89cf.png)
 
 浏览器直接访问文件路径的 URL：
 
 http://localhost:9000/aaa/ground.png
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea17b8dea44647049c43a7dc50be42d6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2158&h=1260&s=358720&e=png&b=171717)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6740b3de7191.png)
 
 可以看到，现在 OSS 服务的上传和查看图片就都成功了。
 
@@ -116,7 +116,7 @@ put()
 ```
 nest new minio-fe-upload
 ```
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d4819d203d6d4e148243dfb99cfbb205~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=882&h=714&s=275469&e=png&b=010101)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d9d766f98fc3.png)
 
 安装 minio 包：
 ```
@@ -128,7 +128,7 @@ npm install --save minio
 nest g module minio
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e5c25cdd12e045f7b81c28cff6bf1e34~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=654&h=108&s=24294&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/96806cc6bd2f.png)
 ```javascript
 import { Global, Module } from '@nestjs/common';
 import * as Minio from 'minio';
@@ -160,9 +160,9 @@ export class MinioModule {}
 
 用到 accessKey 和 secretKey 在这里创建：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e91672fc9d7d46919e25c034a17eb4b1~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2186&h=928&s=452155&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/95543df5a66f.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c36ea8451ad74c4cb1f545afa75c8f63~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2146&h=1144&s=639753&e=png&b=d5d5d5)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/4b143993ac96.png)
 
 在 AppController 里注入下测试下：
 
@@ -206,9 +206,9 @@ npm run start:dev
 
 试一下：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13d8a236a54946648b86612f74bb5901~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=922&h=246&s=28027&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6fc0e5bac016.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57494c37c3964019bfc9837894a4e545~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1140&h=686&s=119826&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/248733d6f336.png)
 
 上传成功。
 
@@ -216,7 +216,7 @@ npm run start:dev
 
 指定 public 为静态文件目录：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63b842ad980c47b78a3d8591f2599e7b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1230&h=492&s=109522&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2e5480de8586.png)
 
 ```javascript
 import { NestFactory } from '@nestjs/core';
@@ -289,15 +289,15 @@ bootstrap();
 
 就是一个 type 为 file 的 input，可以多选。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f4e40e39cc54f0e8de754579b884be3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=892&h=430&s=82740&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d56faf73c3ae.png)
 
 点击上传的时候遍历文件，对每个文件路径调用服务端的 presignedUrl 接口进行 url 签名：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b4adc11218f84aa29b42cada44bbb76f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1110&h=738&s=124606&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d72636729962.png)
 
 之后用返回的 url 就可以直传服务端了：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/437eace9975d4b088f43d80b4b1aa9c3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1250&h=486&s=95757&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d4be8fb57388.png)
 
 用 fetch 传的，换成 axios 也一样。
 
@@ -311,23 +311,23 @@ async presignedUrl(@Query('name') name: string) {
 ```
 这里的第一个参数是 bucketName，第二个参数是 objectName，第三个参数是过期时间，我们指定 3600秒，也就是一小时
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2046d92f22fc467ab4726ecfab64f70a~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1256&h=386&s=152356&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/74a1b41bdb30.png)
 
 bucketName 是 aaa，而 objectName 需要文件上传的时候拿到 file.name 作为参数传过来。
 
 测试下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7a056359830e4c9c8d0b2d491b834634~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1792&h=974&s=1134229&e=gif&f=46&b=fdfdfd)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f9164a102215.gif)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2870ef96c34c4477acf4185e707fb18f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1438&h=872&s=416186&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a226b063970e.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae4c5b9eed284a7fabeefffd41239830~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1478&h=714&s=113153&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53ef04e9af9e.png)
 
 上传成功！
 
 看下 url 签名之后的样子：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1667cac96385490b9fa4699bc816c70c~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2572&h=550&s=222788&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3f3de9020c91.png)
 
 其实就是在 url 里带上了鉴权信息。
 

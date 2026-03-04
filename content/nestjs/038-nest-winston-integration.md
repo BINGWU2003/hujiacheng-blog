@@ -19,7 +19,7 @@ series_order: 5
 nest new nest-winston-test
 ```
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2a6ddf416f7847b4a12d9fc2732a0307~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1044&h=734&s=179723&e=png&b=020202)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/62b2429cb228.png)
 
 创建个 nest 项目。
 
@@ -44,7 +44,7 @@ export class MyLogger implements LoggerService {
 ```
 然后在 main.ts 里引入：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/832f3c922d9a42ec9c72f4f3e6ae1e15~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=898&h=454&s=93386&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee909af1bed4.png)
 
 ```javascript
 app.useLogger(new MyLogger());
@@ -55,19 +55,19 @@ app.useLogger(new MyLogger());
 npm run start:dev
 ```
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63a4ccef41024896984cc364a8ddae11~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1234&h=292&s=71857&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/eb7535729d4d.png)
 
 现在的 logger 就换成我们自己的了。
 
 然后在 AppController 里添加 logger：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f85411fb623487294b99ea259f8f329~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1126&h=592&s=124574&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b55bd88139d3.png)
 
 浏览器访问下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a60d5d558794fe7b448267881887987~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=622&h=208&s=18157&e=png&b=ffffff)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/7738e8a60b83.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/139cd0a1b1dd4178b250a24b12e85164~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=998&h=368&s=72573&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/35c41d24403c.png)
 
 这样就完成了 logger 的自定义。
 
@@ -119,7 +119,7 @@ export class MyLogger implements LoggerService {
 
 再跑下：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a6d7b41086534c52984e9b820425b72d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1040&h=420&s=97595&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8fe644e67b34.png)
 
 现在的日志就是 winston 的了。
 
@@ -198,13 +198,13 @@ export class MyLogger implements LoggerService {
 
 效果是这样的：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5586d8f5b4cd4305bea2797bf2e459de~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1338&h=392&s=126132&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/3b073a4c8141.png)
 
 是不是和 nest 原本的日志很像了？
 
 然后我们再加一个 File 的 transport。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9db123bf4e974ca7a6e3cb0cf3ce8056~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1378&h=952&s=184712&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a418a60f3e2b.png)
 
 指定为 json 格式，加上时间戳：
 
@@ -221,17 +221,17 @@ new transports.File({
 
 console 的日志是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5a4bb470c244503ac0a6d9cd4cc6dc6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1292&h=372&s=126240&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b35f7fe57aa5.png)
 
 file 的日志是这样的：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ecb310931904490f8569e929cd5334fe~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2032&h=274&s=107610&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f436c1b6757f.png)
 
 这样，我们就完成了 nest 和 winston 的集成。
 
 我们还可以进一步把它封装成一个动态模块。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e3b134ef6834e20af7011c1ddb674f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=722&h=110&s=28520&e=png&b=191919)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/d420e59d5ea3.png)
 
 ```javascript
 import { DynamicModule, Global, Module } from '@nestjs/common';
@@ -268,7 +268,7 @@ export class WinstonModule {
 
 这里的 MyLogger 是之前那个复制过来的，但需要改一下 constructor：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/064e62df7d7549fab47b1074d919548e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1586&h=700&s=206697&e=png&b=1d1d1d)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/14a53cf6f2e9.png)
 
 ```javascript
 constructor(options) {    
@@ -277,7 +277,7 @@ constructor(options) {
 ```
 然后在 AppModule 引入下：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad440d150d934da7aa711b62dce8e17d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1562&h=1234&s=251865&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8d71ab8b2541.png)
 
 ```javascript
 import { Module } from '@nestjs/common';
@@ -322,18 +322,18 @@ export class AppModule {}
 
 之后改一下 main.ts 里用的 logger：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/42d162c402d144e3b2f7d5f9268ef399~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1092&h=502&s=104732&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/327eef4f2e96.png)
 
 ```javascript
 app.useLogger(app.get(WINSTON_LOGGER_TOKEN));
 ```
 功能正常：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2241720859204baaaf86b519c85e3273~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1294&h=438&s=129221&e=png&b=181818)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/696420f52387.png)
 
 只不过现在就没必要每次都 new 了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06cd31d3fde048e199b09f19a550c9f2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1074&h=728&s=160802&e=png&b=1f1f1f)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6f77c78fedf2.png)
 
 改成 inject 的方式，始终使用同一个实例，性能更好：
 
@@ -346,7 +346,7 @@ private logger;
 
 36w 的周下载量：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce857271b4fb44c69c5f7ba521febeb8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2430&h=1486&s=325020&e=png&b=fefefe)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/2385700100ee.png)
 
 用法也和我们实现的差不多。
 

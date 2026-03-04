@@ -29,13 +29,13 @@ nest g module bbb
 ```
 创建两个 Module。
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b145b0bb0e9b4f859c9d75d048a659bd~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/12623a3b2048.png)
 
 然后这两个 Module 相互引用。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b52f40029b84469fa53c670856d62fb6~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/ee985ede9dc9.png)
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/31b0562d4fa948c18624a0889f2c247b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/716c3ca8ca88.png)
 
 这时候你执行
 
@@ -44,7 +44,7 @@ nest start -w
 ```
 把服务跑起来，会报这样的错误：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0894ff37cf7a42cab36ca61ea7cad9bc~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/23e8cd8b2ab8.png)
 
 意思是在解析 BbbModule 的时候，它的第一个 imports 是 undefined。
 
@@ -52,7 +52,7 @@ nest start -w
 
 因为 Nest 创建 Module 的时候会递归创建它的依赖，而它的依赖又依赖了这个 Module，所以没法创建成功，拿到的就是 undefined。
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5bda90b0fd1e4f0fbd4f872e2c7ae327~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/53e989c40d58.png)
 
 那怎么办呢？
 
@@ -60,17 +60,17 @@ nest start -w
 
 也就是用 forwardRef 的方式：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f2e08ce8fb944868db92d7be777331c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/1eaf9cb488b1.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dae2d5625c504e21a3c5330aabc13231~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/afd498b54932.png)
 
 因为我们用了 nest start --watch 的方式启动的，nest 会自动重启，这时候就没有错误了：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cfaf18c45ea04f99b78f0e82ec140446~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/0c291b9463c2.png)
 
 nest 会单独创建两个 Module，之后再把 Module 的引用转发过去，也就是 forwardRef 的含义。
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cd11a70d489e49109dd1dbfe472fb733~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/f11527f16ee5.png)
 
 除了 Module 和 Module 之间会循环依赖以外，provider 之间也会。
 
@@ -84,17 +84,17 @@ nest 会单独创建两个 Module，之后再把 Module 的引用转发过去，
 nest g service ccc --no-spec --flat
 nest g service ddd --no-spec --flat
 ```
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c377ed6b535a4a649b65fbaa3258b71c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/fb50647441dd.png)
 
 分别创建 ccc 和 ddd 两个 service，--no-spec 是不生成测试文件，--flat 是平铺。
 
 就会创建这两个 service，并在 AppModule 引入了：
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/958176426526409aba5af44f47d7af98~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/b50bd38c62bd.png)
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4455caf154c24001bc67a5a31ada8ae7~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/cedd5288fa61.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ec94f9a9eb849e8bf5011735555a8d8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/88492d7c529b.png)
 
 然后我们让两者相互注入：
 
@@ -151,25 +151,25 @@ export class AppService {
 
 这时候 nest start --watch 会报错：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14ca2992e0a54e5a8fa277946691a1ac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a2ab82bf725a.png)
 
 说是没法解析 DddService 的依赖，也是因为循环依赖导致的。
 
 这时候也是通过 forwardRef 解决：
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f1bc24f5721e483bbcd293551be7084b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/a8d4190517f3.png)
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27e95c0964c748ea8edca908ef6c3d40~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/6445bb98e59c.png)
 
 这时候就不能用默认的注入方式了，通过 @Inject 手动指定注入的 token，这里是 forwardRef 的方式注入。
 
 这样报错就没了：
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/830830a9b3014d938676715f2f73510a~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/80367d9dd5aa.png)
 
 浏览器访问下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18746407a2c04e058f1ce0223c8ef8b8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/nestjs/8e36d25169c2.png)
 
 两个 service 的相互调用也成功了。
 
