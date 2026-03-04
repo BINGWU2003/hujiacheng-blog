@@ -11,6 +11,7 @@
 
 import os
 import re
+import sys
 import hashlib
 import urllib.request
 import tempfile
@@ -19,16 +20,20 @@ from pathlib import Path
 # =============================================
 # 配置（通过环境变量传入密钥）
 # =============================================
+
 COS_SECRET_ID  = ""
 COS_SECRET_KEY = ""
 COS_REGION     = "ap-nanjing"
 COS_BUCKET     = "bing-wu-doc-1318477772"
-COS_PREFIX     = "nestjs/"
 COS_BASE_URL   = f"https://{COS_BUCKET}.cos.{COS_REGION}.myqcloud.com"
 # =============================================
 
-CONTENT_DIR = Path("content/nestjs")
-TEMP_DIR = Path(tempfile.gettempdir()) / "nestjs_images"
+# 通过命令行参数指定处理哪个目录，默认 nestjs
+# 用法: python scripts/download_images.py [nestjs|vite]
+SECTION = sys.argv[1] if len(sys.argv) > 1 else "nestjs"
+COS_PREFIX = f"{SECTION}/"
+CONTENT_DIR = Path(f"content/{SECTION}")
+TEMP_DIR = Path(tempfile.gettempdir()) / f"{SECTION}_images"
 TEMP_DIR.mkdir(parents=True, exist_ok=True)
 
 IMG_PATTERN = re.compile(r'!\[([^\]]*)\]\((https?://[^)\s]+)\)')

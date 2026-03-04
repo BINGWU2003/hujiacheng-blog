@@ -28,6 +28,18 @@
   weight = 30
 
 [[main]]
+  name = "TypeScript"
+  parent = "小册"
+  pageRef = "typescript"
+  weight = 40
+
+[[main]]
+  name = "TS 类型体操"
+  parent = "小册"
+  pageRef = "ts-type-gymnastics"
+  weight = 50
+
+[[main]]
   name = "标签"
   pageRef = "tags"
   weight = 20
