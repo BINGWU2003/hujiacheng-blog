@@ -1,3 +1,14 @@
+---
+title: "彩蛋篇：CDN 的缓存与回源机制解析"
+date: 2025-02-06
+draft: false
+description: ""
+tags: ["性能优化", "cache", "cdn"]
+categories: ["性能优化"]
+series: ["网络与存储优化"]
+series_order: 5
+---
+
 
 
 ## 写在小册的半山腰

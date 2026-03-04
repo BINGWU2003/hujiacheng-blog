@@ -1,3 +1,14 @@
+---
+title: "渲染篇 4：Event Loop 与异步更新策略"
+date: 2025-02-10
+draft: false
+description: ""
+tags: ["性能优化", "event-loop"]
+categories: ["性能优化"]
+series: ["浏览器渲染优化"]
+series_order: 4
+---
+
 
 
 Vue 和 React 都实现了异步更新策略。虽然实现的方式不尽相同，但都达到了减少 DOM 操作、避免过度渲染的目的。通过研究框架的运行机制，其设计思路将深化我们对 DOM 优化的理解，其实现手法将拓宽我们对 DOM 实践的认知。   

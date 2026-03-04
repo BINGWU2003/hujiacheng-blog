@@ -1,3 +1,14 @@
+---
+title: "渲染篇 3：DOM 优化原理与基本实践"
+date: 2025-02-09
+draft: false
+description: ""
+tags: ["性能优化", "dom"]
+categories: ["性能优化"]
+series: ["浏览器渲染优化"]
+series_order: 3
+---
+
 
 
 从本节开始，我们要关心的两大核心问题就是：“DOM 为什么这么慢”以及“如何使 DOM 变快”。    

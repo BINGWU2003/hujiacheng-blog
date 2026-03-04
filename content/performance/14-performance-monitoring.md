@@ -1,3 +1,14 @@
+---
+title: "性能监测篇：Performance、LightHouse 与性能 API"
+date: 2025-02-14
+draft: false
+description: ""
+tags: ["性能优化", "performance"]
+categories: ["性能优化"]
+series: ["性能监测"]
+series_order: 1
+---
+
 
 
 性能监测是前端性能优化的重要一环。监测的目的是为了确定性能瓶颈，从而有的放矢地开展具体的优化工作。   

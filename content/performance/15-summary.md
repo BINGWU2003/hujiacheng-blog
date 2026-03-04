@@ -1,3 +1,14 @@
+---
+title: "前方的路：希望以此为你的起点"
+date: 2025-02-15
+draft: false
+description: ""
+tags: ["性能优化"]
+categories: ["性能优化"]
+series: ["开篇与结语"]
+series_order: 2
+---
+
 
 ## 感谢
 

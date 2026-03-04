@@ -1,3 +1,14 @@
+---
+title: "存储篇 2：本地存储——从 Cookie 到 Web Storage、IndexedDB"
+date: 2025-02-05
+draft: false
+description: ""
+tags: ["性能优化", "cookie", "storage"]
+categories: ["性能优化"]
+series: ["网络与存储优化"]
+series_order: 4
+---
+
 
 
 随着移动网络的发展与演化，我们手机上现在除了有原生 App，还能跑“WebApp”——它即开即用，用完即走。一个优秀的 WebApp 甚至可以拥有和原生 App 媲美的功能和体验。 

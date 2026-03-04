@@ -1,3 +1,14 @@
+---
+title: "网络篇 2：图片优化——质量与性能的博弈"
+date: 2025-02-03
+draft: false
+description: ""
+tags: ["性能优化", "image"]
+categories: ["性能优化"]
+series: ["网络与存储优化"]
+series_order: 2
+---
+
 
 
 《高性能网站建设指南》的作者 Steve Souders 曾在 2013 年的一篇 [博客](http://www.stevesouders.com/blog/2013/04/26/i/ ) 中提到：

@@ -46,6 +46,12 @@
   weight = 60
 
 [[main]]
+  name = "前端性能优化"
+  parent = "小册"
+  pageRef = "performance"
+  weight = 70
+
+[[main]]
   name = "标签"
   pageRef = "tags"
   weight = 20

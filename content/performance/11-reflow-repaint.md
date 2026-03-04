@@ -1,3 +1,14 @@
+---
+title: "渲染篇 5：回流（Reflow）与重绘（Repaint）"
+date: 2025-02-11
+draft: false
+description: ""
+tags: ["性能优化", "reflow"]
+categories: ["性能优化"]
+series: ["浏览器渲染优化"]
+series_order: 5
+---
+
 
 
 开篇我们先对上上节介绍的回流与重绘的基础知识做个复习（跳读的同学请自觉回到上上节补齐 →_→）。    

@@ -1,3 +1,14 @@
+---
+title: "渲染篇 2：解锁浏览器背后的运行机制"
+date: 2025-02-08
+draft: false
+description: ""
+tags: ["性能优化"]
+categories: ["性能优化"]
+series: ["浏览器渲染优化"]
+series_order: 2
+---
+
 
 
 从本章开始，我们的性能优化探险也正式进入到了“深水区”——浏览器端的性能优化。    

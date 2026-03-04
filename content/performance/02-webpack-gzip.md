@@ -1,3 +1,14 @@
+---
+title: "网络篇 1：webpack 性能调优与 Gzip 原理"
+date: 2025-02-02
+draft: false
+description: ""
+tags: ["性能优化", "webpack", "gzip"]
+categories: ["性能优化"]
+series: ["网络与存储优化"]
+series_order: 1
+---
+
 
 
 从本节开始，我们进入网络层面的性能优化世界。
