@@ -16,6 +16,12 @@
   weight = 10
 
 [[main]]
+  name = "Vite"
+  parent = "小册"
+  pageRef = "vite"
+  weight = 20
+
+[[main]]
   name = "标签"
   pageRef = "tags"
   weight = 20
