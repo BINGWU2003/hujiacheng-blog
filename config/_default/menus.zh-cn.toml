@@ -40,6 +40,12 @@
   weight = 50
 
 [[main]]
+  name = "基于 Vite 的组件库工程化实战"
+  parent = "小册"
+  pageRef = "vite-component-library"
+  weight = 60
+
+[[main]]
   name = "标签"
   pageRef = "tags"
   weight = 20
