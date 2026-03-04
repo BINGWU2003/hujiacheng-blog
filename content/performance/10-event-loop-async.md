@@ -38,7 +38,7 @@ Vue 和 React 都实现了异步更新策略。虽然实现的方式不尽相同
 
 - 上一步我们出队的是一个 macro-task，这一步我们处理的是 micro-task。但需要注意的是：当 macro-task 出队时，任务是**一个一个**执行的；而 micro-task 出队时，任务是**一队一队**执行的（如下图所示）。因此，我们处理 micro 队列这一步，会逐个执行队列中的任务并把它出队，直到队列被清空。
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/10/1/1662fc9d8bf609a6~tplv-t2oaga2asx-image.image)   
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/832151eee010.png)   
   
 - **执行渲染操作，更新界面**（敲黑板划重点）。
 
@@ -48,7 +48,7 @@ Vue 和 React 都实现了异步更新策略。虽然实现的方式不尽相同
   
 我们总结一下，每一次循环都是一个这样的过程：    
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/10/1/1662ff57ebe7a73f~tplv-t2oaga2asx-image.image)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/e4bc257d862d.png)
   
 ### 渲染的时机  
 

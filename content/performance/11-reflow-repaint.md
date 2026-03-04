@@ -194,7 +194,7 @@ container.style.color = 'red'
 
 “width、height、border是几何属性，各触发一次回流；color只造成外观的变化，会触发一次重绘。”——如果你立刻这么想了，说明你是个能力不错的同学，认真阅读了前面的内容。那么我们现在立刻跑一跑这段代码，看看浏览器怎么说：   
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/10/4/1663f57519a785ab~tplv-t2oaga2asx-image.image)   
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/caffb5cf265c.png)   
 
 这里为大家截取有“Layout”和“Paint”出镜的片段（这个图是通过 Chrome 的 Performance 面板得到的，后面会教大家用这个东西）。我们看到浏览器只进行了一次回流和一次重绘——和我们想的不一样啊，为啥呢？      
 

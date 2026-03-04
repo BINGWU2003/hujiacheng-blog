@@ -223,9 +223,9 @@ module.exports = {
     
 这里为大家介绍一个非常好用的包组成可视化工具——[webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)，配置方法和普通的 plugin 无异，它会以矩形树图的形式将包内各个模块的大小和依赖关系呈现出来，格局如官方所提供这张图所示：   
 
-<!--![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/13/165d2e78167482c1~tplv-t2oaga2asx-image.image)-->
+<!--![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/f31d8a572417.png)-->
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9e2b9389a6b41ca99ee0730914c4e33~tplv-k3u1fbpfcp-zoom-1.image)   
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/2c650be637e0.gif)   
   
 在使用时，我们只需要将其以插件的形式引入：   
 

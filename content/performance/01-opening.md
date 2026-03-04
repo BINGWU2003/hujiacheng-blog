@@ -39,7 +39,7 @@ series_order: 1
 
 我们现在站在性能优化的角度，一起简单地复习一遍这个经典的过程：首先我们需要通过 DNS（域名解析系统）将 URL 解析为对应的 IP 地址，然后与这个 IP 地址确定的那台服务器建立起 TCP 网络连接，随后我们向服务端抛出我们的 HTTP 请求，服务端处理完我们的请求之后，把目标数据放在 HTTP 响应里返回给客户端，拿到响应数据的浏览器就可以开始走一个渲染的流程。渲染完毕，页面便呈现给了用户，并时刻等待响应用户的操作（如下图所示）。
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/10/18/16685737b823244c~tplv-t2oaga2asx-image.image)
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/72d6865259ed.png)
 
 我们将这个过程切分为如下的过程片段：
 
@@ -61,7 +61,7 @@ series_order: 1
    
 我们整个的知识图谱，用思维导图展示如下：    
  
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/10/23/1669f5358f63c0f8~tplv-t2oaga2asx-image.image) 
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/b0e7857a5571.png) 
 
 ## 小册格局
 

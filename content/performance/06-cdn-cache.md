@@ -39,7 +39,7 @@ series_order: 5
 
 借中国地图一角来给大家举一个简单的🌰： 
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/23/16605c1a4961f07e~tplv-t2oaga2asx-image.image) 
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/270e1275bfb9.png) 
 
 假设我的根服务器在杭州，同时在图示的五个城市里都有自己可用的机房。   
 
@@ -74,23 +74,23 @@ CDN 的核心点有两个，一个是**缓存**，一个是**回源**。
 比如以淘宝为代表的阿里系产品，就遵循着这个“规定”。   
 打开淘宝首页，我们可以在 Network 面板中看到，“非纯静态”的 HTML 页面，是向业务服务器请求来的：  
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/25/1660f50337974e82~tplv-t2oaga2asx-image.image)  
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/bc2146a2436f.png)  
 
 我们点击 preview，可以看到业务服务器确实是返回给了我们一个尚未被静态资源加持过的简单 HTML 页面，所有的图片内容都是先以一个 div 占位：   
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/25/1660f52fe65facba~tplv-t2oaga2asx-image.image)   
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/d7c04d336d79.png)   
 
 相应地，我们随便点开一个静态资源，可以看到它都是从 CDN 服务器上请求来的。
 
 比如说图片：   
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/25/1660f555fb76a89a~tplv-t2oaga2asx-image.image)   
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/240408cfa069.png)   
 
 再比如 JS、CSS 文件：   
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/25/1660f57436da98f0~tplv-t2oaga2asx-image.image)     
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/7ef9a076ab26.png)     
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/25/1660f57b6b995d5e~tplv-t2oaga2asx-image.image)    
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/63f287e1f3b2.png)    
    
 ### CDN 优化细节
 

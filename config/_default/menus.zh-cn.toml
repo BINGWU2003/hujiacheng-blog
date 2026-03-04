@@ -5,51 +5,62 @@
   pageRef = "posts"
   weight = 10
 
+# 前端基础
 [[main]]
-  name = "小册"
+  name = "前端基础"
   weight = 15
 
 [[main]]
-  name = "NestJS"
-  parent = "小册"
-  pageRef = "nestjs"
+  name = "Vue3"
+  parent = "前端基础"
+  pageRef = "vue3"
   weight = 10
 
 [[main]]
-  name = "Vite"
-  parent = "小册"
-  pageRef = "vite"
+  name = "TypeScript"
+  parent = "前端基础"
+  pageRef = "typescript"
   weight = 20
 
 [[main]]
-  name = "Vue3"
-  parent = "小册"
-  pageRef = "vue3"
+  name = "TS 类型体操"
+  parent = "前端基础"
+  pageRef = "ts-type-gymnastics"
   weight = 30
 
+# 工程化
 [[main]]
-  name = "TypeScript"
-  parent = "小册"
-  pageRef = "typescript"
-  weight = 40
+  name = "工程化"
+  weight = 16
 
 [[main]]
-  name = "TS 类型体操"
-  parent = "小册"
-  pageRef = "ts-type-gymnastics"
-  weight = 50
+  name = "Vite"
+  parent = "工程化"
+  pageRef = "vite"
+  weight = 10
 
 [[main]]
   name = "基于 Vite 的组件库工程化实战"
-  parent = "小册"
+  parent = "工程化"
   pageRef = "vite-component-library"
-  weight = 60
+  weight = 20
 
 [[main]]
   name = "前端性能优化"
-  parent = "小册"
+  parent = "工程化"
   pageRef = "performance"
-  weight = 70
+  weight = 30
+
+# 后端
+[[main]]
+  name = "后端"
+  weight = 17
+
+[[main]]
+  name = "NestJS"
+  parent = "后端"
+  pageRef = "nestjs"
+  weight = 10
 
 [[main]]
   name = "标签"

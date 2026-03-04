@@ -50,7 +50,7 @@ series_order: 1
 
 比如知乎就是典型的服务端渲染案例：    
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/26/166162c1cbad2c64~tplv-t2oaga2asx-image.image) 
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/56ffd1f08efe.png) 
 
 zhihu&#46;com 返回的 HTML 文件已经是可以直接进行渲染的内容了。
 
@@ -119,7 +119,7 @@ const server = app.listen(8000)
 
 根据我们的路由配置，当我访问 http://localhost:8000/index 时，就可以呈现出服务端渲染的结果了：    
 
-![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/9/26/16615e831fa4c113~tplv-t2oaga2asx-image.image)  
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/performance/f6403accfa38.png)  
 
 我们可以看到，VDom 组件已经被 renderToString 转化为了一个内容为```<div data-reactroot="">我是一个被渲染为真实DOM的虚拟DOM</div>```的字符串，这个字符串被插入 HTML 代码，成为了真实 DOM 树的一部分。  
 
