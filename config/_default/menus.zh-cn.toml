@@ -51,6 +51,12 @@
   pageRef = "performance"
   weight = 30
 
+[[main]]
+  name = "前端工程体验优化"
+  parent = "工程化"
+  pageRef = "frontend-experience"
+  weight = 40
+
 # 后端
 [[main]]
   name = "后端"

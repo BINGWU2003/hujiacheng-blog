@@ -1,0 +1,964 @@
+---
+title: "用自动化提高工作效率：3类前端开发自动化场景"
+date: 2025-05-19
+draft: false
+description: ""
+tags: ["前端工程体验优化", "automation"]
+categories: ["前端工程体验优化"]
+series: ["工程化与流程"]
+series_order: 3
+---
+
+﻿这一节我们将以前端工程中的3类场景为例，介绍用自动化工具优化开发体验，提高工作效率的解决方案。
+
+  
+
+## 1. **自动化代码检查**
+
+第一类应用自动化场景是对代码的语法错误、代码风格进行提交前自动化检查。
+
+首先我们了解一些前端工程常用的代码检查工具。
+
+### 1. **ESLint**
+
+ESLint是前端领域最流行的静态代码分析工具，最常见的用途是帮助开发者在编写代码时，实时检查语法错误，此外还有提供插件系统，支持自定义代码检查规则，具有很强的拓展性。
+
+#### **常用配置简介**
+
+1.  `rules`规则：用于配置代码的校验规则，以及不符合规则时的处理方式（例如抛出Error或Warning），是ESLint的核心配置。
+
+```json
+// .eslintrc.js
+rules: {
+    'arrow-body-style': 0,        // 关闭，等于 "off"
+    'no-shadow': 1,               // 仅警告，等于 "warn"
+    'no-use-before-define': 2,    // 报错，等于 "error"
+}
+```
+
+2.  `plugins`插件：用于暴露额外的规则（`rules`）和全局配置。
+2.  `parser`&& `parserOptions`：指定想要支持的语言类型及细节配置（例如是否支持JSX、JS语法版本）。
+2.  `extends`：指定继承其他配置文件。
+2.  `overrides`：指定只针对于部分文件的覆盖规则，例如对.vue文件关闭部分规则：
+
+```js
+module.exports = {
+  // ...
+  overrides: [
+    {
+      files: ['**/*.+(vue)'],
+      rules: {
+         'no-use-before-define': 0,
+      },
+    },
+  ],
+};
+```
+
+6.  `env`：用于指定项目运行的全局环境和相关的语法规则，例如指定当前代码运行在浏览器环境中`env: { browser: true},`，之后使用`window`全局变量就会被ESLint
+6.  `globals`：指定全局变量及其是否可读写状态，例如：
+
+```json
+{
+    "globals": {
+        "var1": "writable",
+        "var2": "readonly",
+        "Promise": "off"
+    }
+}
+```
+
+8.  `ignorePatterns`: 指定忽略、不检查的文件匹配模式，例如`ignorePatterns: ['dist', "**/vendor/*.js"],`
+
+  
+
+
+#### **使用方式简介**
+
+在项目根目录增加默认的配置文件`eslint.config.js`或`.eslintrc.js`后，就可以用命令行调用ESLint对项目中的文件进行检查了，推荐配置为`lint`命令：
+
+```json
+"scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+}
+```
+
+此外，我们也可以为代码编辑器配置保存后，自动运行ESLint。
+
+例如为VSCode配置，文件保存后，自动运行ESLint，并自动修复可被修复的报错，只需要修改配置文件如下部分即可实现：
+
+```json
+ # VSCode settings.json
+ "editor.codeActionsOnSave": { "source.fixAll.eslint": true }
+```
+
+#### **实现自定义ESLint输出格式**
+
+ESLint 的 [Custom Formatter](https://eslint.org/docs/latest/developer-guide/working-with-custom-formatters) 是实践中非常有用的功能，可以实现过滤部分规则和文件的自定义输出格式。
+
+在实践中为项目增加ESLint时，项目的现存报错较多，期望按规则分类，再依次修复时，这个功能就可以帮助我们快速梳理分类报错及来源，解决反复编辑配置文件或使用复杂命令行的痛点。
+
+示例代码：
+
+``` js
+// ./eslint-file-path-formatter.js
+const fs = require('fs');
+function containRules(result, targetRuleId) {
+  if (!result || !targetRuleId) {
+    return false;
+  }
+  return result.messages.some((cur) => {
+    // console.log(`cur?.ruleId = ${cur?.ruleId}`);
+    if (cur?.ruleId?.includes(targetRuleId)) {
+      return true;
+    }
+  });
+}
+
+const targetRules = 'prop-types'
+
+module.exports = function (results, context) {
+  const summary = [];
+  results.forEach((cur) => {
+    if (containRules(cur, targetRules)) {
+      summary.push(`'${cur.filePath}',`);
+    }
+  });
+  
+  // fs.writeFileSync('eslint-error-files.txt', summary.join('\n'));
+  // return 'Done Write';
+  return summary.join('\n');
+};
+```
+
+这段代码中我们通过指定`targetRules`变量，过滤出了部分信息包含`'prop-types'`的ESLint报错，帮我们专注于修复该规则的报错。
+
+使用方法也很简单，只需要使用`eslint`的`-f`选项即可：
+
+``` sh
+eslint . -f ./eslint-file-path-formatter.js 
+```
+
+  
+
+
+### 2. **Prettier**
+
+Prettier 是一个代码格式化工具，致力于让前端项目中不同开发者的代码保持一致的**代码风格**。支持定制化配置，可以方便地集成到ESLint或代码编辑器中。
+
+#### **常用配置简介**
+
+``` json
+{
+  "printWidth": 80,  // 单行代码的最大宽度
+  "tabWidth": 2,     // 缩进使用的空格数
+  "useTabs": false,  // 使用空格而不是制表符进行缩进
+  "semi": true,      // 在语句末尾添加分号
+  "singleQuote": true,     // 使用单引号而不是双引号
+  "trailingComma": "es5",  // 在多行对象或数组最后一个元素后添加逗号
+}
+```
+
+  
+
+
+
+### 3. **Editor Config**
+
+EditorConfig 也是用于定义**代码风格**的工具，特点是：
+
+1.  跨编辑器原生支持：[VSCode、Webstorm等众多主流编辑器都原生支持](https://editorconfig.org/#:~:text=No%20Plugin%20Necessary-,These%20editors,-come%20bundled%20with)，不需要额外安装插件。
+1.  编写**时**生效：和Prettier在代码编写**后**，重新格式化代码不同，EditorConfig 致力于在代码编写**时**就让开发者保持一致的格式。使用EditorConfig时，用编辑器编写的代码默认就会按配置规则生成，例如设置缩进空格数为2个空格，敲下回车换行后，编辑器会默认生成2个空格缩进的新一行。
+
+它通过使用项目根目录下文件名为 `.editorconfig` 的配置文件，在不同的编辑器中自动应用一致的代码风格规则。
+
+  
+
+
+#### **常用配置简介**
+
+1.  `root`: 指定是否应将当前配置文件视为顶级配置文件。如果设置为 `true`，则该文件是顶级配置文件，不会继承其他配置文件。
+1.  `indent_style`: 指定缩进的样式。可以是 `tab`（制表符）或 `space`（空格）。
+1.  `indent_size` : 指定缩进的大小。对于 `indent_style` 为 `space` 的情况，表示空格的数量。对于 `indent_style` 为 `tab` 的情况，该项会被忽略。
+1.  `end_of_line`: 指定换行符的样式。可以是 `lf`（仅换行符），`cr`（仅回车符）或 `crlf`（回车符和换行符）。
+
+> 使用Windows系统进行Git add时，经常见到的`LF && CRLF`提示：`warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it`。就可以用`end_of_line`这项配置避免提示反复出现。
+
+5.  `insert_final_newline`: 指定是否在文件末尾插入一个空行。可以是 `true`（插入）或 `false`（不插入）。
+5.  `max_line_length`: 指定行的最大长度限制。超过该限制的行将被视为违规。可以是一个整数值。
+
+  
+
+
+`.editorconfig`配置文件示例：
+
+``` json
+# EditorConfig is awesome: https://EditorConfig.org
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{js,py}]
+charset = utf-8
+indent_style = space
+
+# For .js file, use 2 space indentation
+[*.js]
+indent_size = 2
+
+# For .py file, use 4 space indentation
+[*.py]
+indent_size = 4
+```
+
+  
+
+
+  
+
+
+### 4. **Stylelint**
+
+Stylelint 是用于检测 CSS 代码中错误和不规范代码的静态代码分析工具，它提供了一套可配置的规则，配置文件为 `.stylelintrc` 或 `stylelint.config.js`。
+
+  
+
+
+#### **常用配置简介**
+
+1.  `extends`: 指定继承的配置，可以扩展预定义的配置，例如 `stylelint-config-standard`、`stylelint-config-recommended`，或者指定自定义的配置文件路径。
+1.  `ignoreFiles`: 指定要忽略的文件或文件夹，可以是多个用逗号分隔 Glob 模式字符串组成的数组。例如`ignoreFiles": ["**/*.js"]`。
+1.  `rules`: 指定规则的配置，可以对每一条规则配置是否启用等细节。
+1.  `plugins`: 指定要使用的 Stylelint 插件，扩展 Stylelint 的功能，提供额外的规则或功能。
+
+  
+
+
+### 5. **Commitlint**
+
+CommitLint 是一个用于规范Git提交消息格式的工具，它可以在Git提交前对提交时附带的消息进行检查，确保Git消息都符合预定义的格式，帮助团队保持一致的提交消息风格。
+
+消息格式一般约定为：`类型(影响范围?): 主题`，例如：
+
+-   feat(ci): 使用ESBuild加速CI构建
+-   fix(home): 修复首页按钮样式错乱
+-   chore: 清理冗余代码
+
+如果Git commit 提交的消息不符合CommitLint配置的规则，就会被抛出一个错误，阻止本次提交。
+
+CommitLint 的独立配置文件为 `.commitlintrc` 或 `commitlint.config.js`。
+
+  
+
+
+#### **常用配置简介**
+
+1.  `extends`: 指定继承的配置，可以通过配置`{extends: ['@commitlint/config-conventional']}"`使用预定义的一套配置 `@commitlint/config-conventional`，也可以额外指定自定义的配置文件路径。
+1.  `rules`: 指定具体每一条规则的配置，开启或关闭，以及。
+1.  `prompt`: 指定辅助提交消息的命令行配置，可以帮助开发者以交互式命令行的形式生成符合规则的Commit消息，例如：
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/frontend-experience/7541e32ff1dc.png)
+
+
+上述介绍的各类工具往往需要手动运行才能对代码进行检查，在实践中容易遗漏，所以最好的做法是为这些检查工具配置**自动化运行**的逻辑。
+
+  
+
+
+### **示例：为前端项目增加Git提交前统一检查**
+
+对代码进行统一检查这件事，过早检查（例如每编写一行代码就检查一次）会打扰开发体验，太晚检查（例如代码合入主分支时）又容易导致错误积累太多，难以修复。
+
+所以最好时机就是在开发者执行`git commit`代码提交时，业界也有`husky`和`lint-staged`成熟的工具帮助我们实现这一目标。
+
+下面我们就演示一下接入`husky`和`lint-staged`，建立Git提交前统一检查的实现方式。
+
+  
+
+
+#### 1. **安装配置** **`lint-staged`**
+
+`lint-staged`是专用于过滤出处于Git暂存区（git add 后，状态为`staged`）的文件列表并执行命令的工具，可以帮助我们避免对项目所有文件进行全量代码检查修复，导致检查耗时太长。
+
+首先当然还是安装工具NPM包：
+
+```
+npm install lint-staged --save-dev
+```
+
+接下来，我们就来配置并使用`lint-staged`，实现只对修改过、并且被`git add`添加到Git暂存区的文件进行ESLint检查和Prettier样式修复。
+
+配置很简单，只需要在package.json中添加key为`lint-staged`的对象就可作为配置生效，格式是
+
+-   `"目标文件 Glob 模式字符串": "想要执行的命令"`，例如：
+
+```json
+{
+  // 其他 package.json 内容
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  }
+}
+```
+
+对于我们的示例项目，我们需要对暂存区的所有`.js, .ts, .tsx, .jsx`格式文件进行ESLint 和 Prettier 2项检查，所以我们的配置如下：
+
+``` json
+{
+  "lint-staged": {
+    "*.{j,t}{s,sx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+}
+```
+
+  
+
+
+但仅有`lint-staged`，还不能实现在git commit前提交运行指定命令，我们还需要使用`husky`。
+
+  
+
+
+#### 2. **安装配置** **`husky`**
+
+`husky`是一个支持多平台的Git hook工具，可以在commit、push等Git事件发生时，执行我们指定的命令。
+
+首先让我们安装并初始化，只需要1行命令：
+
+```
+npx husky-init && npm install
+```
+
+就会帮我们配置好`husky`，具体来说这行命令做了3件事：
+
+1.  在`package.json`中添加了1个`scripts`命令：`"prepare": "husky install"`，这个`prepare`命令是package.json自带的[生命周期命令](https://docs.npmjs.com/cli/v9/using-npm/scripts#life-cycle-scripts)，会在`npm install`之前自动执行一次，帮助我们新加入项目开发的同事执行`husky install`安装好`husky`。
+1.  新建了一个实例配置文件 `./husky/pre-commit` ：在这个配置文件中可以以类似shell脚本的语法声明想要在`git commit`运行前执行的命令。
+
+对于我们的前端项目，我们需要把默认的`npm test`改为`npx lint-staged`，声明我们希望在git commit提交前，运行`lint-staged`，根据其配置调用各类工具，检查处于Git暂存区的文件。
+
+`./husky/pre-commit`文件示例：
+
+``` sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+```
+
+  
+
+
+#### 3. **验证Git提交前检查功能**
+
+有了上述配置，我们在项目源码中编写代码后，运行`git commit`时，就会运行我们在`lint-staged`配置中指定`eslint --fix`和`prettier --write`命令，对新增的代码进行统一的自动化检查，如果有语法错误或代码风格问题被检测到，提交就会被中断，从而避免异常代码被合入主分支，甚至部署到线上，提前暴露问题，优化开发体验。
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/frontend-experience/e88471a83cd1.png)
+
+  
+
+
+> 注：特殊情况下，可以通过`--no-verify` 参数，临时跳过`husky`的检查，例如：`git commit -m "feat: 紧急上线" --no-verify`
+
+  
+
+
+## 2. 一错不再错-用自动化测试避免功能衰退
+
+笔者前些年一直不理解自动化测试的意义是什么，感觉自己日常开发工作已经不堪重负，哪里还有时间再投入到编写测试用例中呢？
+
+而且写自动化测试的目的，也只是验证我已经实现的功能，既然已经实现了，还有什么测试的必要呢？
+
+自动化测试难道不是在浪费时间吗？
+
+  
+
+
+这种思想的转折点是笔者开发开源库[vue-template-babel-compiler](https://github.com/JuniorTour/vue-template-babel-compiler)时。
+
+当时这个库刚刚开始开发，经常需要在添加新代码逻辑后，回过头去测试验证已有的功能逻辑是否仍然正常，进行了大量的重复测试工作，非常影响开发体验和效率。
+
+这时我才意识到自动化测试的意义所在，如果在添加新的代码逻辑时，有足够数量的自动化测试，可以帮我验证已有的功能逻辑一切正常、不受影响，我就可以从重复繁琐的测试中解放出来，把更多的时间精力投入到功能开发中去。
+
+有自动化测试保驾护航，每次改动代码后，只要我花上几秒钟执行一行`npm run test`命令，看到它返回测试用例全部通过，我就可以信心满满的提交新写的代码，不必担心功能出现衰退（Regression）。
+
+  
+
+
+犯错不可怕，可怕的是一错再错。自动化测试就是帮助我们减轻测试工作负担、避免重复犯错，规避功能衰退的灵丹妙药。
+
+自动化测试无法保证我们不出新BUG，但是能确保我们不会重复出现旧BUG，帮助我们避免在同一个地方跌倒两次，同时把我们从重复繁琐的测试工作解放出来。
+
+  
+
+
+为前端项目增加自动化测试很简单，工作量不大，对开发体验的提升又十分显著，投入产出比极高。
+
+下面我们就来学习2个久经考验的自动化测试工具及其接入示例。
+
+### 1. **单元测试框架 Jest**
+
+单元测试（Unit Test）是指测试项目内函数、组件等独立小规模单元模块的测试类型。
+
+业内最负盛名的框架就是[Jest](https://jestjs.io/)，已经迭代了29+个版本，长盛不衰，功能强大又简单易用。作为一个基础框架，对Node.js，React 组件、Vue.js组件等等前端框架都有拓展支持。
+
+  
+
+
+对于我们项目中的React 组件进行基于Jest的单元测试，需要3项依赖：
+
+-   `jest`：框架运行时，提供运行测试用例的`test(name, fn, timeout)`方法，和众多判断测试运行状态的断言，例如“期望变量具有值为1的length属性”： `expect(variable).toHaveLength(1)`。
+-   `@testing-library/react`：主要提供`render(ui: React.ReactElement<any>,options?: {})`方法，帮助我们在Jest环境中快速方便的运行React 的JSX语法，渲染出对应DOM。
+-   `jest-environment-jsdom`：专用于Jest框架的Node.js环境DOM API模拟实现，用于确保Jest运行在Node.js环境中时，也有浏览器的各类API供我们的组件调用，例如react-router需要的History API，确保测试用例运行有正确的DOM输出。
+
+```
+npm install jest @testing-library/react jest-environment-jsdom --save-dev
+```
+
+> 如果遇到 peerDependecy 报错，建议修改 @testing-library/react 版本号，例如项目使用React@17，请安装@testing-library/react@12
+
+配置示例：
+
+``` js
+// ./jest.config.js
+module.exports = {
+  testEnvironment: 'jest-environment-jsdom',
+  moduleNameMapper: {
+    '\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
+};
+```
+
+基础配置完成后，就可以开始正式编写了测试用例了：
+
+``` js
+// ./src\app\ui\app\app.spec.tsx
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { App } from '../../index';
+
+describe('Render APP', () => {
+  it('renders APP correctly', () => {
+    render(<App />);
+    const conduitAnchorEle = screen.queryAllByText('conduit');
+    expect(conduitAnchorEle).toHaveLength(1);
+  });
+});
+```
+
+上述测试用例代码中，我们首先调用`describe()`创建了一个测试组，目的是为了把同一类型、相同目标的测试用例组织在一起，便于统一管理，例如添加`beforeEach(), afterAll()`等钩子函数。
+
+接下来，使用`it(name, TestFn)`创建了一个测试用例，在第2个参数的函数中就可以编写我们的测试内容了。
+
+测试的内容很简单，调用`@testing-library/react`提供的可以在Node.js环境渲染React组件的`render()`方法，将`<App />`组件渲染到当前的内存上下文中，我们就可以进一步用`screen`类中的`queryAllByText()`等API获取、检测组件的执行逻辑、DOM渲染是否符合预期。
+
+并最终使用jest的断言API `expect()`，判断这次的代码运行是否符合我们的预期，渲染出了1个`conduitAnchorEle`元素（`.toHaveLength(1)`）。
+
+  
+
+
+除了对组件进行测试外，我们还可以对功能函数进行测试，例如下列测试用例代码对`limit`函数的各类情况进行自动化测试：
+
+``` js
+// utils.ts
+export const limit = (count: number, pageIndex: number): string =>
+  `limit=${count}&offset=${pageIndex * count}`;
+
+// utils.test.js
+import { limit } from '../utils';
+
+describe('limit', () => {
+  it('should return the correct limit string', () => {
+    const count = 10;
+    const pageIndex = 2;
+
+    const result = limit(count, pageIndex);
+
+    expect(result).toEqual(`limit=${count}&offset=${pageIndex}`);
+  });
+
+  it('should handle zero count correctly', () => {
+    const count = 0;
+    const pageIndex = 5;
+
+    const result = limit(count, pageIndex);
+
+    expect(result).toEqual(`limit=${count}&offset=${pageIndex}`);
+  });
+
+  it('should handle negative pageIndex correctly', () => {
+    const count = 20;
+    const pageIndex = -3;
+
+    const result = limit(count, pageIndex);
+
+    expect(result).toEqual(`limit=${count}&offset=${pageIndex}`);
+  });
+});
+```
+
+  
+
+
+### 2. **端到端测试框架 Playwright**
+
+端到端测试（End To End Test, E2E）是指测试项目从一端到另一端（如客户端到服务端）完整操作流程的测试类型。
+
+近年来业内最流行的E2E测试工具非 Playwright （<https://playwright.dev/>）莫属，它由微软开源，支持使用Chrome、FireFox、Edge、Safari等各大浏览器运行测试用例，可用于检查前端项目的浏览器兼容性，开发体验极佳。
+
+Playwright安装使用非常简单：推荐使用`npm init`命令安装，在命令行中执行：
+
+```
+npm init playwright@latest
+```
+
+在安装过程中，会通过交互式命令行的形式，引导选择安装CI配置、浏览器运行时等可选依赖，体验较好：
+
+``` js
+Need to install the following packages:
+  create-playwright@1.17.128
+Ok to proceed? (y) y
+Getting started with writing end-to-end tests with Playwright:
+Initializing project in '.'
+✔ Where to put your end-to-end tests? · tests
+✔ Add a GitHub Actions workflow? (y/N) · false
+✔ Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n) · true
+✔ Install Playwright operating system dependencies (requires sudo / root - can be done manually via 'sudo npx playwright install-deps')? (y/N) · false
+```
+
+安装过程主要会生成：
+
+-   安装`@playwright/test`核心依赖
+
+-   `./playwright.config.ts`：默认配置一套，其中：
+
+    -   `workers`字段指定运行测试时开启多少个Node.js线程，默认为`undefined`，表示不限线程数量，playwright会尽可能地对每个测试用例开启一个独立线程，以便加快测试完成速度。
+    -   `reporter`字段指定测试结果的汇总报告形式，默认为`'html'`，即测试结果会生成一份HTML页面（如下图）以便于观看。此外常用的还有JSON格式报告（`['json', { outputFile: './report.json' }]`），可用于进一步处理测试结果。
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/frontend-experience/a54cce6d2a30.png)
+
+-   `projects`字段可用于指定使用哪些浏览器运行时进行兼容性测试，可以按需增减。例如：
+
+``` js
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  projects: [
+    {
+      name: 'firefox',
+      use: { …devices['Desktop Firefox'] },
+    },
+    {
+      name: 'Microsoft Edge',
+      use: {
+        …devices['Desktop Edge'],
+        channel: 'msedge'
+      },
+    },
+    {
+      name: 'Google Chrome',
+      use: {
+        …devices['Desktop Chrome'],
+        channel: 'chrome'
+      },
+    },  {  name : 'Mobile Chrome' ,  use : { …devices[ 'Pixel 5' ] }, }, {  name : 'Mobile Safari' ,  use : { …devices[ 'iPhone 12' ] }, },
+  ],
+});
+```
+
+-   示例测试用例2个：
+
+    -   `tests\example.spec.ts`：基础API简单示例
+    -   `tests-examples\demo-todo-app.spec.ts`：对一个TODO List 前端应用进行增删改查操作的复杂示例
+
+安装完成后，执行`npx playwright test example.spec.ts`，即可运行自动生成的测试用例，运行后的测试结果保存在`./playwright-report/index.html`，可以通过运行`npx playwright show-report`供本地浏览。
+
+  
+
+
+常用的命令行参数还有：
+
+-   运行所有测试用例：`npx playwright test`
+-   运行文件名包含关键字example的测试用例：`npx playwright test example`
+-   `--debug`以调试模式运行测试用例：`npx playwright test example.spec.ts --debug`，运行后，将自动打开浏览器窗口和Playwright的调试工具，允许我们一步步调试运行目标测试用例。测试工具中的Pick Locator 按钮也可以帮助我们快速定位测试目标元素基于Playwright API的选择符。
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/frontend-experience/06e248590408.png)
+
+了解了基础用法，下面再演示一下为示例前端项目增加一个基本的E2E测试用例：
+
+``` js
+// ./tests/homepage.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('Home page should render successfully', async ({ page }) => {
+  await page.goto('http://localhost:4100/home/');
+
+  await expect(page).toHaveTitle(/《现代前端工程体验优化》示例项目/);
+
+  await expect(await page.getByRole('link', { name: '《现代前端工程体验优化》demo' }))
+    .toBeVisible();
+  const signUpPageLinkBtn = await page.getByRole('link', { name: 'Sign Up' });
+  await expect(signUpPageLinkBtn).toBeVisible();
+  await signUpPageLinkBtn.click();
+
+  await page.waitForTimeout(500);
+  await expect(
+    await page.getByRole('button', { name: 'Sign Up' }),
+  ).toBeVisible();
+});
+```
+
+这个测试用例在本地环境的主页页面（<http://localhost:4100/home/>）上：
+
+1.  调用playwright的运行时API`  page.getByRole() `获取页面上的DOM元素引用。
+1.  并执行一系列点击操作并调用断言（`expect()`），判断页面是否成功渲染，页面标题、链接和按钮等元素是否正常显示（`toBeVisible()`）。
+
+另外，我们还需要运行前端应用的本地开发环境，供Playwright访问，这一点Playwright贴心地提供了[webServer](https://playwright.dev/docs/test-webserver#configuring-a-web-server)配置，可以在测试用例开始前，自动执行命令、启动测试用环境。
+
+``` js
+export default defineConfig({
+  webServer: {
+    command: 'npm run dev',
+    port: 4100,
+    reuseExistingServer: !process.env.CI,
+    stdout: 'pipe',
+    stderr: 'pipe',
+    timeout: 60 * 1000,
+  },
+}
+```
+
+最后，在`package.json`中添加运行命令后，即可方便地运行这个测试用例，得到测试结果。
+
+``` json
+"scripts": {    
+    "test:ci": "npx playwright test",
+}
+```
+
+  
+
+
+这些测试用例积少成多，能有效避免我们的前端优化出现功能衰退，当我们作为开发者以忐忑不安的心情，看到测试用例全部通过时，相信对自动化测试的意义会有更切身的体会，能真切地感受到自动化测试对工作效率和开发体验的巨大提升。
+
+  
+
+
+## 3. **持续集成(Continuous Integration，CI)**
+
+上面介绍的许多工具，严格来说还是半自动化状态，其运行必须依赖开发者的手动调用。
+
+要想实现真正的全自动化，**持续集成**必不可少。
+
+持续集成(Continuous Integration，CI)是一种软件开发实践，使用专用的CI环境，自动执行构建，测试，部署等步骤，从而预先发现问题，确保代码质量，优化开发体验。
+
+  
+
+
+### **CI工具简介**
+
+近年来，比较流行的CI工具主要有：
+
+#### 1. **GitLab CI**
+
+和GitLab代码仓库配套的持续集成工具。通过代码中的`.gitlab-ci.yml`配置文件定义多组工作(`job`)及其执行的命令(`script`)，来实现自动化运行构建测试等步骤。
+
+示例配置如下：
+
+``` yaml
+image: node:latest
+
+# 定义工作 job
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+deploy:
+  stage: deploy
+  script:
+    - aws s3 sync dist s3://your-bucket-name --acl public-read  # 上传静态资源到CDN
+  only:
+    - master  # 仅在 master 分支上触发部署
+
+# 定义全局变量
+variables:
+  NODE_ENV: production
+```
+
+上述示例中，`.gitlab-ci.yml`文件定义了两个job：
+
+1.  `build`：用于构建前端项目，它使用`node:latest`镜像作为运行环境，执行了安装依赖和构建命令，并将构建后的输出目录dist/定义为构建产物(artifacts)。
+1.  `deploy`：用于部署前端项目，使用`aws`命令行，将`dist`目录中的构建产物上传到CDN服务器，同时指定了该工作只在`master`分支上触发。
+
+  
+
+
+#### 2. **GitHub Actions**
+
+是和GitHub仓库配套的持续集成工具，类似Gitlab CI，也有工作`job`的概念，可以指定工作的具体步骤`steps`要执行哪些自动化命令，以及执行的条件（`on`）。
+
+下面是一个基础的前端应用GitHub Actions配置：
+
+```
+name: Front-End CI Example
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build
+    - run: npm test
+```
+
+主要包含1个`build`job，其具体工作步骤是：
+
+-   使用[GitHub actions市场](https://github.com/marketplace?type=actions)（类似NPM）中的[actions/checkout@v3](https://github.com/actions/checkout)，下载并切换Git仓库的代码。
+-   再使用[actions/setup-node](https://github.com/actions/setup-node)，初始化Node.js环境。
+-   最后执行`npm install、npm run build、npm run test`等一系列命令，实现自动化运行构建和测试。
+
+
+通过以上示例可以看出，GitHub actions因为有繁荣的[GitHub actions市场](https://github.com/marketplace?type=actions)，所以能像复用NPM包那样，快速搭建出CI，开发体验和效率都比较好，这是GitHub actions的一大**优势**。
+
+  
+
+
+#### 3. Jenkins
+
+Jenkins（<https://www.jenkins.io/>）是一套独立且开源的持续集成解决方案，包含可视化操作界面前端应用，运行环境服务器应用以及繁荣的插件生态。
+
+和上文提到的2类CI不同，
+
+-   Jenkins支持私有化部署，也就是说可以用自己拥有的服务器运行Jenkins，进而执行各类自动化步骤。这也是Jenkins的一大**特有优势**。
+-   另一方面，Jenkins有一套可视化前端界面，可以供开发者直观地创建、配置要执行CI的项目及其具体工作。
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/frontend-experience/79f2ba694b0b.png)
+
+Jenkins也支持通过代码仓库内的`Jenkinsfile`文件配置实现指定工作及具体步骤，`Jenkinsfile`是一种基于`Groovy`语言的脚本文件，可用于描述整个构建和部署的流程。
+
+以下是一个基础的前端应用的 Jenkinsfile 示例：
+
+``` yaml
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // 添加部署到服务器的步骤
+                // sh 'npm run deploy'
+            }
+        }
+    }
+}
+```
+
+
+了解了流行的CI工具后，接下来，我们就以开发体验较好的GitHub Action CI为例，演示CI的3种实用场景。
+
+
+### 1. **创建MR时自动化运行构建，检查和测试**
+
+CI最常见也最实用的场景就是帮我们运行本节介绍的各类代码检查和测试。
+
+但因为CI有独立的运行环境和时机，所以常见的用法是在创建MR时，用CI自动化执行项目构建，代码检查和各类测试。
+
+在创建MR时进行这些工作也是前端开发必不可少的保障，能有效保证主分支代码因为代码错误导致质量恶化，避免项目线上环境出现语法错误等严重缺陷。
+
+用GitHub Action实现创建MR时运行自动化检查非常简单，只需要20+行代码配置即可实现：
+
+> 完整代码示例：《feat: Test and ci》https://github.com/JuniorTour/fe-optimization-demo/pull/12/checks
+
+``` yaml
+name: 'Merge Request CI'
+
+on: 
+  pull_request:
+    branches: [ "main" ]
+
+# 定义工作 job
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: build
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Installing my packages
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Build App
+        run: npm run build
+      - name: Test
+        run: npm run test:ci
+```
+
+上述配置中，我们首先通过`on`关键字，指定了这份配置触发的时机是创建PR时（`pull_request:`），并且目标分支为`main`（`branches: [ "main" ]`）。
+
+然后，定义了1个工作 job名为`build`，在这个工作中，我们同样使用市场中已有的Actions片段`actions/checkout@v3`和`actions/setup-node@v3`，方便快速地初始化CI环境。
+
+接下来一步步执行，安装依赖和我们在`package.json`中定义的代码检查、构建和playwright `e2e`测试命令。
+
+这样就实现了，当创建PR（MR）时，自动构建、检查代码并运行自动化测试，这些自动化工作的结果都会在PR页面可视化展示，如果CI运行报错、未完成，MR就不能顺利合入。
+
+反之，代码没有语法错误、构建成功、测试用例顺利通过，MR才能合入主分支，有效地保护了代码质量。自动化执行各类重复的工作，也可以显著节省开发者的时间和精力。
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/frontend-experience/058739362545.png)
+
+  
+
+
+  
+
+
+### 2. **自动化发布NPM包**
+
+第二类要介绍的CI使用场景是《自动化发布NPM包》。
+
+对于需要发布NPM包的代码仓库，我们也可以使用GitHub Action和市场中的配置，简单方便地实现，配置如下：
+
+``` yaml
+name: 'PublishLatestVersion'
+
+on:
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: yarn install --frozen-lockfile
+      - run: yarn test
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+```
+
+这份配置，触发的时机比较特殊，是在Git仓库收到了推送的`tags`时，并且tags的名称以`v`字母开头（`'v*'`）才会触发。执行后续定义的`jobs`。
+
+这样我们就可以配合[Git tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging)同步管理NPM发布，甚至可以在GitHub的页面中全程可视化操作，创建tags，实现自动化发布NPM包。相较于在本地开发环境手动输入`npm publish`，还能进行自动化测试，开发体验非常好，效率更高。
+
+![](https://bing-wu-doc-1318477772.cos.ap-nanjing.myqcloud.com/frontend-experience/e3328d500aac.png)
+
+  
+
+
+  
+
+
+### 3. **GitHub pages 自动部署**
+
+第二类要介绍的CI使用场景是《自动化部署GitHub Pages》。
+
+GitHub Pages是GitHub提供的静态页面部署功能，许多开源库的文档、示例页面都是使用Pages部署，自带域名（例如：https://juniortour.github.io/es6-mario/public/dist/index.html）和CDN。，简单易用，同时功能强大。
+
+复用市场中的Actions模板：[JamesIves/github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action)，即可快速实现以自动化构建项目，并部署到GitHub Pages。
+
+完整配置代码如下：
+
+``` yaml
+name: GitHub Pages deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+
+      - name: Installing my packages
+        run: npm install
+
+      - name: Build my App
+        run: npm run build && npm run export && touch ./out/.nojekyll
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
+          BRANCH: public # The branch the action should deploy to.
+          FOLDER: out # The folder the action should deploy.
+```
+
+这份配置会在代码push到`main`分支时触发，依次执行`npm install`、`npm run build`、和[JamesIves/github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action)内置的静态资源部署步骤。实现代码推送后，自动化构建、部署GitHub Pages。
+
+  
+
+
+## **总结**
+
+这一节我们为了进一步优化开发体验、提高工作效率，了解了5类前端开发时常用的自动化代码检查工具：
+
+1.  ESLint
+1.  Prettier
+1.  Editor Config
+1.  Stylelint
+1.  Commitlint
+
+又学习了自动化测试的意义和Jest、Playwright这2个测试工具的使用方法。
+
+最后，将这些工具融会贯通，探索了持续集成的用法和GitHub Actions的3种实用场景。
