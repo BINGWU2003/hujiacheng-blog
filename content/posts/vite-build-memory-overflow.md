@@ -2,8 +2,8 @@
 title: "Vite 构建内存溢出：原因分析与解决方案"
 date: 2026-02-02
 draft: false
-description: ""
-tags: []
+description: "深入分析 Vite 构建 OOM 的根本原因，涵盖 V8 内存模型、各阶段内存消耗分布、诊断方法及系统性解决方案"
+tags: ["Vite", "Node.js", "性能优化", "前端工程化"]
 categories: ["笔记"]
 ---
 
@@ -26,14 +26,14 @@ categories: ["笔记"]
 
 Node.js 使用 V8 引擎，默认有内存限制：
 
-| 系统架构  | 默认堆内存限制 |
-| --------- | -------------- |
-| 64 位系统 | ~1.4 GB        |
-| 32 位系统 | ~512 MB        |
+| 系统架构  | 默认堆内存限制       |
+| --------- | -------------------- |
+| 64 位系统 | ~2 GB（Node.js 12+） |
+| 32 位系统 | ~512 MB              |
 
 ```bash
 # 查看当前 Node.js 内存限制
-node -e "console.log(v8.getHeapStatistics().heap_size_limit / 1024 / 1024 + ' MB')"
+node -e "console.log(require('v8').getHeapStatistics().heap_size_limit / 1024 / 1024 + ' MB')"
 ```
 
 ### 1.2 V8 内存结构
@@ -54,10 +54,9 @@ V8 堆内存
 > [!NOTE] 为什么有内存限制？
 > **V8 垃圾回收机制的权衡**：
 >
-> - V8 的垃圾回收（GC）是"全停顿"的（Stop-the-World）
-> - 堆内存越大，GC 扫描时间越长
-> - 1.4GB 的堆内存，一次完整 GC 大约需要 1 秒
-> - 如果堆内存达到 2GB，GC 可能需要数秒，导致程序无响应
+> - V8 的 Major GC（Mark-Sweep / Mark-Compact）在标记阶段会产生停顿
+> - 虽然新版 V8（6.2+）已引入增量标记和并发标记来减少停顿，但堆越大、存活对象越多，GC 压力仍然越大
+> - 堆内存达到数 GB 时，GC 频率上升，吞吐量显著下降
 >
 > **这就是为什么**：
 >
@@ -157,8 +156,11 @@ Vite Build 内存消耗分布
 #### 3.1.1 模块数量过多
 
 ```bash
-# 统计项目模块数量
+# 统计项目模块数量（macOS / Linux）
 find src -name "*.vue" -o -name "*.ts" -o -name "*.tsx" -o -name "*.js" | wc -l
+
+# 统计项目模块数量（Windows PowerShell）
+(Get-ChildItem src -Recurse -Include *.vue,*.ts,*.tsx,*.js).Count
 
 # 统计 node_modules 中被引用的模块
 npx vite build --debug 2>&1 | grep "resolved" | wc -l
@@ -646,20 +648,19 @@ export const ALL_CITIES = [
 // constants/cities.ts
 ```
 
-### 5.5 使用 esbuild 替代 Terser
+### 5.5 确认使用 esbuild 而非 Terser
+
+Vite 5+ **默认已使用 esbuild 压缩**（`minify: 'esbuild'`）。如果你的项目因为兼容性等原因切换到了 Terser，这会显著增加内存消耗：
 
 ```typescript
 // vite.config.ts
 export default defineConfig({
   build: {
-    // esbuild 内存效率更高
+    // ✅ Vite 5+ 默认值，无需显式设置
     minify: "esbuild",
 
-    // 如果必须使用 Terser，限制并行度
+    // ⚠️ 除非有特殊需求，否则不要用 Terser
     // minify: 'terser',
-    // terserOptions: {
-    //   maxWorkers: 2,  // 减少 worker 数量
-    // },
   },
 });
 ```
@@ -775,15 +776,21 @@ jobs:
 const startMemory = process.memoryUsage().heapUsed;
 const startTime = Date.now();
 
+let peakMemory = startMemory;
+const memoryInterval = setInterval(() => {
+  const current = process.memoryUsage().heapUsed;
+  if (current > peakMemory) peakMemory = current;
+}, 500);
+
 process.on("exit", () => {
-  const endMemory = process.memoryUsage().heapUsed;
+  clearInterval(memoryInterval);
   const duration = Date.now() - startTime;
 
   console.log(`Build completed in ${duration}ms`);
-  console.log(`Peak memory: ${Math.round(endMemory / 1024 / 1024)}MB`);
+  console.log(`Peak memory: ${Math.round(peakMemory / 1024 / 1024)}MB`);
 
   // 设置阈值告警
-  if (endMemory > 4 * 1024 * 1024 * 1024) {
+  if (peakMemory > 4 * 1024 * 1024 * 1024) {
     console.warn("⚠️ Warning: Memory usage exceeded 4GB!");
   }
 });
