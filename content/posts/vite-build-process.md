@@ -2,8 +2,8 @@
 title: "Vite 构建流程详解：从命令到产物"
 date: 2026-01-23
 draft: false
-description: ""
-tags: []
+description: "深入剖析 Vite 执行 npm run build 后的完整构建流程，涵盖插件钩子机制、执行顺序及性能优化要点"
+tags: ["Vite", "构建工具", "前端工程化"]
 categories: ["笔记"]
 ---
 
@@ -18,6 +18,11 @@ categories: ["笔记"]
 - [5. 构建后处理阶段](#5-构建后处理阶段)
 - [6. 本项目构建流程实例](#6-本项目构建流程实例)
 - [7. 插件执行顺序详解](#7-插件执行顺序详解)
+- [8. 性能优化要点](#8-性能优化要点)
+- [9. 调试技巧](#9-调试技巧)
+- [10. 总结](#10-总结)
+- [11. 参考资源](#11-参考资源)
+- [12. 附录](#12-附录)
 
 ---
 
@@ -301,7 +306,7 @@ export default function myPlugin() {
 
 **特点：**
 
-- 仅在构建阶段调用（开发模式不调用，性能考虑）
+- 仅在构建阶段调用（开发模式下 Vite 使用基于 ESM 的按需编译，不走 Rollup 的完整构建流程，因此不会触发此钩子）
 - 并行执行（parallel）
 
 ```javascript
@@ -484,9 +489,11 @@ export default function myPlugin() {
 
 ## 5. 构建后处理阶段
 
+> **执行顺序提示：** `buildEnd` 在模块处理阶段（第3节）结束后、输出生成阶段（第4节）之前执行；`closeBundle` 在所有输出操作完成后执行。它们分属 Rollup 构建流程的首尾，归为一节以便对照，实际执行顺序请参考第1节流程图。
+
 ### 5.1 buildEnd 钩子
 
-**执行时机：** 构建结束时调用（无论成功或失败）
+**执行时机：** 模块处理阶段结束后调用（在 `moduleParsed` 之后、`renderStart` 之前），无论构建成功或失败都会触发
 
 **作用：** 清理资源，记录构建信息
 
@@ -637,8 +644,6 @@ export default function myPlugin() {
 ### 6.6 构建完成阶段
 
 ```
-注意：buildEnd 在模块处理阶段结束后、输出生成阶段之前执行
-
 1. closeBundle 钩子
    - 最终清理工作
    - 可用于上传 sourcemap 到 Sentry
@@ -804,8 +809,15 @@ optimizeDeps: {
 **1. 资源压缩**
 
 ```javascript
-// Gzip 和 Brotli 压缩
-vite - plugin - compression;
+// 使用 vite-plugin-compression 进行 Gzip 和 Brotli 压缩
+import viteCompression from "vite-plugin-compression";
+
+export default defineConfig({
+  plugins: [
+    viteCompression({ algorithm: "gzip" }),
+    viteCompression({ algorithm: "brotliCompress" }),
+  ],
+});
 ```
 
 **2. 文件哈希**
