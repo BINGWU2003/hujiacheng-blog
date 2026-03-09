@@ -147,9 +147,560 @@ Vite 使用 `@vue/compiler-sfc` 将 `.vue` 文件拆分成三个部分：
 
 ### 2.3 阶段二：Script 编译
 
-`
+`<script setup lang="ts">` 经过两步处理：
 
-</body>
+**第一步：`@vue/compiler-sfc` 编译 `<script setup>`**
+
+```javascript
+// 编译后的 script 模块
+import { defineComponent as _defineComponent } from "vue";
+import { ref, computed } from "vue";
+import { useCounter } from "@/composables/useCounter";
+import logoUrl from "@/assets/logo.png";
+
+export default /* @__PURE__ */ _defineComponent({
+  __name: "HelloWorld",
+  props: {
+    title: { type: String, required: true },
+  },
+  setup(__props) {
+    const { count, increment } = useCounter();
+    const doubleCount = computed(() => count.value * 2);
+    return { count, increment, doubleCount };
+  },
+});
+```
+
+> 注意：`defineProps<Props>()` 的类型信息被编译为运行时的 `props` 选项，TypeScript 类型被移除。
+
+**第二步：esbuild 移除 TypeScript 类型**
+
+```javascript
+// esbuild 处理后（TS → JS）
+import { defineComponent } from "vue";
+import { ref, computed } from "vue";
+import { useCounter } from "@/composables/useCounter";
+import logoUrl from "@/assets/logo.png";
+
+export default defineComponent({
+  __name: "HelloWorld",
+  props: {
+    title: { type: String, required: true },
+  },
+  setup(__props) {
+    const { count, increment } = useCounter();
+    const doubleCount = computed(() => count.value * 2);
+    return { count, increment, doubleCount };
+  },
+});
+```
+
+### 2.4 阶段三：Template 编译
+
+`@vue/compiler-dom` 将模板编译为 `render` 函数：
+
+```javascript
+import {
+  toDisplayString as _toDisplayString,
+  createElementVNode as _createElementVNode,
+  openBlock as _openBlock,
+  createElementBlock as _createElementBlock,
+} from "vue";
+
+// 静态提升：不依赖响应式数据的节点在模块作用域创建，避免重复创建
+const _hoisted_1 = { class: "hello-world" };
+const _hoisted_2 = ["src"]; // 动态属性的 key 列表
+
+function render(_ctx, _cache, $props, $setup) {
+  return (
+    _openBlock(),
+    _createElementBlock("div", _hoisted_1, [
+      _createElementVNode("h1", null, _toDisplayString($props.title), 1),
+      _createElementVNode(
+        "p",
+        { class: "count" },
+        "Count: " + _toDisplayString($setup.count),
+        1,
+      ),
+      _createElementVNode("button", { onClick: $setup.increment }, "+1"),
+      _createElementVNode(
+        "img",
+        { src: $setup.logoUrl, alt: "Logo" },
+        null,
+        8,
+        _hoisted_2,
+      ),
+    ])
+  );
+}
+```
+
+> [!NOTE] 模板编译优化
+>
+> - **静态提升**：`_hoisted_1` 等静态节点被提升到模块顶层，只创建一次
+> - **PatchFlag**：末尾的数字 `1`、`8` 是更新标记，告诉 Vue 只需 diff 哪些部分
+> - **Tree-flattening**：`_openBlock` + `_createElementBlock` 实现块级追踪
+
+### 2.5 阶段四：Scoped Style 编译
+
+```css
+/* 原始 SCSS */
+@use "@/styles/variables" as *;
+
+.hello-world {
+  padding: $spacing-md;
+  h1 {
+    color: $primary-color;
+  }
+}
+```
+
+**第一步：Sass 编译** — 解析变量、嵌套、函数
+
+```css
+.hello-world {
+  padding: 16px;
+}
+.hello-world h1 {
+  color: #42b883;
+}
+.hello-world .count {
+  color: #666;
+}
+.hello-world button {
+  background: #42b883;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.hello-world button:hover {
+  background: #339068;
+}
+```
+
+**第二步：Scoped 处理** — 添加 `data-v-xxxx` 属性选择器
+
+```css
+.hello-world[data-v-7a3f4c2e] {
+  padding: 16px;
+}
+.hello-world h1[data-v-7a3f4c2e] {
+  color: #42b883;
+}
+.hello-world .count[data-v-7a3f4c2e] {
+  color: #666;
+}
+.hello-world button[data-v-7a3f4c2e] {
+  background: #42b883;
+}
+.hello-world button[data-v-7a3f4c2e]:hover {
+  background: #339068;
+}
+```
+
+### 2.6 最终合并输出
+
+经过上述阶段，一个 `.vue` 文件最终变为一个 JS 模块：
+
+```javascript
+// HelloWorld.vue 最终编译产物（简化）
+import {
+  defineComponent,
+  toDisplayString,
+  createElementVNode,
+  openBlock,
+  createElementBlock,
+} from "vue";
+import { useCounter } from "./composables/useCounter.js";
+import logoUrl from "./assets/logo-a1b2c3d4.png";
+
+const _hoisted_1 = { class: "hello-world" };
+
+export default defineComponent({
+  __name: "HelloWorld",
+  props: { title: { type: String, required: true } },
+  setup(__props) {
+    const { count, increment } = useCounter();
+    return (_ctx, _cache) => {
+      return (
+        openBlock(),
+        createElementBlock("div", _hoisted_1, [
+          createElementVNode("h1", null, toDisplayString(__props.title), 1),
+          createElementVNode(
+            "p",
+            { class: "count" },
+            "Count: " + toDisplayString(count.value),
+            1,
+          ),
+          createElementVNode("button", { onClick: increment }, "+1"),
+          createElementVNode("img", { src: logoUrl, alt: "Logo" }, null, 8, [
+            "src",
+          ]),
+        ])
+      );
+    };
+  },
+});
+```
+
+CSS 则被提取到独立的 `.css` 文件中。
+
+---
+
+## 3. TypeScript 文件的转换
+
+### 3.1 原始 TypeScript 文件
+
+```typescript
+// src/composables/useCounter.ts
+import { ref, type Ref } from "vue";
+
+interface CounterOptions {
+  initial?: number;
+  step?: number;
+}
+
+interface CounterReturn {
+  count: Ref<number>;
+  increment: () => void;
+  decrement: () => void;
+  reset: () => void;
+}
+
+export function useCounter(options: CounterOptions = {}): CounterReturn {
+  const { initial = 0, step = 1 } = options;
+  const count = ref(initial);
+
+  const increment = (): void => {
+    count.value += step;
+  };
+
+  const decrement = (): void => {
+    count.value -= step;
+  };
+
+  const reset = (): void => {
+    count.value = initial;
+  };
+
+  return { count, increment, decrement, reset };
+}
+```
+
+### 3.2 esbuild 转换（仅移除类型，不做类型检查）
+
+```javascript
+// esbuild 输出
+import { ref } from "vue";
+
+export function useCounter(options = {}) {
+  const { initial = 0, step = 1 } = options;
+  const count = ref(initial);
+
+  const increment = () => {
+    count.value += step;
+  };
+
+  const decrement = () => {
+    count.value -= step;
+  };
+
+  const reset = () => {
+    count.value = initial;
+  };
+
+  return { count, increment, decrement, reset };
+}
+```
+
+> [!IMPORTANT] esbuild 做了什么
+>
+> - ✅ 移除 `interface`、`type`、类型注解（`: Ref<number>`、`: void`）
+> - ✅ 移除 `type` 前缀导入（`type Ref`）
+> - ❌ **不做类型检查**（`tsc --noEmit` 需要单独运行）
+> - ❌ **不做 enum 内联**（`const enum` 除外）
+
+### 3.3 Rollup Tree Shaking 后
+
+假设项目中只使用了 `useCounter` 的 `count` 和 `increment`：
+
+```javascript
+// Tree Shaking 后，decrement 和 reset 仍然保留
+// 因为它们在 return 对象中被引用，Rollup 无法确定外部是否使用
+export function useCounter(options = {}) {
+  const { initial = 0, step = 1 } = options;
+  const count = ref(initial);
+  const increment = () => {
+    count.value += step;
+  };
+  const decrement = () => {
+    count.value -= step;
+  };
+  const reset = () => {
+    count.value = initial;
+  };
+  return { count, increment, decrement, reset };
+}
+```
+
+> ⚠️ 对象返回值中的属性无法被 Tree Shake，因为它们是动态可达的。只有顶层 `export` 的未引用绑定才会被移除。
+
+---
+
+## 4. CSS/SCSS 的处理流程
+
+### 4.1 SCSS 源文件
+
+```scss
+// src/styles/variables.scss
+$primary-color: #42b883;
+$secondary-color: #35495e;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+
+// src/styles/main.scss
+@use "variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: $secondary-color;
+  line-height: 1.6;
+}
+
+:root {
+  --primary: #{$primary-color};
+  --spacing: #{$spacing-md};
+}
+```
+
+### 4.2 Sass 编译
+
+```css
+/* Sass 输出：变量内联，嵌套展开 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #35495e;
+  line-height: 1.6;
+}
+
+:root {
+  --primary: #42b883;
+  --spacing: 16px;
+}
+```
+
+### 4.3 PostCSS 处理（如已配置）
+
+```css
+/* PostCSS + autoprefixer 输出 */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* ... */
+```
+
+### 4.4 最终压缩
+
+```css
+/* 生产构建最终输出（单行压缩） */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+  color: #35495e;
+  line-height: 1.6;
+}
+:root {
+  --primary: #42b883;
+  --spacing: 16px;
+}
+```
+
+> 多个组件的 Scoped CSS 会被合并到同一个 `.css` chunk 中，按模块被引入的顺序排列。
+
+---
+
+## 5. 静态资源的处理
+
+### 5.1 导入方式与最终产物对照
+
+```typescript
+// 源码中的导入方式
+import logoUrl from "./assets/logo.png"; // → 返回 URL 字符串
+import iconRaw from "./assets/icon.svg?raw"; // → 返回 SVG 文本内容
+import styles from "./styles/mod.module.css"; // → 返回 CSS Modules 对象
+```
+
+### 5.2 小文件 → Base64 内联
+
+默认阈值为 **4KB**（`assetsInlineLimit: 4096`）。
+
+```javascript
+// 源码
+import smallIcon from "./assets/tiny-icon.png"; // 2KB 文件
+
+// 构建后
+const smallIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUg...";
+```
+
+> 内联减少 HTTP 请求，但会增大 JS bundle 体积约 33%（Base64 编码膨胀）。
+
+### 5.3 大文件 → 独立输出 + 内容哈希
+
+```javascript
+// 源码
+import logo from "./assets/logo.png"; // 50KB 文件
+
+// 构建后
+const logo = "/assets/logo-a1b2c3d4.png";
+// 文件被复制到 dist/assets/logo-a1b2c3d4.png
+```
+
+文件名中的哈希值基于文件内容生成，内容不变则哈希不变，可实现**强缓存**。
+
+### 5.4 特殊资源处理
+
+| 导入后缀  | 行为                   | 示例                               |
+| --------- | ---------------------- | ---------------------------------- |
+| 默认      | 返回解析后的 URL       | `import img from './a.png'`        |
+| `?url`    | 强制返回 URL（不内联） | `import url from './a.svg?url'`    |
+| `?raw`    | 返回原始文件文本内容   | `import svg from './a.svg?raw'`    |
+| `?inline` | 强制内联为 Base64      | `import b64 from './a.png?inline'` |
+| `?worker` | 作为 Web Worker 导入   | `import W from './w.js?worker'`    |
+
+---
+
+## 6. 代码分割与 Chunk 生成
+
+### 6.1 自动分割：动态导入
+
+```typescript
+// src/router/index.ts
+const routes = [
+  { path: "/", component: () => import("../views/Home.vue") },
+  { path: "/about", component: () => import("../views/About.vue") },
+];
+```
+
+每个 `import()` 调用生成一个独立异步 chunk：
+
+```
+dist/assets/
+├── index-a1b2c3d4.js        # 入口 chunk（包含 router、App.vue）
+├── Home-b2c3d4e5.js         # Home 页面 chunk
+├── About-c3d4e5f6.js        # About 页面 chunk
+└── vendor-vue-d4e5f6g7.js   # Vue 运行时（manualChunks 或自动提取）
+```
+
+### 6.2 Vendor 分离（manualChunks）
+
+```javascript
+// vite.config.ts
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vue: ["vue", "vue-router"],
+          lodash: ["lodash-es"],
+        },
+      },
+    },
+  },
+});
+```
+
+效果：
+
+```
+dist/assets/
+├── index-xxxx.js        # 业务代码
+├── vue-xxxx.js          # Vue + Vue Router（不常变动，长缓存）
+├── lodash-xxxx.js       # lodash（不常变动，长缓存）
+└── About-xxxx.js        # 异步页面
+```
+
+### 6.3 Chunk 之间的依赖关系
+
+```
+index.html
+  └─→ index-xxxx.js（入口）
+        ├─→ vue-xxxx.js（同步依赖，modulepreload）
+        ├─→ lodash-xxxx.js（同步依赖，modulepreload）
+        └─→ About-xxxx.js（动态依赖，用户导航时加载）
+              └─→ vue-xxxx.js（共享依赖，已缓存）
+```
+
+---
+
+## 7. 最终产物结构
+
+### 7.1 dist 目录
+
+```
+dist/
+├── index.html                          # 注入了资源引用的 HTML
+├── assets/
+│   ├── index-a1b2c3d4.js              # 主入口 JS
+│   ├── index-a1b2c3d4.css             # 主样式
+│   ├── vendor-vue-e5f6g7h8.js         # Vue 运行时
+│   ├── About-i9j0k1l2.js             # 异步页面 chunk
+│   ├── About-i9j0k1l2.css            # 异步页面样式
+│   └── logo-m3n4o5p6.png             # 静态资源
+└── favicon.ico
+```
+
+### 7.2 HTML 注入
+
+**构建前**：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
 ```
 
@@ -160,7 +711,6 @@ Vite 使用 `@vue/compiler-sfc` 将 `.vue` 文件拆分成三个部分：
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My App</title>
     <script type="module" crossorigin src="/assets/index-a1b2c3d4.js"></script>
     <link
@@ -179,8 +729,9 @@ Vite 使用 `@vue/compiler-sfc` 将 `.vue` 文件拆分成三个部分：
 > [!NOTE] HTML 注入的资源
 >
 > 1. **主入口 JS**：`<script type="module">` 异步加载
-> 2. **modulepreload**：预加载关键依赖，提升加载速度
+> 2. **modulepreload**：预加载关键依赖（vendor chunk），提升加载速度
 > 3. **CSS**：同步加载，避免 FOUC（无样式内容闪烁）
+> 4. 原始的 `<script src="/src/main.ts">` 被移除
 
 ---
 
