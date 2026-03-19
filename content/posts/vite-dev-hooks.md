@@ -343,11 +343,15 @@ closeBundle     → 服务器完全关闭后
 
 ---
 
-## 7. 服务器关闭阶段
+## 7. 服务器重启阶段
+
+> **注意**：`buildEnd` 和 `closeBundle` **不会**在 `Ctrl+C` 终止进程时触发——SIGINT 信号使进程直接退出，来不及执行异步清理钩子。
+>
+> 这两个钩子实际触发的时机是 Vite **主动调用 `server.close()` 优雅关闭**旧实例时，最典型的场景是**修改了 `vite.config.*` 配置文件**，Vite 检测到变更后先关闭当前服务器（触发这两个钩子），再以新配置重新启动。
 
 ### 7.1 `buildEnd`
 
-**时机**：服务器关闭、模块图即将销毁时（`Ctrl+C` 后触发）。
+**时机**：服务器优雅关闭、模块图即将销毁时（配置文件变更触发重启时）。
 
 ```ts
 {
@@ -356,21 +360,21 @@ closeBundle     → 服务器完全关闭后
     if (error) {
       console.error('服务器异常关闭：', error)
     }
-    // 清理资源
+    // 清理插件内部状态，等待重启后重新初始化
   }
 }
 ```
 
 ### 7.2 `closeBundle`
 
-**时机**：服务器完全关闭后的最后清理阶段。
+**时机**：旧服务器实例完全关闭后，Vite 将用新配置重新执行 `buildStart` 之前。
 
 ```ts
 {
   name: 'my-plugin',
   closeBundle() {
     // 释放文件句柄、关闭数据库连接等
-    console.log('dev server 已关闭')
+    console.log('旧 dev server 已关闭，即将以新配置重启')
   }
 }
 ```
@@ -420,7 +424,7 @@ closeBundle     → 服务器完全关闭后
 [文件变更触发 HMR]
 13. hotUpdate(ctx)
 
-[Ctrl+C 关闭服务器]
+[修改 vite.config.* 触发服务器重启（注意：Ctrl+C 不会触发以下两个钩子）]
 14. buildEnd
 15. closeBundle
 ```
@@ -516,7 +520,7 @@ function hmrNotifyPlugin(): Plugin {
 | HTML | `transformIndexHtml` | 每次请求 HTML | 是 |
 | HMR | `hotUpdate` | 每次文件变更 | 是（Vite 5+） |
 | HMR | `handleHotUpdate` | 每次文件变更 | 是（已废弃） |
-| 关闭 | `buildEnd` | 1 次 | 否（Rollup 兼容） |
-| 关闭 | `closeBundle` | 1 次 | 否（Rollup 兼容） |
+| 重启 | `buildEnd` | 每次配置重启 1 次（Ctrl+C 不触发） | 否（Rollup 兼容） |
+| 重启 | `closeBundle` | 每次配置重启 1 次（Ctrl+C 不触发） | 否（Rollup 兼容） |
 
 Dev 模式下，插件与 Vite 的交互核心是：**启动时配置服务器、按需拦截模块请求、响应文件变更触发 HMR**。理解这条主线，就能灵活编写服务于开发体验的 Vite 插件。
