@@ -95,6 +95,12 @@
   url = "https://blowfish.page"
   weight = 210
 
+[[main]]
+  identifier = "bingwu-prompt"
+  pre = "lightbulb"
+  url = "https://bingwu-prompt.netlify.app"
+  weight = 220
+
 # -- Footer Menu --
 [[footer]]
   name = "标签"
