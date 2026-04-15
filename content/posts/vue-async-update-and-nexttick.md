@@ -1,83 +1,207 @@
 ---
-title: "Vue 核心原理解析笔记：异步更新队列 `queueJob` 与 `nextTick`"
-date: 2026-03-20
+title: "Vue nextTick 深度解析"
+date: 2026-04-15
 draft: false
 description: ""
-tags: ["Vue"]
+tags: ["Vue", "源码解析"]
 categories: ["笔记"]
 ---
 
-## 💡 核心认知：Vue 的 DOM 更新是异步的！
-在 Vue 中，当我们修改了响应式数据（例如 `msg.value = 'Hello'`），DOM 并不会立刻发生改变。
-为了避免频繁修改数据导致无意义的重复渲染，Vue 引入了**异步更新队列**机制。它会把同一个事件循环（Event Loop）中所有的状态改变缓冲起来，然后在一个**微任务（MicroTask）**中统一执行真实的 DOM 更新。
+## 一、是什么
 
-这个机制背后的核心引擎就是 `queueJob`，而留给开发者对接这个机制的桥梁就是 `nextTick`。
+`nextTick` 是 Vue 提供的一个工具函数，用于在**下一次 DOM 更新完成后**执行回调。
 
+```ts
+// 两种等价写法
+nextTick(() => { console.log(el.value.textContent) })
 
-
----
-
-## ⚙️ 第一部分：幕后引擎 —— `queueJob` (主任务队列)
-
-`queueJob` 是 Vue 源码中调度器（Scheduler）的核心函数之一，专门用来**管理组件的渲染更新任务（Render Effects）**。
-
-### `queueJob` 的三大核心机制：
-
-1. **去重（Deduplication）：避免重复渲染**
-   当你写下 `a=1; a=2; a=3;` 时，触发了三次更新请求。`queueJob` 内部会通过任务的唯一标识（通常是组件实例）进行比对。如果队列中已经存在相同的任务，直接丢弃。最终组件只会因为 `a=3` 重新渲染一次。
-2. **微任务缓冲（Microtask Batching）：等待同步代码结束**
-   把收集到的更新任务放入一个数组（主队列）中，并开启一个 `Promise.resolve().then(flushJobs)` 的微任务。这意味着：**所有的 DOM 更新动作，都会被迫推迟到当前所有的同步代码执行完毕之后才发生。**
-3. **排序壁垒（Sorting）：保证父子渲染顺序**
-   在微任务开始真正执行（`flushJobs`）之前，Vue 必须对队列按照组件 ID 进行**升序排序**。
-   * **原因：** Vue 规定组件的更新必须由外向内（父组件 -> 子组件）。防止子组件先更新了，随后父组件又把它销毁了，造成无用功甚至报错。
+await nextTick()
+console.log(el.value.textContent)
+```
 
 ---
 
-## 🌉 第二部分：开发者利器 —— `nextTick`
+## 二、核心源码（Vue 3）
 
-由于 DOM 更新被 `queueJob` 塞进了微任务里排队，这就导致我们在同步代码中修改数据后，立刻去获取 DOM 元素，拿到的永远是**旧的 DOM**。
-**`nextTick` 就是用来把你的代码，精准地排在 DOM 更新微任务之后执行的工具。**
+```ts
+// packages/runtime-core/src/scheduler.ts
 
-### `nextTick` 的底层逻辑（极简模拟）：
-```javascript
 const resolvedPromise = Promise.resolve()
-let currentFlushPromise = null // 指向当前正在更新 DOM 的那个微任务
+let currentFlushPromise: Promise<void> | null = null
 
-export function nextTick(fn) {
-  // 核心：优先搭 Vue DOM 更新的“顺风车”，没有就自己开一个新微任务
+export function nextTick(fn?) {
   const p = currentFlushPromise || resolvedPromise
   return fn ? p.then(fn) : p
 }
 ```
 
-### 运行流程图解：
-1. `msg.value = '新值'` $\rightarrow$ 触发 `queueJob` $\rightarrow$ 产生微任务 A（负责更新 DOM）。
-2. `await nextTick()` $\rightarrow$ 产生微任务 B，紧紧排在微任务 A 的后面。
-3. 同步代码结束 $\rightarrow$ 执行微任务 A（DOM 变成新值） $\rightarrow$ 执行微任务 B（你安全地拿到了新 DOM）。
+只有 5 行，没有任何队列操作，本质是一个 **Promise `.then()` 的挂载点**。
 
 ---
 
-## 🛠️ 第三部分：`nextTick` 的三大经典业务场景
+## 三、调度系统全貌
 
-凡是符合 **“改数据 $\rightarrow$ 触发 DOM 结构或尺寸变化 $\rightarrow$ 立刻操作新 DOM”** 这个模式的，都必须使用 `nextTick`。
+`nextTick` 并不孤立，它依附于 Vue 的整个调度器体系，核心由三部分组成：
 
-### 场景 1：`v-if` 元素显示后立刻获取焦点
-* **问题：** 点击“编辑”，输入框通过 `v-if` 渲染，此时同步执行 `input.focus()` 会报错 `Cannot read property 'focus' of null`，因为此时真实 DOM 树里还没有这个 input。
-* **解法：** `isEditing.value = true; await nextTick(); input.value.focus();`
+### 3.1 两个队列
 
-### 场景 2：聊天室/列表动态添加数据后自动滚动到最底部
-* **问题：** 数组 `push` 新消息后，立刻获取容器的 `scrollHeight` 赋值给 `scrollTop`。此时拿到的是**添加新消息前**的高度，导致滚动永远差一行。
-* **解法：** `list.push(msg); await nextTick(); box.scrollTop = box.scrollHeight;`
+```ts
+const queue: SchedulerJob[] = []          // 主队列
+let pendingPostFlushCbs: SchedulerJob[] = [] // post 队列
+```
 
-### 场景 3：基于动态挂载的 DOM 初始化第三方库（如 ECharts）
-* **问题：** 接口请求完毕，标记 `v-if="true"` 渲染图表容器。立刻执行 `echarts.init(dom)` 时，因为 DOM 还未渲染或尺寸尚未被 CSS 撑开，导致找不到节点或图表变成 $0 \times 0$。
-* **解法：** 修改标记后，调用 `await nextTick()`，等待容器在页面上占据了真实的物理空间后，再进行 `init` 初始化。
+| 队列 | 写入方式 | 使用者 | 执行时机 |
+|---|---|---|---|
+| 主队列 | `queueJob(job)` | 组件更新、`watch pre` | patch **之前** |
+| post 队列 | `queuePostFlushCb(job)` | `watch post`、`onUpdated` | patch **之后** |
+
+### 3.2 队列触发
+
+`queueJob` 和 `queuePostFlushCb` 最终都会调用 `queueFlush`：
+
+```ts
+function queueFlush() {
+  if (!isFlushing && !isFlushPending) {
+    isFlushPending = true
+    // 把整次 flush 包成一个 Promise，赋给 currentFlushPromise
+    currentFlushPromise = resolvedPromise.then(flushJobs)
+  }
+}
+```
+
+这一步是关键：`currentFlushPromise` 就是 `nextTick` 挂载的目标。
+
+### 3.3 flushJobs 执行结构
+
+```ts
+function flushJobs() {
+  // ① 主队列：按 job.id 排序（父组件先于子组件）
+  queue.sort(comparator)
+  for (flushIndex = 0; flushIndex < queue.length; flushIndex++) {
+    queue[flushIndex]()   // pre watch 回调 + 组件 patch
+  }
+
+  // ② post 队列：所有 patch 完成后执行
+  flushPostFlushCbs()     // post watch 回调 + onUpdated
+
+  isFlushing = false
+  currentFlushPromise = null
+
+  // ③ 如果 flush 过程中产生了新 job，递归再 flush
+  if (queue.length || pendingPostFlushCbs.length) {
+    flushJobs()
+  }
+}
+```
 
 ---
 
-## 📝 总结
+## 四、三者执行顺序
 
-| 概念 | 角色定位 | 运行机制 | 核心目的 |
-| :--- | :--- | :--- | :--- |
-| **`queueJob`** | **幕后引擎** (Vue 框架内部使用) | 利用唯一标识去重、按组件层级排序，并推入 `Promise` 微任务队列执行。 | 批量合并 DOM 更新操作，最大化提升渲染性能，防止页面频繁重绘。 |
-| **`nextTick`** | **开发者工具** (暴露给开发者的 API) | 将回调函数挂载到 DOM 更新的微任务 Promise 链之后，或创建一个新的后置微任务。 | 消除异步渲染带来的时间差，让开发者能够安全地获取和操作最新状态的 DOM。 |
+```
+响应式数据变更
+      │
+      ├── queueJob          → 主队列
+      ├── queuePostFlushCb  → post 队列
+      │
+      │   [同步代码继续，可能多次变更，统一去重入队]
+      │
+      ↓ 同步代码结束，微任务开始
+
+  flushJobs()
+    │
+    ├── ① 主队列（pre watch 回调 + 组件 patch）
+    │
+    └── ② post 队列（post watch 回调 + onUpdated）
+    
+  flushJobs 完成，currentFlushPromise resolved
+    │
+    └── ③ nextTick(fn) 的回调执行   ← 始终在最后
+```
+
+**优先级**：`queueJob` < `queuePostFlushCb` < `nextTick`
+
+---
+
+## 五、watch 与两个队列的关系
+
+`watch` 的 `flush` 选项直接决定使用哪个队列：
+
+```ts
+// doWatch 内部的 scheduler 构造逻辑
+if (flush === 'sync') {
+  scheduler = job                          // 不入队，同步执行
+
+} else if (flush === 'post') {
+  scheduler = () => queuePostFlushCb(job)  // 进 post 队列
+
+} else {
+  // 默认 'pre'
+  job.pre = true
+  job.id = instance.uid
+  scheduler = () => queueJob(job)          // 进主队列
+}
+```
+
+```ts
+// ❌ 默认 flush:'pre'，DOM 还未 patch
+watch(count, () => {
+  console.log(el.value.textContent) // 旧 DOM
+})
+
+// ✅ flush:'post'，DOM 已 patch
+watch(count, () => {
+  console.log(el.value.textContent) // 新 DOM
+}, { flush: 'post' })
+
+// ✅ 等价语法糖
+watchPostEffect(() => {
+  console.log(el.value.textContent)
+})
+```
+
+---
+
+## 六、Vue 2 vs Vue 3
+
+| | Vue 2 | Vue 3 |
+|---|---|---|
+| 微任务方案 | Promise → MutationObserver → setImmediate → setTimeout 降级 | 纯 Promise，不降级 |
+| 原因 | 需兼容 IE | Vue 3 放弃 IE，保证有 Promise |
+| 队列管理 | `nextTick` 内维护 `callbacks[]` | 独立 `scheduler.ts`，`queueJob` 管理 |
+
+Vue 2 降级链（历史包袱）：
+
+```js
+if (typeof Promise !== 'undefined') {
+  timerFunc = () => Promise.resolve().then(flushCallbacks)
+} else if (typeof MutationObserver !== 'undefined') {
+  // 用 MO 触发微任务
+} else if (typeof setImmediate !== 'undefined') {
+  timerFunc = () => setImmediate(flushCallbacks)
+} else {
+  timerFunc = () => setTimeout(flushCallbacks, 0)
+}
+```
+
+---
+
+## 七、常见问题
+
+**Q：没有响应式更新时，nextTick 还有效吗？**
+
+有效。此时 `currentFlushPromise` 为 `null`，退化为 `Promise.resolve().then(fn)`，下一个微任务立即执行。
+
+**Q：连续多次修改数据，会触发多次渲染吗？**
+
+不会。`queueJob` 有入队去重逻辑（`queue.includes(job)`），同一组件的更新任务只入队一次。
+
+**Q：nextTick 和 setTimeout 的区别？**
+
+`nextTick` 是**微任务**，`setTimeout` 是**宏任务**。微任务在当前宏任务结束后、下一个宏任务开始前执行，时机更早、响应更及时。
+
+---
+
+## 八、一句话总结
+
+> `queueJob` 和 `queuePostFlushCb` 负责往队列里放任务，`queueFlush` 把这次 flush 包成一个 `currentFlushPromise`，`nextTick` 则挂在这个 Promise 的 `.then()` 上——不入队，只等队列跑完，所以始终能拿到最新的 DOM。

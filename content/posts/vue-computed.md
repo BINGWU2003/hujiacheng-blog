@@ -4,7 +4,7 @@ date: 2026-04-15
 draft: false
 description: ""
 tags: ["Vue", "源码解析"]
-categories: ["Vue"]
+categories: ["笔记"]
 ---
 
 ## 1. 创建阶段：lazy 的本质
