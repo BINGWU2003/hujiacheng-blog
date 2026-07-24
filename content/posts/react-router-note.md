@@ -22,6 +22,15 @@ flowchart LR
   E --> B
 ```
 
+{{< mermaid >}}
+flowchart LR
+  A["当前 location"] --> B["Routes 匹配路由分支"]
+  B --> C["渲染父路由 element"]
+  C --> D["Outlet 渲染匹配的子路由"]
+  D --> E["Link / Navigate / useNavigate 更新 location"]
+  E --> B
+{{< /mermaid >}}
+
 每次 location 变化，React Router 都会重新执行路由匹配。路由匹配本身只决定渲染哪些组件，不会自动发请求，也不会自动重定向。
 
 ## 2. 项目入口
