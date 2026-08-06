@@ -68,6 +68,17 @@
   pageRef = "nestjs"
   weight = 10
 
+# 部署与运维
+[[main]]
+  name = "部署与运维"
+  weight = 18
+
+[[main]]
+  name = "Docker"
+  parent = "部署与运维"
+  pageRef = "docker-blog"
+  weight = 10
+
 [[main]]
   name = "标签"
   pageRef = "tags"
