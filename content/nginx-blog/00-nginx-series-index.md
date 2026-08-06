@@ -44,8 +44,8 @@ showWordCount: true
 
 ## 系列目录
 
-| 顺序 | 文章                                                                                      | 主要内容                                     |
-| ---- | ----------------------------------------------------------------------------------------- | -------------------------------------------- |
+| 顺序 | 文章                                                                                                 | 主要内容                                     |
+| ---- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------- |
 | 1    | [基础篇：Nginx 是什么，请求如何到达应用]({{< ref "01-nginx-basics" >}})                              | 建立域名、端口、静态文件和反向代理的心智模型 |
 | 2    | [配置篇：listen、server_name 与 location]({{< ref "02-server-location-and-server-name" >}})          | 理解 Nginx 如何选择网站和处理规则            |
 | 3    | [静态部署篇：Vite 构建产物、子路径与 SPA 回退]({{< ref "03-static-files-and-spa" >}})                | 把 React 前端部署到 `/my-app/`               |
@@ -140,3 +140,7 @@ docs 容器中的 Nginx
 - [`../nginx/host.example.conf`](../nginx/host.example.conf)
 - [`../Dockerfile.docs`](../Dockerfile.docs)
 - [`../compose.yaml`](../compose.yaml)
+
+## 源代码
+
+https://github.com/BINGWU2003/docker-demo
