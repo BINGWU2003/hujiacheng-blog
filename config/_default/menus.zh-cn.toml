@@ -80,6 +80,12 @@
   weight = 10
 
 [[main]]
+  name = "Nginx"
+  parent = "部署与运维"
+  pageRef = "nginx-blog"
+  weight = 20
+
+[[main]]
   name = "标签"
   pageRef = "tags"
   weight = 20

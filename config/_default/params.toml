@@ -9,7 +9,7 @@ enableSearch = true
 enableCodeCopy = true
 enableStructuredBreadcrumbs = true
 
-mainSections = ["posts", "docker-blog"]
+mainSections = ["posts", "docker-blog", "nginx-blog"]
 
 disableImageOptimization = false
 disableImageOptimizationMD = false
